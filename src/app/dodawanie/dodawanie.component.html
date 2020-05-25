@@ -1,1 +1,13 @@
-<p>dodawanie works!</p>
+<button (click)="getRandom()">Nowe zadanie</button>
+
+
+<div [hidden]="submitted">
+
+    <p>{{liczba1}} + {{liczba2}} = ?</p>
+    <p>dobre odpowiedzi: {{dobreodpowiedzi}}</p>
+    <div class="wszyskieodpowiedzi" *ngFor="let a of tabOdpowiedzi2, let i= index">
+        <div class="odpowiedz"><button class="przyciskodpowiedzi" (click)="czyWygrales(a)"><p>{{a}}</p></button></div>
+
+    </div>
+
+</div>

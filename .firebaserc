@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "mojagraaa": {
+      "hosting": {
+        "gra": [
+          "mojagraaa"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "mojagraaa"
+  }
+}
