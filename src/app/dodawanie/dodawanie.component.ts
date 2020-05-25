@@ -37,6 +37,7 @@ export class DodawanieComponent {
   //cala funkcja losujaca
 
   getRandom() {
+    this.start();
 
     //losowanie 5 liczb
 
@@ -93,16 +94,20 @@ export class DodawanieComponent {
   //wyswietlane komunikaty
 
   wygrales() {
-    alert('dobrze!');
+
     this.getRandom();
     this.dobreodpowiedzi = this.dobreodpowiedzi + 1;
 
   }
   przegrales() {
-    alert('zastanów się jeszcze raz!');
-    this.dobreodpowiedzi = 0;
+    this.stop();
+    this.submitted = true;
   }
 
+  resetPytania() {
+    this.dobreodpowiedzi = 0;
+    this.seconds = 0;
+  }
   //warunek dobrej odpowiedzi
 
   czyWygrales(a: number) {
@@ -116,4 +121,36 @@ export class DodawanieComponent {
     this.submitted = false;
   }
 
+  //dodanie timera
+
+  intervalId = 0;
+  czas = 0;
+  seconds = 0;
+
+  clearTimer() { clearInterval(this.intervalId); }
+
+  start() { this.countDown(); }
+  stop() {
+    this.clearTimer();
+  }
+
+  private countDown() {
+    this.clearTimer();
+    this.intervalId = window.setInterval(() => {
+      this.seconds += 0.01;
+      if (this.dobreodpowiedzi === 3) {
+        this.czas = this.seconds;
+        this.stop();
+        this.submitted = true;
+
+      } else {
+        this.czas = this.seconds;
+      }
+    }, 10);
+  }
 }
+
+
+
+
+
