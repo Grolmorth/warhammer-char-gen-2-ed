@@ -1,1 +1,28 @@
-<p>aside works!</p>
+<p class="text" *ngIf="score.length ===0">Brak</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Kto</th>
+            <th scope="col">Czas</th>
+            <th scope="col">Kiedy</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let score of score |slice: 0:5; index as i">
+            <th scope="row">{{ i + 1 }}</th>
+            <td>
+                {{score.who}}
+            </td>
+            <td>
+                {{score.czas|number:'1.2-2'}}
+            </td>
+            <td>
+                {{score.date|date:'short'}}
+            </td>
+        </tr>
+
+
+
+    </tbody>
+</table>

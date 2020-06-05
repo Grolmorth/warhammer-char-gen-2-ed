@@ -1,12 +1,14 @@
 <!--navigacja-->
 <app-nav></app-nav>
-<!--header-->
-<app-header></app-header>
-<!--content-->
-<div id="kontener" class="container">
-    <div class="row justify-content-center">
-        <div id="outlet" class="col-10 col-sm-10 col-md-10 col-lg-8 col-xl-5 bg-light">
-            <router-outlet id="outlet"></router-outlet>
-        </div>
+
+<div class="container">
+    <div class="row">
+
+        <!--header-->
+        <app-header class="col-12 text-center my-1"></app-header>
+        <!--content-->
+        <app-content class="col-lg-8 text-center"></app-content>
+        <!--aside-->
+        <app-aside class="col-lg-4 bg-light"></app-aside>
     </div>
 </div>

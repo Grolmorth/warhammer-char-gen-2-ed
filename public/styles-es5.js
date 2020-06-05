@@ -79,13 +79,13 @@
 
     exports = ___CSS_LOADER_API_IMPORT___(true); // Module
 
-    exports.push([module.i, "* {\n    padding: 0;\n    margin: 0;\n    border: 0;\n}\n\nbody {\n    background-color: #e3f2fd;\n}\n\n#outlet {\n    position: absolute;\n    top: 10%;\n    margin: 10px;\n}\n\ndiv.odpowiedz {\n    padding: 20px;\n    display: block;\n    float: left;\n    margin: 20px;\n}\n\n.przyciskodpowiedzi {\n    width: 80px;\n    height: 80px;\n}\n\np {\n    font-weight: bold;\n}", "", {
+    exports.push([module.i, "* {\n    padding: 0;\n    margin: 0;\n    border: 0;\n}\n\nbody {\n    background-color: #e2eef7;\n}\n\n#outlet {\n    position: absolute;\n    width: 100%;\n}\n\np {\n    font-weight: bold;\n}\n\n/*table*/\n\ntable.tablebody {\n    font-family: Georgia, serif;\n    width: 100%;\n    text-align: center;\n}\n\ndiv.tbody div:nth-child(n):hover {\n    background-color: #e2eef7;\n}", "", {
       "version": 3,
       "sources": ["styles.css"],
       "names": [],
-      "mappings": "AAAA;IACI,UAAU;IACV,SAAS;IACT,SAAS;AACb;;AAEA;IACI,yBAAyB;AAC7B;;AAEA;IACI,kBAAkB;IAClB,QAAQ;IACR,YAAY;AAChB;;AAEA;IACI,aAAa;IACb,cAAc;IACd,WAAW;IACX,YAAY;AAChB;;AAEA;IACI,WAAW;IACX,YAAY;AAChB;;AAEA;IACI,iBAAiB;AACrB",
+      "mappings": "AAAA;IACI,UAAU;IACV,SAAS;IACT,SAAS;AACb;;AAEA;IACI,yBAAyB;AAC7B;;AAEA;IACI,kBAAkB;IAClB,WAAW;AACf;;AAEA;IACI,iBAAiB;AACrB;;AAGA,QAAQ;;AAER;IACI,2BAA2B;IAC3B,WAAW;IACX,kBAAkB;AACtB;;AAEA;IACI,yBAAyB;AAC7B",
       "file": "styles.css",
-      "sourcesContent": ["* {\n    padding: 0;\n    margin: 0;\n    border: 0;\n}\n\nbody {\n    background-color: #e3f2fd;\n}\n\n#outlet {\n    position: absolute;\n    top: 10%;\n    margin: 10px;\n}\n\ndiv.odpowiedz {\n    padding: 20px;\n    display: block;\n    float: left;\n    margin: 20px;\n}\n\n.przyciskodpowiedzi {\n    width: 80px;\n    height: 80px;\n}\n\np {\n    font-weight: bold;\n}"]
+      "sourcesContent": ["* {\n    padding: 0;\n    margin: 0;\n    border: 0;\n}\n\nbody {\n    background-color: #e2eef7;\n}\n\n#outlet {\n    position: absolute;\n    width: 100%;\n}\n\np {\n    font-weight: bold;\n}\n\n\n/*table*/\n\ntable.tablebody {\n    font-family: Georgia, serif;\n    width: 100%;\n    text-align: center;\n}\n\ndiv.tbody div:nth-child(n):hover {\n    background-color: #e2eef7;\n}"]
     }]); // Exports
 
     module.exports = exports;

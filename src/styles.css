@@ -5,27 +5,27 @@
 }
 
 body {
-    background-color: #e3f2fd;
+    background-color: #e2eef7;
 }
 
 #outlet {
     position: absolute;
-    top: 10%;
-    margin: 10px;
-}
-
-div.odpowiedz {
-    padding: 20px;
-    display: block;
-    float: left;
-    margin: 20px;
-}
-
-.przyciskodpowiedzi {
-    width: 70px;
-    height: 70px;
+    width: 100%;
 }
 
 p {
     font-weight: bold;
+}
+
+
+/*table*/
+
+table.tablebody {
+    font-family: Georgia, serif;
+    width: 100%;
+    text-align: center;
+}
+
+div.tbody div:nth-child(n):hover {
+    background-color: #e2eef7;
 }
