@@ -9,8 +9,8 @@ body {
 }
 
 #outlet {
-    position: absolute;
     width: 100%;
+    position: relative;
 }
 
 p {
@@ -20,12 +20,7 @@ p {
 
 /*table*/
 
-table.tablebody {
-    font-family: Georgia, serif;
-    width: 100%;
-    text-align: center;
-}
-
-div.tbody div:nth-child(n):hover {
-    background-color: #e2eef7;
+.table-striped {
+    position: relative;
+    font-size: 15px;
 }

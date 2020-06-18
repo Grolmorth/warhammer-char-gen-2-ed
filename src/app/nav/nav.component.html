@@ -1,17 +1,15 @@
-<nav class="navbar  navbar-dark bg-primary navbar-expand-sm">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainmenu" aria-controls="mainmenu" aria-expanded="false" aria-label="Navigation Button">
+<nav class="navbar navbar-expand-md bg-primary navbar-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainmenu">
     <span class="navbar-toggler-icon"></span>
   </button>
     <div class="collapse navbar-collapse" id="mainmenu">
-        <ul class="navbar-nav mx-auto ">
+        <ul class="navbar-nav mx-auto">
             <li class="nav-item "><a class="nav-link" routerLink="dodawanie">Dodawanie</a></li>
             <li class="nav-item " *ngIf="authService.userData as user; else login"><a class="nav-link" routerLink="sign-in" (click)="authService.SignOut()">Wyloguj</a></li>
             <ng-template #login>
                 <a class="nav-link" routerLink="sign-in">Zaloguj</a>
             </ng-template>
             <li class="nav-item "><a *ngIf="authService.userData as user" class="nav-link" routerLink="dashboard">{{user.email}}</a></li>
-
-
 
         </ul>
     </div>

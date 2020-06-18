@@ -1,5 +1,6 @@
+<p *ngIf="authService.isLoggedIn===false">Zaloguj, aby zapisać wynik!</p>
 <p class="text" *ngIf="score.length ===0">Brak</p>
-<table class="table table-striped">
+<table class="table table-striped ">
     <thead>
         <tr>
             <th scope="col">#</th>

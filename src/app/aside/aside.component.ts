@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ScoreService } from '../services/score.service';
-
 import { map } from 'rxjs/operators';
-
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-aside',
@@ -13,7 +12,7 @@ export class AsideComponent implements OnInit {
 
   score: any;
 
-  constructor(private scoreService: ScoreService) { }
+  constructor(private scoreService: ScoreService, public authService: AuthService) { }
 
   ngOnInit(): void {
     this.getScoreList();
