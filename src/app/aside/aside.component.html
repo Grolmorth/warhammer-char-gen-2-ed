@@ -1,4 +1,4 @@
-<p *ngIf="authService.isLoggedIn===false">Zaloguj, aby zapisać wynik!</p>
+<p *ngIf="authService.isLoggedIn===false"><a routerLink="/sign-in">Zaloguj, aby zapisać wynik!</a></p>
 <p class="text" *ngIf="score.length ===0">Brak</p>
 <table class="table table-striped ">
     <thead>

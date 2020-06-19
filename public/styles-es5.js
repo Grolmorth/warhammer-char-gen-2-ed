@@ -79,13 +79,13 @@
 
     exports = ___CSS_LOADER_API_IMPORT___(true); // Module
 
-    exports.push([module.i, "* {\n    padding: 0;\n    margin: 0;\n    border: 0;\n}\n\nbody {\n    background-color: #e2eef7;\n}\n\n#outlet {\n    position: absolute;\n    width: 100%;\n}\n\np {\n    font-weight: bold;\n}\n\n/*table*/\n\ntable.tablebody {\n    font-family: Georgia, serif;\n    width: 100%;\n    text-align: center;\n}\n\ndiv.tbody div:nth-child(n):hover {\n    background-color: #e2eef7;\n}", "", {
+    exports.push([module.i, "* {\n    padding: 0;\n    margin: 0;\n    border: 0;\n}\n\nbody {\n    background-color: #e2eef7;\n}\n\n#outlet {\n    width: 100%;\n    position: relative;\n}\n\np {\n    font-weight: bold;\n}\n\n/*table*/\n\n.table-striped {\n    position: relative;\n    font-size: 15px;\n}", "", {
       "version": 3,
       "sources": ["styles.css"],
       "names": [],
-      "mappings": "AAAA;IACI,UAAU;IACV,SAAS;IACT,SAAS;AACb;;AAEA;IACI,yBAAyB;AAC7B;;AAEA;IACI,kBAAkB;IAClB,WAAW;AACf;;AAEA;IACI,iBAAiB;AACrB;;AAGA,QAAQ;;AAER;IACI,2BAA2B;IAC3B,WAAW;IACX,kBAAkB;AACtB;;AAEA;IACI,yBAAyB;AAC7B",
+      "mappings": "AAAA;IACI,UAAU;IACV,SAAS;IACT,SAAS;AACb;;AAEA;IACI,yBAAyB;AAC7B;;AAEA;IACI,WAAW;IACX,kBAAkB;AACtB;;AAEA;IACI,iBAAiB;AACrB;;AAGA,QAAQ;;AAER;IACI,kBAAkB;IAClB,eAAe;AACnB",
       "file": "styles.css",
-      "sourcesContent": ["* {\n    padding: 0;\n    margin: 0;\n    border: 0;\n}\n\nbody {\n    background-color: #e2eef7;\n}\n\n#outlet {\n    position: absolute;\n    width: 100%;\n}\n\np {\n    font-weight: bold;\n}\n\n\n/*table*/\n\ntable.tablebody {\n    font-family: Georgia, serif;\n    width: 100%;\n    text-align: center;\n}\n\ndiv.tbody div:nth-child(n):hover {\n    background-color: #e2eef7;\n}"]
+      "sourcesContent": ["* {\n    padding: 0;\n    margin: 0;\n    border: 0;\n}\n\nbody {\n    background-color: #e2eef7;\n}\n\n#outlet {\n    width: 100%;\n    position: relative;\n}\n\np {\n    font-weight: bold;\n}\n\n\n/*table*/\n\n.table-striped {\n    position: relative;\n    font-size: 15px;\n}"]
     }]); // Exports
 
     module.exports = exports;

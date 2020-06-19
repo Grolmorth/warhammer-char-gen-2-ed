@@ -8,6 +8,7 @@ import { SignInComponent } from './login/sign-in/sign-in.component';
 import { SignUpComponent } from './login/sign-up/sign-up.component';
 import { DashboardComponent } from './login/dashboard/dashboard.component';
 import { AuthGuard } from './services/auth.guard';
+import { SekcjadodawanieComponent } from './sekcjadodawanie/sekcjadodawanie.component';
 
 
 const routes: Routes = [
@@ -16,7 +17,7 @@ const routes: Routes = [
     redirectTo: '/',
     pathMatch: 'full'
   },
-  { path: 'dodawanie', component: DodawanieComponent },
+  { path: 'dodawanie', component: SekcjadodawanieComponent },
   { path: 'sign-in', component: SignInComponent },
   { path: 'register-user', component: SignUpComponent },
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },

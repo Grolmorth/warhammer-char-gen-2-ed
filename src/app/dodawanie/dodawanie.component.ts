@@ -27,6 +27,7 @@ export class DodawanieComponent {
   czas = 0;
   seconds = 0;
   score: Score = new Score();
+  iloscPotrzebnychOdpowiedzi = 5;
 
   randomNumber(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -97,6 +98,10 @@ export class DodawanieComponent {
   przegrales() {
     this.stopTimer();
     this.submitted = true;
+    this.dobreodpowiedzi = 0;
+    this.intervalId = 0;
+    this.czas = 0;
+    this.seconds = 0;
   }
   resetPytania() {
     this.dobreodpowiedzi = 0;
@@ -127,12 +132,12 @@ export class DodawanieComponent {
   stopTimer() {
     this.clearTimer();
   }
-
+  // timer i export dobrych odpowiedzi do bazy danych
   private countDown() {
     this.clearTimer();
     this.intervalId = window.setInterval(async () => {
       this.seconds += 0.01;
-      if (this.dobreodpowiedzi === 3) {
+      if (this.dobreodpowiedzi === this.iloscPotrzebnychOdpowiedzi) {
         this.czas = this.seconds;
         this.stopTimer();
         this.submitted = true;

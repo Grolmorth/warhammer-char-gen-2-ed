@@ -24,6 +24,7 @@ import { DashboardComponent } from './login/dashboard/dashboard.component';
 import { SignUpComponent } from './login/sign-up/sign-up.component';
 import { SignInComponent } from './login/sign-in/sign-in.component';
 import { AuthService } from './services/auth.service';
+import { SekcjadodawanieComponent } from './sekcjadodawanie/sekcjadodawanie.component';
 
 
 @NgModule({
@@ -40,6 +41,7 @@ import { AuthService } from './services/auth.service';
     DashboardComponent,
     SignUpComponent,
     SignInComponent,
+    SekcjadodawanieComponent,
   ],
   imports: [
     RouterModule,
