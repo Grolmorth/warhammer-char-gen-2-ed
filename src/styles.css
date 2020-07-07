@@ -1,3 +1,4 @@
+@import "~@ng-select/ng-select/themes/default.theme.css";
 * {
     padding: 0;
     margin: 0;
@@ -23,4 +24,11 @@ p {
 .table-striped {
     position: relative;
     font-size: 15px;
+}
+
+
+/*bohater*/
+
+.bohater {
+    font-size: 12px;
 }

@@ -1,0 +1,39 @@
+<table class=" table table-sm ">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col" colspan="2" class="text-center">Bohater</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th><label class="m-0 p-0" for="inputImie">Imię</label></th>
+            <td><input type="text"></td>
+        </tr>
+        <tr>
+            <th><label class="m-0 p-0" for="inputRasa">Rasa</label></th>
+            <td>
+                <ng-select [items]="rasa" bindLabel="title" bindValue="title" [(ngModel)]="selectedRasaId">
+                </ng-select>
+                <div *ngFor="let rasa of rasa">
+                    <ng-container *ngIf="rasa.title===selectedRasaId ">{{rasa.WW}}
+                    </ng-container>
+                </div>
+
+
+
+        </tr>
+        <tr>
+            <th><label class="m-0 p-0" for="inputObecnaProfesja">Obecna Profecja</label></th>
+            <td><select class="custom-select custom-select-sm m-0 p-0">
+            <option selected value="random">Losowe</option>
+            <option value="banita">Banita</option>
+            <option value="giermek">Giermek</option>
+
+          </select></td>
+        </tr>
+        <tr>
+            <th>Poprzednia profesja</th>
+            <td>Brak</td>
+        </tr>
+    </tbody>
+</table>

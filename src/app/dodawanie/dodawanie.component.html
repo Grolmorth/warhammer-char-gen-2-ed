@@ -1,7 +1,7 @@
 <p>Odpowiadaj póki nie osiągniesz {{iloscPotrzebnychOdpowiedzi}} dobych wyników</p>
-<button class="btn btn-primary m-1" (click)="getRandom()" (click)="resetPytania()">Nowe zadanie</button>
+<button class="btn btn-success m-1" (click)="getRandom()" (click)="resetPytania()">Nowe zadanie</button>
 
-<button class="btn btn-primary m-1" (click)="przegrales()">Stop</button>
+<button class="btn btn-danger m-1" (click)="przegrales()">Stop</button>
 <p>dobre odpowiedzi: {{dobreodpowiedzi}} w ciągu {{czas |number:'1.2-2'}} sekund</p>
 
 <div [hidden]="submitted">

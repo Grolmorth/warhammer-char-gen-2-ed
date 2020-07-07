@@ -4,6 +4,7 @@
   </button>
     <div class="collapse navbar-collapse" id="mainmenu">
         <ul class="navbar-nav mx-auto">
+            <li class="nav-item "><a class="nav-link" routerLink="bohater">Bohater</a></li>
             <li class="nav-item "><a class="nav-link" routerLink="dodawanie">Dodawanie</a></li>
             <li class="nav-item " *ngIf="authService.userData as user; else login"><a class="nav-link" routerLink="sign-in" (click)="authService.SignOut()">Wyloguj</a></li>
             <ng-template #login>

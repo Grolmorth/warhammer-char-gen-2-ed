@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ScoreService } from '../services/score.service';
+
 import { map } from 'rxjs/operators';
-import { AuthService } from '../services/auth.service';
+import { AuthService } from 'src/app/services/auth.service';
+import { ScoreService } from 'src/app/services/score.service';
+
 
 @Component({
   selector: 'app-aside',
