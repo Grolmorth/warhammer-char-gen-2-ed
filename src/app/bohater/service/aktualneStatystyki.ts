@@ -1,4 +1,4 @@
-export interface Rasa {
+export interface AktualneStatystyki {
   title?: string;
   WW?: number;
   US?: number;

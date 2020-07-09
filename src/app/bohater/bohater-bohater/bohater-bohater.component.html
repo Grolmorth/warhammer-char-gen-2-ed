@@ -14,10 +14,8 @@
             <td>
                 <ng-select [items]="rasa" bindLabel="title" bindValue="title" [(ngModel)]="selectedRasaId">
                 </ng-select>
-                <div *ngFor="let rasa of rasa">
-                    <ng-container *ngIf="rasa.title===selectedRasaId ">{{rasa.WW}}
-                    </ng-container>
-                </div>
+
+                <button (click)="nowaRasa()">Wybierz</button>
 
 
 

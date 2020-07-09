@@ -1,7 +1,7 @@
 <table class="table table-sm">
     <thead class="thead-dark">
         <tr>
-            <th scope="col" colspan="9" class="text-center">Cechy</th>
+            <th scope="col" colspan="9" class="text-center">Cechy </th>
         </tr>
     </thead>
     <tbody class="text-center">
@@ -34,19 +34,14 @@
         </tr>
         <tr>
             <th>Początkowa</th>
-            <td>
-                <div *ngFor="let rasa of rasa">
-                    {{rasa.WW}}
-
-                </div>
-            </td>
-            <td>10</td>
-            <td>10</td>
-            <td>10</td>
-            <td>10</td>
-            <td>10</td>
-            <td>10</td>
-            <td>10</td>
+            <td>{{aktualneStatystyki.WW}}</td>
+            <td>{{aktualneStatystyki.US}}</td>
+            <td>{{aktualneStatystyki.K}}</td>
+            <td>{{aktualneStatystyki.Odp}}</td>
+            <td>{{aktualneStatystyki.Zr}}</td>
+            <td>{{aktualneStatystyki.Int}}</td>
+            <td>{{aktualneStatystyki.SW}}</td>
+            <td>{{aktualneStatystyki.Ogd}}</td>
         </tr>
         <tr>
             <th>Schemat rozwoju</th>
@@ -99,14 +94,14 @@
         </tr>
         <tr>
             <th>Początkowa</th>
-            <td>10</td>
-            <td>10</td>
-            <td>10</td>
-            <td>10</td>
-            <td>10</td>
-            <td>10</td>
-            <td>10</td>
-            <td>10</td>
+            <td>{{aktualneStatystyki.A}}</td>
+            <td>{{aktualneStatystyki.Zyw}}</td>
+            <td>{{aktualneStatystyki.S}}</td>
+            <td>{{aktualneStatystyki.Wt}}</td>
+            <td>{{aktualneStatystyki.Sz}}</td>
+            <td>{{aktualneStatystyki.Mag}}</td>
+            <td>{{aktualneStatystyki.PO}}</td>
+            <td>{{aktualneStatystyki.PP}}</td>
         </tr>
         <tr>
             <th>Schemat rozwoju</th>
