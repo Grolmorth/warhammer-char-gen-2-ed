@@ -148,14 +148,14 @@ export class SharedService {
     for (let n = 0; n < 4; n++) {
       if (this.statystykiRasowe[n].title === rasa) {
 
-        this.aktualneStatystyki.WW = this.statystykiRasowe[n].WW + this.randomNumber(2, 40);
-        this.aktualneStatystyki.US = this.statystykiRasowe[n].US + this.randomNumber(2, 40);
-        this.aktualneStatystyki.K = this.statystykiRasowe[n].K + this.randomNumber(2, 40);
-        this.aktualneStatystyki.Odp = this.statystykiRasowe[n].Odp + this.randomNumber(2, 40);
-        this.aktualneStatystyki.Zr = this.statystykiRasowe[n].Zr + this.randomNumber(2, 40);
-        this.aktualneStatystyki.Int = this.statystykiRasowe[n].Int + this.randomNumber(2, 40);
-        this.aktualneStatystyki.SW = this.statystykiRasowe[n].SW + this.randomNumber(2, 40);
-        this.aktualneStatystyki.Ogd = this.statystykiRasowe[n].Ogd + this.randomNumber(2, 40);
+        this.aktualneStatystyki.WW = this.statystykiRasowe[n].WW + this.randomNumber(2, 20);
+        this.aktualneStatystyki.US = this.statystykiRasowe[n].US + this.randomNumber(2, 20);
+        this.aktualneStatystyki.K = this.statystykiRasowe[n].K + this.randomNumber(2, 20);
+        this.aktualneStatystyki.Odp = this.statystykiRasowe[n].Odp + this.randomNumber(2, 20);
+        this.aktualneStatystyki.Zr = this.statystykiRasowe[n].Zr + this.randomNumber(2, 20);
+        this.aktualneStatystyki.Int = this.statystykiRasowe[n].Int + this.randomNumber(2, 20);
+        this.aktualneStatystyki.SW = this.statystykiRasowe[n].SW + this.randomNumber(2, 20);
+        this.aktualneStatystyki.Ogd = this.statystykiRasowe[n].Ogd + this.randomNumber(2, 20);
         this.aktualneStatystyki.A = 1;
         this.aktualneStatystyki.Zyw = this.zywotnosc(n);
         this.aktualneStatystyki.S = Math.floor(this.aktualneStatystyki.K / 10);
