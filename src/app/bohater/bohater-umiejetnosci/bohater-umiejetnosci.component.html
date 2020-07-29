@@ -1,39 +1,46 @@
-<table class=" table table-sm ">
-    <thead class="thead-dark">
-        <tr>
-            <th scope="col" colspan="5" class="text-center">Umiejętności</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <th>Podstawowe</th>
-            <th>Wykupione</th>
-            <th>+10</th>
-            <th>+20</th>
-            <th>Zdolności pokrewne</th>
+<div class="container bohater  p-0 m-0">
+    <div class=" bg-dark text-light p-1 text-center"><b>Umiejętności</b></div>
 
-        </tr>
-        <tr>
-            <td>Dowodzenie</td>
-            <td>x</td>
-            <td></td>
-            <td>x</td>
-            <td></td>
-        </tr>
-        <tr>
-            <th>Zaawansowane</th>
-            <th>Wykupione</th>
-            <th>+10</th>
-            <th>+20</th>
-            <th>Zdolności pokrewne</th>
 
-        </tr>
-        <tr>
-            <td>Aptekarstwo</td>
-            <td>x</td>
-            <td>x</td>
-            <td></td>
-            <td></td>
-        </tr>
-    </tbody>
-</table>
+    <div class="border-bottom border-dark">
+        <div class="row ">
+            <div class="col-sm ml-1"><b>Umiejętność</b></div>
+            <div class="col-sm "><b>Typ</b></div>
+            <div class="col-sm "><b>Cecha</b></div>
+            <div class="col-sm "><b>Zdolności pokrewne</b></div>
+        </div>
+    </div>
+    <div class="border-bottom" *ngFor="let schemat of umiejetnosciRasy.umiejetnosci">
+        <div class="row ">
+            <div class="col-sm ml-1">{{schemat[0].umiejetnosc}}</div>
+            <div class="col-sm">{{schemat[0].typ}}</div>
+            <div class="col-sm ">{{schemat[0].cecha}}</div>
+            <div class="col-sm">{{schemat[0].zdolnoscipokrewne}}</div>
+        </div>
+    </div>
+
+    <div class="border-bottom" *ngFor="let schemat of umiejetnosciProfesji.umiejetnosci">
+        <div class="row ">
+            <div class="col-sm ml-1">{{schemat[0].umiejetnosc}}</div>
+            <div class="col-sm">{{schemat[0].typ}}</div>
+            <div class="col-sm ">{{schemat[0].cecha}}</div>
+            <div class="col-sm">{{schemat[0].zdolnoscipokrewne}}</div>
+        </div>
+    </div>
+    <div>
+        <!--  <div *ngIf="umiejetnosciProfesji.wyborUmiejetnosci.length>0">
+            <div class=" bg-primary text-center "><b>Wybierz jedno</b></div>
+            <div class="border-bottom " *ngFor="let schemat of umiejetnosciProfesji.wyborUmiejetnosci ">
+
+                <div class="row">
+
+                    <div class="col-sm ml-1 ">{{schemat[0].umiejetnosc}}</div>
+                    <div class="col-sm ">{{schemat[0].typ}}</div>
+                    <div class="col-sm ">{{schemat[0].cecha}}</div>
+                    <div class="col-sm ">{{schemat[0].zdolnoscipokrewne}}</div>
+
+                </div>
+            </div>
+        </div>-->
+    </div>
+</div>

@@ -1,36 +1,37 @@
-<table class=" table table-sm ">
-    <thead class="thead-dark">
-        <tr>
-            <th scope="col" colspan="2" class="text-center">Bohater</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <th><label class="m-0 p-0" for="inputImie">Imię</label></th>
-            <td><input type="text"></td>
-        </tr>
-        <tr>
-            <th><label class="m-0 p-0" for="inputRasa">Rasa</label></th>
-            <td>
-                <div [hidden]="submittedRasa">
-                    <ng-select [items]="rasa" bindLabel="title" bindValue="title" [(ngModel)]="selectedRasaId">
-                    </ng-select>
-                    <button (click)="nowaRasa()">Wybierz</button>
-                </div>
-                <div [hidden]="!submittedRasa">{{selectedRasaId}}
+<div class="container bohater text-center p-0 m-0">
 
-                </div>
-        </tr>
-        <tr>
-            <th><label class="m-0 p-0" for="inputProfesja">Profesja</label></th>
-            <td>
-                <ng-select [items]="profesja" bindLabel="title" bindValue="title" [(ngModel)]="selectedProfesjaId">
+    <div class=" bg-dark text-light p-1"><b>Bohater</b></div>
+
+    <div class="">
+        <div><label class="m-0 p-0" for="inputRasa"><b>Rasa</b></label></div>
+        <div>
+            <div [hidden]="submittedRasa">
+                <ng-select [items]="cechy" bindLabel="rasatitle" bindValue="rasatitle" [(ngModel)]="selectedRasaId">
                 </ng-select>
+                <button class="btn btn-primary btn-sm m-1" (click)="nowaRasa()">Wybierz</button>
+            </div>
+            <div [hidden]="!submittedRasa">
+                <h2>{{selectedRasaId}}</h2>
+                <button class="btn btn-danger btn-sm m-1" (click)="innaRasa()">Zmień rasę</button>
+            </div>
+        </div>
+        <div>
+            <div><label class="m-0 p-0" for="inputProfesja"><b>Profesja</b></label></div>
+            <div>
+                <div [hidden]="submittedProfesja">
+                    <ng-select [items]="profesjaRoll" bindLabel="profesjatitle" bindValue="profesjatitle" [(ngModel)]="selectedProfesjaId">
+                    </ng-select>
+                    <button class="btn btn-primary btn-sm m-1" (click)="nowaProfesja()">Wybierz</button>
+                </div>
+                <div [hidden]="!submittedProfesja">
+                    <h2>{{selectedProfesjaId}}</h2>
+                    <button class="btn btn-danger btn-sm m-1" (click)="innaProfesja()">Zmień profesję</button>
+                </div>
 
-        </tr>
-        <tr>
-            <th>Poprzednia profesja</th>
-            <td>Brak</td>
-        </tr>
-    </tbody>
-</table>
+            </div>
+
+        </div>
+    </div>
+
+
+</div>

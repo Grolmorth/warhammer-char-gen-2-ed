@@ -1,5 +1,5 @@
 export interface ProfesjaRoll {
-  title: string;
+  profesjatitle: string;
   rollmin: number;
   rollmax: number;
 }

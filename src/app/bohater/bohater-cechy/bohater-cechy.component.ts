@@ -1,8 +1,8 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BohaterLogikaService } from '../service/bohater-logika.service';
-import { Rasa } from '../service/rasa';
 import { SharedService } from '../service/shared.service';
-import { AktualneStatystyki } from '../service/aktualneStatystyki';
+import { BohaterOgolne } from '../service/bohaterOgolne';
+
 
 @Component({
   selector: 'app-bohater-cechy',
@@ -11,15 +11,24 @@ import { AktualneStatystyki } from '../service/aktualneStatystyki';
 })
 
 export class BohaterCechyComponent implements OnInit {
+  // pobranie cech rasowych
 
-  rasa: Rasa[] = [];
+  poczatkowa: BohaterOgolne;
+  // pobranie cech profesji
 
-  aktualneStatystyki: AktualneStatystyki;
-  public constructor(public rasyService: BohaterLogikaService, public share: SharedService) { }
+  schematRozwoju: BohaterOgolne;
+
+  aktualne: BohaterOgolne;
+
+
+  public constructor(public logika: BohaterLogikaService, public share: SharedService) { }
 
   ngOnInit() {
-    this.rasyService.getRasy().subscribe(items => this.rasa = items);
-    this.aktualneStatystyki = this.share.aktualneStatystyki;
+
+    this.poczatkowa = this.share.poczatkoweStatystykiRasowe;
+    this.schematRozwoju = this.share.schematRozwojuProfesja;
+    this.aktualne = this.share.sumowaneStatystyki;
+
 
   }
 

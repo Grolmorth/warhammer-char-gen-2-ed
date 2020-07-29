@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { BohaterOgolne } from '../service/bohaterOgolne';
+import { BohaterLogikaService } from '../service/bohater-logika.service';
+import { SharedService } from '../service/shared.service';
 
 @Component({
   selector: 'app-bohater-umiejetnosci',
@@ -6,10 +9,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./bohater-umiejetnosci.component.css']
 })
 export class BohaterUmiejetnosciComponent implements OnInit {
+  umiejetnosciProfesji: BohaterOgolne;
+  umiejetnosciRasy: BohaterOgolne;
 
-  constructor() { }
+  public constructor(public logika: BohaterLogikaService, public share: SharedService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+
+    this.umiejetnosciProfesji = this.share.schematRozwojuProfesja;
+    this.umiejetnosciRasy = this.share.poczatkoweStatystykiRasowe;
+
   }
 
 }
