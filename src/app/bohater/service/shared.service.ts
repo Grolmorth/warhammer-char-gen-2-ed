@@ -115,6 +115,7 @@ export class SharedService {
     this.poczatkoweStatystykiRasowe.umiejetnosci = [];
     this.poczatkoweStatystykiRasowe.zdolnosci = [];
     this.poczatkoweStatystykiRasowe.wyposazenie = [];
+    console.log('zresetowano statystyki dla', this.poczatkoweStatystykiRasowe.rasatitle);
     this.resetStatystykProfesja();
 
 
@@ -153,9 +154,11 @@ export class SharedService {
     this.sumowaneStatystyki.PO = 0;
     this.sumowaneStatystyki.PP = 0;
     this.schematRozwojuProfesja.umiejetnosci = [];
-    this.schematRozwojuProfesja.wyborUmiejetnosciProfesji = [];
+    this.schematRozwojuProfesja.wyborUmiejetnosciProfesji = [[]];
     this.schematRozwojuProfesja.zdolnosci = [];
-    console.log('zresetowano statystyki dla', this.schematRozwojuProfesja.profesjatitle);
+    if (this.schematRozwojuProfesja.profesjatitle !== '') {
+      console.log('zresetowano statystyki dla', this.schematRozwojuProfesja.profesjatitle);
+    }
     this.schematRozwojuProfesja.profesjatitle = '';
   }
   // funkcja losujaca
@@ -340,12 +343,9 @@ export class SharedService {
           this.schematRozwojuProfesja.wyborUmiejetnosciProfesji[n] = [];
         }
         for (let p = 0; p < this.statystkiProfesji[0].wyborUmiejetnosciProfesji[n].length; p++) {
-
           this.logika.getUmiejetnosci(this.statystkiProfesji[0].wyborUmiejetnosciProfesji[n][p])
             .subscribe(items => this.umiejetnosciProfesji = items);
-          console.log(n, p, this.umiejetnosciProfesji);
           this.schematRozwojuProfesja.wyborUmiejetnosciProfesji[n][p] = this.umiejetnosciProfesji;
-
 
         }
       }

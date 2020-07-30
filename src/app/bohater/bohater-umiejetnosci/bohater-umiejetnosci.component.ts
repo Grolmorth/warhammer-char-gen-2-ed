@@ -12,13 +12,21 @@ export class BohaterUmiejetnosciComponent implements OnInit {
   umiejetnosciProfesji: BohaterOgolne;
   umiejetnosciRasy: BohaterOgolne;
 
+
   public constructor(public logika: BohaterLogikaService, public share: SharedService) { }
 
   ngOnInit() {
 
     this.umiejetnosciProfesji = this.share.schematRozwojuProfesja;
     this.umiejetnosciRasy = this.share.poczatkoweStatystykiRasowe;
-
   }
+  onWyborUmiejetnosci(schemat, [i]) {
+    this.share.schematRozwojuProfesja.umiejetnosci.push(schemat);
+    this.share.schematRozwojuProfesja.wyborUmiejetnosciProfesji[i] = [];
+    console.log('dodano umiejetnosc', schemat[0].umiejetnosc, 'do puli umiejetnosci');
+  }
+
+
+
 
 }
