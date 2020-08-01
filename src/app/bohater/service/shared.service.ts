@@ -35,7 +35,7 @@ export class SharedService {
       PO: 0,
       PP: 0,
       umiejetnosci: [],
-      wyborUmiejetnosciProfesji: [],
+      wyborUmiejetnosciRasy: [],
       zdolnosci: [],
       wyposazenie: []
     };
@@ -113,6 +113,7 @@ export class SharedService {
     this.poczatkoweStatystykiRasowe.PO = 0;
     this.poczatkoweStatystykiRasowe.PP = 0;
     this.poczatkoweStatystykiRasowe.umiejetnosci = [];
+    this.poczatkoweStatystykiRasowe.wyborUmiejetnosciRasy = [];
     this.poczatkoweStatystykiRasowe.zdolnosci = [];
     this.poczatkoweStatystykiRasowe.wyposazenie = [];
     console.log('zresetowano statystyki dla', this.poczatkoweStatystykiRasowe.rasatitle);
@@ -299,6 +300,23 @@ export class SharedService {
           this.poczatkoweStatystykiRasowe.umiejetnosci[m] = this.umiejetnosciRasowe;
         }
         console.log('pobranie listy umiejetnosci rasowych');
+        // dodanie umiejetnosci do wyboru
+
+        if (this.statystykiRasowe[n].wyborUmiejetnosciRasy !== undefined) {
+          for (let m = 0; m < this.statystykiRasowe[n].wyborUmiejetnosciRasy.length; m++) {
+            // zainicjalizowanie pustej tablicy jezeli nieistnieje
+            if (!this.poczatkoweStatystykiRasowe.wyborUmiejetnosciRasy[m]) {
+              this.poczatkoweStatystykiRasowe.wyborUmiejetnosciRasy[m] = [];
+            }
+            for (let p = 0; p < this.statystykiRasowe[n].wyborUmiejetnosciRasy[m].length; p++) {
+              this.logika.getUmiejetnosci(this.statystykiRasowe[n].wyborUmiejetnosciRasy[m][p])
+                .subscribe(items => this.umiejetnosciProfesji = items);
+              this.poczatkoweStatystykiRasowe.wyborUmiejetnosciRasy[m][p] = this.umiejetnosciProfesji;
+
+            }
+          }
+          console.log('pobrano umiejetnosci do wyboru dla', rasa);
+        }
 
       }
     }

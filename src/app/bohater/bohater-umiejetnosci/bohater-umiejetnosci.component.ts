@@ -20,9 +20,14 @@ export class BohaterUmiejetnosciComponent implements OnInit {
     this.umiejetnosciProfesji = this.share.schematRozwojuProfesja;
     this.umiejetnosciRasy = this.share.poczatkoweStatystykiRasowe;
   }
-  onWyborUmiejetnosci(schemat, [i]) {
+  onWyborUmiejetnosciProfesja(schemat, [i]) {
     this.share.schematRozwojuProfesja.umiejetnosci.push(schemat);
     this.share.schematRozwojuProfesja.wyborUmiejetnosciProfesji[i] = [];
+    console.log('dodano umiejetnosc', schemat[0].umiejetnosc, 'do puli umiejetnosci');
+  }
+  onWyborUmiejetnosciRasa(schemat, [i]) {
+    this.share.poczatkoweStatystykiRasowe.umiejetnosci.push(schemat);
+    this.share.poczatkoweStatystykiRasowe.wyborUmiejetnosciRasy[i] = [];
     console.log('dodano umiejetnosc', schemat[0].umiejetnosc, 'do puli umiejetnosci');
   }
 

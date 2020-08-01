@@ -152,7 +152,7 @@ export class BohaterLogikaService {
       const items = getPodzegacz();
       return of(items);
     }
-    else if (profesja === 'Porywacz Zwłok') {
+    else if (profesja === 'Porywacz zwłok') {
       const items = getPorywaczZwlok();
       return of(items);
     }
@@ -318,12 +318,56 @@ export class BohaterLogikaService {
       const items = getJezdziectwo();
       return of(items);
     }
-    else if (umiejetnosc === 'Język tajemny') {
-      const items = getJezykTajemny();
+    else if (umiejetnosc === 'Język tajemny(magiczny)') {
+      const items = getJezykTajemnyMagiczny();
       return of(items);
     }
-    else if (umiejetnosc === 'Kuglarstwo') {
-      const items = getKuglarstwo();
+    else if (umiejetnosc === 'Kuglarstwo(akrobatyka)') {
+      const items = getKuglarstwoAkrobatyka();
+      return of(items);
+    }
+    else if (umiejetnosc === 'Kuglarstwo(aktorstwo)') {
+      const items = getKuglarstwoAktorstwo();
+      return of(items);
+    }
+    else if (umiejetnosc === 'Kuglarstwo(błaznowanie)') {
+      const items = getKuglarstwoBlaznowanie();
+      return of(items);
+    }
+    else if (umiejetnosc === 'Kuglarstwo(gawędziarstwo)') {
+      const items = getKuglarstwoGawedziarstwo();
+      return of(items);
+    }
+    else if (umiejetnosc === 'Kuglarstwo(komedianctwo)') {
+      const items = getKuglarstwoKomedianctwo();
+      return of(items);
+    }
+    else if (umiejetnosc === 'Kuglarstwo(mimika)') {
+      const items = getKuglarstwoMimika();
+      return of(items);
+    }
+    else if (umiejetnosc === 'Kuglarstwo(muzykalność)') {
+      const items = getKuglarstwoMuzykalnosc();
+      return of(items);
+    }
+    else if (umiejetnosc === 'Kuglarstwo(połykanie ognia)') {
+      const items = getKuglarstwoPolykanieOgnia();
+      return of(items);
+    }
+    else if (umiejetnosc === 'Kuglarstwo(śpiew)') {
+      const items = getKuglarstwoSpiew();
+      return of(items);
+    }
+    else if (umiejetnosc === 'Kuglarstwo(taniec)') {
+      const items = getKuglarstwoTaniec();
+      return of(items);
+    }
+    else if (umiejetnosc === 'Kuglarstwo(wróżenie z dłoni)') {
+      const items = getKuglarstwoWrozenieZDloni();
+      return of(items);
+    }
+    else if (umiejetnosc === 'Kuglarstwo(żonglerka)') {
+      const items = getKuglarstwoZonglerka();
       return of(items);
     }
     else if (umiejetnosc === 'Leczenie') {
@@ -334,16 +378,64 @@ export class BohaterLogikaService {
       const items = getMocnaGlowa();
       return of(items);
     }
-    else if (umiejetnosc === 'Nauka') {
-      const items = getNauka();
+    else if (umiejetnosc === 'Nauka(alchemia)') {
+      const items = getNaukaAlchemia();
       return of(items);
     }
     else if (umiejetnosc === 'Nauka(astronomia)') {
       const items = getNaukaAstronomia();
       return of(items);
     }
+    else if (umiejetnosc === 'Nauka(anatomia)') {
+      const items = getNaukaAnatomia();
+      return of(items);
+    }
+    else if (umiejetnosc === 'Nauka(demonologia)') {
+      const items = getNaukaDemonologia();
+      return of(items);
+    }
+    else if (umiejetnosc === 'Nauka(filozofia)') {
+      const items = getNaukaFilozofia();
+      return of(items);
+    }
     else if (umiejetnosc === 'Nauka(historia)') {
       const items = getNaukaHistoria();
+      return of(items);
+    }
+    else if (umiejetnosc === 'Nauka(inżynieria)') {
+      const items = getNaukaInzynieria();
+      return of(items);
+    }
+    else if (umiejetnosc === 'Nauka(magia)') {
+      const items = getNaukaMagia();
+      return of(items);
+    }
+    else if (umiejetnosc === 'Nauka(genealogia/heraldyka)') {
+      const items = getNaukaGenealogiaHeraldyka();
+      return of(items);
+    }
+    else if (umiejetnosc === 'Nauka(matematyka)') {
+      const items = getNaukaMatematyka();
+      return of(items);
+    }
+    else if (umiejetnosc === 'Nauka(nekromancja)') {
+      const items = getNaukaNekromancja();
+      return of(items);
+    }
+    else if (umiejetnosc === 'Nauka(prawo)') {
+      const items = getNaukaPrawo();
+      return of(items);
+    }
+    else if (umiejetnosc === 'Nauka(runy)') {
+      const items = getNaukaRuny();
+      return of(items);
+    }
+    else if (umiejetnosc === 'Nauka(strategia/taktyka)') {
+      const items = getNaukaStrategiaTaktyka();
+      return of(items);
+    }
+    else if (umiejetnosc === 'Nauka(sztuka)') {
+      const items = getNaukaSztuka();
       return of(items);
     }
     else if (umiejetnosc === 'Nauka(teologia)') {
@@ -386,16 +478,144 @@ export class BohaterLogikaService {
       const items = getPrzeszukiwanie();
       return of(items);
     }
-    else if (umiejetnosc === 'Rzemiosło') {
-      const items = getRzemioslo();
+    else if (umiejetnosc === 'Rzemiosło(aptekarstwo)') {
+      const items = getRzemiosloAptekarstwo();
       return of(items);
     }
-    else if (umiejetnosc === 'Sekretne znaki') {
-      const items = getSekretneZnaki();
+    else if (umiejetnosc === 'Rzemiosło(bednarstwo)') {
+      const items = getRzemiosloBednarstwo();
       return of(items);
     }
-    else if (umiejetnosc === 'Sekretny język') {
-      const items = getSekretnyJezyk();
+    else if (umiejetnosc === 'Rzemiosło(garbarstwo)') {
+      const items = getRzemiosloGarbarstwo();
+      return of(items);
+    }
+    else if (umiejetnosc === 'Rzemiosło(gotowanie)') {
+      const items = getRzemiosloGotowanie();
+      return of(items);
+    }
+    else if (umiejetnosc === 'Rzemiosło(górnictwo)') {
+      const items = getRzemiosloGornictwo();
+      return of(items);
+    }
+    else if (umiejetnosc === 'Rzemiosło(górnictwo odkrywkowe)') {
+      const items = getRzemiosloGornictwoOdkrywkowe();
+      return of(items);
+    }
+    else if (umiejetnosc === 'Rzemiosło(handel)') {
+      const items = getRzemiosloHandel();
+      return of(items);
+    }
+    else if (umiejetnosc === 'Rzemiosło(jubilerstwo)') {
+      const items = getRzemiosloJubilerstwo();
+      return of(items);
+    }
+    else if (umiejetnosc === 'Rzemiosło(kaligrafia)') {
+      const items = getRzemiosloKaligrafia();
+      return of(items);
+    }
+    else if (umiejetnosc === 'Rzemiosło(kamieniarstwo)') {
+      const items = getRzemiosloKamieniarstwo();
+      return of(items);
+    }
+    else if (umiejetnosc === 'Rzemiosło(kartografia)') {
+      const items = getRzemiosloKartografia();
+      return of(items);
+    }
+    else if (umiejetnosc === 'Rzemiosło(kowalstwo)') {
+      const items = getRzemiosloKowalstwo();
+      return of(items);
+    }
+    else if (umiejetnosc === 'Rzemiosło(krawiectwo)') {
+      const items = getRzemiosloKrawiectwo();
+      return of(items);
+    }
+    else if (umiejetnosc === 'Rzemiosło(młynarstwo)') {
+      const items = getRzemiosloMlynarstwo();
+      return of(items);
+    }
+    else if (umiejetnosc === 'Rzemiosło(piwowarstwo)') {
+      const items = getRzemiosloPiwowarstwo();
+      return of(items);
+    }
+    else if (umiejetnosc === 'Rzemiosło(płatnerstwo)') {
+      const items = getRzemiosloPlatnerstwo();
+      return of(items);
+    }
+    else if (umiejetnosc === 'Rzemiosło(rusznikarstwo)') {
+      const items = getRzemiosloRusznikarstwo();
+      return of(items);
+    }
+    else if (umiejetnosc === 'Rzemiosło(rymarstwo)') {
+      const items = getRzemiosloRymarstwo();
+      return of(items);
+    }
+    else if (umiejetnosc === 'Rzemiosło(szewstwo)') {
+      const items = getRzemiosloSzewstwo();
+      return of(items);
+    }
+    else if (umiejetnosc === 'Rzemiosło(stolarstwo)') {
+      const items = getRzemiosloStolarstwo();
+      return of(items);
+    }
+    else if (umiejetnosc === 'Rzemiosło(szkutnictwo)') {
+      const items = getRzemiosloSzkutnictwo();
+      return of(items);
+    }
+    else if (umiejetnosc === 'Rzemiosło(sztuka)') {
+      const items = getRzemiosloSztuka();
+      return of(items);
+    }
+    else if (umiejetnosc === 'Rzemiosło(świecarstwo)') {
+      const items = getRzemiosloSwiecarstwo();
+      return of(items);
+    }
+    else if (umiejetnosc === 'Rzemiosło(uprawa ziemi)') {
+      const items = getRzemiosloUprawaZiemi();
+      return of(items);
+    }
+    else if (umiejetnosc === 'Rzemiosło(wyrób łuków)') {
+      const items = getRzemiosloWyrobLukow();
+      return of(items);
+    }
+    else if (umiejetnosc === 'Rzemiosło(zielarstwo)') {
+      const items = getRzemiosloZielarstwo();
+      return of(items);
+    }
+    else if (umiejetnosc === 'Rzemiosło(złotnictwo)') {
+      const items = getRzemiosloZlotnictwo();
+      return of(items);
+    }
+    else if (umiejetnosc === 'Sekretne znaki(łowców)') {
+      const items = getSekretneZnakiLowcow();
+      return of(items);
+    }
+    else if (umiejetnosc === 'Sekretne znaki(rycerzy zakonnych)') {
+      const items = getSekretneZnakiRycerzyZakonnych();
+      return of(items);
+    }
+    else if (umiejetnosc === 'Sekretne znaki(złodziei)') {
+      const items = getSekretneZnakiZlodziei();
+      return of(items);
+    }
+    else if (umiejetnosc === 'Sekretne znaki(zwiadowców)') {
+      const items = getSekretneZnakiZwiadowcow();
+      return of(items);
+    }
+    else if (umiejetnosc === 'Sekretny język(bitewny)') {
+      const items = getSekretnyJezykBitewny();
+      return of(items);
+    }
+    else if (umiejetnosc === 'Sekretny język(gildii)') {
+      const items = getSekretnyJezykGildii();
+      return of(items);
+    }
+    else if (umiejetnosc === 'Sekretny język(łowców)') {
+      const items = getSekretnyJezykLowcow();
+      return of(items);
+    }
+    else if (umiejetnosc === 'Sekretny język(złodziejski)') {
+      const items = getSekretnyJezykZlodziejski();
       return of(items);
     }
     else if (umiejetnosc === 'Skradanie się') {
@@ -446,14 +666,55 @@ export class BohaterLogikaService {
       const items = getWarzenieTrucizn();
       return of(items);
     }
-    else if (umiejetnosc === 'Wiedza(Imperium)') {
+    else if (umiejetnosc === 'Wiedza(bretonia)') {
+      const items = getWiedzaBretonia();
+      return of(items);
+    }
+    else if (umiejetnosc === 'Wiedza(estalia)') {
+      const items = getWiedzaEstalia();
+      return of(items);
+    }
+    else if (umiejetnosc === 'Wiedza(imperium)') {
       const items = getWiedzaImperium();
       return of(items);
     }
-    else if (umiejetnosc === 'Wiedza(Elfy)') {
+    else if (umiejetnosc === 'Wiedza(jałowa kraina)') {
+      const items = getWiedzaJalowaKraina();
+      return of(items);
+    }
+    else if (umiejetnosc === 'Wiedza(kislev)') {
+      const items = getWiedzaKislev();
+      return of(items);
+    }
+    else if (umiejetnosc === 'Wiedza(księstwa graniczne)') {
+      const items = getWiedzaKsiestwaGraniczne();
+      return of(items);
+    }
+    else if (umiejetnosc === 'Wiedza(norska)') {
+      const items = getWiedzaNorska();
+      return of(items);
+    }
+    else if (umiejetnosc === 'Wiedza(tilea)') {
+      const items = getWiedzaTilea();
+      return of(items);
+    }
+    else if (umiejetnosc === 'Wiedza(elfy)') {
       const items = getWiedzaElfy();
       return of(items);
     }
+    else if (umiejetnosc === 'Wiedza(krasnoludy)') {
+      const items = getWiedzaKrasnoludy();
+      return of(items);
+    }
+    else if (umiejetnosc === 'Wiedza(niziołki)') {
+      const items = getWiedzaNiziolki();
+      return of(items);
+    }
+    else if (umiejetnosc === 'Wiedza(ogry)') {
+      const items = getWiedzaOgry();
+      return of(items);
+    }
+
     else if (umiejetnosc === 'Wioślarstwo') {
       const items = getWioślarstwo();
       return of(items);
@@ -478,16 +739,44 @@ export class BohaterLogikaService {
       const items = getZastraszanie();
       return of(items);
     }
-    else if (umiejetnosc === 'Znajomość języka(staroświatowy)') {
-      const items = getZnajomoscJezykaStaroswiatowy();
+    else if (umiejetnosc === 'Znajomość języka(bretoński)') {
+      const items = getZnajomoscJezykaBretonski();
+      return of(items);
+    }
+    else if (umiejetnosc === 'Znajomość języka(eltharin)') {
+      const items = getZnajomoscjezykaEltharin();
+      return of(items);
+    }
+    else if (umiejetnosc === 'Znajomość języka(estalijski)') {
+      const items = getZnajomoscjezykaEstalisjki();
+      return of(items);
+    }
+    else if (umiejetnosc === 'Znajomość języka(khazalid)') {
+      const items = getZnajomoscjezykaKhazaldin();
+      return of(items);
+    }
+    else if (umiejetnosc === 'Znajomość języka(kislevski)') {
+      const items = getZnajomoscjezykaKislevski();
+      return of(items);
+    }
+    else if (umiejetnosc === 'Znajomość języka(norski)') {
+      const items = getZnajomoscjezykaNorski();
+      return of(items);
+    }
+    else if (umiejetnosc === 'Znajomość języka(tileański)') {
+      const items = getZnajomoscjezykaTileanski();
       return of(items);
     }
     else if (umiejetnosc === 'Znajomość języka(klasyczny)') {
       const items = getZnajomoscJezykaKlasyczny();
       return of(items);
     }
-    else if (umiejetnosc === 'Znajomość języka(eltharin)') {
-      const items = getZnajomoscjezykaEltharin();
+    else if (umiejetnosc === 'Znajomość języka(staroświatowy)') {
+      const items = getZnajomoscJezykaStaroswiatowy();
+      return of(items);
+    }
+    else if (umiejetnosc === 'Znajomość języka(niziołków)') {
+      const items = getZnajomoscjezykaNiziolkow();
       return of(items);
     }
 
@@ -506,10 +795,24 @@ export class BohaterLogikaService {
 // rasy
 function getMockRasy() {
   return [
-    { rasatitle: 'Człowiek', WW: 20, US: 20, K: 20, Odp: 20, Zr: 20, Int: 20, SW: 20, Ogd: 20, Sz: 4, umiejetnosci: ['Plotkowanie', 'Wiedza(Imperium)', 'Znajomość języka(staroświatowy)'] },
-    { rasatitle: 'Krasnolud', WW: 30, US: 20, K: 20, Odp: 30, Zr: 10, Int: 20, SW: 20, Ogd: 10, Sz: 3, umiejetnosci: ['Znajomość języka(staroświatowy)'] },
-    { rasatitle: 'Elf', WW: 20, US: 30, K: 20, Odp: 20, Zr: 30, Int: 20, SW: 20, Ogd: 20, Sz: 5, umiejetnosci: ['Wiedza(Elfy)', 'Znajomość języka(eltharin)', 'Znajomość języka(staroświatowy)'] },
-    { rasatitle: 'Niziołek', WW: 10, US: 30, K: 10, Odp: 10, Zr: 30, Int: 20, SW: 20, Ogd: 30, Sz: 4, umiejetnosci: ['Plotkowanie', 'Znajomość języka(staroświatowy)'] }
+    {
+      rasatitle: 'Człowiek', WW: 20, US: 20, K: 20, Odp: 20, Zr: 20, Int: 20, SW: 20, Ogd: 20, Sz: 4,
+      umiejetnosci: ['Plotkowanie', 'Wiedza(imperium)', 'Znajomość języka(staroświatowy)']
+    },
+    {
+      rasatitle: 'Krasnolud', WW: 30, US: 20, K: 20, Odp: 30, Zr: 10, Int: 20, SW: 20, Ogd: 10, Sz: 3,
+      umiejetnosci: ['Znajomość języka(khazalid)', 'Wiedza(krasnoludy)', 'Znajomość języka(staroświatowy)'],
+      wyborUmiejetnosciRasy: [['Rzemiosło(górnictwo)', 'Rzemiosło(kamieniarstwo)', 'Rzemiosło(kowalstwo)']]
+    },
+    {
+      rasatitle: 'Elf', WW: 20, US: 30, K: 20, Odp: 20, Zr: 30, Int: 20, SW: 20, Ogd: 20, Sz: 5,
+      umiejetnosci: ['Wiedza(elfy)', 'Znajomość języka(eltharin)', 'Znajomość języka(staroświatowy)']
+    },
+    {
+      rasatitle: 'Niziołek', WW: 10, US: 30, K: 10, Odp: 10, Zr: 30, Int: 20, SW: 20, Ogd: 30, Sz: 4,
+      umiejetnosci: ['Plotkowanie', 'Znajomość języka(staroświatowy)', 'Wiedza(niziołki)', 'Znajomość języka(niziołków)', 'Nauka(genealogia/heraldyka)'],
+      wyborUmiejetnosciRasy: [['Rzemiosło(gotowanie)', 'Rzemiosło(uprawa ziemi)']]
+    }
   ];
 }
 function getMockProfesjeCzlowiek() {
@@ -666,7 +969,8 @@ function getAkolita() {
   return [
     {
       title: 'Akolita',
-      opis: 'blelbe',
+      opis: 'W hierarchii wartości mieszkańców Starego Świata religia spadła na drugie miejsce, ustępując bogactwu, ale wciąż jeszcze wielu młodych ludzi obojga płci znajduje w sobie powołanie do służby bożej. Praca kapłana wymaga poświęcenia i determinacji duchowej. Bycie akolitą to pierwszy krok na drodze ku kapłaństwu. Młodzi duchowni przechodzą surowe ćwiczenia pod opieką starszych kapłanów. Do końca nowicjatu nie mogą nauczać ani wygłaszać kazań.Czas spędzają na studiowaniu świętych ksiąg, czytaniu i przepisywaniu manuskryptów oraz na poznawaniu sztuki wzniosłego przemawiania. Akolici uczą się również walki na wypadek, gdyby trzeba było bronić świątyni.',
+      // tslint:disable-next-line: max-line-length
       WW: 5,
       US: 5,
       K: 0,
@@ -691,8 +995,7 @@ function getAkolita() {
         'Znajomość języka(klasyczny)',
         'Znajomość języka(staroświatowy)'
       ],
-      wyborUmiejetnosciProfesji: [['Nauka(astronomia)', 'Nauka(historia)'], ['Przekonywanie',
-        'Leczenie']],
+      wyborUmiejetnosciProfesji: [['Nauka(astronomia)', 'Nauka(historia)']],
 
       zdolnosci: [
         'bardzo silny albo szybki refleks', 'charyzmatyczny albo urodzony wojownik', 'przemawianie'
@@ -726,6 +1029,10 @@ function getBanita() {
       Mag: 0,
       PO: 0,
       PP: 0,
+      umiejetnosci: ['Skradanie się', 'Spostrzegawczość', 'Ukrywanie się', 'Unik', 'Wspinaczka'],
+      wyborUmiejetnosciProfesji: [['Opieka nad zwierzętami', 'Wiedza(imperium)'], ['Plotkowanie', 'Sekretne znaki(złodziei)'], ['Powożenie', 'Jeździectwo'], ['Zastawianie pułapek', 'Pływanie']],
+      zdolnosci: [],
+      wyposazenie: []
     }
   ];
 }
@@ -750,6 +1057,10 @@ function getberserkerZNorski() {
       Mag: 0,
       PO: 0,
       PP: 0,
+      umiejetnosci: ['Kuglarstwo(gawędziarstwo)', 'Mocna głowa', 'Pływanie', 'Wiedza(norska)', 'Zastraszanie', 'Znajomość języka(norski)'],
+      wyborUmiejetnosciProfesji: [[]],
+      zdolnosci: [],
+      wyposazenie: []
     }
   ];
 }
@@ -774,6 +1085,18 @@ function getChlop() {
       Mag: 0,
       PO: 0,
       PP: 0,
+      umiejetnosci: ['Ukrywanie się'],
+      wyborUmiejetnosciProfesji:
+        [['Hazard', 'Kuglarstwo(taniec)', 'Kuglarstwo(śpiew)'],
+        ['Opieka nad zwierzętami', 'Przekonywanie'],
+        ['Oswajanie', 'Rzemiosło(gotowanie)'],
+        ['Powożenie', 'Rzemiosło(wyrób łuków)'],
+        ['Sztuka przetrwania', 'Rzemiosło(uprawa ziemi)'],
+        ['Tresura', 'Pływanie'],
+        ['Zastawianie pułapek', 'Wioślarstwo'],
+        ['Wspinaczka', 'Skradanie się']],
+      zdolnosci: [],
+      wyposazenie: []
     }
   ];
 }
@@ -798,6 +1121,13 @@ function getCiuraObozowa() {
       Mag: 0,
       PO: 0,
       PP: 0,
+      umiejetnosci: ['Plotkowanie', 'Przeszukiwanie', 'Spostrzegawczość', 'Targowanie', 'Zwinne palce'],
+      wyborUmiejetnosciProfesji: [['Opieka nad zwierzętami', 'Powożenie'],
+      ['Przekonywanie', 'Wycena'],
+      ['Rzemiosło(gotowanie)', 'Rzemiosło(handel)', 'Rzemiosło(kartografia)', 'Rzemiosło(kowalstwo)', 'Rzemiosło(krawiectwo)', 'Rzemiosło(płatnerstwo)', 'Rzemiosło(rusznikarstwo)', 'Rzemiosło(wyrób łuków)', 'Rzemiosło(zielarstwo)'],
+      ['Znajomość języka(bretoński)', 'Znajomość języka(kislevski)', 'Znajomość języka(tileański)']],
+      zdolnosci: [],
+      wyposazenie: []
     }
   ];
 }
@@ -822,6 +1152,17 @@ function getCyrkowiec() {
       Mag: 0,
       PO: 0,
       PP: 0,
+      umiejetnosci: ['Przekonywanie', 'Spostrzegawczość', 'Wiedza(imperium)', 'Znajomość języka(staroświatowy)'],
+      wyborUmiejetnosciProfesji: [['Kuglarstwo(akrobatyka)', 'Kuglarstwo(aktorstwo)', 'Kuglarstwo(błaznowanie)', 'Kuglarstwo(gawędziarstwo)', 'Kuglarstwo(komedianctwo)', 'Kuglarstwo(mimika)', 'Kuglarstwo(muzykalność)', 'Kuglarstwo(połykanie ognia)', 'Kuglarstwo(śpiew)', 'Kuglarstwo(taniec)', 'Kuglarstwo(wróżenie z dłoni)', 'Kuglarstwo(żonglerka)'],
+      ['Kuglarstwo(akrobatyka)', 'Kuglarstwo(aktorstwo)', 'Kuglarstwo(błaznowanie)', 'Kuglarstwo(gawędziarstwo)', 'Kuglarstwo(komedianctwo)', 'Kuglarstwo(mimika)', 'Kuglarstwo(muzykalność)', 'Kuglarstwo(połykanie ognia)', 'Kuglarstwo(śpiew)', 'Kuglarstwo(taniec)', 'Kuglarstwo(wróżenie z dłoni)', 'Kuglarstwo(żonglerka)'],
+      ['Opieka nad zwierzętami', 'Pływanie'], ['Wycena', 'Plotkowanie'], ['Brzuchomówstwo', 'Gadanina', 'Hipnoza', 'Jeździectwo', 'Oswajanie', 'Tresura', 'Wspinaczka', 'Zwinne palce']],
+
+      zdolnosci: [
+
+      ],
+      wyposazenie: [
+
+      ]
     }
   ];
 }
@@ -846,6 +1187,15 @@ function getCyrulik() {
       Mag: 0,
       PO: 0,
       PP: 0,
+      umiejetnosci: ['Czytanie i pisanie', 'Leczenie', 'Przekonywanie', 'Rzemiosło(aptekarstwo)', 'Spostrzegawczość', 'Targowanie'],
+      wyborUmiejetnosciProfesji: [['Powożenie', 'Pływanie'], ['Znajomość języka(bretoński)', 'Znajomość języka(staroświatowy)', 'Znajomość języka(tileański)']],
+
+      zdolnosci: [
+
+      ],
+      wyposazenie: [
+
+      ]
     }
   ];
 }
@@ -870,6 +1220,16 @@ function getFanatyk() {
       Mag: 0,
       PO: 0,
       PP: 0,
+      umiejetnosci: ['Czytanie i pisanie', 'Nauka(teologia)', 'Przekonywanie', 'Wiedza(imperium)', 'Zastraszanie'
+      ],
+      wyborUmiejetnosciProfesji: [[]],
+
+      zdolnosci: [
+
+      ],
+      wyposazenie: [
+
+      ]
     }
   ];
 }
@@ -894,6 +1254,16 @@ function getFlisak() {
       Mag: 0,
       PO: 0,
       PP: 0,
+      umiejetnosci: ['Nawigacja', 'Pływanie', 'Spostrzegawczość', 'Sztuka przetrwania', 'Wioślarstwo', 'Żeglarstwo'
+      ],
+      wyborUmiejetnosciProfesji: [['Mocna głowa', 'Plotkowanie'], ['Sekretny język(łowców)', 'Znajomość języka(kislevski)'], ['Wiedza(imperium)', 'Wiedza(kislev)']],
+
+      zdolnosci: [
+
+      ],
+      wyposazenie: [
+
+      ]
     }
   ];
 }
@@ -918,6 +1288,16 @@ function getGiermek() {
       Mag: 0,
       PO: 0,
       PP: 0,
+      umiejetnosci: ['Jeździectwo', 'Opieka nad zwierzętami', 'Tresura', 'Unik'
+      ],
+      wyborUmiejetnosciProfesji: [['Nauka(genealogia/heraldyka)', 'Wiedza(bretonia)'], ['Przekonywanie', 'Plotkowanie'], ['Znajomość języka(bretoński)', 'Znajomość języka(staroświatowy)']],
+
+      zdolnosci: [
+
+      ],
+      wyposazenie: [
+
+      ]
     }
   ];
 }
@@ -942,6 +1322,16 @@ function getGladiator() {
       Mag: 0,
       PO: 0,
       PP: 0,
+      umiejetnosci: ['Unik', 'Zastraszanie'
+      ],
+      wyborUmiejetnosciProfesji: [[]],
+
+      zdolnosci: [
+
+      ],
+      wyposazenie: [
+
+      ]
     }
   ];
 }
@@ -966,6 +1356,17 @@ function getGoniec() {
       Mag: 0,
       PO: 0,
       PP: 0,
+
+      umiejetnosci: ['Nawigacja', 'Pływanie', 'Sekretne znaki(zwiadowców)', 'Spostrzegawczość', 'Sztuka przetrwania', 'Unik'
+      ],
+      wyborUmiejetnosciProfesji: [[]],
+
+      zdolnosci: [
+
+      ],
+      wyposazenie: [
+
+      ]
     }
   ];
 }
@@ -990,6 +1391,17 @@ function getGornik() {
       Mag: 0,
       PO: 0,
       PP: 0,
+
+      umiejetnosci: ['Nawigacja', 'Opieka nad zwierzętami', 'Spostrzegawczość', 'Wspinaczka'
+      ],
+      wyborUmiejetnosciProfesji: [['Rzemiosło(górnictwo)', 'Rzemiosło(górnictwo odkrywkowe)'], ['Ukrywanie się', 'Powożenie'], ['Wycena', 'Sztuka przetrwania']],
+
+      zdolnosci: [
+
+      ],
+      wyposazenie: [
+
+      ]
     }
   ];
 }
@@ -1014,6 +1426,17 @@ function getGuslarz() {
       Mag: 1,
       PO: 0,
       PP: 0,
+
+      umiejetnosci: ['Przeszukiwanie', 'Splatanie magii', 'Spostrzegawczość', 'Wykrywanie magii'
+      ],
+      wyborUmiejetnosciProfesji: [['Leczenie', 'Hipnoza'], ['Opieka nad zwierzętami', 'Targowanie'], ['Oswajanie', 'Rzemiosło(aptekarstwo)'], ['Przekonywanie', 'Zastraszanie']],
+
+      zdolnosci: [
+
+      ],
+      wyposazenie: [
+
+      ]
     }
   ];
 }
@@ -1038,6 +1461,17 @@ function getHienaCmentarna() {
       Mag: 0,
       PO: 0,
       PP: 0,
+
+      umiejetnosci: ['Czytanie i pisanie', 'Zastraszanie', 'Przeszukiwanie', 'Spostrzegawczość', 'Wspinaczka', 'Wycena'
+      ],
+      wyborUmiejetnosciProfesji: [['Otwieranie zamków', 'Skradanie się'], ['Ukrywanie się', 'Sztuka przetrwania'], ['Wiedza(imperium)', 'Sekretne znaki(złodziei)'], ['Znajomość języka(eltharin)', 'Znajomość języka(khazalid)', 'Znajomość języka(klasyczny)']],
+
+      zdolnosci: [
+
+      ],
+      wyposazenie: [
+
+      ]
     }
   ];
 }
@@ -1062,6 +1496,17 @@ function getKanciarz() {
       Mag: 0,
       PO: 0,
       PP: 0,
+
+      umiejetnosci: ['Gadanina', 'Przekonywanie', 'Spostrzegawczość', 'Wycena', 'Znajomość języka(staroświatowy)'
+      ],
+      wyborUmiejetnosciProfesji: [['Hazard', 'Sekretne znaki(złodziei)'], ['Kuglarstwo(aktorstwo)', 'Kuglarstwo(gawędziarstwo)'], ['Plotkowanie', 'Targowanie'], ['Przeszukiwanie', 'Sekretny język(złodziejski)']],
+
+      zdolnosci: [
+
+      ],
+      wyposazenie: [
+
+      ]
     }
   ];
 }
@@ -1086,6 +1531,17 @@ function getKozakKislevski() {
       Mag: 0,
       PO: 0,
       PP: 0,
+
+      umiejetnosci: ['Mocna głowa', 'Przeszukiwanie', 'Spostrzegawczość', 'Sztuka przetrwania', 'Unik', 'Wiedza(kislev)', 'Znajomość języka(kislevski)'
+      ],
+      wyborUmiejetnosciProfesji: [['Hazard', 'Targowanie']],
+
+      zdolnosci: [
+
+      ],
+      wyposazenie: [
+
+      ]
     }
   ];
 }
@@ -1110,6 +1566,15 @@ function getLesnik() {
       Mag: 0,
       PO: 0,
       PP: 0,
+      umiejetnosci: ['Sekretne znaki(łowców)', 'Sekretny język(łowców)', 'Skradanie się', 'Spostrzegawczość', 'Ukrywanie się', 'Wspinaczka'],
+      wyborUmiejetnosciProfesji: [['Tropienie', 'Zastawianie pułapek']],
+
+      zdolnosci: [
+
+      ],
+      wyposazenie: [
+
+      ]
     }
   ];
 }
@@ -1134,6 +1599,15 @@ function getLowca() {
       Mag: 0,
       PO: 0,
       PP: 0,
+      umiejetnosci: ['Sekretne znaki(łowców)', 'Spostrzegawczość', 'Sztuka przetrwania', 'Tropienie', 'Ukrywanie się'],
+      wyborUmiejetnosciProfesji: [['Przeszukiwanie', 'Pływanie'], ['Skradanie się', 'Zastawianie pułapek']],
+
+      zdolnosci: [
+
+      ],
+      wyposazenie: [
+
+      ]
     }
   ];
 }
@@ -1158,6 +1632,15 @@ function getLowcaNagrod() {
       Mag: 0,
       PO: 0,
       PP: 0,
+      umiejetnosci: ['Przeszukiwanie', 'Skradanie się', 'Spostrzegawczość', 'Sztuka przetrwania', 'Śledzenie', 'Tropienie', 'Zastraszanie'],
+      wyborUmiejetnosciProfesji: [[]],
+
+      zdolnosci: [
+
+      ],
+      wyposazenie: [
+
+      ]
     }
   ];
 }
@@ -1182,6 +1665,15 @@ function getMieszczanin() {
       Mag: 0,
       PO: 0,
       PP: 0,
+      umiejetnosci: ['Powożenie', 'Przeszukiwanie', 'Spostrzegawczość', 'Targowanie', 'Wycena', 'Znajomość języka(staroświatowy)'],
+      wyborUmiejetnosciProfesji: [['Plotkowanie', 'Czytanie i pisanie'], ['Wiedza(imperium)', 'Mocna głowa'], ['Znajomość języka(bretoński)', 'Znajomość języka(kislevski)', 'Znajomość języka(tileański)']],
+
+      zdolnosci: [
+
+      ],
+      wyposazenie: [
+
+      ]
     }
   ];
 }
@@ -1206,6 +1698,15 @@ function getMytnik() {
       Mag: 0,
       PO: 0,
       PP: 0,
+      umiejetnosci: ['Czytanie i pisanie', 'Przeszukiwanie', 'Spostrzegawczość', 'Unik', 'Wycena'],
+      wyborUmiejetnosciProfesji: [['Plotkowanie', 'Targowanie'], ['Znajomość języka(bretoński)', 'Znajomość języka(kislevski)', 'Znajomość języka(tileański)']],
+
+      zdolnosci: [
+
+      ],
+      wyposazenie: [
+
+      ]
     }
   ];
 }
@@ -1230,6 +1731,15 @@ function getNajemnik() {
       Mag: 0,
       PO: 0,
       PP: 0,
+      umiejetnosci: ['Sekretny język(bitewny)', 'Unik'],
+      wyborUmiejetnosciProfesji: [['Opieka nad zwierzętami', 'Hazard'], ['Plotkowanie', 'Targowanie'], ['Powożenie', 'Jeździectwo'], ['Spostrzegawczość', 'Przeszukiwanie'], ['Wiedza(bretonia)', 'Wiedza(kislev)', 'Wiedza(tilea)'], ['Znajomość języka(tileański)', 'Pływanie']],
+
+      zdolnosci: [
+
+      ],
+      wyposazenie: [
+
+      ]
     }
   ];
 }
@@ -1254,6 +1764,15 @@ function getOchotnik() {
       Mag: 0,
       PO: 0,
       PP: 0,
+      umiejetnosci: ['Opieka nad zwierzętami', 'Przeszukiwanie', 'Spostrzegawczość', 'Sztuka przetrwania', 'Unik'],
+      wyborUmiejetnosciProfesji: [['Hazard', 'Plotkowanie'], ['Powożenie', 'Pływanie'], ['Rzemiosło(aptekarstwo)', 'Rzemiosło(bednarstwo)', 'Rzemiosło(garbarstwo)', 'Rzemiosło(gotowanie)', 'Rzemiosło(górnictwo)', 'Rzemiosło(górnictwo odkrywkowe)', 'Rzemiosło(handel)', 'Rzemiosło(jubilerstwo)', 'Rzemiosło(kaligrafia)', 'Rzemiosło(kamieniarstwo)', 'Rzemiosło(kartografia)', 'Rzemiosło(kowalstwo)', 'Rzemiosło(krawiectwo)', 'Rzemiosło(młynarstwo)', 'Rzemiosło(piwowarstwo)', 'Rzemiosło(płatnerstwo)', 'Rzemiosło(rusznikarstwo)', 'Rzemiosło(rymarstwo)', 'Rzemiosło(stolarstwo)', 'Rzemiosło(szkutnictwo)', 'Rzemiosło(szewstwo)', 'Rzemiosło(sztuka)', 'Rzemiosło(świecarstwo)', 'Rzemiosło(uprawa ziemi)', 'Rzemiosło(wyrób łuków)', 'Rzemiosło(zielarstwo)', 'Rzemiosło(złotnictwo)']],
+
+      zdolnosci: [
+
+      ],
+      wyposazenie: [
+
+      ]
     }
   ];
 }
@@ -1278,6 +1797,15 @@ function getOchroniarz() {
       Mag: 0,
       PO: 0,
       PP: 0,
+      umiejetnosci: ['Leczenie', 'Spostrzegawczość', 'Unik', 'Zastraszanie'],
+      wyborUmiejetnosciProfesji: [[]],
+
+      zdolnosci: [
+
+      ],
+      wyposazenie: [
+
+      ]
     }
   ];
 }
@@ -1302,6 +1830,15 @@ function getOprych() {
       Mag: 0,
       PO: 0,
       PP: 0,
+      umiejetnosci: ['Hazard', 'Mocna głowa', 'Sekretny język(złodziejski)', 'Unik', 'Zastraszanie'],
+      wyborUmiejetnosciProfesji: [[]],
+
+      zdolnosci: [
+
+      ],
+      wyposazenie: [
+
+      ]
     }
   ];
 }
@@ -1326,6 +1863,15 @@ function getPaz() {
       Mag: 0,
       PO: 0,
       PP: 0,
+      umiejetnosci: ['Czytanie i pisanie', 'Gadanina', 'Nauka(genealogia/heraldyka)', 'Przeszukiwanie', 'Spostrzegawczość', 'Targowanie', 'Wycena'],
+      wyborUmiejetnosciProfesji: [['Plotkowanie', 'Znajomość języka(bretoński)', 'Znajomość języka(staroświatowy)']],
+
+      zdolnosci: [
+
+      ],
+      wyposazenie: [
+
+      ]
     }
   ];
 }
@@ -1350,13 +1896,22 @@ function getPodzegacz() {
       Mag: 0,
       PO: 0,
       PP: 0,
+      umiejetnosci: ['Czytanie i pisanie', 'Przekonywanie', 'Spostrzegawczość', 'Ukrywanie się', 'Znajomość języka(staroświatowy)'],
+      wyborUmiejetnosciProfesji: [['Nauka(historia)', 'Plotkowanie'], ['Nauka(prawo)', 'Wiedza(imperium)'], ['Znajomość języka(bretoński)', 'Znajomość języka(tileański)']],
+
+      zdolnosci: [
+
+      ],
+      wyposazenie: [
+
+      ]
     }
   ];
 }
 function getPorywaczZwlok() {
   return [
     {
-      title: 'Porywacz Zwłok',
+      title: 'Porywacz zwłok',
       opis: 'blelbe',
       WW: 5,
       US: 5,
@@ -1374,6 +1929,15 @@ function getPorywaczZwlok() {
       Mag: 0,
       PO: 0,
       PP: 0,
+      umiejetnosci: ['Powożenie', 'Przeszukiwanie', 'Sekretne znaki(złodziei)', 'Skradanie się', 'Spostrzegawczość', 'Wspinaczka'],
+      wyborUmiejetnosciProfesji: [['Plotkowanie', 'Targowanie']],
+
+      zdolnosci: [
+
+      ],
+      wyposazenie: [
+
+      ]
     }
   ];
 }
@@ -1398,6 +1962,15 @@ function getPoslaniec() {
       Mag: 0,
       PO: 0,
       PP: 0,
+      umiejetnosci: ['Jeździectwo', 'Nawigacja', 'Opieka nad zwierzętami', 'Pływanie', 'Sekretne znaki(zwiadowców)', 'Spostrzegawczość', 'Sztuka przetrwania', 'Znajomość języka(staroświatowy)'],
+      wyborUmiejetnosciProfesji: [['Wiedza(imperium)', 'Wiedza(jałowa kraina)', 'Plotkowanie']],
+
+      zdolnosci: [
+
+      ],
+      wyposazenie: [
+
+      ]
     }
   ];
 }
@@ -1422,6 +1995,15 @@ function getPrzemytnik() {
       Mag: 0,
       PO: 0,
       PP: 0,
+      umiejetnosci: ['Pływanie', 'Powożenie', 'Przeszukiwanie', 'Skradanie się', 'Spostrzegawczość', 'Targowanie', 'Wioślarstwo', 'Wycena'],
+      wyborUmiejetnosciProfesji: [['Plotkowanie', 'Sekretny język(złodziejski)'], ['Znajomość języka(bretoński)', 'Znajomość języka(kislevski)', 'Sekretne znaki(złodziei)']],
+
+      zdolnosci: [
+
+      ],
+      wyposazenie: [
+
+      ]
     }
   ];
 }
@@ -1446,6 +2028,15 @@ function getPrzepatrywacz() {
       Mag: 0,
       PO: 0,
       PP: 0,
+      umiejetnosci: ['Jeździectwo', 'Nawigacja', 'Opieka nad zwierzętami', 'Przeszukiwanie', 'Skradanie się', 'Spostrzegawczość', 'Sztuka przetrwania', 'Tropienie'],
+      wyborUmiejetnosciProfesji: [[]],
+
+      zdolnosci: [
+
+      ],
+      wyposazenie: [
+
+      ]
     }
   ];
 }
@@ -1470,6 +2061,15 @@ function getPrzewoznik() {
       Mag: 0,
       PO: 0,
       PP: 0,
+      umiejetnosci: ['Pływanie', 'Przekonywanie', 'Spostrzegawczość', 'Targowanie', 'Wiedza(imperium)', 'Wioślarstwo'],
+      wyborUmiejetnosciProfesji: [['Plotkowanie', 'Zastraszanie'], ['Wycena', 'Sekretny język(łowców)']],
+
+      zdolnosci: [
+
+      ],
+      wyposazenie: [
+
+      ]
     }
   ];
 }
@@ -1494,6 +2094,15 @@ function getRybak() {
       Mag: 0,
       PO: 0,
       PP: 0,
+      umiejetnosci: ['Pływanie', 'Spostrzegawczość', 'Sztuka przetrwania', 'Wioślrastwo', 'Żeglarstwo'],
+      wyborUmiejetnosciProfesji: [['Mocna głowa', 'Targowanie'], ['Nawigacja', 'Rzemiosło(handel)'], ['Wiedza(imperium)', 'Wiedza(jałowa kraina)'], ['Znajomość języka(staroświatowy)', 'Znajomość języka(norski)']],
+
+      zdolnosci: [
+
+      ],
+      wyposazenie: [
+
+      ]
     }
   ];
 }
@@ -1518,6 +2127,15 @@ function getRzecznikRodu() {
       Mag: 0,
       PO: 0,
       PP: 0,
+      umiejetnosci: ['Czytanie i pisanie', 'Plotkowanie', 'Pływanie', 'Przekonywanie', 'Rzemiosło(handel)', 'Sekretny język(gildii)', 'Spostrzegawczość', 'Targowanie', 'Wycena'],
+      wyborUmiejetnosciProfesji: [['Wiedza(imperium)', 'Wiedza(jałowa kraina)']],
+
+      zdolnosci: [
+
+      ],
+      wyposazenie: [
+
+      ]
     }
   ];
 }
@@ -1542,6 +2160,17 @@ function getRzemieslnik() {
       Mag: 0,
       PO: 0,
       PP: 0,
+      umiejetnosci: ['Czytanie i pisanie', 'Powożenie', 'Sekretny język(gildii)', 'Spostrzegawczość', 'Targowanie', 'Wycena'],
+      wyborUmiejetnosciProfesji: [['Opieka nad zwierzętami', 'Plotkowanie'],
+      ['Rzemiosło(aptekarstwo)', 'Rzemiosło(bednarstwo)', 'Rzemiosło(garbarstwo)', 'Rzemiosło(gotowanie)', 'Rzemiosło(górnictwo)', 'Rzemiosło(górnictwo odkrywkowe)', 'Rzemiosło(handel)', 'Rzemiosło(jubilerstwo)', 'Rzemiosło(kaligrafia)', 'Rzemiosło(kamieniarstwo)', 'Rzemiosło(kartografia)', 'Rzemiosło(kowalstwo)', 'Rzemiosło(krawiectwo)', 'Rzemiosło(młynarstwo)', 'Rzemiosło(piwowarstwo)', 'Rzemiosło(płatnerstwo)', 'Rzemiosło(rusznikarstwo)', 'Rzemiosło(rymarstwo)', 'Rzemiosło(stolarstwo)', 'Rzemiosło(szkutnictwo)', 'Rzemiosło(szewstwo)', 'Rzemiosło(sztuka)', 'Rzemiosło(świecarstwo)', 'Rzemiosło(uprawa ziemi)', 'Rzemiosło(wyrób łuków)', 'Rzemiosło(zielarstwo)', 'Rzemiosło(złotnictwo)'],
+      ['Rzemiosło(aptekarstwo)', 'Rzemiosło(bednarstwo)', 'Rzemiosło(garbarstwo)', 'Rzemiosło(gotowanie)', 'Rzemiosło(górnictwo)', 'Rzemiosło(górnictwo odkrywkowe)', 'Rzemiosło(handel)', 'Rzemiosło(jubilerstwo)', 'Rzemiosło(kaligrafia)', 'Rzemiosło(kamieniarstwo)', 'Rzemiosło(kartografia)', 'Rzemiosło(kowalstwo)', 'Rzemiosło(krawiectwo)', 'Rzemiosło(młynarstwo)', 'Rzemiosło(piwowarstwo)', 'Rzemiosło(płatnerstwo)', 'Rzemiosło(rusznikarstwo)', 'Rzemiosło(rymarstwo)', 'Rzemiosło(stolarstwo)', 'Rzemiosło(szkutnictwo)', 'Rzemiosło(szewstwo)', 'Rzemiosło(sztuka)', 'Rzemiosło(świecarstwo)', 'Rzemiosło(uprawa ziemi)', 'Rzemiosło(wyrób łuków)', 'Rzemiosło(zielarstwo)', 'Rzemiosło(złotnictwo)']],
+
+      zdolnosci: [
+
+      ],
+      wyposazenie: [
+
+      ]
     }
   ];
 }
@@ -1566,6 +2195,15 @@ function getRzezimieszek() {
       Mag: 0,
       PO: 0,
       PP: 0,
+      umiejetnosci: ['Jeździectwo', 'Unik', 'Zastraszanie'],
+      wyborUmiejetnosciProfesji: [['Plotkowanie', 'Targowanie']],
+
+      zdolnosci: [
+
+      ],
+      wyposazenie: [
+
+      ]
     }
   ];
 }
@@ -1590,6 +2228,15 @@ function getSkryba() {
       Mag: 0,
       PO: 0,
       PP: 0,
+      umiejetnosci: ['Czytanie i pisanie', 'Rzemiosło(kaligrafia)', 'Sekretny język(gildii)', 'Spostrzegawczość', 'Wiedza(imperium)', 'Znajomość języka(klasyczny)'],
+      wyborUmiejetnosciProfesji: [['Nauka(astronomia)', 'Nauka(anatomia)', 'Nauka(alchemia)', 'Nauka(demonologia)', 'Nauka(filozofia)', 'Nauka(historia)', 'Nauka(inżynieria)', 'Nauka(magia)', 'Nauka(genealogia/heraldyka)', 'Nauka(matematyka)', 'Nauka(nekromancja)', 'Nauka(prawo)', 'Nauka(runy)', 'Nauka(strategia/taktyka)', 'Nauka(sztuka)', 'Nauka(teologia)'], ['Wiedza(imperium)', 'Plotkowanie'], ['Znajomość języka(staroświatowy)', 'Znajomość języka(tileański)']],
+
+      zdolnosci: [
+
+      ],
+      wyposazenie: [
+
+      ]
     }
   ];
 }
@@ -1614,6 +2261,15 @@ function getSluga() {
       Mag: 0,
       PO: 0,
       PP: 0,
+      umiejetnosci: ['Gadanina', 'Plotkowanie', 'Spostrzegawczość', 'Unik'],
+      wyborUmiejetnosciProfesji: [['Czytanie i pisanie', 'Zwinne palce'], ['Opieka nad zwierzętami', 'Rzemiosło(gotowanie)'], ['Powożenie', 'Przeszukiwanie'], ['Targowanie', 'Wycena']],
+
+      zdolnosci: [
+
+      ],
+      wyposazenie: [
+
+      ]
     }
   ];
 }
@@ -1638,6 +2294,15 @@ function getStraznik() {
       Mag: 0,
       PO: 0,
       PP: 0,
+      umiejetnosci: ['Nauka(prawo)', 'Plotkowanie', 'Przeszukiwanie', 'Spostrzegawczość', 'Tropienie', 'Unik', 'Zastraszanie'],
+      wyborUmiejetnosciProfesji: [[]],
+
+      zdolnosci: [
+
+      ],
+      wyposazenie: [
+
+      ]
     }
   ];
 }
@@ -1662,6 +2327,15 @@ function getStraznikDrog() {
       Mag: 0,
       PO: 0,
       PP: 0,
+      umiejetnosci: ['Jeździectwo', 'Nawigacja', 'Opieka nad zwierzętami', 'Powożenie', 'Przeszukiwanie', 'Spostrzegawczość', 'Sztuka przetrwania'],
+      wyborUmiejetnosciProfesji: [['Tropienie', 'Sekretne znaki(zwiadowców)'], ['Wiedza(imperium)', 'Plotkowanie']],
+
+      zdolnosci: [
+
+      ],
+      wyposazenie: [
+
+      ]
     }
   ];
 }
@@ -1686,6 +2360,15 @@ function getStraznikPol() {
       Mag: 0,
       PO: 0,
       PP: 0,
+      umiejetnosci: ['Przeszukiwanie', 'Skradanie się', 'Spostrzegawczość', 'Sztuka przetrwania', 'Tropienie', 'Ukrywanie się'],
+      wyborUmiejetnosciProfesji: [['Nauka(nekromancja)', 'Wiedza(imperium)']],
+
+      zdolnosci: [
+
+      ],
+      wyposazenie: [
+
+      ]
     }
   ];
 }
@@ -1710,6 +2393,15 @@ function getStraznikWiezienny() {
       Mag: 0,
       PO: 0,
       PP: 0,
+      umiejetnosci: ['Dowodzenie', 'Mocna głowa', 'Przeszukiwanie', 'Spostrzegawczość', 'Unik', 'Zastraszanie'],
+      wyborUmiejetnosciProfesji: [['Leczenie', 'Zwinne palce']],
+
+      zdolnosci: [
+
+      ],
+      wyposazenie: [
+
+      ]
     }
   ];
 }
@@ -1734,6 +2426,15 @@ function getSzczurolap() {
       Mag: 0,
       PO: 0,
       PP: 0,
+      umiejetnosci: ['Opieka nad zwierzętami', 'Przeszukiwanie', 'Skradanie się', 'Spostrzegawczość', 'Tresura', 'Ukrywanie się', 'Zastawianie pułapek'],
+      wyborUmiejetnosciProfesji: [[]],
+
+      zdolnosci: [
+
+      ],
+      wyposazenie: [
+
+      ]
     }
   ];
 }
@@ -1758,6 +2459,15 @@ function getSzermierzEstalijski() {
       Mag: 0,
       PO: 0,
       PP: 0,
+      umiejetnosci: ['Czytanie i pisanie', 'Nauka(anatomia)', 'Unik', 'Wiedza(estalia)', 'Znajomość języka(estalijski)'],
+      wyborUmiejetnosciProfesji: [[]],
+
+      zdolnosci: [
+
+      ],
+      wyposazenie: [
+
+      ]
     }
   ];
 }
@@ -1782,6 +2492,15 @@ function GetSzlachcic() {
       Mag: 0,
       PO: 0,
       PP: 0,
+      umiejetnosci: ['Czytanie i pisanie', 'Jeździectwo', 'Przekonywanie', 'Wiedza(imperium)', 'Znajomość języka(staroświatowy)'],
+      wyborUmiejetnosciProfesji: [['Gadanina', 'Dowodzenie'], ['Hazard', 'Plotkowanie'], ['Mocna głowa', 'Kuglarstwo(muzykalność)']],
+
+      zdolnosci: [
+
+      ],
+      wyposazenie: [
+
+      ]
     }
   ];
 }
@@ -1806,6 +2525,15 @@ function getSmieciarz() {
       Mag: 0,
       PO: 0,
       PP: 0,
+      umiejetnosci: ['Opieka nad zwierzętami', 'Powożenie', 'Przeszukiwanie', 'Spostrzegawczość', 'Targowanie', 'Wiedza(imperium)', 'Wycena'],
+      wyborUmiejetnosciProfesji: [['Przekonywanie', 'Plotkowanie']],
+
+      zdolnosci: [
+
+      ],
+      wyposazenie: [
+
+      ]
     }
   ];
 }
@@ -1830,6 +2558,15 @@ function getTarczownik() {
       Mag: 0,
       PO: 0,
       PP: 0,
+      umiejetnosci: ['Nawigacja', 'Spostrzegawczość', 'Śledzenie', 'Unik', 'Wspinaczka'],
+      wyborUmiejetnosciProfesji: [[]],
+
+      zdolnosci: [
+
+      ],
+      wyposazenie: [
+
+      ]
     }
   ];
 }
@@ -1854,6 +2591,15 @@ function getUczenCzarodzieja() {
       Mag: 1,
       PO: 0,
       PP: 0,
+      umiejetnosci: ['Czytanie i pisanie', 'Język tajemny(magiczny)', 'Nauka(magia)', 'Przeszukiwanie', 'Splatanie magii', 'Spostrzegawczość', 'Wykrywanie magii', 'Znajomość języka(klasyczny)'],
+      wyborUmiejetnosciProfesji: [[]],
+
+      zdolnosci: [
+
+      ],
+      wyposazenie: [
+
+      ]
     }
   ];
 }
@@ -1878,6 +2624,15 @@ function getWeglarz() {
       Mag: 0,
       PO: 0,
       PP: 0,
+      umiejetnosci: ['Przeszukiwanie', 'Sekretne znaki(łowców)', 'Spostrzegawczość', 'Sztuka przetrwania', 'Targowanie', 'Wspinaczka'],
+      wyborUmiejetnosciProfesji: [['Powożenie', 'Plotkowanie'], ['Wiedza(imperium)', 'Ukrywanie się']],
+
+      zdolnosci: [
+
+      ],
+      wyposazenie: [
+
+      ]
     }
   ];
 }
@@ -1902,6 +2657,16 @@ function getWloczykij() {
       Mag: 0,
       PO: 0,
       PP: 0,
+      umiejetnosci: ['Nawigacja', 'Plotkowanie', 'Skradanie się', 'Sztuka przetrwania'],
+      wyborUmiejetnosciProfesji: [['Kuglarstwo(gawędziarstwo)', 'Kuglarstwo(śpiew)', 'Kuglarstwo(taniec)', 'Sekretne znaki(łowców)', 'Sekretne znaki(złodziei)'],
+      ['Leczenie', 'Spostrzegawczość'], ['Plotkowanie', 'Sekretny język(łowców)', 'Sekretny język(złodziejski)'], ['Targowanie', 'Pływanie'], ['Wiedza(bretonia)', 'Wiedza(estalia)', 'Wiedza(kislev)', 'Wiedza(tilea)']],
+
+      zdolnosci: [
+
+      ],
+      wyposazenie: [
+
+      ]
     }
   ];
 }
@@ -1926,6 +2691,15 @@ function getWojownikKlanowy() {
       Mag: 0,
       PO: 0,
       PP: 0,
+      umiejetnosci: ['Skradanie się', 'Spostrzegawczość', 'Sztuka przetrwania', 'Tropienie', 'Ukrywanie się', 'Unik', 'Wspinaczka'],
+      wyborUmiejetnosciProfesji: [['Leczenie', 'Przeszukiwanie']],
+
+      zdolnosci: [
+
+      ],
+      wyposazenie: [
+
+      ]
     }
   ];
 }
@@ -1950,6 +2724,15 @@ function getWoznica() {
       Mag: 0,
       PO: 0,
       PP: 0,
+      umiejetnosci: ['Nawigacja', 'Opieka nad zwierzętami', 'Powożenie', 'Sekretne znaki(łowców)', 'Spostrzegawczość'],
+      wyborUmiejetnosciProfesji: [['Leczenie', 'Jeździectwo'], ['Plotkowanie', 'Targowanie'], ['Znajomość języka(bretoński)', 'Znajomość języka(kislevski)', 'Znajomość języka(tileański)']],
+
+      zdolnosci: [
+
+      ],
+      wyposazenie: [
+
+      ]
     }
   ];
 }
@@ -1974,6 +2757,15 @@ function getZabojcaTrolli() {
       Mag: 0,
       PO: 0,
       PP: 0,
+      umiejetnosci: ['Mocna głowa', 'Unik', 'Zastraszanie'],
+      wyborUmiejetnosciProfesji: [[]],
+
+      zdolnosci: [
+
+      ],
+      wyposazenie: [
+
+      ]
     }
   ];
 }
@@ -1998,6 +2790,15 @@ function getZarzadca() {
       Mag: 0,
       PO: 0,
       PP: 0,
+      umiejetnosci: ['Czytanie i pisanie', 'Jeździectwo', 'Nauka(prawo)', 'Przekonywanie', 'Spostrzegawczość'],
+      wyborUmiejetnosciProfesji: [['Dowodzenie', 'Nawigacja'], ['Opieka nad zwierzętami', 'Plotkowanie'], ['Zastraszanie', 'Wiedza(imperium)']],
+
+      zdolnosci: [
+
+      ],
+      wyposazenie: [
+
+      ]
     }
   ];
 }
@@ -2022,6 +2823,15 @@ function getZlodziej() {
       Mag: 0,
       PO: 0,
       PP: 0,
+      umiejetnosci: ['Przeszukiwanie', 'Skradanie się', 'Spostrzegawczość', 'Ukrywanie się'],
+      wyborUmiejetnosciProfesji: [['Czytanie i pisanie', 'Zwinne palce'], ['Hazard', 'Otwieranie zamków'], ['Przekonywanie', 'Wspinaczka'], ['Sekretny język(złodziejski)', 'Sekretne znaki(złodziei)'], ['Wycena', 'Charakteryzacja']],
+
+      zdolnosci: [
+
+      ],
+      wyposazenie: [
+
+      ]
     }
   ];
 }
@@ -2046,6 +2856,17 @@ function getZak() {
       Mag: 0,
       PO: 0,
       PP: 0,
+      umiejetnosci: ['Czytanie i pisanie', 'Spostrzegawczość', 'Znajomość języka(klasyczny)', 'Znajomość języka(staroświatowy)'],
+      wyborUmiejetnosciProfesji: [['Leczenie', 'Przeszukiwanie'], ['Nauka(astronomia)', 'Nauka(anatomia)', 'Nauka(alchemia)', 'Nauka(demonologia)', 'Nauka(filozofia)', 'Nauka(historia)', 'Nauka(inżynieria)', 'Nauka(magia)', 'Nauka(genealogia/heraldyka)', 'Nauka(matematyka)', 'Nauka(nekromancja)', 'Nauka(prawo)', 'Nauka(runy)', 'Nauka(strategia/taktyka)', 'Nauka(sztuka)', 'Nauka(teologia)'],
+      ['Nauka(astronomia)', 'Nauka(anatomia)', 'Nauka(alchemia)', 'Nauka(demonologia)', 'Nauka(filozofia)', 'Nauka(historia)', 'Nauka(inżynieria)', 'Nauka(magia)', 'Nauka(genealogia/heraldyka)', 'Nauka(matematyka)', 'Nauka(nekromancja)', 'Nauka(prawo)', 'Nauka(runy)', 'Nauka(strategia/taktyka)', 'Nauka(sztuka)', 'Nauka(teologia)', 'Plotkowanie'],
+      ['Przekonywanie', 'Mocna głowa']],
+
+      zdolnosci: [
+
+      ],
+      wyposazenie: [
+
+      ]
     }
   ];
 }
@@ -2070,6 +2891,15 @@ function getZeglarz() {
       Mag: 0,
       PO: 0,
       PP: 0,
+      umiejetnosci: ['Pływanie', 'Unik', 'Wioślarstwo', 'Wspinaczka', 'Żeglarstwo'],
+      wyborUmiejetnosciProfesji: [['Mocna głowa', 'Spostrzegawczość'], ['Wiedza(bretonia)', 'Wiedza(norska)', 'Wiedza(tilea)', 'Wiedza(jałowa kraina)'], ['Znajomość języka(bretoński)', 'Znajomość języka(tileański)', 'Znajomość języka(norski)']],
+
+      zdolnosci: [
+
+      ],
+      wyposazenie: [
+
+      ]
     }
   ];
 }
@@ -2094,6 +2924,15 @@ function getZolnierz() {
       Mag: 0,
       PO: 0,
       PP: 0,
+      umiejetnosci: ['Unik', 'Zastraszanie'],
+      wyborUmiejetnosciProfesji: [['Hazard', 'Plotkowanie'], ['Opieka nad zwierzętami', 'Leczenie'], ['Powożenie', 'Jeździectwo'],['Wiedza(imperium)', 'Spostrzegawczość']],
+
+      zdolnosci: [
+
+      ],
+      wyposazenie: [
+
+      ]
     }
   ];
 }
@@ -2118,6 +2957,15 @@ function getZolnierzOkretowy() {
       Mag: 0,
       PO: 0,
       PP: 0,
+      umiejetnosci: ['Mocna głowa', 'Pływanie', 'Unik', 'Wioślarstwo', 'Zastraszanie'],
+      wyborUmiejetnosciProfesji: [['Plotkowanie', 'Sekretny język(bitewny)'], ['Wiedza(jałowa kraina)', 'Hazard']],
+
+      zdolnosci: [
+
+      ],
+      wyposazenie: [
+
+      ]
     }
   ];
 }
@@ -2222,22 +3070,143 @@ function getJezdziectwo() {
     }
   ]
 }
-function getJezykTajemny() {
+function getJezykTajemnyMagiczny() {
   return [
     {
       typ: 'Zaawansowana',
-      umiejetnosc: 'Język Tajemny',
+      umiejetnosc: 'Język Tajemny(magiczny)',
       cecha: 'Inteligencja',
       opis: 'opis jezyk tajemny',
       zdolnoscipokrewne: 'brak.'
     }
   ]
 }
-function getKuglarstwo() {
+function getKuglarstwoAkrobatyka() {
   return [
     {
       typ: 'Zaawansowana',
-      umiejetnosc: 'Kuglarstwo',
+      umiejetnosc: 'Kuglarstwo(akrobatyka)',
+      cecha: 'Ogłada',
+      opis: 'opis kuglarstwa',
+      zdolnoscipokrewne: 'człowiek-guma, naśladowca.'
+    }
+  ]
+}
+function getKuglarstwoAktorstwo() {
+  return [
+    {
+      typ: 'Zaawansowana',
+      umiejetnosc: 'Kuglarstwo(aktorstwo)',
+      cecha: 'Ogłada',
+      opis: 'opis kuglarstwa',
+      zdolnoscipokrewne: 'człowiek-guma, naśladowca.'
+    }
+  ]
+}
+function getKuglarstwoBlaznowanie() {
+  return [
+    {
+      typ: 'Zaawansowana',
+      umiejetnosc: 'Kuglarstwo(błaznowanie)',
+      cecha: 'Ogłada',
+      opis: 'opis kuglarstwa',
+      zdolnoscipokrewne: 'człowiek-guma, naśladowca.'
+    }
+  ]
+}
+function getKuglarstwoGawedziarstwo() {
+  return [
+    {
+      typ: 'Zaawansowana',
+      umiejetnosc: 'Kuglarstwo(gawędziarstwo)',
+      cecha: 'Ogłada',
+      opis: 'opis kuglarstwa',
+      zdolnoscipokrewne: 'człowiek-guma, naśladowca.'
+    }
+  ]
+}
+function getKuglarstwoKomedianctwo() {
+  return [
+    {
+      typ: 'Zaawansowana',
+      umiejetnosc: 'Kuglarstwo(komedianctwo)',
+      cecha: 'Ogłada',
+      opis: 'opis kuglarstwa',
+      zdolnoscipokrewne: 'człowiek-guma, naśladowca.'
+    }
+  ]
+}
+function getKuglarstwoMimika() {
+  return [
+    {
+      typ: 'Zaawansowana',
+      umiejetnosc: 'Kuglarstwo(mimika)',
+      cecha: 'Ogłada',
+      opis: 'opis kuglarstwa',
+      zdolnoscipokrewne: 'człowiek-guma, naśladowca.'
+    }
+  ]
+}
+function getKuglarstwoMuzykalnosc() {
+  return [
+    {
+      typ: 'Zaawansowana',
+      umiejetnosc: 'Kuglarstwo(muzykalność)',
+      cecha: 'Ogłada',
+      opis: 'opis kuglarstwa',
+      zdolnoscipokrewne: 'człowiek-guma, naśladowca.'
+    }
+  ]
+}
+function getKuglarstwoPolykanieOgnia() {
+  return [
+    {
+      typ: 'Zaawansowana',
+      umiejetnosc: 'Kuglarstwo(połykanie ognia)',
+      cecha: 'Ogłada',
+      opis: 'opis kuglarstwa',
+      zdolnoscipokrewne: 'człowiek-guma, naśladowca.'
+    }
+  ]
+}
+function getKuglarstwoSpiew() {
+  return [
+    {
+      typ: 'Zaawansowana',
+      umiejetnosc: 'Kuglarstwo(śpiew)',
+      cecha: 'Ogłada',
+      opis: 'opis kuglarstwa',
+      zdolnoscipokrewne: 'człowiek-guma, naśladowca.'
+    }
+  ]
+}
+function getKuglarstwoTaniec() {
+  return [
+    {
+      typ: 'Zaawansowana',
+      umiejetnosc: 'Kuglarstwo(taniec)',
+      cecha: 'Ogłada',
+      opis: 'opis kuglarstwa',
+      zdolnoscipokrewne: 'człowiek-guma, naśladowca.'
+    }
+  ]
+}
+function getKuglarstwoWrozenieZDloni() {
+  return [
+    {
+      typ: 'Zaawansowana',
+      umiejetnosc: 'Kuglarstwo(wróżenie z dłoni)',
+      cecha: 'Ogłada',
+      opis: 'opis kuglarstwa',
+      zdolnoscipokrewne: 'człowiek-guma, naśladowca.'
+    }
+  ]
+}
+function getKuglarstwoZonglerka() {
+  return [
+    {
+      typ: 'Zaawansowana',
+      umiejetnosc: 'Kuglarstwo(żonglerka)',
       cecha: 'Ogłada',
       opis: 'opis kuglarstwa',
       zdolnoscipokrewne: 'człowiek-guma, naśladowca.'
@@ -2266,11 +3235,22 @@ function getMocnaGlowa() {
     }
   ]
 }
-function getNauka() {
+function getNaukaAlchemia() {
   return [
     {
       typ: 'Zaawansowana',
-      umiejetnosc: 'Nauka',
+      umiejetnosc: 'Nauka(alchemia)',
+      cecha: 'Inteligencja',
+      opis: 'opis jezdziectwa',
+      zdolnoscipokrewne: 'brak.'
+    }
+  ]
+}
+function getNaukaAnatomia() {
+  return [
+    {
+      typ: 'Zaawansowana',
+      umiejetnosc: 'Nauka(anatomia)',
       cecha: 'Inteligencja',
       opis: 'opis jezdziectwa',
       zdolnoscipokrewne: 'brak.'
@@ -2288,11 +3268,132 @@ function getNaukaAstronomia() {
     }
   ]
 }
+function getNaukaDemonologia() {
+  return [
+    {
+      typ: 'Zaawansowana',
+      umiejetnosc: 'Nauka(demonologia)',
+      cecha: 'Inteligencja',
+      opis: 'opis jezdziectwa',
+      zdolnoscipokrewne: 'brak.'
+    }
+  ]
+}
+function getNaukaFilozofia() {
+  return [
+    {
+      typ: 'Zaawansowana',
+      umiejetnosc: 'Nauka(filozofia)',
+      cecha: 'Inteligencja',
+      opis: 'opis jezdziectwa',
+      zdolnoscipokrewne: 'brak.'
+    }
+  ]
+}
+function getNaukaGenealogiaHeraldyka() {
+  return [
+    {
+      typ: 'Zaawansowana',
+      umiejetnosc: 'Nauka(genealogia/heraldyka)',
+      cecha: 'Inteligencja',
+      opis: 'opis jezdziectwa',
+      zdolnoscipokrewne: 'brak.'
+    }
+  ]
+}
 function getNaukaHistoria() {
   return [
     {
       typ: 'Zaawansowana',
       umiejetnosc: 'Nauka(historia)',
+      cecha: 'Inteligencja',
+      opis: 'opis jezdziectwa',
+      zdolnoscipokrewne: 'brak.'
+    }
+  ]
+}
+function getNaukaInzynieria() {
+  return [
+    {
+      typ: 'Zaawansowana',
+      umiejetnosc: 'Nauka(inżynieria)',
+      cecha: 'Inteligencja',
+      opis: 'opis jezdziectwa',
+      zdolnoscipokrewne: 'brak.'
+    }
+  ]
+}
+function getNaukaMagia() {
+  return [
+    {
+      typ: 'Zaawansowana',
+      umiejetnosc: 'Nauka(magia)',
+      cecha: 'Inteligencja',
+      opis: 'opis jezdziectwa',
+      zdolnoscipokrewne: 'brak.'
+    }
+  ]
+}
+function getNaukaMatematyka() {
+  return [
+    {
+      typ: 'Zaawansowana',
+      umiejetnosc: 'Nauka(matematyka)',
+      cecha: 'Inteligencja',
+      opis: 'opis jezdziectwa',
+      zdolnoscipokrewne: 'brak.'
+    }
+  ]
+}
+function getNaukaNekromancja() {
+  return [
+    {
+      typ: 'Zaawansowana',
+      umiejetnosc: 'Nauka(nekromancja)',
+      cecha: 'Inteligencja',
+      opis: 'opis jezdziectwa',
+      zdolnoscipokrewne: 'brak.'
+    }
+  ]
+}
+function getNaukaPrawo() {
+  return [
+    {
+      typ: 'Zaawansowana',
+      umiejetnosc: 'Nauka(prawo)',
+      cecha: 'Inteligencja',
+      opis: 'opis jezdziectwa',
+      zdolnoscipokrewne: 'brak.'
+    }
+  ]
+}
+function getNaukaRuny() {
+  return [
+    {
+      typ: 'Zaawansowana',
+      umiejetnosc: 'Nauka(runy)',
+      cecha: 'Inteligencja',
+      opis: 'opis jezdziectwa',
+      zdolnoscipokrewne: 'brak.'
+    }
+  ]
+}
+function getNaukaStrategiaTaktyka() {
+  return [
+    {
+      typ: 'Zaawansowana',
+      umiejetnosc: 'Nauka(strategia/taktyka)',
+      cecha: 'Inteligencja',
+      opis: 'opis jezdziectwa',
+      zdolnoscipokrewne: 'brak.'
+    }
+  ]
+}
+function getNaukaSztuka() {
+  return [
+    {
+      typ: 'Zaawansowana',
+      umiejetnosc: 'Nauka(sztuka)',
       cecha: 'Inteligencja',
       opis: 'opis jezdziectwa',
       zdolnoscipokrewne: 'brak.'
@@ -2409,33 +3510,385 @@ function getPrzeszukiwanie() {
     }
   ]
 }
-function getRzemioslo() {
+function getRzemiosloAptekarstwo() {
   return [
     {
       typ: 'Zaawansowana',
-      umiejetnosc: 'Rzemiosło',
-      cecha: 'różnie.',
+      umiejetnosc: 'Rzemiosło(aptekarstwo)',
+      cecha: 'Inteligencja',
       opis: 'opis rzemiosla ',
       zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
     }
   ]
 }
-function getSekretneZnaki() {
+function getRzemiosloBednarstwo() {
   return [
     {
       typ: 'Zaawansowana',
-      umiejetnosc: 'Sekretne Znaki',
+      umiejetnosc: 'Rzemiosło(bednarstwo)',
+      cecha: 'Siła',
+      opis: 'opis rzemiosla ',
+      zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
+    }
+  ]
+}
+function getRzemiosloGarbarstwo() {
+  return [
+    {
+      typ: 'Zaawansowana',
+      umiejetnosc: 'Rzemiosło(garbarstwo)',
+      cecha: 'Siła',
+      opis: 'opis rzemiosla ',
+      zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
+    }
+  ]
+}
+function getRzemiosloGotowanie() {
+  return [
+    {
+      typ: 'Zaawansowana',
+      umiejetnosc: 'Rzemiosło(gotowanie)',
+      cecha: 'Inteligencja',
+      opis: 'opis rzemiosla ',
+      zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
+    }
+  ]
+}
+function getRzemiosloGornictwo() {
+  return [
+    {
+      typ: 'Zaawansowana',
+      umiejetnosc: 'Rzemiosło(górnictwo)',
+      cecha: 'Siła',
+      opis: 'opis rzemiosla ',
+      zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
+    }
+  ]
+}
+function getRzemiosloGornictwoOdkrywkowe() {
+  return [
+    {
+      typ: 'Zaawansowana',
+      umiejetnosc: 'Rzemiosło(górnictwo odkrywkowe)',
+      cecha: 'Siła',
+      opis: 'opis rzemiosla ',
+      zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
+    }
+  ]
+}
+function getRzemiosloHandel() {
+  return [
+    {
+      typ: 'Zaawansowana',
+      umiejetnosc: 'Rzemiosło(handel)',
+      cecha: 'Ogłada',
+      opis: 'opis rzemiosla ',
+      zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
+    }
+  ]
+}
+function getRzemiosloJubilerstwo() {
+  return [
+    {
+      typ: 'Zaawansowana',
+      umiejetnosc: 'Rzemiosło(jubilerstwo)',
+      cecha: 'Zręczność',
+      opis: 'opis rzemiosla ',
+      zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
+    }
+  ]
+}
+function getRzemiosloKaligrafia() {
+  return [
+    {
+      typ: 'Zaawansowana',
+      umiejetnosc: 'Rzemiosło(kaligrafia)',
+      cecha: 'Zręczność',
+      opis: 'opis rzemiosla ',
+      zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
+    }
+  ]
+}
+function getRzemiosloKamieniarstwo() {
+  return [
+    {
+      typ: 'Zaawansowana',
+      umiejetnosc: 'Rzemiosło(kamieniarstwo)',
+      cecha: 'Zręczność',
+      opis: 'opis rzemiosla ',
+      zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
+    }
+  ]
+}
+function getRzemiosloKartografia() {
+  return [
+    {
+      typ: 'Zaawansowana',
+      umiejetnosc: 'Rzemiosło(kartografia)',
+      cecha: 'Zręczność',
+      opis: 'opis rzemiosla ',
+      zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
+    }
+  ]
+}
+function getRzemiosloKowalstwo() {
+  return [
+    {
+      typ: 'Zaawansowana',
+      umiejetnosc: 'Rzemiosło(kowalstwo)',
+      cecha: 'Siła',
+      opis: 'opis rzemiosla ',
+      zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
+    }
+  ]
+}
+function getRzemiosloKrawiectwo() {
+  return [
+    {
+      typ: 'Zaawansowana',
+      umiejetnosc: 'Rzemiosło(krawiectwo)',
+      cecha: 'Zręczność',
+      opis: 'opis rzemiosla ',
+      zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
+    }
+  ]
+}
+function getRzemiosloMlynarstwo() {
+  return [
+    {
+      typ: 'Zaawansowana',
+      umiejetnosc: 'Rzemiosło(młynarstwo)',
+      cecha: 'Siła',
+      opis: 'opis rzemiosla ',
+      zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
+    }
+  ]
+}
+function getRzemiosloPiwowarstwo() {
+  return [
+    {
+      typ: 'Zaawansowana',
+      umiejetnosc: 'Rzemiosło(piwowarstwo)',
+      cecha: 'Inteligencja',
+      opis: 'opis rzemiosla ',
+      zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
+    }
+  ]
+}
+function getRzemiosloPlatnerstwo() {
+  return [
+    {
+      typ: 'Zaawansowana',
+      umiejetnosc: 'Rzemiosło(płatnerstwo)',
+      cecha: 'Siła',
+      opis: 'opis rzemiosla ',
+      zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
+    }
+  ]
+}
+function getRzemiosloRusznikarstwo() {
+  return [
+    {
+      typ: 'Zaawansowana',
+      umiejetnosc: 'Rzemiosło(rusznikarstwo)',
+      cecha: 'Zręczność',
+      opis: 'opis rzemiosla ',
+      zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
+    }
+  ]
+}
+function getRzemiosloRymarstwo() {
+  return [
+    {
+      typ: 'Zaawansowana',
+      umiejetnosc: 'Rzemiosło(rymarstwo)',
+      cecha: 'Zręczność',
+      opis: 'opis rzemiosla ',
+      zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
+    }
+  ]
+}
+function getRzemiosloStolarstwo() {
+  return [
+    {
+      typ: 'Zaawansowana',
+      umiejetnosc: 'Rzemiosło(stolarstwo)',
+      cecha: 'Zręczność',
+      opis: 'opis rzemiosla ',
+      zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
+    }
+  ]
+}
+function getRzemiosloSzkutnictwo() {
+  return [
+    {
+      typ: 'Zaawansowana',
+      umiejetnosc: 'Rzemiosło(szkutnictwo)',
+      cecha: 'Inteligencja',
+      opis: 'opis rzemiosla ',
+      zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
+    }
+  ]
+}
+function getRzemiosloSzewstwo() {
+  return [
+    {
+      typ: 'Zaawansowana',
+      umiejetnosc: 'Rzemiosło(szewstwo)',
+      cecha: 'Zręczność',
+      opis: 'opis rzemiosla ',
+      zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
+    }
+  ]
+}
+function getRzemiosloSztuka() {
+  return [
+    {
+      typ: 'Zaawansowana',
+      umiejetnosc: 'Rzemiosło(sztuka)',
+      cecha: 'Zręszność',
+      opis: 'opis rzemiosla ',
+      zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
+    }
+  ]
+}
+function getRzemiosloSwiecarstwo() {
+  return [
+    {
+      typ: 'Zaawansowana',
+      umiejetnosc: 'Rzemiosło(świecarstwo)',
+      cecha: 'Zręszność',
+      opis: 'opis rzemiosla ',
+      zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
+    }
+  ]
+}
+function getRzemiosloUprawaZiemi() {
+  return [
+    {
+      typ: 'Zaawansowana',
+      umiejetnosc: 'Rzemiosło(uprawa ziemi)',
+      cecha: 'Siła',
+      opis: 'opis rzemiosla ',
+      zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
+    }
+  ]
+}
+function getRzemiosloWyrobLukow() {
+  return [
+    {
+      typ: 'Zaawansowana',
+      umiejetnosc: 'Rzemiosło(wyrób łuków)',
+      cecha: 'Zręczność',
+      opis: 'opis rzemiosla ',
+      zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
+    }
+  ]
+}
+function getRzemiosloZielarstwo() {
+  return [
+    {
+      typ: 'Zaawansowana',
+      umiejetnosc: 'Rzemiosło(zielarstwo)',
+      cecha: 'Inteligencja',
+      opis: 'opis rzemiosla ',
+      zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
+    }
+  ]
+}
+function getRzemiosloZlotnictwo() {
+  return [
+    {
+      typ: 'Zaawansowana',
+      umiejetnosc: 'Rzemiosło(złotnictwo)',
+      cecha: 'Zręczność',
+      opis: 'opis rzemiosla ',
+      zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
+    }
+  ]
+}
+function getSekretneZnakiLowcow() {
+  return [
+    {
+      typ: 'Zaawansowana',
+      umiejetnosc: 'Sekretne Znaki(łowców)',
       cecha: 'Inteligencja',
       opis: 'opis sekretnych znakow',
       zdolnoscipokrewne: 'brak.'
     }
   ]
 }
-function getSekretnyJezyk() {
+function getSekretneZnakiRycerzyZakonnych() {
   return [
     {
       typ: 'Zaawansowana',
-      umiejetnosc: 'Sekretny język',
+      umiejetnosc: 'Sekretne Znaki(rycerzy zakonnych)',
+      cecha: 'Inteligencja',
+      opis: 'opis sekretnych znakow',
+      zdolnoscipokrewne: 'brak.'
+    }
+  ]
+}
+function getSekretneZnakiZwiadowcow() {
+  return [
+    {
+      typ: 'Zaawansowana',
+      umiejetnosc: 'Sekretne Znaki(zwiadowców)',
+      cecha: 'Inteligencja',
+      opis: 'opis sekretnych znakow',
+      zdolnoscipokrewne: 'brak.'
+    }
+  ]
+}
+function getSekretneZnakiZlodziei() {
+  return [
+    {
+      typ: 'Zaawansowana',
+      umiejetnosc: 'Sekretne Znaki(złodziei)',
+      cecha: 'Inteligencja',
+      opis: 'opis sekretnych znakow',
+      zdolnoscipokrewne: 'brak.'
+    }
+  ]
+}
+function getSekretnyJezykBitewny() {
+  return [
+    {
+      typ: 'Zaawansowana',
+      umiejetnosc: 'Sekretny język(bitewny)',
+      cecha: 'Inteligencja',
+      opis: 'opis sekretny jezyk',
+      zdolnoscipokrewne: 'brak.'
+    }
+  ]
+}
+function getSekretnyJezykGildii() {
+  return [
+    {
+      typ: 'Zaawansowana',
+      umiejetnosc: 'Sekretny język(gildii)',
+      cecha: 'Inteligencja',
+      opis: 'opis sekretny jezyk',
+      zdolnoscipokrewne: 'brak.'
+    }
+  ]
+}
+function getSekretnyJezykLowcow() {
+  return [
+    {
+      typ: 'Zaawansowana',
+      umiejetnosc: 'Sekretny język(łowców)',
+      cecha: 'Inteligencja',
+      opis: 'opis sekretny jezyk',
+      zdolnoscipokrewne: 'brak.'
+    }
+  ]
+}
+function getSekretnyJezykZlodziejski() {
+  return [
+    {
+      typ: 'Zaawansowana',
+      umiejetnosc: 'Sekretny język(złodziejski)',
       cecha: 'Inteligencja',
       opis: 'opis sekretny jezyk',
       zdolnoscipokrewne: 'brak.'
@@ -2574,11 +4027,88 @@ function getWarzenieTrucizn() {
     }
   ]
 }
+function getWiedzaBretonia() {
+  return [
+    {
+      typ: 'Zaawansowana',
+      umiejetnosc: 'Wiedza(bretonia)',
+      cecha: 'Inteligencja',
+      opis: 'opis wiedzy',
+      zdolnoscipokrewne: 'obieżyświat.'
+    }
+  ]
+}
+function getWiedzaEstalia() {
+  return [
+    {
+      typ: 'Zaawansowana',
+      umiejetnosc: 'Wiedza(estalia)',
+      cecha: 'Inteligencja',
+      opis: 'opis wiedzy',
+      zdolnoscipokrewne: 'obieżyświat.'
+    }
+  ]
+}
 function getWiedzaImperium() {
   return [
     {
       typ: 'Zaawansowana',
-      umiejetnosc: 'Wiedza(Imperium)',
+      umiejetnosc: 'Wiedza(imperium)',
+      cecha: 'Inteligencja',
+      opis: 'opis wiedzy',
+      zdolnoscipokrewne: 'obieżyświat.'
+    }
+  ]
+}
+function getWiedzaJalowaKraina() {
+  return [
+    {
+      typ: 'Zaawansowana',
+      umiejetnosc: 'Wiedza(jałowa kraina)',
+      cecha: 'Inteligencja',
+      opis: 'opis wiedzy',
+      zdolnoscipokrewne: 'obieżyświat.'
+    }
+  ]
+}
+function getWiedzaKislev() {
+  return [
+    {
+      typ: 'Zaawansowana',
+      umiejetnosc: 'Wiedza(kislev)',
+      cecha: 'Inteligencja',
+      opis: 'opis wiedzy',
+      zdolnoscipokrewne: 'obieżyświat.'
+    }
+  ]
+}
+function getWiedzaKsiestwaGraniczne() {
+  return [
+    {
+      typ: 'Zaawansowana',
+      umiejetnosc: 'Wiedza(księstwa graniczne)',
+      cecha: 'Inteligencja',
+      opis: 'opis wiedzy',
+      zdolnoscipokrewne: 'obieżyświat.'
+    }
+  ]
+}
+function getWiedzaNorska() {
+  return [
+    {
+      typ: 'Zaawansowana',
+      umiejetnosc: 'Wiedza(norska)',
+      cecha: 'Inteligencja',
+      opis: 'opis wiedzy',
+      zdolnoscipokrewne: 'obieżyświat.'
+    }
+  ]
+}
+function getWiedzaTilea() {
+  return [
+    {
+      typ: 'Zaawansowana',
+      umiejetnosc: 'Wiedza(tilea)',
       cecha: 'Inteligencja',
       opis: 'opis wiedzy',
       zdolnoscipokrewne: 'obieżyświat.'
@@ -2589,7 +4119,40 @@ function getWiedzaElfy() {
   return [
     {
       typ: 'Zaawansowana',
-      umiejetnosc: 'Wiedza(Elfy)',
+      umiejetnosc: 'Wiedza(elfy)',
+      cecha: 'Inteligencja',
+      opis: 'opis wiedzy',
+      zdolnoscipokrewne: 'obieżyświat.'
+    }
+  ]
+}
+function getWiedzaKrasnoludy() {
+  return [
+    {
+      typ: 'Zaawansowana',
+      umiejetnosc: 'Wiedza(krasnoludy)',
+      cecha: 'Inteligencja',
+      opis: 'opis wiedzy',
+      zdolnoscipokrewne: 'obieżyświat.'
+    }
+  ]
+}
+function getWiedzaNiziolki() {
+  return [
+    {
+      typ: 'Zaawansowana',
+      umiejetnosc: 'Wiedza(niziołki)',
+      cecha: 'Inteligencja',
+      opis: 'opis wiedzy',
+      zdolnoscipokrewne: 'obieżyświat.'
+    }
+  ]
+}
+function getWiedzaOgry() {
+  return [
+    {
+      typ: 'Zaawansowana',
+      umiejetnosc: 'Wiedza(ogry)',
       cecha: 'Inteligencja',
       opis: 'opis wiedzy',
       zdolnoscipokrewne: 'obieżyświat.'
@@ -2662,11 +4225,88 @@ function getZastraszanie() {
     }
   ]
 }
+function getZnajomoscJezykaBretonski() {
+  return [
+    {
+      typ: 'Zaawansowana',
+      umiejetnosc: 'Znajomość Języka(bretoński)',
+      cecha: 'Inteligencja',
+      opis: 'opis znajomosci jezyka',
+      zdolnoscipokrewne: 'naśladowca, obieżyświat, poliglota.'
+    }
+  ]
+}
+function getZnajomoscjezykaEltharin() {
+  return [
+    {
+      typ: 'Zaawansowana',
+      umiejetnosc: 'Znajomość Języka(eltharin)',
+      cecha: 'Inteligencja',
+      opis: 'opis znajomosci jezyka',
+      zdolnoscipokrewne: 'naśladowca, obieżyświat, poliglota.'
+    }
+  ]
+}
+function getZnajomoscjezykaEstalisjki() {
+  return [
+    {
+      typ: 'Zaawansowana',
+      umiejetnosc: 'Znajomość Języka(estalijski)',
+      cecha: 'Inteligencja',
+      opis: 'opis znajomosci jezyka',
+      zdolnoscipokrewne: 'naśladowca, obieżyświat, poliglota.'
+    }
+  ]
+}
+function getZnajomoscjezykaKhazaldin() {
+  return [
+    {
+      typ: 'Zaawansowana',
+      umiejetnosc: 'Znajomość Języka(khazaldin)',
+      cecha: 'Inteligencja',
+      opis: 'opis znajomosci jezyka',
+      zdolnoscipokrewne: 'naśladowca, obieżyświat, poliglota.'
+    }
+  ]
+}
+function getZnajomoscjezykaKislevski() {
+  return [
+    {
+      typ: 'Zaawansowana',
+      umiejetnosc: 'Znajomość Języka(kislevski)',
+      cecha: 'Inteligencja',
+      opis: 'opis znajomosci jezyka',
+      zdolnoscipokrewne: 'naśladowca, obieżyświat, poliglota.'
+    }
+  ]
+}
+function getZnajomoscjezykaNorski() {
+  return [
+    {
+      typ: 'Zaawansowana',
+      umiejetnosc: 'Znajomość Języka(norski)',
+      cecha: 'Inteligencja',
+      opis: 'opis znajomosci jezyka',
+      zdolnoscipokrewne: 'naśladowca, obieżyświat, poliglota.'
+    }
+  ]
+}
+function getZnajomoscjezykaTileanski() {
+  return [
+    {
+      typ: 'Zaawansowana',
+      umiejetnosc: 'Znajomość Języka(tileanski)',
+      cecha: 'Inteligencja',
+      opis: 'opis znajomosci jezyka',
+      zdolnoscipokrewne: 'naśladowca, obieżyświat, poliglota.'
+    }
+  ]
+}
 function getZnajomoscJezykaStaroswiatowy() {
   return [
     {
       typ: 'Zaawansowana',
-      umiejetnosc: 'Znajomość Języka(starowiatowy)',
+      umiejetnosc: 'Znajomość Języka(staroświatowy)',
       cecha: 'Inteligencja',
       opis: 'opis znajomosci jezyka',
       zdolnoscipokrewne: 'naśladowca, obieżyświat, poliglota.'
@@ -2684,11 +4324,11 @@ function getZnajomoscJezykaKlasyczny() {
     }
   ]
 }
-function getZnajomoscjezykaEltharin() {
+function getZnajomoscjezykaNiziolkow() {
   return [
     {
       typ: 'Zaawansowana',
-      umiejetnosc: 'Znajomość Języka(Eltharin)',
+      umiejetnosc: 'Znajomość Języka(niziołków)',
       cecha: 'Inteligencja',
       opis: 'opis znajomosci jezyka',
       zdolnoscipokrewne: 'naśladowca, obieżyświat, poliglota.'

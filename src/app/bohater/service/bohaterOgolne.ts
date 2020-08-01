@@ -21,6 +21,7 @@ export interface BohaterOgolne {
   PP?: number;
   umiejetnosci?: Array<any>;
   wyborUmiejetnosciProfesji?: Array<Array<any>>;
+  wyborUmiejetnosciRasy?: Array<Array<any>>;
   zdolnosci?: Array<string>;
   wyposazenie?: Array<string>;
   inne?: any;
