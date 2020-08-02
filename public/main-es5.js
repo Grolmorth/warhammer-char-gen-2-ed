@@ -1,3 +1,15 @@
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
@@ -632,14 +644,18 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
 
     var BohaterBohaterComponent = /*#__PURE__*/function () {
-      function BohaterBohaterComponent(rasyService, share) {
+      function BohaterBohaterComponent(logika, share) {
         _classCallCheck(this, BohaterBohaterComponent);
 
-        this.rasyService = rasyService;
+        this.logika = logika;
         this.share = share;
-        this.data = this.selectedRasaId; // przypisanie tablic ras z charakterystykami
+        this.submittedRasa = false;
+        this.submittedProfesja = false;
+        this.data = this.selectedRasaId;
+        this.dataa = this.selectedProfesjaId; // przypisanie tablic ras z charakterystykami
 
-        this.rasa = [];
+        this.cechy = [];
+        this.profesjaRoll = [];
       } // pobranie wszystkich ras z serwisu
 
 
@@ -648,15 +664,60 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function ngOnInit() {
           var _this = this;
 
-          this.rasyService.getRasy().subscribe(function (items) {
-            return _this.rasa = items;
+          this.logika.getListaRasy().subscribe(function (items) {
+            return _this.cechy = items;
           });
+          console.log('pobrano rasy');
         } // logika przyciusku do zmiany rasy
 
       }, {
         key: "nowaRasa",
         value: function nowaRasa() {
+          var _this2 = this;
+
           this.share.changeRasa(this.selectedRasaId);
+          console.log('zmieniono rase na', this.selectedRasaId); // ukrycie i pokazanie elementów html
+
+          this.submittedRasa = true; // pobranie listy możliwych profesji
+
+          this.logika.getListaProfesje(this.selectedRasaId).subscribe(function (items) {
+            return _this2.profesjaRoll = items;
+          });
+          console.log('dostępne profesje z rasy:', this.selectedRasaId);
+        }
+      }, {
+        key: "innaRasa",
+        value: function innaRasa() {
+          var _this3 = this;
+
+          // ukrycie i pokazanie elementów html
+          this.submittedRasa = false;
+          console.log('wycofano rase', this.selectedRasaId, 'ponowne wybieranie rasy');
+          this.share.changeRasa(this.selectedRasaId); // wyzerowanie statystyk początkowych
+
+          this.share.resetStatystyk(); // zresetowanie listy profesji
+
+          this.selectedRasaId = null;
+          this.selectedProfesjaId = null;
+          this.logika.getListaProfesje(this.selectedRasaId).subscribe(function (items) {
+            return _this3.profesjaRoll = items;
+          });
+          this.submittedProfesja = false;
+        } // logika przyciusku do zmiany profesji
+
+      }, {
+        key: "nowaProfesja",
+        value: function nowaProfesja() {
+          console.log('nowa profesja', this.selectedProfesjaId);
+          this.share.changeProfesja(this.selectedProfesjaId);
+          this.submittedProfesja = true;
+          this.share.changeAktualne();
+        }
+      }, {
+        key: "innaProfesja",
+        value: function innaProfesja() {
+          this.submittedProfesja = false;
+          this.share.resetStatystykProfesja();
         }
       }]);
 
@@ -670,20 +731,32 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     BohaterBohaterComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
       type: BohaterBohaterComponent,
       selectors: [["app-bohater-bohater"]],
-      decls: 37,
-      vars: 2,
-      consts: [[1, "table", "table-sm"], [1, "thead-dark"], ["scope", "col", "colspan", "2", 1, "text-center"], ["for", "inputImie", 1, "m-0", "p-0"], ["type", "text"], ["for", "inputRasa", 1, "m-0", "p-0"], ["bindLabel", "title", "bindValue", "title", 3, "items", "ngModel", "ngModelChange"], [3, "click"], ["for", "inputObecnaProfesja", 1, "m-0", "p-0"], [1, "custom-select", "custom-select-sm", "m-0", "p-0"], ["selected", "", "value", "random"], ["value", "banita"], ["value", "giermek"]],
+      decls: 34,
+      vars: 10,
+      consts: [[1, "container", "bohater", "text-center", "p-0", "m-0"], [1, "bg-dark", "text-light", "p-1"], [1, ""], ["for", "inputRasa", 1, "m-0", "p-0"], [3, "hidden"], ["bindLabel", "rasatitle", "bindValue", "rasatitle", 3, "items", "ngModel", "ngModelChange"], [1, "btn", "btn-primary", "btn-sm", "m-1", 3, "click"], [1, "btn", "btn-danger", "btn-sm", "m-1", 3, "click"], ["for", "inputProfesja", 1, "m-0", "p-0"], ["bindLabel", "profesjatitle", "bindValue", "profesjatitle", 3, "items", "ngModel", "ngModelChange"]],
       template: function BohaterBohaterComponent_Template(rf, ctx) {
         if (rf & 1) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "table", 0);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "thead", 1);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 1);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "tr");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "b");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "th", 2);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](3, "Bohater");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](4, "Bohater");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "div", 2);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "div");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "label", 3);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "b");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](8, "Rasa");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -691,57 +764,45 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "tbody");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "div");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "tr");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](10, "div", 4);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "th");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](11, "ng-select", 5);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](8, "label", 3);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](9, "Imi\u0119");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](10, "td");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](11, "input", 4);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](12, "tr");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](13, "th");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](14, "label", 5);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](15, "Rasa");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](16, "td");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](17, "ng-select", 6);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function BohaterBohaterComponent_Template_ng_select_ngModelChange_17_listener($event) {
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function BohaterBohaterComponent_Template_ng_select_ngModelChange_11_listener($event) {
             return ctx.selectedRasaId = $event;
           });
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](18, "button", 7);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](12, "button", 6);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function BohaterBohaterComponent_Template_button_click_18_listener() {
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function BohaterBohaterComponent_Template_button_click_12_listener() {
             return ctx.nowaRasa();
           });
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](19, "Wybierz");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](13, "Wybierz");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](14, "div", 4);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](15, "h2");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](16);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](17, "button", 7);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function BohaterBohaterComponent_Template_button_click_17_listener() {
+            return ctx.innaRasa();
+          });
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](18, "Zmie\u0144 ras\u0119");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -749,37 +810,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](20, "tr");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](19, "div");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](21, "th");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](20, "div");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](22, "label", 8);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](21, "label", 8);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](23, "Obecna Profecja");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](22, "b");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](24, "td");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](25, "select", 9);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](26, "option", 10);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](27, "Losowe");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](28, "option", 11);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](29, "Banita");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](30, "option", 12);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](31, "Giermek");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](23, "Profesja");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -787,19 +826,49 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](24, "div");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](25, "div", 4);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](26, "ng-select", 9);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function BohaterBohaterComponent_Template_ng_select_ngModelChange_26_listener($event) {
+            return ctx.selectedProfesjaId = $event;
+          });
+
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](32, "tr");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](27, "button", 6);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](33, "th");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function BohaterBohaterComponent_Template_button_click_27_listener() {
+            return ctx.nowaProfesja();
+          });
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](34, "Poprzednia profesja");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](28, "Wybierz");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](35, "td");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](36, "Brak");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](29, "div", 4);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](30, "h2");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](31);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](32, "button", 7);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function BohaterBohaterComponent_Template_button_click_32_listener() {
+            return ctx.innaProfesja();
+          });
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](33, "Zmie\u0144 profesj\u0119");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -811,12 +880,40 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         }
 
         if (rf & 2) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](17);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](10);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("items", ctx.rasa)("ngModel", ctx.selectedRasaId);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("hidden", ctx.submittedRasa);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("items", ctx.cechy)("ngModel", ctx.selectedRasaId);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("hidden", !ctx.submittedRasa);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.selectedRasaId);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](9);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("hidden", ctx.submittedProfesja);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("items", ctx.profesjaRoll)("ngModel", ctx.selectedProfesjaId);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("hidden", !ctx.submittedProfesja);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.selectedProfesjaId);
         }
       },
-      directives: [_ng_select_ng_select__WEBPACK_IMPORTED_MODULE_3__["NgSelectComponent"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["NgModel"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["NgSelectOption"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["ɵangular_packages_forms_forms_x"]],
+      directives: [_ng_select_ng_select__WEBPACK_IMPORTED_MODULE_3__["NgSelectComponent"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["NgModel"]],
       styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2JvaGF0ZXIvYm9oYXRlci1ib2hhdGVyL2JvaGF0ZXItYm9oYXRlci5jb21wb25lbnQuY3NzIn0= */"]
     });
     /*@__PURE__*/
@@ -1072,23 +1169,19 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     "./node_modules/@ng-bootstrap/ng-bootstrap/__ivy_ngcc__/fesm2015/ng-bootstrap.js");
 
     var BohaterCechyComponent = /*#__PURE__*/function () {
-      function BohaterCechyComponent(rasyService, share) {
+      function BohaterCechyComponent(logika, share) {
         _classCallCheck(this, BohaterCechyComponent);
 
-        this.rasyService = rasyService;
+        this.logika = logika;
         this.share = share;
-        this.rasa = [];
       }
 
       _createClass(BohaterCechyComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this2 = this;
-
-          this.rasyService.getRasy().subscribe(function (items) {
-            return _this2.rasa = items;
-          });
-          this.aktualneStatystyki = this.share.aktualneStatystyki;
+          this.poczatkowa = this.share.poczatkoweStatystykiRasowe;
+          this.schematRozwoju = this.share.schematRozwojuProfesja;
+          this.aktualne = this.share.sumowaneStatystyki;
         }
       }]);
 
@@ -1103,7 +1196,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       type: BohaterCechyComponent,
       selectors: [["app-bohater-cechy"]],
       decls: 174,
-      vars: 16,
+      vars: 48,
       consts: [[1, "table", "table-sm"], [1, "thead-dark"], ["scope", "col", "colspan", "9", 1, "text-center"], [1, "text-center"], ["placement", "top", "ngbTooltip", "Walka Wr\u0119cz", 1, "btn", "btn-xs", "m-0", "p-0"], ["placement", "top", "ngbTooltip", "Umiej\u0119tno\u015Bci Strzeleckie", 1, "btn", "btn-xs", "m-0", "p-0"], ["placement", "top", "ngbTooltip", "Krzepa", 1, "btn", "btn-xs", "m-0", "p-0"], ["placement", "top", "ngbTooltip", "Odporno\u015B\u0107", 1, "btn", "btn-xs", "m-0", "p-0"], ["placement", "top", "ngbTooltip", "Zr\u0119czno\u015B\u0107", 1, "btn", "btn-xs", "m-0", "p-0"], ["placement", "top", "ngbTooltip", "Inteligencja", 1, "btn", "btn-xs", "m-0", "p-0"], ["placement", "top", "ngbTooltip", "Si\u0142a Woli", 1, "btn", "btn-xs", "m-0", "p-0"], ["placement", "top", "ngbTooltip", "Og\u0142ada", 1, "btn", "btn-xs", "m-0", "p-0"], ["placement", "top", "ngbTooltip", "Ataki", 1, "btn", "btn-xs", "m-0", "p-0"], ["placement", "top", "ngbTooltip", "\u017Bywotno\u015B\u0107", 1, "btn", "btn-xs", "m-0", "p-0"], ["placement", "top", "ngbTooltip", "Si\u0142a", 1, "btn", "btn-xs", "m-0", "p-0"], ["placement", "top", "ngbTooltip", "Wytrzyma\u0142o\u015B\u0107", 1, "btn", "btn-xs", "m-0", "p-0"], ["placement", "top", "ngbTooltip", "Szybko\u015B\u0107", 1, "btn", "btn-xs", "m-0", "p-0"], ["placement", "top", "ngbTooltip", "Magia", 1, "btn", "btn-xs", "m-0", "p-0"], ["placement", "top", "ngbTooltip", "Punkty Ob\u0142\u0119du", 1, "btn", "btn-xs", "m-0", "p-0"], ["placement", "top", "ngbTooltip", "Punkty Przeznaczenia", 1, "btn", "btn-xs", "m-0", "p-0"]],
       template: function BohaterCechyComponent_Template(rf, ctx) {
         if (rf & 1) {
@@ -1283,49 +1376,49 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](55, "td");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](56, "10");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](56);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](57, "td");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](58, "10");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](58);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](59, "td");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](60, "10");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](60);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](61, "td");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](62, "10");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](62);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](63, "td");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](64, "10");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](64);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](65, "td");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](66, "10");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](66);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](67, "td");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](68, "10");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](68);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](69, "td");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](70, "10");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](70);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -1341,49 +1434,49 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](74, "td");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](75, "10");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](75);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](76, "td");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](77, "10");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](77);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](78, "td");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](79, "10");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](79);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](80, "td");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](81, "10");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](81);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](82, "td");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](83, "10");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](83);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](84, "td");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](85, "10");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](85);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](86, "td");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](87, "10");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](87);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](88, "td");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](89, "10");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](89);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -1547,49 +1640,49 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](139, "td");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](140, "10");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](140);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](141, "td");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](142, "10");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](142);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](143, "td");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](144, "10");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](144);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](145, "td");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](146, "10");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](146);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](147, "td");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](148, "10");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](148);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](149, "td");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](150, "10");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](150);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](151, "td");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](152, "10");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](152);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](153, "td");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](154, "10");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](154);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -1605,49 +1698,49 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](158, "td");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](159, "10");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](159);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](160, "td");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](161, "10");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](161);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](162, "td");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](163, "10");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](163);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](164, "td");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](165, "10");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](165);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](166, "td");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](167, "10");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](167);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](168, "td");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](169, "10");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](169);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](170, "td");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](171, "10");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](171);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](172, "td");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](173, "10");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](173);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -1661,67 +1754,195 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         if (rf & 2) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](37);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.aktualneStatystyki.WW);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.poczatkowa.WW);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.aktualneStatystyki.US);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.poczatkowa.US);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.aktualneStatystyki.K);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.poczatkowa.K);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.aktualneStatystyki.Odp);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.poczatkowa.Odp);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.aktualneStatystyki.Zr);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.poczatkowa.Zr);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.aktualneStatystyki.Int);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.poczatkowa.Int);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.aktualneStatystyki.SW);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.poczatkowa.SW);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.aktualneStatystyki.Ogd);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.poczatkowa.Ogd);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](70);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](5);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.aktualneStatystyki.A);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.aktualneStatystyki.Zyw);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.schematRozwoju.WW);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.aktualneStatystyki.S);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.schematRozwoju.US);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.aktualneStatystyki.Wt);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.schematRozwoju.K);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.aktualneStatystyki.Sz);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.schematRozwoju.Odp);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.aktualneStatystyki.Mag);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.schematRozwoju.Zr);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.aktualneStatystyki.PO);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.schematRozwoju.Int);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.aktualneStatystyki.PP);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.schematRozwoju.SW);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.schematRozwoju.Ogd);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](5);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.aktualne.WW);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.aktualne.US);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.aktualne.K);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.aktualne.Odp);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.aktualne.Zr);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.aktualne.Int);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.aktualne.SW);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.aktualne.Ogd);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](32);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.poczatkowa.A);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.poczatkowa.Zyw);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.poczatkowa.S);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.poczatkowa.Wt);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.poczatkowa.Sz);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.poczatkowa.Mag);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.poczatkowa.PO);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.poczatkowa.PP);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](5);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.schematRozwoju.A);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.schematRozwoju.Zyw);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.schematRozwoju.S);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.schematRozwoju.Wt);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.schematRozwoju.Sz);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.schematRozwoju.Mag);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.schematRozwoju.PO);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.schematRozwoju.PP);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](5);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.aktualne.A);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.aktualne.Zyw);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.aktualne.S);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.aktualne.Wt);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.aktualne.Sz);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.aktualne.Mag);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.aktualne.PO);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.aktualne.PP);
         }
       },
       directives: [_ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_3__["NgbTooltip"]],
@@ -3006,41 +3227,437 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
     /*! @angular/core */
     "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _service_bohater_logika_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! ../service/bohater-logika.service */
+    "./src/app/bohater/service/bohater-logika.service.ts");
+    /* harmony import */
+
+
+    var _service_shared_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! ../service/shared.service */
+    "./src/app/bohater/service/shared.service.ts");
+    /* harmony import */
+
+
+    var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! @angular/common */
+    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+
+    function BohaterUmiejetnosciComponent_div_15_Template(rf, ctx) {
+      if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 7);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 3);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 4);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](3);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "div", 4);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](5);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "div", 4);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](7);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+      }
+
+      if (rf & 2) {
+        var schemat_r4 = ctx.$implicit;
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](schemat_r4[0].umiejetnosc);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](schemat_r4[0].cecha);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](schemat_r4[0].zdolnoscipokrewne);
+      }
+    }
+
+    function BohaterUmiejetnosciComponent_div_16_div_1_div_4_Template(rf, ctx) {
+      if (rf & 1) {
+        var _r12 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 7);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "button", 11);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function BohaterUmiejetnosciComponent_div_16_div_1_div_4_Template_button_click_1_listener() {
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r12);
+
+          var schemat_r9 = ctx.$implicit;
+
+          var i_r6 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2).index;
+
+          var ctx_r10 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+
+          return ctx_r10.onWyborUmiejetnosciRasa(schemat_r9, [i_r6]);
+        });
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 3);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "div", 4);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](4);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "div", 4);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](6);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "div", 4);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](8);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+      }
+
+      if (rf & 2) {
+        var schemat_r9 = ctx.$implicit;
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](schemat_r9[0].umiejetnosc);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](schemat_r9[0].cecha);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](schemat_r9[0].zdolnoscipokrewne);
+      }
+    }
+
+    function BohaterUmiejetnosciComponent_div_16_div_1_Template(rf, ctx) {
+      if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 9);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "b");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](3, "Wybierz jedno");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](4, BohaterUmiejetnosciComponent_div_16_div_1_div_4_Template, 9, 3, "div", 10);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+      }
+
+      if (rf & 2) {
+        var i_r6 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().index;
+
+        var ctx_r7 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx_r7.umiejetnosciRasy.wyborUmiejetnosciRasy[i_r6]);
+      }
+    }
+
+    function BohaterUmiejetnosciComponent_div_16_Template(rf, ctx) {
+      if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, BohaterUmiejetnosciComponent_div_16_div_1_Template, 5, 1, "div", 8);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+      }
+
+      if (rf & 2) {
+        var i_r6 = ctx.index;
+
+        var ctx_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r1.umiejetnosciRasy.wyborUmiejetnosciRasy[i_r6][0] !== undefined);
+      }
+    }
+
+    function BohaterUmiejetnosciComponent_div_17_Template(rf, ctx) {
+      if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 7);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 3);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 4);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](3);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "div", 4);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](5);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "div", 4);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](7);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+      }
+
+      if (rf & 2) {
+        var schemat_r14 = ctx.$implicit;
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](schemat_r14[0].umiejetnosc);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](schemat_r14[0].cecha);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](schemat_r14[0].zdolnoscipokrewne);
+      }
+    }
+
+    function BohaterUmiejetnosciComponent_div_18_div_1_div_4_Template(rf, ctx) {
+      if (rf & 1) {
+        var _r22 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 7);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "button", 11);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function BohaterUmiejetnosciComponent_div_18_div_1_div_4_Template_button_click_1_listener() {
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r22);
+
+          var schemat_r19 = ctx.$implicit;
+
+          var i_r16 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2).index;
+
+          var ctx_r20 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+
+          return ctx_r20.onWyborUmiejetnosciProfesja(schemat_r19, [i_r16]);
+        });
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 3);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "div", 4);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](4);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "div", 4);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](6);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "div", 4);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](8);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+      }
+
+      if (rf & 2) {
+        var schemat_r19 = ctx.$implicit;
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](schemat_r19[0].umiejetnosc);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](schemat_r19[0].cecha);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](schemat_r19[0].zdolnoscipokrewne);
+      }
+    }
+
+    function BohaterUmiejetnosciComponent_div_18_div_1_Template(rf, ctx) {
+      if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 9);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "b");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](3, "Wybierz jedno");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](4, BohaterUmiejetnosciComponent_div_18_div_1_div_4_Template, 9, 3, "div", 10);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+      }
+
+      if (rf & 2) {
+        var i_r16 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().index;
+
+        var ctx_r17 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx_r17.umiejetnosciProfesji.wyborUmiejetnosciProfesji[i_r16]);
+      }
+    }
+
+    function BohaterUmiejetnosciComponent_div_18_Template(rf, ctx) {
+      if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, BohaterUmiejetnosciComponent_div_18_div_1_Template, 5, 1, "div", 8);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+      }
+
+      if (rf & 2) {
+        var i_r16 = ctx.index;
+
+        var ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r3.umiejetnosciProfesji.wyborUmiejetnosciProfesji[i_r16][0] !== undefined);
+      }
+    }
 
     var BohaterUmiejetnosciComponent = /*#__PURE__*/function () {
-      function BohaterUmiejetnosciComponent() {
+      function BohaterUmiejetnosciComponent(logika, share) {
         _classCallCheck(this, BohaterUmiejetnosciComponent);
+
+        this.logika = logika;
+        this.share = share;
       }
 
       _createClass(BohaterUmiejetnosciComponent, [{
         key: "ngOnInit",
-        value: function ngOnInit() {}
+        value: function ngOnInit() {
+          this.umiejetnosciProfesji = this.share.schematRozwojuProfesja;
+          this.umiejetnosciRasy = this.share.poczatkoweStatystykiRasowe;
+        }
+      }, {
+        key: "onWyborUmiejetnosciProfesja",
+        value: function onWyborUmiejetnosciProfesja(schemat, _ref) {
+          var _ref2 = _slicedToArray(_ref, 1),
+              i = _ref2[0];
+
+          this.share.schematRozwojuProfesja.umiejetnosci.push(schemat);
+          this.share.schematRozwojuProfesja.wyborUmiejetnosciProfesji[i] = [];
+          console.log('dodano umiejetnosc', schemat[0].umiejetnosc, 'do puli umiejetnosci');
+        }
+      }, {
+        key: "onWyborUmiejetnosciRasa",
+        value: function onWyborUmiejetnosciRasa(schemat, _ref3) {
+          var _ref4 = _slicedToArray(_ref3, 1),
+              i = _ref4[0];
+
+          this.share.poczatkoweStatystykiRasowe.umiejetnosci.push(schemat);
+          this.share.poczatkoweStatystykiRasowe.wyborUmiejetnosciRasy[i] = [];
+          console.log('dodano umiejetnosc', schemat[0].umiejetnosc, 'do puli umiejetnosci');
+        }
       }]);
 
       return BohaterUmiejetnosciComponent;
     }();
 
     BohaterUmiejetnosciComponent.ɵfac = function BohaterUmiejetnosciComponent_Factory(t) {
-      return new (t || BohaterUmiejetnosciComponent)();
+      return new (t || BohaterUmiejetnosciComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_service_bohater_logika_service__WEBPACK_IMPORTED_MODULE_1__["BohaterLogikaService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_service_shared_service__WEBPACK_IMPORTED_MODULE_2__["SharedService"]));
     };
 
     BohaterUmiejetnosciComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
       type: BohaterUmiejetnosciComponent,
       selectors: [["app-bohater-umiejetnosci"]],
-      decls: 46,
-      vars: 0,
-      consts: [[1, "table", "table-sm"], [1, "thead-dark"], ["scope", "col", "colspan", "5", 1, "text-center"]],
+      decls: 19,
+      vars: 4,
+      consts: [[1, "container", "bohater", "text-center", "p-0", "m-0"], [1, "bg-dark", "text-light", "p-1", "text-center"], [1, "border-bottom", "border-dark"], [1, "row"], [1, "col-sm", "ml-1"], ["class", "border-bottom", 4, "ngFor", "ngForOf"], [4, "ngFor", "ngForOf"], [1, "border-bottom"], [4, "ngIf"], [1, "bg-info", "text-center"], ["class", "border-bottom ", 4, "ngFor", "ngForOf"], [1, "btn", "btn-sm", "btn-secondary", "p-0", "m-0", "container-fluid", 3, "click"]],
       template: function BohaterUmiejetnosciComponent_Template(rf, ctx) {
         if (rf & 1) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "table", 0);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "thead", 1);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 1);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "tr");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "b");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "th", 2);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](3, "Umiej\u0119tno\u015Bci");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](4, "Umiej\u0119tno\u015Bci");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "div", 2);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "div", 3);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "div", 4);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "b");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](8, "Umiej\u0119tno\u015B\u0107");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "div", 4);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](10, "b");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](11, "Cecha");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](12, "div", 4);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](13, "b");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](14, "Zdolno\u015Bci pokrewne");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -3048,133 +3665,38 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "tbody");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "tr");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "th");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](8, "Podstawowe");
-
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "th");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](15, BohaterUmiejetnosciComponent_div_15_Template, 8, 3, "div", 5);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](10, "Wykupione");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](16, BohaterUmiejetnosciComponent_div_16_Template, 2, 1, "div", 6);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](17, BohaterUmiejetnosciComponent_div_17_Template, 8, 3, "div", 5);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](11, "th");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](12, "+10");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](13, "th");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](14, "+20");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](15, "th");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](16, "Zdolno\u015Bci pokrewne");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](17, "tr");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](18, "td");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](19, "Dowodzenie");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](20, "td");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](21, "x");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](22, "td");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](23, "td");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](24, "x");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](25, "td");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](26, "tr");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](27, "th");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](28, "Zaawansowane");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](29, "th");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](30, "Wykupione");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](31, "th");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](32, "+10");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](33, "th");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](34, "+20");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](35, "th");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](36, "Zdolno\u015Bci pokrewne");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](37, "tr");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](38, "td");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](39, "Aptekarstwo");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](40, "td");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](41, "x");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](42, "td");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](43, "x");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](44, "td");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](45, "td");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](18, BohaterUmiejetnosciComponent_div_18_Template, 2, 1, "div", 6);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         }
+
+        if (rf & 2) {
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](15);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.umiejetnosciRasy.umiejetnosci);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.umiejetnosciRasy.wyborUmiejetnosciRasy);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.umiejetnosciProfesji.umiejetnosci);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.umiejetnosciProfesji.wyborUmiejetnosciProfesji);
+        }
       },
+      directives: [_angular_common__WEBPACK_IMPORTED_MODULE_3__["NgForOf"], _angular_common__WEBPACK_IMPORTED_MODULE_3__["NgIf"]],
       styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2JvaGF0ZXIvYm9oYXRlci11bWllamV0bm9zY2kvYm9oYXRlci11bWllamV0bm9zY2kuY29tcG9uZW50LmNzcyJ9 */"]
     });
     /*@__PURE__*/
@@ -3188,7 +3710,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           styleUrls: ['./bohater-umiejetnosci.component.css']
         }]
       }], function () {
-        return [];
+        return [{
+          type: _service_bohater_logika_service__WEBPACK_IMPORTED_MODULE_1__["BohaterLogikaService"]
+        }, {
+          type: _service_shared_service__WEBPACK_IMPORTED_MODULE_2__["SharedService"]
+        }];
       }, null);
     })();
     /***/
@@ -3254,7 +3780,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "th", 2);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](4, "Wyposarzenie");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](4, "Wyposa\u017Cenie");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -3919,81 +4445,45 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _bohater_opis_bohatera_bohater_opis_bohatera_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! ./bohater-opis-bohatera/bohater-opis-bohatera.component */
-    "./src/app/bohater/bohater-opis-bohatera/bohater-opis-bohatera.component.ts");
-    /* harmony import */
-
-
-    var _bohater_cechy_bohater_cechy_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    var _bohater_cechy_bohater_cechy_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
     /*! ./bohater-cechy/bohater-cechy.component */
     "./src/app/bohater/bohater-cechy/bohater-cechy.component.ts");
     /* harmony import */
 
 
-    var _bohater_bron_bohater_bron_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ./bohater-bron/bohater-bron.component */
-    "./src/app/bohater/bohater-bron/bohater-bron.component.ts");
-    /* harmony import */
-
-
-    var _bohater_pancerz_bohater_pancerz_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! ./bohater-pancerz/bohater-pancerz.component */
-    "./src/app/bohater/bohater-pancerz/bohater-pancerz.component.ts");
-    /* harmony import */
-
-
-    var _bohater_gracz_bohater_gracz_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-    /*! ./bohater-gracz/bohater-gracz.component */
-    "./src/app/bohater/bohater-gracz/bohater-gracz.component.ts");
-    /* harmony import */
-
-
-    var _bohater_punkty_doswiadczenia_bohater_punkty_doswiadczenia_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
-    /*! ./bohater-punkty-doswiadczenia/bohater-punkty-doswiadczenia.component */
-    "./src/app/bohater/bohater-punkty-doswiadczenia/bohater-punkty-doswiadczenia.component.ts");
-    /* harmony import */
-
-
-    var _bohater_ruch_w_walce_bohater_ruch_w_walce_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
-    /*! ./bohater-ruch-w-walce/bohater-ruch-w-walce.component */
-    "./src/app/bohater/bohater-ruch-w-walce/bohater-ruch-w-walce.component.ts");
-    /* harmony import */
-
-
-    var _bohater_punkty_zbroi_bohater_punkty_zbroi_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
-    /*! ./bohater-punkty-zbroi/bohater-punkty-zbroi.component */
-    "./src/app/bohater/bohater-punkty-zbroi/bohater-punkty-zbroi.component.ts");
-    /* harmony import */
-
-
-    var _bohater_zestawienie_akcji_bohater_zestawienie_akcji_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
-    /*! ./bohater-zestawienie-akcji/bohater-zestawienie-akcji.component */
-    "./src/app/bohater/bohater-zestawienie-akcji/bohater-zestawienie-akcji.component.ts");
-    /* harmony import */
-
-
-    var _bohater_umiejetnosci_bohater_umiejetnosci_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+    var _bohater_umiejetnosci_bohater_umiejetnosci_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! ./bohater-umiejetnosci/bohater-umiejetnosci.component */
     "./src/app/bohater/bohater-umiejetnosci/bohater-umiejetnosci.component.ts");
     /* harmony import */
 
 
-    var _bohater_zdolnosci_bohater_zdolnosci_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+    var _bohater_zdolnosci_bohater_zdolnosci_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! ./bohater-zdolnosci/bohater-zdolnosci.component */
     "./src/app/bohater/bohater-zdolnosci/bohater-zdolnosci.component.ts");
     /* harmony import */
 
 
-    var _bohater_wyposarzenie_bohater_wyposarzenie_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
+    var _bohater_wyposarzenie_bohater_wyposarzenie_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! ./bohater-wyposarzenie/bohater-wyposarzenie.component */
     "./src/app/bohater/bohater-wyposarzenie/bohater-wyposarzenie.component.ts");
     /* harmony import */
 
 
-    var _bohater_pieniadze_bohater_pieniadze_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
+    var _bohater_pieniadze_bohater_pieniadze_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! ./bohater-pieniadze/bohater-pieniadze.component */
     "./src/app/bohater/bohater-pieniadze/bohater-pieniadze.component.ts");
+    /* harmony import */
+
+
+    var _bohater_ruch_w_walce_bohater_ruch_w_walce_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! ./bohater-ruch-w-walce/bohater-ruch-w-walce.component */
+    "./src/app/bohater/bohater-ruch-w-walce/bohater-ruch-w-walce.component.ts");
+    /* harmony import */
+
+
+    var _bohater_zestawienie_akcji_bohater_zestawienie_akcji_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    /*! ./bohater-zestawienie-akcji/bohater-zestawienie-akcji.component */
+    "./src/app/bohater/bohater-zestawienie-akcji/bohater-zestawienie-akcji.component.ts");
 
     var BohaterComponent = /*#__PURE__*/function () {
       function BohaterComponent() {
@@ -4015,7 +4505,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     BohaterComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
       type: BohaterComponent,
       selectors: [["app-bohater"]],
-      decls: 22,
+      decls: 16,
       vars: 0,
       consts: [[1, "container", "bohater"], [1, "row"], [1, "col-12", "col-lg-6", "my-1"]],
       template: function BohaterComponent_Template(rf, ctx) {
@@ -4028,27 +4518,19 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](3, "app-bohater-bohater");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](4, "app-bohater-opis-bohatera");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](5, "app-bohater-cechy");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](6, "app-bohater-bron");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](7, "app-bohater-pancerz");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](4, "app-bohater-cechy");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](8, "div", 2);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "div", 2);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](9, "app-bohater-gracz");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](6, "app-bohater-umiejetnosci");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](10, "app-bohater-punkty-doswiadczenia");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](7, "app-bohater-zdolnosci");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](11, "app-bohater-ruch-w-walce");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](8, "app-bohater-wyposarzenie");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](12, "app-bohater-punkty-zbroi");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](13, "app-bohater-zestawienie-akcji");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](9, "app-bohater-pieniadze");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -4056,32 +4538,26 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](14, "div", 0);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](10, "div", 0);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](15, "div", 1);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](11, "div", 1);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](16, "div", 2);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](12, "div", 2);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](17, "app-bohater-umiejetnosci");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](13, "app-bohater-ruch-w-walce");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](18, "div", 2);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](19, "app-bohater-zdolnosci");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](20, "app-bohater-wyposarzenie");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](21, "app-bohater-pieniadze");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](14, "app-bohater-zestawienie-akcji");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](15, "div", 2);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         }
       },
-      directives: [_bohater_bohater_bohater_bohater_component__WEBPACK_IMPORTED_MODULE_1__["BohaterBohaterComponent"], _bohater_opis_bohatera_bohater_opis_bohatera_component__WEBPACK_IMPORTED_MODULE_2__["BohaterOpisBohateraComponent"], _bohater_cechy_bohater_cechy_component__WEBPACK_IMPORTED_MODULE_3__["BohaterCechyComponent"], _bohater_bron_bohater_bron_component__WEBPACK_IMPORTED_MODULE_4__["BohaterBronComponent"], _bohater_pancerz_bohater_pancerz_component__WEBPACK_IMPORTED_MODULE_5__["BohaterPancerzComponent"], _bohater_gracz_bohater_gracz_component__WEBPACK_IMPORTED_MODULE_6__["BohaterGraczComponent"], _bohater_punkty_doswiadczenia_bohater_punkty_doswiadczenia_component__WEBPACK_IMPORTED_MODULE_7__["BohaterPunktyDoswiadczeniaComponent"], _bohater_ruch_w_walce_bohater_ruch_w_walce_component__WEBPACK_IMPORTED_MODULE_8__["BohaterRuchWWalceComponent"], _bohater_punkty_zbroi_bohater_punkty_zbroi_component__WEBPACK_IMPORTED_MODULE_9__["BohaterPunktyZbroiComponent"], _bohater_zestawienie_akcji_bohater_zestawienie_akcji_component__WEBPACK_IMPORTED_MODULE_10__["BohaterZestawienieAkcjiComponent"], _bohater_umiejetnosci_bohater_umiejetnosci_component__WEBPACK_IMPORTED_MODULE_11__["BohaterUmiejetnosciComponent"], _bohater_zdolnosci_bohater_zdolnosci_component__WEBPACK_IMPORTED_MODULE_12__["BohaterZdolnosciComponent"], _bohater_wyposarzenie_bohater_wyposarzenie_component__WEBPACK_IMPORTED_MODULE_13__["BohaterWyposarzenieComponent"], _bohater_pieniadze_bohater_pieniadze_component__WEBPACK_IMPORTED_MODULE_14__["BohaterPieniadzeComponent"]],
+      directives: [_bohater_bohater_bohater_bohater_component__WEBPACK_IMPORTED_MODULE_1__["BohaterBohaterComponent"], _bohater_cechy_bohater_cechy_component__WEBPACK_IMPORTED_MODULE_2__["BohaterCechyComponent"], _bohater_umiejetnosci_bohater_umiejetnosci_component__WEBPACK_IMPORTED_MODULE_3__["BohaterUmiejetnosciComponent"], _bohater_zdolnosci_bohater_zdolnosci_component__WEBPACK_IMPORTED_MODULE_4__["BohaterZdolnosciComponent"], _bohater_wyposarzenie_bohater_wyposarzenie_component__WEBPACK_IMPORTED_MODULE_5__["BohaterWyposarzenieComponent"], _bohater_pieniadze_bohater_pieniadze_component__WEBPACK_IMPORTED_MODULE_6__["BohaterPieniadzeComponent"], _bohater_ruch_w_walce_bohater_ruch_w_walce_component__WEBPACK_IMPORTED_MODULE_7__["BohaterRuchWWalceComponent"], _bohater_zestawienie_akcji_bohater_zestawienie_akcji_component__WEBPACK_IMPORTED_MODULE_8__["BohaterZestawienieAkcjiComponent"]],
       styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2JvaGF0ZXIvYm9oYXRlci5jb21wb25lbnQuY3NzIn0= */"]
     });
     /*@__PURE__*/
@@ -4137,14 +4613,790 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var BohaterLogikaService = /*#__PURE__*/function () {
       function BohaterLogikaService() {
         _classCallCheck(this, BohaterLogikaService);
-      } // pobranie tabeli ras
+      } // pobranie listy ras
 
 
       _createClass(BohaterLogikaService, [{
-        key: "getRasy",
-        value: function getRasy() {
+        key: "getListaRasy",
+        value: function getListaRasy() {
           var items = getMockRasy();
           return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(items);
+        } // pobieranie listy profesji dla wybranej rasy
+
+      }, {
+        key: "getListaProfesje",
+        value: function getListaProfesje(rasa) {
+          if (rasa === 'Człowiek') {
+            var items = getMockProfesjeCzlowiek();
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(items);
+          } else if (rasa === 'Krasnolud') {
+            var _items = getMockProfesjeKrasnolud();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items);
+          } else if (rasa === 'Elf') {
+            var _items2 = getMockProfesjeElf();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items2);
+          } else if (rasa === 'Niziołek') {
+            var _items3 = getMockProfesjeNiziolek();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items3);
+          } else {
+            var _items4 = null;
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items4);
+          }
+        }
+      }, {
+        key: "getProfesja",
+        value: function getProfesja(profesja) {
+          if (profesja === 'Akolita') {
+            var items = getAkolita();
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(items);
+          } else if (profesja === 'Banita') {
+            var _items5 = getBanita();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items5);
+          } else if (profesja === 'Berserker z Norski') {
+            var _items6 = getberserkerZNorski();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items6);
+          } else if (profesja === 'Chłop') {
+            var _items7 = getChlop();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items7);
+          } else if (profesja === 'Ciura obozowa') {
+            var _items8 = getCiuraObozowa();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items8);
+          } else if (profesja === 'Cyrkowiec') {
+            var _items9 = getCyrkowiec();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items9);
+          } else if (profesja === 'Cyrulik') {
+            var _items10 = getCyrulik();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items10);
+          } else if (profesja === 'Fanatyk') {
+            var _items11 = getFanatyk();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items11);
+          } else if (profesja === 'Flisak') {
+            var _items12 = getFlisak();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items12);
+          } else if (profesja === 'Giermek') {
+            var _items13 = getGiermek();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items13);
+          } else if (profesja === 'Gladiator') {
+            var _items14 = getGladiator();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items14);
+          } else if (profesja === 'Goniec') {
+            var _items15 = getGoniec();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items15);
+          } else if (profesja === 'Górnik') {
+            var _items16 = getGornik();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items16);
+          } else if (profesja === 'Guślarz') {
+            var _items17 = getGuslarz();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items17);
+          } else if (profesja === 'Hiena cmentarna') {
+            var _items18 = getHienaCmentarna();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items18);
+          } else if (profesja === 'Kanciarz') {
+            var _items19 = getKanciarz();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items19);
+          } else if (profesja === 'Kozak kislevski') {
+            var _items20 = getKozakKislevski();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items20);
+          } else if (profesja === 'Leśnik') {
+            var _items21 = getLesnik();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items21);
+          } else if (profesja === 'Łowca') {
+            var _items22 = getLowca();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items22);
+          } else if (profesja === 'Łowca nagród') {
+            var _items23 = getLowcaNagrod();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items23);
+          } else if (profesja === 'Mieszczanin') {
+            var _items24 = getMieszczanin();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items24);
+          } else if (profesja === 'Mytnik') {
+            var _items25 = getMytnik();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items25);
+          } else if (profesja === 'Najemnik') {
+            var _items26 = getNajemnik();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items26);
+          } else if (profesja === 'Ochotnik') {
+            var _items27 = getOchotnik();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items27);
+          } else if (profesja === 'Ochroniarz') {
+            var _items28 = getOchroniarz();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items28);
+          } else if (profesja === 'Oprych') {
+            var _items29 = getOprych();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items29);
+          } else if (profesja === 'Paź') {
+            var _items30 = getPaz();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items30);
+          } else if (profesja === 'Podżegacz') {
+            var _items31 = getPodzegacz();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items31);
+          } else if (profesja === 'Porywacz zwłok') {
+            var _items32 = getPorywaczZwlok();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items32);
+          } else if (profesja === 'Posłaniec') {
+            var _items33 = getPoslaniec();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items33);
+          } else if (profesja === 'Przemytnik') {
+            var _items34 = getPrzemytnik();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items34);
+          } else if (profesja === 'Przepatrywacz') {
+            var _items35 = getPrzepatrywacz();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items35);
+          } else if (profesja === 'Przewoźnik') {
+            var _items36 = getPrzewoznik();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items36);
+          } else if (profesja === 'Rybak') {
+            var _items37 = getRybak();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items37);
+          } else if (profesja === 'Rzecznik rodu') {
+            var _items38 = getRzecznikRodu();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items38);
+          } else if (profesja === 'Rzemieślnik') {
+            var _items39 = getRzemieslnik();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items39);
+          } else if (profesja === 'Rzezimieszek') {
+            var _items40 = getRzezimieszek();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items40);
+          } else if (profesja === 'Skryba') {
+            var _items41 = getSkryba();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items41);
+          } else if (profesja === 'Sługa') {
+            var _items42 = getSluga();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items42);
+          } else if (profesja === 'Strażnik') {
+            var _items43 = getStraznik();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items43);
+          } else if (profesja === 'Strażnik dróg') {
+            var _items44 = getStraznikDrog();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items44);
+          } else if (profesja === 'Strażnik pól') {
+            var _items45 = getStraznikPol();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items45);
+          } else if (profesja === 'Strażnik więzienny') {
+            var _items46 = getStraznikWiezienny();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items46);
+          } else if (profesja === 'Szczurołap') {
+            var _items47 = getSzczurolap();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items47);
+          } else if (profesja === 'Szermierz estalijski') {
+            var _items48 = getSzermierzEstalijski();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items48);
+          } else if (profesja === 'Szlachcic') {
+            var _items49 = GetSzlachcic();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items49);
+          } else if (profesja === 'Śmieciarz') {
+            var _items50 = getSmieciarz();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items50);
+          } else if (profesja === 'Tarczownik') {
+            var _items51 = getTarczownik();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items51);
+          } else if (profesja === 'Uczeń czarodzieja') {
+            var _items52 = getUczenCzarodzieja();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items52);
+          } else if (profesja === 'Węglarz') {
+            var _items53 = getWeglarz();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items53);
+          } else if (profesja === 'Włóczykij') {
+            var _items54 = getWloczykij();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items54);
+          } else if (profesja === 'Wojownik klanowy') {
+            var _items55 = getWojownikKlanowy();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items55);
+          } else if (profesja === 'Woźnica') {
+            var _items56 = getWoznica();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items56);
+          } else if (profesja === 'Zabójca trolli') {
+            var _items57 = getZabojcaTrolli();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items57);
+          } else if (profesja === 'Zarządca') {
+            var _items58 = getZarzadca();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items58);
+          } else if (profesja === 'Złodziej') {
+            var _items59 = getZlodziej();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items59);
+          } else if (profesja === 'Żak') {
+            var _items60 = getZak();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items60);
+          } else if (profesja === 'Żeglarz') {
+            var _items61 = getZeglarz();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items61);
+          } else if (profesja === 'Żołnierz') {
+            var _items62 = getZolnierz();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items62);
+          } else if (profesja === 'Żołnierz okrętowy') {
+            var _items63 = getZolnierzOkretowy();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items63);
+          }
+        }
+      }, {
+        key: "getUmiejetnosci",
+        value: function getUmiejetnosci(umiejetnosc) {
+          if (umiejetnosc === 'Brzuchomówstwo') {
+            var items = getBrzuchomowstwo();
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(items);
+          } else if (umiejetnosc === 'Charakteryzacja') {
+            var _items64 = getCharakteryzacja();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items64);
+          } else if (umiejetnosc === 'Czytanie i pisanie') {
+            var _items65 = getCzytanieiPisanie();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items65);
+          } else if (umiejetnosc === 'Czytanie z warg') {
+            var _items66 = getCzytaniezWarg();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items66);
+          } else if (umiejetnosc === 'Dowodzenie') {
+            var _items67 = getDowodzenie();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items67);
+          } else if (umiejetnosc === 'Gadanina') {
+            var _items68 = getGadanina();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items68);
+          } else if (umiejetnosc === 'Hazard') {
+            var _items69 = getHazard();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items69);
+          } else if (umiejetnosc === 'Hipnoza') {
+            var _items70 = getHipnoza();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items70);
+          } else if (umiejetnosc === 'Jeździectwo') {
+            var _items71 = getJezdziectwo();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items71);
+          } else if (umiejetnosc === 'Język tajemny(magiczny)') {
+            var _items72 = getJezykTajemnyMagiczny();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items72);
+          } else if (umiejetnosc === 'Kuglarstwo(akrobatyka)') {
+            var _items73 = getKuglarstwoAkrobatyka();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items73);
+          } else if (umiejetnosc === 'Kuglarstwo(aktorstwo)') {
+            var _items74 = getKuglarstwoAktorstwo();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items74);
+          } else if (umiejetnosc === 'Kuglarstwo(błaznowanie)') {
+            var _items75 = getKuglarstwoBlaznowanie();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items75);
+          } else if (umiejetnosc === 'Kuglarstwo(gawędziarstwo)') {
+            var _items76 = getKuglarstwoGawedziarstwo();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items76);
+          } else if (umiejetnosc === 'Kuglarstwo(komedianctwo)') {
+            var _items77 = getKuglarstwoKomedianctwo();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items77);
+          } else if (umiejetnosc === 'Kuglarstwo(mimika)') {
+            var _items78 = getKuglarstwoMimika();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items78);
+          } else if (umiejetnosc === 'Kuglarstwo(muzykalność)') {
+            var _items79 = getKuglarstwoMuzykalnosc();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items79);
+          } else if (umiejetnosc === 'Kuglarstwo(połykanie ognia)') {
+            var _items80 = getKuglarstwoPolykanieOgnia();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items80);
+          } else if (umiejetnosc === 'Kuglarstwo(śpiew)') {
+            var _items81 = getKuglarstwoSpiew();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items81);
+          } else if (umiejetnosc === 'Kuglarstwo(taniec)') {
+            var _items82 = getKuglarstwoTaniec();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items82);
+          } else if (umiejetnosc === 'Kuglarstwo(wróżenie z dłoni)') {
+            var _items83 = getKuglarstwoWrozenieZDloni();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items83);
+          } else if (umiejetnosc === 'Kuglarstwo(żonglerka)') {
+            var _items84 = getKuglarstwoZonglerka();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items84);
+          } else if (umiejetnosc === 'Leczenie') {
+            var _items85 = getLeczenie();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items85);
+          } else if (umiejetnosc === 'Mocna głowa') {
+            var _items86 = getMocnaGlowa();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items86);
+          } else if (umiejetnosc === 'Nauka(alchemia)') {
+            var _items87 = getNaukaAlchemia();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items87);
+          } else if (umiejetnosc === 'Nauka(astronomia)') {
+            var _items88 = getNaukaAstronomia();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items88);
+          } else if (umiejetnosc === 'Nauka(anatomia)') {
+            var _items89 = getNaukaAnatomia();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items89);
+          } else if (umiejetnosc === 'Nauka(demonologia)') {
+            var _items90 = getNaukaDemonologia();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items90);
+          } else if (umiejetnosc === 'Nauka(filozofia)') {
+            var _items91 = getNaukaFilozofia();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items91);
+          } else if (umiejetnosc === 'Nauka(historia)') {
+            var _items92 = getNaukaHistoria();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items92);
+          } else if (umiejetnosc === 'Nauka(inżynieria)') {
+            var _items93 = getNaukaInzynieria();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items93);
+          } else if (umiejetnosc === 'Nauka(magia)') {
+            var _items94 = getNaukaMagia();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items94);
+          } else if (umiejetnosc === 'Nauka(genealogia/heraldyka)') {
+            var _items95 = getNaukaGenealogiaHeraldyka();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items95);
+          } else if (umiejetnosc === 'Nauka(matematyka)') {
+            var _items96 = getNaukaMatematyka();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items96);
+          } else if (umiejetnosc === 'Nauka(nekromancja)') {
+            var _items97 = getNaukaNekromancja();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items97);
+          } else if (umiejetnosc === 'Nauka(prawo)') {
+            var _items98 = getNaukaPrawo();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items98);
+          } else if (umiejetnosc === 'Nauka(runy)') {
+            var _items99 = getNaukaRuny();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items99);
+          } else if (umiejetnosc === 'Nauka(strategia/taktyka)') {
+            var _items100 = getNaukaStrategiaTaktyka();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items100);
+          } else if (umiejetnosc === 'Nauka(sztuka)') {
+            var _items101 = getNaukaSztuka();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items101);
+          } else if (umiejetnosc === 'Nauka(teologia)') {
+            var _items102 = getNaukaTeologia();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items102);
+          } else if (umiejetnosc === 'Nawigacja') {
+            var _items103 = getNawigacja();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items103);
+          } else if (umiejetnosc === 'Opieka nad zwierzętami') {
+            var _items104 = getOpiekaNadZwierzetami();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items104);
+          } else if (umiejetnosc === 'Oswajanie') {
+            var _items105 = getOswajanie();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items105);
+          } else if (umiejetnosc === 'Otwieranie zamków') {
+            var _items106 = getOtwieranieZamkow();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items106);
+          } else if (umiejetnosc === 'Plotkowanie') {
+            var _items107 = getPlotkowanie();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items107);
+          } else if (umiejetnosc === 'Pływanie') {
+            var _items108 = getPlywanie();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items108);
+          } else if (umiejetnosc === 'Powożenie') {
+            var _items109 = getPowozenie();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items109);
+          } else if (umiejetnosc === 'Przekonywanie') {
+            var _items110 = getPrzekonywanie();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items110);
+          } else if (umiejetnosc === 'Przeszukiwanie') {
+            var _items111 = getPrzeszukiwanie();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items111);
+          } else if (umiejetnosc === 'Rzemiosło(aptekarstwo)') {
+            var _items112 = getRzemiosloAptekarstwo();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items112);
+          } else if (umiejetnosc === 'Rzemiosło(bednarstwo)') {
+            var _items113 = getRzemiosloBednarstwo();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items113);
+          } else if (umiejetnosc === 'Rzemiosło(garbarstwo)') {
+            var _items114 = getRzemiosloGarbarstwo();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items114);
+          } else if (umiejetnosc === 'Rzemiosło(gotowanie)') {
+            var _items115 = getRzemiosloGotowanie();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items115);
+          } else if (umiejetnosc === 'Rzemiosło(górnictwo)') {
+            var _items116 = getRzemiosloGornictwo();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items116);
+          } else if (umiejetnosc === 'Rzemiosło(górnictwo odkrywkowe)') {
+            var _items117 = getRzemiosloGornictwoOdkrywkowe();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items117);
+          } else if (umiejetnosc === 'Rzemiosło(handel)') {
+            var _items118 = getRzemiosloHandel();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items118);
+          } else if (umiejetnosc === 'Rzemiosło(jubilerstwo)') {
+            var _items119 = getRzemiosloJubilerstwo();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items119);
+          } else if (umiejetnosc === 'Rzemiosło(kaligrafia)') {
+            var _items120 = getRzemiosloKaligrafia();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items120);
+          } else if (umiejetnosc === 'Rzemiosło(kamieniarstwo)') {
+            var _items121 = getRzemiosloKamieniarstwo();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items121);
+          } else if (umiejetnosc === 'Rzemiosło(kartografia)') {
+            var _items122 = getRzemiosloKartografia();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items122);
+          } else if (umiejetnosc === 'Rzemiosło(kowalstwo)') {
+            var _items123 = getRzemiosloKowalstwo();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items123);
+          } else if (umiejetnosc === 'Rzemiosło(krawiectwo)') {
+            var _items124 = getRzemiosloKrawiectwo();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items124);
+          } else if (umiejetnosc === 'Rzemiosło(młynarstwo)') {
+            var _items125 = getRzemiosloMlynarstwo();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items125);
+          } else if (umiejetnosc === 'Rzemiosło(piwowarstwo)') {
+            var _items126 = getRzemiosloPiwowarstwo();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items126);
+          } else if (umiejetnosc === 'Rzemiosło(płatnerstwo)') {
+            var _items127 = getRzemiosloPlatnerstwo();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items127);
+          } else if (umiejetnosc === 'Rzemiosło(rusznikarstwo)') {
+            var _items128 = getRzemiosloRusznikarstwo();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items128);
+          } else if (umiejetnosc === 'Rzemiosło(rymarstwo)') {
+            var _items129 = getRzemiosloRymarstwo();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items129);
+          } else if (umiejetnosc === 'Rzemiosło(szewstwo)') {
+            var _items130 = getRzemiosloSzewstwo();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items130);
+          } else if (umiejetnosc === 'Rzemiosło(stolarstwo)') {
+            var _items131 = getRzemiosloStolarstwo();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items131);
+          } else if (umiejetnosc === 'Rzemiosło(szkutnictwo)') {
+            var _items132 = getRzemiosloSzkutnictwo();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items132);
+          } else if (umiejetnosc === 'Rzemiosło(sztuka)') {
+            var _items133 = getRzemiosloSztuka();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items133);
+          } else if (umiejetnosc === 'Rzemiosło(świecarstwo)') {
+            var _items134 = getRzemiosloSwiecarstwo();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items134);
+          } else if (umiejetnosc === 'Rzemiosło(uprawa ziemi)') {
+            var _items135 = getRzemiosloUprawaZiemi();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items135);
+          } else if (umiejetnosc === 'Rzemiosło(wyrób łuków)') {
+            var _items136 = getRzemiosloWyrobLukow();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items136);
+          } else if (umiejetnosc === 'Rzemiosło(zielarstwo)') {
+            var _items137 = getRzemiosloZielarstwo();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items137);
+          } else if (umiejetnosc === 'Rzemiosło(złotnictwo)') {
+            var _items138 = getRzemiosloZlotnictwo();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items138);
+          } else if (umiejetnosc === 'Sekretne znaki(łowców)') {
+            var _items139 = getSekretneZnakiLowcow();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items139);
+          } else if (umiejetnosc === 'Sekretne znaki(rycerzy zakonnych)') {
+            var _items140 = getSekretneZnakiRycerzyZakonnych();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items140);
+          } else if (umiejetnosc === 'Sekretne znaki(złodziei)') {
+            var _items141 = getSekretneZnakiZlodziei();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items141);
+          } else if (umiejetnosc === 'Sekretne znaki(zwiadowców)') {
+            var _items142 = getSekretneZnakiZwiadowcow();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items142);
+          } else if (umiejetnosc === 'Sekretny język(bitewny)') {
+            var _items143 = getSekretnyJezykBitewny();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items143);
+          } else if (umiejetnosc === 'Sekretny język(gildii)') {
+            var _items144 = getSekretnyJezykGildii();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items144);
+          } else if (umiejetnosc === 'Sekretny język(łowców)') {
+            var _items145 = getSekretnyJezykLowcow();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items145);
+          } else if (umiejetnosc === 'Sekretny język(złodziejski)') {
+            var _items146 = getSekretnyJezykZlodziejski();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items146);
+          } else if (umiejetnosc === 'Skradanie się') {
+            var _items147 = getSkradanieSie();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items147);
+          } else if (umiejetnosc === 'Splatanie magii') {
+            var _items148 = getSplatanieMagii();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items148);
+          } else if (umiejetnosc === 'Spostrzegawczość') {
+            var _items149 = getSpostrzegawczosc();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items149);
+          } else if (umiejetnosc === 'Sztuka przetrwania') {
+            var _items150 = getSztukaPrzetrwania();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items150);
+          } else if (umiejetnosc === 'Śledzenie') {
+            var _items151 = getSledzenie();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items151);
+          } else if (umiejetnosc === 'Targowanie') {
+            var _items152 = getTargowanie();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items152);
+          } else if (umiejetnosc === 'Torturowanie') {
+            var _items153 = getTorturowanie();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items153);
+          } else if (umiejetnosc === 'Tresura') {
+            var _items154 = getTresura();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items154);
+          } else if (umiejetnosc === 'Tropienie') {
+            var _items155 = getTropienie();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items155);
+          } else if (umiejetnosc === 'Ukrywanie się') {
+            var _items156 = getUkrywanieSie();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items156);
+          } else if (umiejetnosc === 'Unik') {
+            var _items157 = getUnik();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items157);
+          } else if (umiejetnosc === 'Warzenie trucizn') {
+            var _items158 = getWarzenieTrucizn();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items158);
+          } else if (umiejetnosc === 'Wiedza(bretonia)') {
+            var _items159 = getWiedzaBretonia();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items159);
+          } else if (umiejetnosc === 'Wiedza(estalia)') {
+            var _items160 = getWiedzaEstalia();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items160);
+          } else if (umiejetnosc === 'Wiedza(imperium)') {
+            var _items161 = getWiedzaImperium();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items161);
+          } else if (umiejetnosc === 'Wiedza(jałowa kraina)') {
+            var _items162 = getWiedzaJalowaKraina();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items162);
+          } else if (umiejetnosc === 'Wiedza(kislev)') {
+            var _items163 = getWiedzaKislev();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items163);
+          } else if (umiejetnosc === 'Wiedza(księstwa graniczne)') {
+            var _items164 = getWiedzaKsiestwaGraniczne();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items164);
+          } else if (umiejetnosc === 'Wiedza(norska)') {
+            var _items165 = getWiedzaNorska();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items165);
+          } else if (umiejetnosc === 'Wiedza(tilea)') {
+            var _items166 = getWiedzaTilea();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items166);
+          } else if (umiejetnosc === 'Wiedza(elfy)') {
+            var _items167 = getWiedzaElfy();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items167);
+          } else if (umiejetnosc === 'Wiedza(krasnoludy)') {
+            var _items168 = getWiedzaKrasnoludy();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items168);
+          } else if (umiejetnosc === 'Wiedza(niziołki)') {
+            var _items169 = getWiedzaNiziolki();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items169);
+          } else if (umiejetnosc === 'Wiedza(ogry)') {
+            var _items170 = getWiedzaOgry();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items170);
+          } else if (umiejetnosc === 'Wioślarstwo') {
+            var _items171 = getWioślarstwo();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items171);
+          } else if (umiejetnosc === 'Wspinaczka') {
+            var _items172 = getWspinaczka();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items172);
+          } else if (umiejetnosc === 'Wycena') {
+            var _items173 = getWycena();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items173);
+          } else if (umiejetnosc === 'Wykrywanie magii') {
+            var _items174 = getWykrywanieMagii();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items174);
+          } else if (umiejetnosc === 'Zastawianie pułapek') {
+            var _items175 = getZastawaniePulapek();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items175);
+          } else if (umiejetnosc === 'Zastraszanie') {
+            var _items176 = getZastraszanie();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items176);
+          } else if (umiejetnosc === 'Znajomość języka(bretoński)') {
+            var _items177 = getZnajomoscJezykaBretonski();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items177);
+          } else if (umiejetnosc === 'Znajomość języka(eltharin)') {
+            var _items178 = getZnajomoscjezykaEltharin();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items178);
+          } else if (umiejetnosc === 'Znajomość języka(estalijski)') {
+            var _items179 = getZnajomoscjezykaEstalisjki();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items179);
+          } else if (umiejetnosc === 'Znajomość języka(khazalid)') {
+            var _items180 = getZnajomoscjezykaKhazaldin();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items180);
+          } else if (umiejetnosc === 'Znajomość języka(kislevski)') {
+            var _items181 = getZnajomoscjezykaKislevski();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items181);
+          } else if (umiejetnosc === 'Znajomość języka(norski)') {
+            var _items182 = getZnajomoscjezykaNorski();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items182);
+          } else if (umiejetnosc === 'Znajomość języka(tileański)') {
+            var _items183 = getZnajomoscjezykaTileanski();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items183);
+          } else if (umiejetnosc === 'Znajomość języka(klasyczny)') {
+            var _items184 = getZnajomoscJezykaKlasyczny();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items184);
+          } else if (umiejetnosc === 'Znajomość języka(staroświatowy)') {
+            var _items185 = getZnajomoscJezykaStaroswiatowy();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items185);
+          } else if (umiejetnosc === 'Znajomość języka(niziołków)') {
+            var _items186 = getZnajomoscjezykaNiziolkow();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items186);
+          } else if (umiejetnosc === 'Zwinne palce') {
+            var _items187 = getZwinnePalce();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items187);
+          } else if (umiejetnosc === 'Żeglarstwo') {
+            var _items188 = getZeglarstwo();
+
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_items188);
+          }
         }
       }]);
 
@@ -4171,11 +5423,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }], function () {
         return [];
       }, null);
-    })();
+    })(); // rasy
+
 
     function getMockRasy() {
       return [{
-        title: 'Człowiek',
+        rasatitle: 'Człowiek',
         WW: 20,
         US: 20,
         K: 20,
@@ -4184,9 +5437,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         Int: 20,
         SW: 20,
         Ogd: 20,
-        Sz: 4
+        Sz: 4,
+        umiejetnosci: ['Plotkowanie', 'Wiedza(imperium)', 'Znajomość języka(staroświatowy)']
       }, {
-        title: 'Krasnolud',
+        rasatitle: 'Krasnolud',
         WW: 30,
         US: 20,
         K: 20,
@@ -4195,9 +5449,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         Int: 20,
         SW: 20,
         Ogd: 10,
-        Sz: 3
+        Sz: 3,
+        umiejetnosci: ['Znajomość języka(khazalid)', 'Wiedza(krasnoludy)', 'Znajomość języka(staroświatowy)'],
+        wyborUmiejetnosciRasy: [['Rzemiosło(górnictwo)', 'Rzemiosło(kamieniarstwo)', 'Rzemiosło(kowalstwo)']]
       }, {
-        title: 'Elf',
+        rasatitle: 'Elf',
         WW: 20,
         US: 30,
         K: 20,
@@ -4206,9 +5462,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         Int: 20,
         SW: 20,
         Ogd: 20,
-        Sz: 5
+        Sz: 5,
+        umiejetnosci: ['Wiedza(elfy)', 'Znajomość języka(eltharin)', 'Znajomość języka(staroświatowy)']
       }, {
-        title: 'Niziołek',
+        rasatitle: 'Niziołek',
         WW: 10,
         US: 30,
         K: 10,
@@ -4217,7 +5474,3436 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         Int: 20,
         SW: 20,
         Ogd: 30,
-        Sz: 4
+        Sz: 4,
+        umiejetnosci: ['Plotkowanie', 'Znajomość języka(staroświatowy)', 'Wiedza(niziołki)', 'Znajomość języka(niziołków)', 'Nauka(genealogia/heraldyka)'],
+        wyborUmiejetnosciRasy: [['Rzemiosło(gotowanie)', 'Rzemiosło(uprawa ziemi)']]
+      }];
+    }
+
+    function getMockProfesjeCzlowiek() {
+      return [{
+        profesjatitle: 'Akolita',
+        rollmin: 1,
+        rollmax: 2
+      }, {
+        profesjatitle: 'Banita',
+        rollmin: 3,
+        rollmax: 4
+      }, {
+        profesjatitle: 'Berserker z Norski',
+        rollmin: 5,
+        rollmax: 5
+      }, {
+        profesjatitle: 'Chłop',
+        rollmin: 6,
+        rollmax: 7
+      }, {
+        profesjatitle: 'Ciura obozowa',
+        rollmin: 8,
+        rollmax: 9
+      }, {
+        profesjatitle: 'Cyrkowiec',
+        rollmin: 10,
+        rollmax: 11
+      }, {
+        profesjatitle: 'Cyrulik',
+        rollmin: 12,
+        rollmax: 12
+      }, {
+        profesjatitle: 'Fanatyk',
+        rollmin: 13,
+        rollmax: 14
+      }, {
+        profesjatitle: 'Flisak',
+        rollmin: 15,
+        rollmax: 16
+      }, {
+        profesjatitle: 'Giermek',
+        rollmin: 17,
+        rollmax: 18
+      }, {
+        profesjatitle: 'Gladiator',
+        rollmin: 19,
+        rollmax: 20
+      }, {
+        profesjatitle: 'Górnik',
+        rollmin: 21,
+        rollmax: 22
+      }, {
+        profesjatitle: 'Guślarz',
+        rollmin: 23,
+        rollmax: 23
+      }, {
+        profesjatitle: 'Hiena cmentarna',
+        rollmin: 24,
+        rollmax: 25
+      }, {
+        profesjatitle: 'Kanciarz',
+        rollmin: 26,
+        rollmax: 27
+      }, {
+        profesjatitle: 'Kozak kislevski',
+        rollmin: 28,
+        rollmax: 28
+      }, {
+        profesjatitle: 'Leśnik',
+        rollmin: 29,
+        rollmax: 30
+      }, {
+        profesjatitle: 'Łowca',
+        rollmin: 31,
+        rollmax: 32
+      }, {
+        profesjatitle: 'Łowca nagród',
+        rollmin: 33,
+        rollmax: 34
+      }, {
+        profesjatitle: 'Mieszczanin',
+        rollmin: 35,
+        rollmax: 36
+      }, {
+        profesjatitle: 'Mytnik',
+        rollmin: 37,
+        rollmax: 38
+      }, {
+        profesjatitle: 'Najemnik',
+        rollmin: 39,
+        rollmax: 40
+      }, {
+        profesjatitle: 'Ochotnik',
+        rollmin: 41,
+        rollmax: 42
+      }, {
+        profesjatitle: 'Ochroniarz',
+        rollmin: 43,
+        rollmax: 44
+      }, {
+        profesjatitle: 'Oprych',
+        rollmin: 45,
+        rollmax: 46
+      }, {
+        profesjatitle: 'Paź',
+        rollmin: 47,
+        rollmax: 48
+      }, {
+        profesjatitle: 'Podżegacz',
+        rollmin: 49,
+        rollmax: 50
+      }, {
+        profesjatitle: 'Porywacz zwłok',
+        rollmin: 51,
+        rollmax: 52
+      }, {
+        profesjatitle: 'Posłaniec',
+        rollmin: 53,
+        rollmax: 54
+      }, {
+        profesjatitle: 'Przemytnik',
+        rollmin: 55,
+        rollmax: 56
+      }, {
+        profesjatitle: 'Przepatrywacz',
+        rollmin: 57,
+        rollmax: 58
+      }, {
+        profesjatitle: 'Przewoźnik',
+        rollmin: 59,
+        rollmax: 59
+      }, {
+        profesjatitle: 'Rybak',
+        rollmin: 60,
+        rollmax: 61
+      }, {
+        profesjatitle: 'Rzemieślnik',
+        rollmin: 62,
+        rollmax: 63
+      }, {
+        profesjatitle: 'Rzezimieszek',
+        rollmin: 64,
+        rollmax: 65
+      }, {
+        profesjatitle: 'Skryba',
+        rollmin: 66,
+        rollmax: 67
+      }, {
+        profesjatitle: 'Sługa',
+        rollmin: 68,
+        rollmax: 69
+      }, {
+        profesjatitle: 'Strażnik',
+        rollmin: 70,
+        rollmax: 71
+      }, {
+        profesjatitle: 'Strażnik dróg',
+        rollmin: 72,
+        rollmax: 73
+      }, {
+        profesjatitle: 'Strażnik więzienny',
+        rollmin: 74,
+        rollmax: 74
+      }, {
+        profesjatitle: 'Szczurołap',
+        rollmin: 75,
+        rollmax: 76
+      }, {
+        profesjatitle: 'Szermierz estalijski',
+        rollmin: 77,
+        rollmax: 77
+      }, {
+        profesjatitle: 'Szlachcic',
+        rollmin: 78,
+        rollmax: 79
+      }, {
+        profesjatitle: 'Śmieciarz',
+        rollmin: 80,
+        rollmax: 81
+      }, {
+        profesjatitle: 'Uczeń czarodzieja',
+        rollmin: 82,
+        rollmax: 83
+      }, {
+        profesjatitle: 'Węglarz',
+        rollmin: 84,
+        rollmax: 85
+      }, {
+        profesjatitle: 'Włóczykij',
+        rollmin: 86,
+        rollmax: 87
+      }, {
+        profesjatitle: 'Woźnica',
+        rollmin: 88,
+        rollmax: 89
+      }, {
+        profesjatitle: 'Zarządca',
+        rollmin: 90,
+        rollmax: 90
+      }, {
+        profesjatitle: 'Złodziej',
+        rollmin: 91,
+        rollmax: 92
+      }, {
+        profesjatitle: 'Żak',
+        rollmin: 93,
+        rollmax: 94
+      }, {
+        profesjatitle: 'Żeglarz',
+        rollmin: 95,
+        rollmax: 96
+      }, {
+        profesjatitle: 'Żołnierz',
+        rollmin: 97,
+        rollmax: 98
+      }, {
+        profesjatitle: 'Żołnierz okrętowy',
+        rollmin: 99,
+        rollmax: 100
+      }];
+    }
+
+    function getMockProfesjeKrasnolud() {
+      return [{
+        profesjatitle: 'Banita',
+        rollmin: 1,
+        rollmax: 3
+      }, {
+        profesjatitle: 'Cyrkowiec',
+        rollmin: 4,
+        rollmax: 6
+      }, {
+        profesjatitle: 'Gladiator',
+        rollmin: 7,
+        rollmax: 11
+      }, {
+        profesjatitle: 'Goniec',
+        rollmin: 12,
+        rollmax: 16
+      }, {
+        profesjatitle: 'Górnik',
+        rollmin: 17,
+        rollmax: 22
+      }, {
+        profesjatitle: 'Hiena cmentarna',
+        rollmin: 23,
+        rollmax: 25
+      }, {
+        profesjatitle: 'Łowca',
+        rollmin: 26,
+        rollmax: 29
+      }, {
+        profesjatitle: 'Mieszczanin',
+        rollmin: 30,
+        rollmax: 33
+      }, {
+        profesjatitle: 'Mytnik',
+        rollmin: 34,
+        rollmax: 36
+      }, {
+        profesjatitle: 'Najemnik',
+        rollmin: 37,
+        rollmax: 42
+      }, {
+        profesjatitle: 'Ochotnik',
+        rollmin: 43,
+        rollmax: 46
+      }, {
+        profesjatitle: 'Ochroniarz',
+        rollmin: 47,
+        rollmax: 50
+      }, {
+        profesjatitle: 'Podżegacz',
+        rollmin: 51,
+        rollmax: 52
+      }, {
+        profesjatitle: 'Przemytnik',
+        rollmin: 53,
+        rollmax: 55
+      }, {
+        profesjatitle: 'Rzemieślnik',
+        rollmin: 56,
+        rollmax: 59
+      }, {
+        profesjatitle: 'Rzezimieszek',
+        rollmin: 60,
+        rollmax: 63
+      }, {
+        profesjatitle: 'Skryba',
+        rollmin: 64,
+        rollmax: 65
+      }, {
+        profesjatitle: 'Sługa',
+        rollmin: 66,
+        rollmax: 67
+      }, {
+        profesjatitle: 'Strażnik',
+        rollmin: 68,
+        rollmax: 69
+      }, {
+        profesjatitle: 'Strażnik więzienny',
+        rollmin: 70,
+        rollmax: 73
+      }, {
+        profesjatitle: 'Szczurołap',
+        rollmin: 74,
+        rollmax: 77
+      }, {
+        profesjatitle: 'Szlachcic',
+        rollmin: 78,
+        rollmax: 79
+      }, {
+        profesjatitle: 'Tarczownik',
+        rollmin: 80,
+        rollmax: 83
+      }, {
+        profesjatitle: 'Woźnica',
+        rollmin: 84,
+        rollmax: 85
+      }, {
+        profesjatitle: 'Zabójca troli',
+        rollmin: 86,
+        rollmax: 89
+      }, {
+        profesjatitle: 'Złodziej',
+        rollmin: 90,
+        rollmax: 92
+      }, {
+        profesjatitle: 'Żak',
+        rollmin: 93,
+        rollmax: 94
+      }, {
+        profesjatitle: 'Żeglarz',
+        rollmin: 95,
+        rollmax: 95
+      }, {
+        profesjatitle: 'Żołnierz',
+        rollmin: 96,
+        rollmax: 99
+      }, {
+        profesjatitle: 'Żołnierz okrętowy',
+        rollmin: 100,
+        rollmax: 100
+      }];
+    }
+
+    function getMockProfesjeElf() {
+      return [{
+        profesjatitle: 'Banita',
+        rollmin: 1,
+        rollmax: 5
+      }, {
+        profesjatitle: 'Cyrkowiec',
+        rollmin: 6,
+        rollmax: 10
+      }, {
+        profesjatitle: 'Kanciarz',
+        rollmin: 11,
+        rollmax: 16
+      }, {
+        profesjatitle: 'Łowca',
+        rollmin: 17,
+        rollmax: 24
+      }, {
+        profesjatitle: 'Najemnik',
+        rollmin: 25,
+        rollmax: 29
+      }, {
+        profesjatitle: 'Paź',
+        rollmin: 30,
+        rollmax: 31
+      }, {
+        profesjatitle: 'Posłaniec',
+        rollmin: 32,
+        rollmax: 37
+      }, {
+        profesjatitle: 'Przepatrywacz',
+        rollmin: 38,
+        rollmax: 43
+      }, {
+        profesjatitle: 'Rzecznik rodu',
+        rollmin: 44,
+        rollmax: 50
+      }, {
+        profesjatitle: 'Rzemieślnik',
+        rollmin: 51,
+        rollmax: 57
+      }, {
+        profesjatitle: 'Skryba',
+        rollmin: 58,
+        rollmax: 63
+      }, {
+        profesjatitle: 'Uczeń czarodzieja',
+        rollmin: 64,
+        rollmax: 70
+      }, {
+        profesjatitle: 'Włóczykij',
+        rollmin: 71,
+        rollmax: 77
+      }, {
+        profesjatitle: 'Wojownik klanowy',
+        rollmin: 78,
+        rollmax: 84
+      }, {
+        profesjatitle: 'Złodziej',
+        rollmin: 85,
+        rollmax: 90
+      }, {
+        profesjatitle: 'Żak',
+        rollmin: 91,
+        rollmax: 95
+      }, {
+        profesjatitle: 'Żeglarz',
+        rollmin: 96,
+        rollmax: 100
+      }];
+    }
+
+    function getMockProfesjeNiziolek() {
+      return [{
+        profesjatitle: 'Banita',
+        rollmin: 1,
+        rollmax: 3
+      }, {
+        profesjatitle: 'Ciura obozowa',
+        rollmin: 4,
+        rollmax: 5
+      }, {
+        profesjatitle: 'Cyrkowiec',
+        rollmin: 6,
+        rollmax: 8
+      }, {
+        profesjatitle: 'Cyrulik',
+        rollmin: 9,
+        rollmax: 9
+      }, {
+        profesjatitle: 'Hiena cmentarna',
+        rollmin: 10,
+        rollmax: 14
+      }, {
+        profesjatitle: 'Kanciarz',
+        rollmin: 15,
+        rollmax: 20
+      }, {
+        profesjatitle: 'Łowca',
+        rollmin: 21,
+        rollmax: 25
+      }, {
+        profesjatitle: 'Łowca nagród',
+        rollmin: 26,
+        rollmax: 27
+      }, {
+        profesjatitle: 'Mieszczanin',
+        rollmin: 28,
+        rollmax: 29
+      }, {
+        profesjatitle: 'Mytnik',
+        rollmin: 30,
+        rollmax: 31
+      }, {
+        profesjatitle: 'Najemnik',
+        rollmin: 32,
+        rollmax: 35
+      }, {
+        profesjatitle: 'Ochotnik',
+        rollmin: 36,
+        rollmax: 40
+      }, {
+        profesjatitle: 'Paź',
+        rollmin: 41,
+        rollmax: 42
+      }, {
+        profesjatitle: 'Podżegacz',
+        rollmin: 43,
+        rollmax: 45
+      }, {
+        profesjatitle: 'Porywacz zwłok',
+        rollmin: 46,
+        rollmax: 48
+      }, {
+        profesjatitle: 'Posłaniec',
+        rollmin: 49,
+        rollmax: 53
+      }, {
+        profesjatitle: 'Przemytnik',
+        rollmin: 54,
+        rollmax: 56
+      }, {
+        profesjatitle: 'Przewoźnik',
+        rollmin: 57,
+        rollmax: 57
+      }, {
+        profesjatitle: 'Rybak',
+        rollmin: 58,
+        rollmax: 58
+      }, {
+        profesjatitle: 'Rzemieślnik',
+        rollmin: 59,
+        rollmax: 63
+      }, {
+        profesjatitle: 'Sługa',
+        rollmin: 64,
+        rollmax: 68
+      }, {
+        profesjatitle: 'Strażnik',
+        rollmin: 69,
+        rollmax: 72
+      }, {
+        profesjatitle: 'Strażnik dróg',
+        rollmin: 73,
+        rollmax: 74
+      }, {
+        profesjatitle: 'Strażnik pól',
+        rollmin: 75,
+        rollmax: 78
+      }, {
+        profesjatitle: 'Szczurołap',
+        rollmin: 79,
+        rollmax: 82
+      }, {
+        profesjatitle: 'Śmieciarz',
+        rollmin: 83,
+        rollmax: 83
+      }, {
+        profesjatitle: 'Węglarz',
+        rollmin: 84,
+        rollmax: 86
+      }, {
+        profesjatitle: 'Włóczykij',
+        rollmin: 87,
+        rollmax: 90
+      }, {
+        profesjatitle: 'Złodziej',
+        rollmin: 91,
+        rollmax: 96
+      }, {
+        profesjatitle: 'Żak',
+        rollmin: 97,
+        rollmax: 98
+      }, {
+        profesjatitle: 'Żołnierz',
+        rollmin: 99,
+        rollmax: 100
+      }];
+    } // profesje
+
+
+    function getAkolita() {
+      return [{
+        title: 'Akolita',
+        opis: 'W hierarchii wartości mieszkańców Starego Świata religia spadła na drugie miejsce, ustępując bogactwu, ale wciąż jeszcze wielu młodych ludzi obojga płci znajduje w sobie powołanie do służby bożej. Praca kapłana wymaga poświęcenia i determinacji duchowej. Bycie akolitą to pierwszy krok na drodze ku kapłaństwu. Młodzi duchowni przechodzą surowe ćwiczenia pod opieką starszych kapłanów. Do końca nowicjatu nie mogą nauczać ani wygłaszać kazań.Czas spędzają na studiowaniu świętych ksiąg, czytaniu i przepisywaniu manuskryptów oraz na poznawaniu sztuki wzniosłego przemawiania. Akolici uczą się również walki na wypadek, gdyby trzeba było bronić świątyni.',
+        // tslint:disable-next-line: max-line-length
+        WW: 5,
+        US: 5,
+        K: 0,
+        Odp: 5,
+        Zr: 0,
+        Int: 10,
+        SW: 10,
+        Ogd: 10,
+        A: 0,
+        Zyw: 2,
+        S: 0,
+        Wt: 0,
+        Sz: 0,
+        Mag: 0,
+        PO: 0,
+        PP: 0,
+        umiejetnosci: ['Czytanie i pisanie', 'Leczenie', 'Nauka(teologia)', 'Przekonywanie', 'Spostrzegawczość', 'Znajomość języka(klasyczny)', 'Znajomość języka(staroświatowy)'],
+        wyborUmiejetnosciProfesji: [['Nauka(astronomia)', 'Nauka(historia)']],
+        zdolnosci: ['bardzo silny albo szybki refleks', 'charyzmatyczny albo urodzony wojownik', 'przemawianie'],
+        wyposazenie: ['szaty kapłańskie', 'symbol boga']
+      }];
+    }
+
+    function getBanita() {
+      return [{
+        title: 'Banita',
+        opis: 'blelbe',
+        WW: 10,
+        US: 10,
+        K: 0,
+        Odp: 0,
+        Zr: 10,
+        Int: 5,
+        SW: 0,
+        Ogd: 0,
+        A: 1,
+        Zyw: 2,
+        S: 0,
+        Wt: 0,
+        Sz: 0,
+        Mag: 0,
+        PO: 0,
+        PP: 0,
+        umiejetnosci: ['Skradanie się', 'Spostrzegawczość', 'Ukrywanie się', 'Unik', 'Wspinaczka'],
+        wyborUmiejetnosciProfesji: [['Opieka nad zwierzętami', 'Wiedza(imperium)'], ['Plotkowanie', 'Sekretne znaki(złodziei)'], ['Powożenie', 'Jeździectwo'], ['Zastawianie pułapek', 'Pływanie']],
+        zdolnosci: [],
+        wyposazenie: []
+      }];
+    }
+
+    function getberserkerZNorski() {
+      return [{
+        title: 'Berserker z Norski',
+        opis: 'blelbe',
+        WW: 15,
+        US: 0,
+        K: 10,
+        Odp: 10,
+        Zr: 0,
+        Int: 0,
+        SW: 10,
+        Ogd: 0,
+        A: 0,
+        Zyw: 2,
+        S: 0,
+        Wt: 0,
+        Sz: 0,
+        Mag: 0,
+        PO: 0,
+        PP: 0,
+        umiejetnosci: ['Kuglarstwo(gawędziarstwo)', 'Mocna głowa', 'Pływanie', 'Wiedza(norska)', 'Zastraszanie', 'Znajomość języka(norski)'],
+        wyborUmiejetnosciProfesji: [[]],
+        zdolnosci: [],
+        wyposazenie: []
+      }];
+    }
+
+    function getChlop() {
+      return [{
+        title: 'Chłop',
+        opis: 'blelbe',
+        WW: 5,
+        US: 5,
+        K: 5,
+        Odp: 10,
+        Zr: 5,
+        Int: 0,
+        SW: 5,
+        Ogd: 0,
+        A: 0,
+        Zyw: 2,
+        S: 0,
+        Wt: 0,
+        Sz: 0,
+        Mag: 0,
+        PO: 0,
+        PP: 0,
+        umiejetnosci: ['Ukrywanie się'],
+        wyborUmiejetnosciProfesji: [['Hazard', 'Kuglarstwo(taniec)', 'Kuglarstwo(śpiew)'], ['Opieka nad zwierzętami', 'Przekonywanie'], ['Oswajanie', 'Rzemiosło(gotowanie)'], ['Powożenie', 'Rzemiosło(wyrób łuków)'], ['Sztuka przetrwania', 'Rzemiosło(uprawa ziemi)'], ['Tresura', 'Pływanie'], ['Zastawianie pułapek', 'Wioślarstwo'], ['Wspinaczka', 'Skradanie się']],
+        zdolnosci: [],
+        wyposazenie: []
+      }];
+    }
+
+    function getCiuraObozowa() {
+      return [{
+        title: 'Ciura Obozowa',
+        opis: 'blelbe',
+        WW: 0,
+        US: 0,
+        K: 0,
+        Odp: 5,
+        Zr: 10,
+        Int: 5,
+        SW: 5,
+        Ogd: 10,
+        A: 0,
+        Zyw: 2,
+        S: 0,
+        Wt: 0,
+        Sz: 0,
+        Mag: 0,
+        PO: 0,
+        PP: 0,
+        umiejetnosci: ['Plotkowanie', 'Przeszukiwanie', 'Spostrzegawczość', 'Targowanie', 'Zwinne palce'],
+        wyborUmiejetnosciProfesji: [['Opieka nad zwierzętami', 'Powożenie'], ['Przekonywanie', 'Wycena'], ['Rzemiosło(gotowanie)', 'Rzemiosło(handel)', 'Rzemiosło(kartografia)', 'Rzemiosło(kowalstwo)', 'Rzemiosło(krawiectwo)', 'Rzemiosło(płatnerstwo)', 'Rzemiosło(rusznikarstwo)', 'Rzemiosło(wyrób łuków)', 'Rzemiosło(zielarstwo)'], ['Znajomość języka(bretoński)', 'Znajomość języka(kislevski)', 'Znajomość języka(tileański)']],
+        zdolnosci: [],
+        wyposazenie: []
+      }];
+    }
+
+    function getCyrkowiec() {
+      return [{
+        title: 'Cyrkowiec',
+        opis: 'blelbe',
+        WW: 5,
+        US: 10,
+        K: 0,
+        Odp: 0,
+        Zr: 10,
+        Int: 0,
+        SW: 5,
+        Ogd: 10,
+        A: 0,
+        Zyw: 2,
+        S: 0,
+        Wt: 0,
+        Sz: 0,
+        Mag: 0,
+        PO: 0,
+        PP: 0,
+        umiejetnosci: ['Przekonywanie', 'Spostrzegawczość', 'Wiedza(imperium)', 'Znajomość języka(staroświatowy)'],
+        wyborUmiejetnosciProfesji: [['Kuglarstwo(akrobatyka)', 'Kuglarstwo(aktorstwo)', 'Kuglarstwo(błaznowanie)', 'Kuglarstwo(gawędziarstwo)', 'Kuglarstwo(komedianctwo)', 'Kuglarstwo(mimika)', 'Kuglarstwo(muzykalność)', 'Kuglarstwo(połykanie ognia)', 'Kuglarstwo(śpiew)', 'Kuglarstwo(taniec)', 'Kuglarstwo(wróżenie z dłoni)', 'Kuglarstwo(żonglerka)'], ['Kuglarstwo(akrobatyka)', 'Kuglarstwo(aktorstwo)', 'Kuglarstwo(błaznowanie)', 'Kuglarstwo(gawędziarstwo)', 'Kuglarstwo(komedianctwo)', 'Kuglarstwo(mimika)', 'Kuglarstwo(muzykalność)', 'Kuglarstwo(połykanie ognia)', 'Kuglarstwo(śpiew)', 'Kuglarstwo(taniec)', 'Kuglarstwo(wróżenie z dłoni)', 'Kuglarstwo(żonglerka)'], ['Opieka nad zwierzętami', 'Pływanie'], ['Wycena', 'Plotkowanie'], ['Brzuchomówstwo', 'Gadanina', 'Hipnoza', 'Jeździectwo', 'Oswajanie', 'Tresura', 'Wspinaczka', 'Zwinne palce']],
+        zdolnosci: [],
+        wyposazenie: []
+      }];
+    }
+
+    function getCyrulik() {
+      return [{
+        title: 'Cyrulik',
+        opis: 'blelbe',
+        WW: 5,
+        US: 0,
+        K: 0,
+        Odp: 0,
+        Zr: 10,
+        Int: 10,
+        SW: 10,
+        Ogd: 5,
+        A: 0,
+        Zyw: 2,
+        S: 0,
+        Wt: 0,
+        Sz: 0,
+        Mag: 0,
+        PO: 0,
+        PP: 0,
+        umiejetnosci: ['Czytanie i pisanie', 'Leczenie', 'Przekonywanie', 'Rzemiosło(aptekarstwo)', 'Spostrzegawczość', 'Targowanie'],
+        wyborUmiejetnosciProfesji: [['Powożenie', 'Pływanie'], ['Znajomość języka(bretoński)', 'Znajomość języka(staroświatowy)', 'Znajomość języka(tileański)']],
+        zdolnosci: [],
+        wyposazenie: []
+      }];
+    }
+
+    function getFanatyk() {
+      return [{
+        title: 'Fanatyk',
+        opis: 'blelbe',
+        WW: 10,
+        US: 0,
+        K: 5,
+        Odp: 10,
+        Zr: 0,
+        Int: 0,
+        SW: 10,
+        Ogd: 5,
+        A: 0,
+        Zyw: 2,
+        S: 0,
+        Wt: 0,
+        Sz: 0,
+        Mag: 0,
+        PO: 0,
+        PP: 0,
+        umiejetnosci: ['Czytanie i pisanie', 'Nauka(teologia)', 'Przekonywanie', 'Wiedza(imperium)', 'Zastraszanie'],
+        wyborUmiejetnosciProfesji: [[]],
+        zdolnosci: [],
+        wyposazenie: []
+      }];
+    }
+
+    function getFlisak() {
+      return [{
+        title: 'Flisak',
+        opis: 'blelbe',
+        WW: 10,
+        US: 5,
+        K: 5,
+        Odp: 5,
+        Zr: 10,
+        Int: 5,
+        SW: 0,
+        Ogd: 0,
+        A: 0,
+        Zyw: 2,
+        S: 0,
+        Wt: 0,
+        Sz: 0,
+        Mag: 0,
+        PO: 0,
+        PP: 0,
+        umiejetnosci: ['Nawigacja', 'Pływanie', 'Spostrzegawczość', 'Sztuka przetrwania', 'Wioślarstwo', 'Żeglarstwo'],
+        wyborUmiejetnosciProfesji: [['Mocna głowa', 'Plotkowanie'], ['Sekretny język(łowców)', 'Znajomość języka(kislevski)'], ['Wiedza(imperium)', 'Wiedza(kislev)']],
+        zdolnosci: [],
+        wyposazenie: []
+      }];
+    }
+
+    function getGiermek() {
+      return [{
+        title: 'Giermek',
+        opis: 'blelbe',
+        WW: 10,
+        US: 5,
+        K: 5,
+        Odp: 5,
+        Zr: 5,
+        Int: 0,
+        SW: 0,
+        Ogd: 5,
+        A: 1,
+        Zyw: 2,
+        S: 0,
+        Wt: 0,
+        Sz: 0,
+        Mag: 0,
+        PO: 0,
+        PP: 0,
+        umiejetnosci: ['Jeździectwo', 'Opieka nad zwierzętami', 'Tresura', 'Unik'],
+        wyborUmiejetnosciProfesji: [['Nauka(genealogia/heraldyka)', 'Wiedza(bretonia)'], ['Przekonywanie', 'Plotkowanie'], ['Znajomość języka(bretoński)', 'Znajomość języka(staroświatowy)']],
+        zdolnosci: [],
+        wyposazenie: []
+      }];
+    }
+
+    function getGladiator() {
+      return [{
+        title: 'Gladiator',
+        opis: 'blelbe',
+        WW: 15,
+        US: 0,
+        K: 0,
+        Odp: 10,
+        Zr: 10,
+        Int: 0,
+        SW: 10,
+        Ogd: 0,
+        A: 0,
+        Zyw: 2,
+        S: 0,
+        Wt: 0,
+        Sz: 0,
+        Mag: 0,
+        PO: 0,
+        PP: 0,
+        umiejetnosci: ['Unik', 'Zastraszanie'],
+        wyborUmiejetnosciProfesji: [[]],
+        zdolnosci: [],
+        wyposazenie: []
+      }];
+    }
+
+    function getGoniec() {
+      return [{
+        title: 'Goniec',
+        opis: 'blelbe',
+        WW: 10,
+        US: 0,
+        K: 5,
+        Odp: 5,
+        Zr: 10,
+        Int: 5,
+        SW: 5,
+        Ogd: 0,
+        A: 0,
+        Zyw: 2,
+        S: 1,
+        Wt: 0,
+        Sz: 0,
+        Mag: 0,
+        PO: 0,
+        PP: 0,
+        umiejetnosci: ['Nawigacja', 'Pływanie', 'Sekretne znaki(zwiadowców)', 'Spostrzegawczość', 'Sztuka przetrwania', 'Unik'],
+        wyborUmiejetnosciProfesji: [[]],
+        zdolnosci: [],
+        wyposazenie: []
+      }];
+    }
+
+    function getGornik() {
+      return [{
+        title: 'Górnik',
+        opis: 'blelbe',
+        WW: 5,
+        US: 5,
+        K: 10,
+        Odp: 5,
+        Zr: 0,
+        Int: 5,
+        SW: 5,
+        Ogd: 0,
+        A: 0,
+        Zyw: 2,
+        S: 0,
+        Wt: 0,
+        Sz: 0,
+        Mag: 0,
+        PO: 0,
+        PP: 0,
+        umiejetnosci: ['Nawigacja', 'Opieka nad zwierzętami', 'Spostrzegawczość', 'Wspinaczka'],
+        wyborUmiejetnosciProfesji: [['Rzemiosło(górnictwo)', 'Rzemiosło(górnictwo odkrywkowe)'], ['Ukrywanie się', 'Powożenie'], ['Wycena', 'Sztuka przetrwania']],
+        zdolnosci: [],
+        wyposazenie: []
+      }];
+    }
+
+    function getGuslarz() {
+      return [{
+        title: 'Guślarz',
+        opis: 'blelbe',
+        WW: 0,
+        US: 0,
+        K: 0,
+        Odp: 5,
+        Zr: 5,
+        Int: 5,
+        SW: 10,
+        Ogd: 10,
+        A: 0,
+        Zyw: 2,
+        S: 0,
+        Wt: 0,
+        Sz: 0,
+        Mag: 1,
+        PO: 0,
+        PP: 0,
+        umiejetnosci: ['Przeszukiwanie', 'Splatanie magii', 'Spostrzegawczość', 'Wykrywanie magii'],
+        wyborUmiejetnosciProfesji: [['Leczenie', 'Hipnoza'], ['Opieka nad zwierzętami', 'Targowanie'], ['Oswajanie', 'Rzemiosło(aptekarstwo)'], ['Przekonywanie', 'Zastraszanie']],
+        zdolnosci: [],
+        wyposazenie: []
+      }];
+    }
+
+    function getHienaCmentarna() {
+      return [{
+        title: 'Hiena Cmentarna',
+        opis: 'blelbe',
+        WW: 10,
+        US: 0,
+        K: 0,
+        Odp: 0,
+        Zr: 10,
+        Int: 10,
+        SW: 10,
+        Ogd: 5,
+        A: 0,
+        Zyw: 2,
+        S: 0,
+        Wt: 0,
+        Sz: 0,
+        Mag: 0,
+        PO: 0,
+        PP: 0,
+        umiejetnosci: ['Czytanie i pisanie', 'Zastraszanie', 'Przeszukiwanie', 'Spostrzegawczość', 'Wspinaczka', 'Wycena'],
+        wyborUmiejetnosciProfesji: [['Otwieranie zamków', 'Skradanie się'], ['Ukrywanie się', 'Sztuka przetrwania'], ['Wiedza(imperium)', 'Sekretne znaki(złodziei)'], ['Znajomość języka(eltharin)', 'Znajomość języka(khazalid)', 'Znajomość języka(klasyczny)']],
+        zdolnosci: [],
+        wyposazenie: []
+      }];
+    }
+
+    function getKanciarz() {
+      return [{
+        title: 'Kanciarz',
+        opis: 'blelbe',
+        WW: 5,
+        US: 5,
+        K: 0,
+        Odp: 0,
+        Zr: 10,
+        Int: 5,
+        SW: 5,
+        Ogd: 10,
+        A: 0,
+        Zyw: 2,
+        S: 0,
+        Wt: 0,
+        Sz: 0,
+        Mag: 0,
+        PO: 0,
+        PP: 0,
+        umiejetnosci: ['Gadanina', 'Przekonywanie', 'Spostrzegawczość', 'Wycena', 'Znajomość języka(staroświatowy)'],
+        wyborUmiejetnosciProfesji: [['Hazard', 'Sekretne znaki(złodziei)'], ['Kuglarstwo(aktorstwo)', 'Kuglarstwo(gawędziarstwo)'], ['Plotkowanie', 'Targowanie'], ['Przeszukiwanie', 'Sekretny język(złodziejski)']],
+        zdolnosci: [],
+        wyposazenie: []
+      }];
+    }
+
+    function getKozakKislevski() {
+      return [{
+        title: 'Koza kislevski',
+        opis: 'blelbe',
+        WW: 10,
+        US: 10,
+        K: 0,
+        Odp: 10,
+        Zr: 0,
+        Int: 0,
+        SW: 10,
+        Ogd: 0,
+        A: 0,
+        Zyw: 2,
+        S: 0,
+        Wt: 0,
+        Sz: 0,
+        Mag: 0,
+        PO: 0,
+        PP: 0,
+        umiejetnosci: ['Mocna głowa', 'Przeszukiwanie', 'Spostrzegawczość', 'Sztuka przetrwania', 'Unik', 'Wiedza(kislev)', 'Znajomość języka(kislevski)'],
+        wyborUmiejetnosciProfesji: [['Hazard', 'Targowanie']],
+        zdolnosci: [],
+        wyposazenie: []
+      }];
+    }
+
+    function getLesnik() {
+      return [{
+        title: 'Leśnik',
+        opis: 'blelbe',
+        WW: 10,
+        US: 0,
+        K: 10,
+        Odp: 0,
+        Zr: 5,
+        Int: 0,
+        SW: 10,
+        Ogd: 0,
+        A: 0,
+        Zyw: 3,
+        S: 0,
+        Wt: 0,
+        Sz: 0,
+        Mag: 0,
+        PO: 0,
+        PP: 0,
+        umiejetnosci: ['Sekretne znaki(łowców)', 'Sekretny język(łowców)', 'Skradanie się', 'Spostrzegawczość', 'Ukrywanie się', 'Wspinaczka'],
+        wyborUmiejetnosciProfesji: [['Tropienie', 'Zastawianie pułapek']],
+        zdolnosci: [],
+        wyposazenie: []
+      }];
+    }
+
+    function getLowca() {
+      return [{
+        title: 'Łowca',
+        opis: 'blelbe',
+        WW: 0,
+        US: 15,
+        K: 0,
+        Odp: 5,
+        Zr: 10,
+        Int: 5,
+        SW: 0,
+        Ogd: 0,
+        A: 0,
+        Zyw: 3,
+        S: 0,
+        Wt: 0,
+        Sz: 0,
+        Mag: 0,
+        PO: 0,
+        PP: 0,
+        umiejetnosci: ['Sekretne znaki(łowców)', 'Spostrzegawczość', 'Sztuka przetrwania', 'Tropienie', 'Ukrywanie się'],
+        wyborUmiejetnosciProfesji: [['Przeszukiwanie', 'Pływanie'], ['Skradanie się', 'Zastawianie pułapek']],
+        zdolnosci: [],
+        wyposazenie: []
+      }];
+    }
+
+    function getLowcaNagrod() {
+      return [{
+        title: 'Łowca Nagród',
+        opis: 'blelbe',
+        WW: 5,
+        US: 10,
+        K: 5,
+        Odp: 0,
+        Zr: 10,
+        Int: 0,
+        SW: 5,
+        Ogd: 0,
+        A: 0,
+        Zyw: 2,
+        S: 0,
+        Wt: 0,
+        Sz: 0,
+        Mag: 0,
+        PO: 0,
+        PP: 0,
+        umiejetnosci: ['Przeszukiwanie', 'Skradanie się', 'Spostrzegawczość', 'Sztuka przetrwania', 'Śledzenie', 'Tropienie', 'Zastraszanie'],
+        wyborUmiejetnosciProfesji: [[]],
+        zdolnosci: [],
+        wyposazenie: []
+      }];
+    }
+
+    function getMieszczanin() {
+      return [{
+        title: 'Mieszczanin',
+        opis: 'blelbe',
+        WW: 5,
+        US: 0,
+        K: 0,
+        Odp: 0,
+        Zr: 5,
+        Int: 10,
+        SW: 5,
+        Ogd: 5,
+        A: 0,
+        Zyw: 2,
+        S: 0,
+        Wt: 0,
+        Sz: 0,
+        Mag: 0,
+        PO: 0,
+        PP: 0,
+        umiejetnosci: ['Powożenie', 'Przeszukiwanie', 'Spostrzegawczość', 'Targowanie', 'Wycena', 'Znajomość języka(staroświatowy)'],
+        wyborUmiejetnosciProfesji: [['Plotkowanie', 'Czytanie i pisanie'], ['Wiedza(imperium)', 'Mocna głowa'], ['Znajomość języka(bretoński)', 'Znajomość języka(kislevski)', 'Znajomość języka(tileański)']],
+        zdolnosci: [],
+        wyposazenie: []
+      }];
+    }
+
+    function getMytnik() {
+      return [{
+        title: 'Mytnik',
+        opis: 'blelbe',
+        WW: 10,
+        US: 5,
+        K: 5,
+        Odp: 10,
+        Zr: 5,
+        Int: 0,
+        SW: 5,
+        Ogd: 0,
+        A: 0,
+        Zyw: 2,
+        S: 0,
+        Wt: 0,
+        Sz: 0,
+        Mag: 0,
+        PO: 0,
+        PP: 0,
+        umiejetnosci: ['Czytanie i pisanie', 'Przeszukiwanie', 'Spostrzegawczość', 'Unik', 'Wycena'],
+        wyborUmiejetnosciProfesji: [['Plotkowanie', 'Targowanie'], ['Znajomość języka(bretoński)', 'Znajomość języka(kislevski)', 'Znajomość języka(tileański)']],
+        zdolnosci: [],
+        wyposazenie: []
+      }];
+    }
+
+    function getNajemnik() {
+      return [{
+        title: 'Najemnik',
+        opis: 'blelbe',
+        WW: 10,
+        US: 10,
+        K: 5,
+        Odp: 5,
+        Zr: 5,
+        Int: 0,
+        SW: 5,
+        Ogd: 0,
+        A: 1,
+        Zyw: 2,
+        S: 0,
+        Wt: 0,
+        Sz: 0,
+        Mag: 0,
+        PO: 0,
+        PP: 0,
+        umiejetnosci: ['Sekretny język(bitewny)', 'Unik'],
+        wyborUmiejetnosciProfesji: [['Opieka nad zwierzętami', 'Hazard'], ['Plotkowanie', 'Targowanie'], ['Powożenie', 'Jeździectwo'], ['Spostrzegawczość', 'Przeszukiwanie'], ['Wiedza(bretonia)', 'Wiedza(kislev)', 'Wiedza(tilea)'], ['Znajomość języka(tileański)', 'Pływanie']],
+        zdolnosci: [],
+        wyposazenie: []
+      }];
+    }
+
+    function getOchotnik() {
+      return [{
+        title: 'Ochotnik',
+        opis: 'blelbe',
+        WW: 10,
+        US: 5,
+        K: 5,
+        Odp: 5,
+        Zr: 10,
+        Int: 0,
+        SW: 0,
+        Ogd: 0,
+        A: 0,
+        Zyw: 2,
+        S: 0,
+        Wt: 0,
+        Sz: 0,
+        Mag: 0,
+        PO: 0,
+        PP: 0,
+        umiejetnosci: ['Opieka nad zwierzętami', 'Przeszukiwanie', 'Spostrzegawczość', 'Sztuka przetrwania', 'Unik'],
+        wyborUmiejetnosciProfesji: [['Hazard', 'Plotkowanie'], ['Powożenie', 'Pływanie'], ['Rzemiosło(aptekarstwo)', 'Rzemiosło(bednarstwo)', 'Rzemiosło(garbarstwo)', 'Rzemiosło(gotowanie)', 'Rzemiosło(górnictwo)', 'Rzemiosło(górnictwo odkrywkowe)', 'Rzemiosło(handel)', 'Rzemiosło(jubilerstwo)', 'Rzemiosło(kaligrafia)', 'Rzemiosło(kamieniarstwo)', 'Rzemiosło(kartografia)', 'Rzemiosło(kowalstwo)', 'Rzemiosło(krawiectwo)', 'Rzemiosło(młynarstwo)', 'Rzemiosło(piwowarstwo)', 'Rzemiosło(płatnerstwo)', 'Rzemiosło(rusznikarstwo)', 'Rzemiosło(rymarstwo)', 'Rzemiosło(stolarstwo)', 'Rzemiosło(szkutnictwo)', 'Rzemiosło(szewstwo)', 'Rzemiosło(sztuka)', 'Rzemiosło(świecarstwo)', 'Rzemiosło(uprawa ziemi)', 'Rzemiosło(wyrób łuków)', 'Rzemiosło(zielarstwo)', 'Rzemiosło(złotnictwo)']],
+        zdolnosci: [],
+        wyposazenie: []
+      }];
+    }
+
+    function getOchroniarz() {
+      return [{
+        title: 'Ochroniarz',
+        opis: 'blelbe',
+        WW: 10,
+        US: 0,
+        K: 5,
+        Odp: 5,
+        Zr: 5,
+        Int: 0,
+        SW: 0,
+        Ogd: 0,
+        A: 1,
+        Zyw: 3,
+        S: 0,
+        Wt: 0,
+        Sz: 0,
+        Mag: 0,
+        PO: 0,
+        PP: 0,
+        umiejetnosci: ['Leczenie', 'Spostrzegawczość', 'Unik', 'Zastraszanie'],
+        wyborUmiejetnosciProfesji: [[]],
+        zdolnosci: [],
+        wyposazenie: []
+      }];
+    }
+
+    function getOprych() {
+      return [{
+        title: 'Oprych',
+        opis: 'blelbe',
+        WW: 10,
+        US: 0,
+        K: 5,
+        Odp: 5,
+        Zr: 0,
+        Int: 0,
+        SW: 5,
+        Ogd: 5,
+        A: 1,
+        Zyw: 2,
+        S: 0,
+        Wt: 0,
+        Sz: 0,
+        Mag: 0,
+        PO: 0,
+        PP: 0,
+        umiejetnosci: ['Hazard', 'Mocna głowa', 'Sekretny język(złodziejski)', 'Unik', 'Zastraszanie'],
+        wyborUmiejetnosciProfesji: [[]],
+        zdolnosci: [],
+        wyposazenie: []
+      }];
+    }
+
+    function getPaz() {
+      return [{
+        title: 'Paź',
+        opis: 'blelbe',
+        WW: 0,
+        US: 0,
+        K: 0,
+        Odp: 0,
+        Zr: 10,
+        Int: 10,
+        SW: 5,
+        Ogd: 10,
+        A: 0,
+        Zyw: 2,
+        S: 0,
+        Wt: 0,
+        Sz: 0,
+        Mag: 0,
+        PO: 0,
+        PP: 0,
+        umiejetnosci: ['Czytanie i pisanie', 'Gadanina', 'Nauka(genealogia/heraldyka)', 'Przeszukiwanie', 'Spostrzegawczość', 'Targowanie', 'Wycena'],
+        wyborUmiejetnosciProfesji: [['Plotkowanie', 'Znajomość języka(bretoński)', 'Znajomość języka(staroświatowy)']],
+        zdolnosci: [],
+        wyposazenie: []
+      }];
+    }
+
+    function getPodzegacz() {
+      return [{
+        title: 'Podżegacz',
+        opis: 'blelbe',
+        WW: 5,
+        US: 5,
+        K: 0,
+        Odp: 0,
+        Zr: 5,
+        Int: 10,
+        SW: 0,
+        Ogd: 10,
+        A: 0,
+        Zyw: 2,
+        S: 0,
+        Wt: 0,
+        Sz: 0,
+        Mag: 0,
+        PO: 0,
+        PP: 0,
+        umiejetnosci: ['Czytanie i pisanie', 'Przekonywanie', 'Spostrzegawczość', 'Ukrywanie się', 'Znajomość języka(staroświatowy)'],
+        wyborUmiejetnosciProfesji: [['Nauka(historia)', 'Plotkowanie'], ['Nauka(prawo)', 'Wiedza(imperium)'], ['Znajomość języka(bretoński)', 'Znajomość języka(tileański)']],
+        zdolnosci: [],
+        wyposazenie: []
+      }];
+    }
+
+    function getPorywaczZwlok() {
+      return [{
+        title: 'Porywacz zwłok',
+        opis: 'blelbe',
+        WW: 5,
+        US: 5,
+        K: 5,
+        Odp: 0,
+        Zr: 10,
+        Int: 0,
+        SW: 10,
+        Ogd: 0,
+        A: 0,
+        Zyw: 2,
+        S: 0,
+        Wt: 0,
+        Sz: 0,
+        Mag: 0,
+        PO: 0,
+        PP: 0,
+        umiejetnosci: ['Powożenie', 'Przeszukiwanie', 'Sekretne znaki(złodziei)', 'Skradanie się', 'Spostrzegawczość', 'Wspinaczka'],
+        wyborUmiejetnosciProfesji: [['Plotkowanie', 'Targowanie']],
+        zdolnosci: [],
+        wyposazenie: []
+      }];
+    }
+
+    function getPoslaniec() {
+      return [{
+        title: 'Posłaniec',
+        opis: 'blelbe',
+        WW: 5,
+        US: 5,
+        K: 0,
+        Odp: 5,
+        Zr: 10,
+        Int: 5,
+        SW: 5,
+        Ogd: 0,
+        A: 0,
+        Zyw: 2,
+        S: 0,
+        Wt: 0,
+        Sz: 0,
+        Mag: 0,
+        PO: 0,
+        PP: 0,
+        umiejetnosci: ['Jeździectwo', 'Nawigacja', 'Opieka nad zwierzętami', 'Pływanie', 'Sekretne znaki(zwiadowców)', 'Spostrzegawczość', 'Sztuka przetrwania', 'Znajomość języka(staroświatowy)'],
+        wyborUmiejetnosciProfesji: [['Wiedza(imperium)', 'Wiedza(jałowa kraina)', 'Plotkowanie']],
+        zdolnosci: [],
+        wyposazenie: []
+      }];
+    }
+
+    function getPrzemytnik() {
+      return [{
+        title: 'Przemytnik',
+        opis: 'blelbe',
+        WW: 5,
+        US: 5,
+        K: 0,
+        Odp: 0,
+        Zr: 10,
+        Int: 10,
+        SW: 0,
+        Ogd: 10,
+        A: 0,
+        Zyw: 2,
+        S: 0,
+        Wt: 0,
+        Sz: 0,
+        Mag: 0,
+        PO: 0,
+        PP: 0,
+        umiejetnosci: ['Pływanie', 'Powożenie', 'Przeszukiwanie', 'Skradanie się', 'Spostrzegawczość', 'Targowanie', 'Wioślarstwo', 'Wycena'],
+        wyborUmiejetnosciProfesji: [['Plotkowanie', 'Sekretny język(złodziejski)'], ['Znajomość języka(bretoński)', 'Znajomość języka(kislevski)', 'Sekretne znaki(złodziei)']],
+        zdolnosci: [],
+        wyposazenie: []
+      }];
+    }
+
+    function getPrzepatrywacz() {
+      return [{
+        title: 'Przepatrywacz',
+        opis: 'blelbe',
+        WW: 5,
+        US: 10,
+        K: 0,
+        Odp: 0,
+        Zr: 10,
+        Int: 10,
+        SW: 5,
+        Ogd: 0,
+        A: 0,
+        Zyw: 2,
+        S: 0,
+        Wt: 0,
+        Sz: 0,
+        Mag: 0,
+        PO: 0,
+        PP: 0,
+        umiejetnosci: ['Jeździectwo', 'Nawigacja', 'Opieka nad zwierzętami', 'Przeszukiwanie', 'Skradanie się', 'Spostrzegawczość', 'Sztuka przetrwania', 'Tropienie'],
+        wyborUmiejetnosciProfesji: [[]],
+        zdolnosci: [],
+        wyposazenie: []
+      }];
+    }
+
+    function getPrzewoznik() {
+      return [{
+        title: 'Przewoźnik',
+        opis: 'blelbe',
+        WW: 5,
+        US: 5,
+        K: 10,
+        Odp: 5,
+        Zr: 5,
+        Int: 5,
+        SW: 0,
+        Ogd: 0,
+        A: 0,
+        Zyw: 2,
+        S: 0,
+        Wt: 0,
+        Sz: 0,
+        Mag: 0,
+        PO: 0,
+        PP: 0,
+        umiejetnosci: ['Pływanie', 'Przekonywanie', 'Spostrzegawczość', 'Targowanie', 'Wiedza(imperium)', 'Wioślarstwo'],
+        wyborUmiejetnosciProfesji: [['Plotkowanie', 'Zastraszanie'], ['Wycena', 'Sekretny język(łowców)']],
+        zdolnosci: [],
+        wyposazenie: []
+      }];
+    }
+
+    function getRybak() {
+      return [{
+        title: 'Rybak',
+        opis: 'blelbe',
+        WW: 0,
+        US: 5,
+        K: 10,
+        Odp: 5,
+        Zr: 10,
+        Int: 5,
+        SW: 0,
+        Ogd: 0,
+        A: 0,
+        Zyw: 2,
+        S: 0,
+        Wt: 0,
+        Sz: 0,
+        Mag: 0,
+        PO: 0,
+        PP: 0,
+        umiejetnosci: ['Pływanie', 'Spostrzegawczość', 'Sztuka przetrwania', 'Wioślrastwo', 'Żeglarstwo'],
+        wyborUmiejetnosciProfesji: [['Mocna głowa', 'Targowanie'], ['Nawigacja', 'Rzemiosło(handel)'], ['Wiedza(imperium)', 'Wiedza(jałowa kraina)'], ['Znajomość języka(staroświatowy)', 'Znajomość języka(norski)']],
+        zdolnosci: [],
+        wyposazenie: []
+      }];
+    }
+
+    function getRzecznikRodu() {
+      return [{
+        title: 'Rzecznik rodu',
+        opis: 'blelbe',
+        WW: 5,
+        US: 5,
+        K: 0,
+        Odp: 0,
+        Zr: 5,
+        Int: 10,
+        SW: 5,
+        Ogd: 10,
+        A: 0,
+        Zyw: 2,
+        S: 0,
+        Wt: 0,
+        Sz: 0,
+        Mag: 0,
+        PO: 0,
+        PP: 0,
+        umiejetnosci: ['Czytanie i pisanie', 'Plotkowanie', 'Pływanie', 'Przekonywanie', 'Rzemiosło(handel)', 'Sekretny język(gildii)', 'Spostrzegawczość', 'Targowanie', 'Wycena'],
+        wyborUmiejetnosciProfesji: [['Wiedza(imperium)', 'Wiedza(jałowa kraina)']],
+        zdolnosci: [],
+        wyposazenie: []
+      }];
+    }
+
+    function getRzemieslnik() {
+      return [{
+        title: '',
+        opis: 'blelbe',
+        WW: 0,
+        US: 0,
+        K: 5,
+        Odp: 5,
+        Zr: 10,
+        Int: 5,
+        SW: 10,
+        Ogd: 0,
+        A: 0,
+        Zyw: 2,
+        S: 0,
+        Wt: 0,
+        Sz: 0,
+        Mag: 0,
+        PO: 0,
+        PP: 0,
+        umiejetnosci: ['Czytanie i pisanie', 'Powożenie', 'Sekretny język(gildii)', 'Spostrzegawczość', 'Targowanie', 'Wycena'],
+        wyborUmiejetnosciProfesji: [['Opieka nad zwierzętami', 'Plotkowanie'], ['Rzemiosło(aptekarstwo)', 'Rzemiosło(bednarstwo)', 'Rzemiosło(garbarstwo)', 'Rzemiosło(gotowanie)', 'Rzemiosło(górnictwo)', 'Rzemiosło(górnictwo odkrywkowe)', 'Rzemiosło(handel)', 'Rzemiosło(jubilerstwo)', 'Rzemiosło(kaligrafia)', 'Rzemiosło(kamieniarstwo)', 'Rzemiosło(kartografia)', 'Rzemiosło(kowalstwo)', 'Rzemiosło(krawiectwo)', 'Rzemiosło(młynarstwo)', 'Rzemiosło(piwowarstwo)', 'Rzemiosło(płatnerstwo)', 'Rzemiosło(rusznikarstwo)', 'Rzemiosło(rymarstwo)', 'Rzemiosło(stolarstwo)', 'Rzemiosło(szkutnictwo)', 'Rzemiosło(szewstwo)', 'Rzemiosło(sztuka)', 'Rzemiosło(świecarstwo)', 'Rzemiosło(uprawa ziemi)', 'Rzemiosło(wyrób łuków)', 'Rzemiosło(zielarstwo)', 'Rzemiosło(złotnictwo)'], ['Rzemiosło(aptekarstwo)', 'Rzemiosło(bednarstwo)', 'Rzemiosło(garbarstwo)', 'Rzemiosło(gotowanie)', 'Rzemiosło(górnictwo)', 'Rzemiosło(górnictwo odkrywkowe)', 'Rzemiosło(handel)', 'Rzemiosło(jubilerstwo)', 'Rzemiosło(kaligrafia)', 'Rzemiosło(kamieniarstwo)', 'Rzemiosło(kartografia)', 'Rzemiosło(kowalstwo)', 'Rzemiosło(krawiectwo)', 'Rzemiosło(młynarstwo)', 'Rzemiosło(piwowarstwo)', 'Rzemiosło(płatnerstwo)', 'Rzemiosło(rusznikarstwo)', 'Rzemiosło(rymarstwo)', 'Rzemiosło(stolarstwo)', 'Rzemiosło(szkutnictwo)', 'Rzemiosło(szewstwo)', 'Rzemiosło(sztuka)', 'Rzemiosło(świecarstwo)', 'Rzemiosło(uprawa ziemi)', 'Rzemiosło(wyrób łuków)', 'Rzemiosło(zielarstwo)', 'Rzemiosło(złotnictwo)']],
+        zdolnosci: [],
+        wyposazenie: []
+      }];
+    }
+
+    function getRzezimieszek() {
+      return [{
+        title: 'Rzezimieszek',
+        opis: 'blelbe',
+        WW: 10,
+        US: 0,
+        K: 10,
+        Odp: 0,
+        Zr: 10,
+        Int: 0,
+        SW: 10,
+        Ogd: 0,
+        A: 1,
+        Zyw: 2,
+        S: 0,
+        Wt: 0,
+        Sz: 0,
+        Mag: 0,
+        PO: 0,
+        PP: 0,
+        umiejetnosci: ['Jeździectwo', 'Unik', 'Zastraszanie'],
+        wyborUmiejetnosciProfesji: [['Plotkowanie', 'Targowanie']],
+        zdolnosci: [],
+        wyposazenie: []
+      }];
+    }
+
+    function getSkryba() {
+      return [{
+        title: 'Skryba',
+        opis: 'blelbe',
+        WW: 0,
+        US: 0,
+        K: 0,
+        Odp: 0,
+        Zr: 10,
+        Int: 10,
+        SW: 10,
+        Ogd: 5,
+        A: 0,
+        Zyw: 2,
+        S: 0,
+        Wt: 0,
+        Sz: 0,
+        Mag: 0,
+        PO: 0,
+        PP: 0,
+        umiejetnosci: ['Czytanie i pisanie', 'Rzemiosło(kaligrafia)', 'Sekretny język(gildii)', 'Spostrzegawczość', 'Wiedza(imperium)', 'Znajomość języka(klasyczny)'],
+        wyborUmiejetnosciProfesji: [['Nauka(astronomia)', 'Nauka(anatomia)', 'Nauka(alchemia)', 'Nauka(demonologia)', 'Nauka(filozofia)', 'Nauka(historia)', 'Nauka(inżynieria)', 'Nauka(magia)', 'Nauka(genealogia/heraldyka)', 'Nauka(matematyka)', 'Nauka(nekromancja)', 'Nauka(prawo)', 'Nauka(runy)', 'Nauka(strategia/taktyka)', 'Nauka(sztuka)', 'Nauka(teologia)'], ['Wiedza(imperium)', 'Plotkowanie'], ['Znajomość języka(staroświatowy)', 'Znajomość języka(tileański)']],
+        zdolnosci: [],
+        wyposazenie: []
+      }];
+    }
+
+    function getSluga() {
+      return [{
+        title: 'Sługa',
+        opis: 'blelbe',
+        WW: 5,
+        US: 0,
+        K: 5,
+        Odp: 0,
+        Zr: 10,
+        Int: 5,
+        SW: 10,
+        Ogd: 5,
+        A: 0,
+        Zyw: 2,
+        S: 0,
+        Wt: 0,
+        Sz: 0,
+        Mag: 0,
+        PO: 0,
+        PP: 0,
+        umiejetnosci: ['Gadanina', 'Plotkowanie', 'Spostrzegawczość', 'Unik'],
+        wyborUmiejetnosciProfesji: [['Czytanie i pisanie', 'Zwinne palce'], ['Opieka nad zwierzętami', 'Rzemiosło(gotowanie)'], ['Powożenie', 'Przeszukiwanie'], ['Targowanie', 'Wycena']],
+        zdolnosci: [],
+        wyposazenie: []
+      }];
+    }
+
+    function getStraznik() {
+      return [{
+        title: 'Strażnik',
+        opis: 'blelbe',
+        WW: 10,
+        US: 5,
+        K: 5,
+        Odp: 0,
+        Zr: 5,
+        Int: 10,
+        SW: 0,
+        Ogd: 5,
+        A: 0,
+        Zyw: 2,
+        S: 0,
+        Wt: 0,
+        Sz: 0,
+        Mag: 0,
+        PO: 0,
+        PP: 0,
+        umiejetnosci: ['Nauka(prawo)', 'Plotkowanie', 'Przeszukiwanie', 'Spostrzegawczość', 'Tropienie', 'Unik', 'Zastraszanie'],
+        wyborUmiejetnosciProfesji: [[]],
+        zdolnosci: [],
+        wyposazenie: []
+      }];
+    }
+
+    function getStraznikDrog() {
+      return [{
+        title: 'Strażnik Dróg',
+        opis: 'blelbe',
+        WW: 10,
+        US: 10,
+        K: 5,
+        Odp: 0,
+        Zr: 10,
+        Int: 5,
+        SW: 5,
+        Ogd: 0,
+        A: 0,
+        Zyw: 2,
+        S: 0,
+        Wt: 0,
+        Sz: 0,
+        Mag: 0,
+        PO: 0,
+        PP: 0,
+        umiejetnosci: ['Jeździectwo', 'Nawigacja', 'Opieka nad zwierzętami', 'Powożenie', 'Przeszukiwanie', 'Spostrzegawczość', 'Sztuka przetrwania'],
+        wyborUmiejetnosciProfesji: [['Tropienie', 'Sekretne znaki(zwiadowców)'], ['Wiedza(imperium)', 'Plotkowanie']],
+        zdolnosci: [],
+        wyposazenie: []
+      }];
+    }
+
+    function getStraznikPol() {
+      return [{
+        title: 'Strażnik pól',
+        opis: 'blelbe',
+        WW: 5,
+        US: 10,
+        K: 0,
+        Odp: 5,
+        Zr: 10,
+        Int: 0,
+        SW: 10,
+        Ogd: 0,
+        A: 0,
+        Zyw: 2,
+        S: 0,
+        Wt: 0,
+        Sz: 0,
+        Mag: 0,
+        PO: 0,
+        PP: 0,
+        umiejetnosci: ['Przeszukiwanie', 'Skradanie się', 'Spostrzegawczość', 'Sztuka przetrwania', 'Tropienie', 'Ukrywanie się'],
+        wyborUmiejetnosciProfesji: [['Nauka(nekromancja)', 'Wiedza(imperium)']],
+        zdolnosci: [],
+        wyposazenie: []
+      }];
+    }
+
+    function getStraznikWiezienny() {
+      return [{
+        title: 'Strażnik więzienny',
+        opis: 'blelbe',
+        WW: 10,
+        US: 0,
+        K: 10,
+        Odp: 10,
+        Zr: 0,
+        Int: 0,
+        SW: 5,
+        Ogd: 0,
+        A: 0,
+        Zyw: 3,
+        S: 0,
+        Wt: 0,
+        Sz: 0,
+        Mag: 0,
+        PO: 0,
+        PP: 0,
+        umiejetnosci: ['Dowodzenie', 'Mocna głowa', 'Przeszukiwanie', 'Spostrzegawczość', 'Unik', 'Zastraszanie'],
+        wyborUmiejetnosciProfesji: [['Leczenie', 'Zwinne palce']],
+        zdolnosci: [],
+        wyposazenie: []
+      }];
+    }
+
+    function getSzczurolap() {
+      return [{
+        title: 'Szczurołap',
+        opis: 'blelbe',
+        WW: 5,
+        US: 10,
+        K: 0,
+        Odp: 5,
+        Zr: 10,
+        Int: 0,
+        SW: 10,
+        Ogd: 0,
+        A: 0,
+        Zyw: 2,
+        S: 0,
+        Wt: 0,
+        Sz: 0,
+        Mag: 0,
+        PO: 0,
+        PP: 0,
+        umiejetnosci: ['Opieka nad zwierzętami', 'Przeszukiwanie', 'Skradanie się', 'Spostrzegawczość', 'Tresura', 'Ukrywanie się', 'Zastawianie pułapek'],
+        wyborUmiejetnosciProfesji: [[]],
+        zdolnosci: [],
+        wyposazenie: []
+      }];
+    }
+
+    function getSzermierzEstalijski() {
+      return [{
+        title: 'Szermierz estalijski',
+        opis: 'blelbe',
+        WW: 15,
+        US: 0,
+        K: 5,
+        Odp: 5,
+        Zr: 10,
+        Int: 5,
+        SW: 0,
+        Ogd: 0,
+        A: 1,
+        Zyw: 2,
+        S: 0,
+        Wt: 0,
+        Sz: 0,
+        Mag: 0,
+        PO: 0,
+        PP: 0,
+        umiejetnosci: ['Czytanie i pisanie', 'Nauka(anatomia)', 'Unik', 'Wiedza(estalia)', 'Znajomość języka(estalijski)'],
+        wyborUmiejetnosciProfesji: [[]],
+        zdolnosci: [],
+        wyposazenie: []
+      }];
+    }
+
+    function GetSzlachcic() {
+      return [{
+        title: 'Szlachcic',
+        opis: 'blelbe',
+        WW: 10,
+        US: 5,
+        K: 0,
+        Odp: 0,
+        Zr: 5,
+        Int: 5,
+        SW: 5,
+        Ogd: 10,
+        A: 0,
+        Zyw: 2,
+        S: 0,
+        Wt: 0,
+        Sz: 0,
+        Mag: 0,
+        PO: 0,
+        PP: 0,
+        umiejetnosci: ['Czytanie i pisanie', 'Jeździectwo', 'Przekonywanie', 'Wiedza(imperium)', 'Znajomość języka(staroświatowy)'],
+        wyborUmiejetnosciProfesji: [['Gadanina', 'Dowodzenie'], ['Hazard', 'Plotkowanie'], ['Mocna głowa', 'Kuglarstwo(muzykalność)']],
+        zdolnosci: [],
+        wyposazenie: []
+      }];
+    }
+
+    function getSmieciarz() {
+      return [{
+        title: 'Śmieciarz',
+        opis: 'blelbe',
+        WW: 5,
+        US: 0,
+        K: 5,
+        Odp: 10,
+        Zr: 5,
+        Int: 0,
+        SW: 5,
+        Ogd: 5,
+        A: 0,
+        Zyw: 5,
+        S: 0,
+        Wt: 0,
+        Sz: 0,
+        Mag: 0,
+        PO: 0,
+        PP: 0,
+        umiejetnosci: ['Opieka nad zwierzętami', 'Powożenie', 'Przeszukiwanie', 'Spostrzegawczość', 'Targowanie', 'Wiedza(imperium)', 'Wycena'],
+        wyborUmiejetnosciProfesji: [['Przekonywanie', 'Plotkowanie']],
+        zdolnosci: [],
+        wyposazenie: []
+      }];
+    }
+
+    function getTarczownik() {
+      return [{
+        title: 'Tarczownik',
+        opis: 'blelbe',
+        WW: 10,
+        US: 0,
+        K: 5,
+        Odp: 5,
+        Zr: 10,
+        Int: 0,
+        SW: 5,
+        Ogd: 0,
+        A: 1,
+        Zyw: 2,
+        S: 0,
+        Wt: 0,
+        Sz: 0,
+        Mag: 0,
+        PO: 0,
+        PP: 0,
+        umiejetnosci: ['Nawigacja', 'Spostrzegawczość', 'Śledzenie', 'Unik', 'Wspinaczka'],
+        wyborUmiejetnosciProfesji: [[]],
+        zdolnosci: [],
+        wyposazenie: []
+      }];
+    }
+
+    function getUczenCzarodzieja() {
+      return [{
+        title: 'Uczeń Czarodzieja',
+        opis: 'blelbe',
+        WW: 0,
+        US: 0,
+        K: 0,
+        Odp: 0,
+        Zr: 5,
+        Int: 10,
+        SW: 15,
+        Ogd: 5,
+        A: 0,
+        Zyw: 2,
+        S: 0,
+        Wt: 0,
+        Sz: 0,
+        Mag: 1,
+        PO: 0,
+        PP: 0,
+        umiejetnosci: ['Czytanie i pisanie', 'Język tajemny(magiczny)', 'Nauka(magia)', 'Przeszukiwanie', 'Splatanie magii', 'Spostrzegawczość', 'Wykrywanie magii', 'Znajomość języka(klasyczny)'],
+        wyborUmiejetnosciProfesji: [[]],
+        zdolnosci: [],
+        wyposazenie: []
+      }];
+    }
+
+    function getWeglarz() {
+      return [{
+        title: 'Węglarz',
+        opis: 'blelbe',
+        WW: 5,
+        US: 0,
+        K: 5,
+        Odp: 5,
+        Zr: 5,
+        Int: 5,
+        SW: 5,
+        Ogd: 5,
+        A: 0,
+        Zyw: 2,
+        S: 0,
+        Wt: 0,
+        Sz: 0,
+        Mag: 0,
+        PO: 0,
+        PP: 0,
+        umiejetnosci: ['Przeszukiwanie', 'Sekretne znaki(łowców)', 'Spostrzegawczość', 'Sztuka przetrwania', 'Targowanie', 'Wspinaczka'],
+        wyborUmiejetnosciProfesji: [['Powożenie', 'Plotkowanie'], ['Wiedza(imperium)', 'Ukrywanie się']],
+        zdolnosci: [],
+        wyposazenie: []
+      }];
+    }
+
+    function getWloczykij() {
+      return [{
+        title: 'Włóczykij',
+        opis: 'blelbe',
+        WW: 5,
+        US: 10,
+        K: 0,
+        Odp: 0,
+        Zr: 10,
+        Int: 5,
+        SW: 0,
+        Ogd: 5,
+        A: 0,
+        Zyw: 2,
+        S: 0,
+        Wt: 0,
+        Sz: 0,
+        Mag: 0,
+        PO: 0,
+        PP: 0,
+        umiejetnosci: ['Nawigacja', 'Plotkowanie', 'Skradanie się', 'Sztuka przetrwania'],
+        wyborUmiejetnosciProfesji: [['Kuglarstwo(gawędziarstwo)', 'Kuglarstwo(śpiew)', 'Kuglarstwo(taniec)', 'Sekretne znaki(łowców)', 'Sekretne znaki(złodziei)'], ['Leczenie', 'Spostrzegawczość'], ['Plotkowanie', 'Sekretny język(łowców)', 'Sekretny język(złodziejski)'], ['Targowanie', 'Pływanie'], ['Wiedza(bretonia)', 'Wiedza(estalia)', 'Wiedza(kislev)', 'Wiedza(tilea)']],
+        zdolnosci: [],
+        wyposazenie: []
+      }];
+    }
+
+    function getWojownikKlanowy() {
+      return [{
+        title: 'Wojownik Klanowy',
+        opis: 'blelbe',
+        WW: 5,
+        US: 5,
+        K: 0,
+        Odp: 0,
+        Zr: 10,
+        Int: 10,
+        SW: 5,
+        Ogd: 0,
+        A: 0,
+        Zyw: 2,
+        S: 0,
+        Wt: 0,
+        Sz: 0,
+        Mag: 0,
+        PO: 0,
+        PP: 0,
+        umiejetnosci: ['Skradanie się', 'Spostrzegawczość', 'Sztuka przetrwania', 'Tropienie', 'Ukrywanie się', 'Unik', 'Wspinaczka'],
+        wyborUmiejetnosciProfesji: [['Leczenie', 'Przeszukiwanie']],
+        zdolnosci: [],
+        wyposazenie: []
+      }];
+    }
+
+    function getWoznica() {
+      return [{
+        title: 'Woźnica',
+        opis: 'blelbe',
+        WW: 5,
+        US: 10,
+        K: 0,
+        Odp: 0,
+        Zr: 10,
+        Int: 0,
+        SW: 5,
+        Ogd: 5,
+        A: 0,
+        Zyw: 2,
+        S: 0,
+        Wt: 0,
+        Sz: 0,
+        Mag: 0,
+        PO: 0,
+        PP: 0,
+        umiejetnosci: ['Nawigacja', 'Opieka nad zwierzętami', 'Powożenie', 'Sekretne znaki(łowców)', 'Spostrzegawczość'],
+        wyborUmiejetnosciProfesji: [['Leczenie', 'Jeździectwo'], ['Plotkowanie', 'Targowanie'], ['Znajomość języka(bretoński)', 'Znajomość języka(kislevski)', 'Znajomość języka(tileański)']],
+        zdolnosci: [],
+        wyposazenie: []
+      }];
+    }
+
+    function getZabojcaTrolli() {
+      return [{
+        title: 'Zabójca trolli',
+        opis: 'blelbe',
+        WW: 10,
+        US: 0,
+        K: 5,
+        Odp: 5,
+        Zr: 5,
+        Int: 0,
+        SW: 10,
+        Ogd: 0,
+        A: 1,
+        Zyw: 3,
+        S: 0,
+        Wt: 0,
+        Sz: 0,
+        Mag: 0,
+        PO: 0,
+        PP: 0,
+        umiejetnosci: ['Mocna głowa', 'Unik', 'Zastraszanie'],
+        wyborUmiejetnosciProfesji: [[]],
+        zdolnosci: [],
+        wyposazenie: []
+      }];
+    }
+
+    function getZarzadca() {
+      return [{
+        title: 'Zarządca',
+        opis: 'blelbe',
+        WW: 5,
+        US: 5,
+        K: 5,
+        Odp: 0,
+        Zr: 0,
+        Int: 10,
+        SW: 5,
+        Ogd: 10,
+        A: 0,
+        Zyw: 2,
+        S: 0,
+        Wt: 0,
+        Sz: 0,
+        Mag: 0,
+        PO: 0,
+        PP: 0,
+        umiejetnosci: ['Czytanie i pisanie', 'Jeździectwo', 'Nauka(prawo)', 'Przekonywanie', 'Spostrzegawczość'],
+        wyborUmiejetnosciProfesji: [['Dowodzenie', 'Nawigacja'], ['Opieka nad zwierzętami', 'Plotkowanie'], ['Zastraszanie', 'Wiedza(imperium)']],
+        zdolnosci: [],
+        wyposazenie: []
+      }];
+    }
+
+    function getZlodziej() {
+      return [{
+        title: 'Złodziej',
+        opis: 'blelbe',
+        WW: 5,
+        US: 5,
+        K: 0,
+        Odp: 0,
+        Zr: 15,
+        Int: 5,
+        SW: 0,
+        Ogd: 10,
+        A: 0,
+        Zyw: 2,
+        S: 0,
+        Wt: 0,
+        Sz: 0,
+        Mag: 0,
+        PO: 0,
+        PP: 0,
+        umiejetnosci: ['Przeszukiwanie', 'Skradanie się', 'Spostrzegawczość', 'Ukrywanie się'],
+        wyborUmiejetnosciProfesji: [['Czytanie i pisanie', 'Zwinne palce'], ['Hazard', 'Otwieranie zamków'], ['Przekonywanie', 'Wspinaczka'], ['Sekretny język(złodziejski)', 'Sekretne znaki(złodziei)'], ['Wycena', 'Charakteryzacja']],
+        zdolnosci: [],
+        wyposazenie: []
+      }];
+    }
+
+    function getZak() {
+      return [{
+        title: 'Żak',
+        opis: 'blelbe',
+        WW: 0,
+        US: 0,
+        K: 0,
+        Odp: 0,
+        Zr: 10,
+        Int: 10,
+        SW: 5,
+        Ogd: 10,
+        A: 0,
+        Zyw: 2,
+        S: 0,
+        Wt: 0,
+        Sz: 0,
+        Mag: 0,
+        PO: 0,
+        PP: 0,
+        umiejetnosci: ['Czytanie i pisanie', 'Spostrzegawczość', 'Znajomość języka(klasyczny)', 'Znajomość języka(staroświatowy)'],
+        wyborUmiejetnosciProfesji: [['Leczenie', 'Przeszukiwanie'], ['Nauka(astronomia)', 'Nauka(anatomia)', 'Nauka(alchemia)', 'Nauka(demonologia)', 'Nauka(filozofia)', 'Nauka(historia)', 'Nauka(inżynieria)', 'Nauka(magia)', 'Nauka(genealogia/heraldyka)', 'Nauka(matematyka)', 'Nauka(nekromancja)', 'Nauka(prawo)', 'Nauka(runy)', 'Nauka(strategia/taktyka)', 'Nauka(sztuka)', 'Nauka(teologia)'], ['Nauka(astronomia)', 'Nauka(anatomia)', 'Nauka(alchemia)', 'Nauka(demonologia)', 'Nauka(filozofia)', 'Nauka(historia)', 'Nauka(inżynieria)', 'Nauka(magia)', 'Nauka(genealogia/heraldyka)', 'Nauka(matematyka)', 'Nauka(nekromancja)', 'Nauka(prawo)', 'Nauka(runy)', 'Nauka(strategia/taktyka)', 'Nauka(sztuka)', 'Nauka(teologia)', 'Plotkowanie'], ['Przekonywanie', 'Mocna głowa']],
+        zdolnosci: [],
+        wyposazenie: []
+      }];
+    }
+
+    function getZeglarz() {
+      return [{
+        title: 'Żeglarz',
+        opis: 'blelbe',
+        WW: 10,
+        US: 5,
+        K: 10,
+        Odp: 0,
+        Zr: 10,
+        Int: 0,
+        SW: 0,
+        Ogd: 0,
+        A: 1,
+        Zyw: 2,
+        S: 0,
+        Wt: 0,
+        Sz: 0,
+        Mag: 0,
+        PO: 0,
+        PP: 0,
+        umiejetnosci: ['Pływanie', 'Unik', 'Wioślarstwo', 'Wspinaczka', 'Żeglarstwo'],
+        wyborUmiejetnosciProfesji: [['Mocna głowa', 'Spostrzegawczość'], ['Wiedza(bretonia)', 'Wiedza(norska)', 'Wiedza(tilea)', 'Wiedza(jałowa kraina)'], ['Znajomość języka(bretoński)', 'Znajomość języka(tileański)', 'Znajomość języka(norski)']],
+        zdolnosci: [],
+        wyposazenie: []
+      }];
+    }
+
+    function getZolnierz() {
+      return [{
+        title: 'Żołnierz',
+        opis: 'blelbe',
+        WW: 10,
+        US: 10,
+        K: 0,
+        Odp: 0,
+        Zr: 10,
+        Int: 0,
+        SW: 5,
+        Ogd: 0,
+        A: 1,
+        Zyw: 2,
+        S: 0,
+        Wt: 0,
+        Sz: 0,
+        Mag: 0,
+        PO: 0,
+        PP: 0,
+        umiejetnosci: ['Unik', 'Zastraszanie'],
+        wyborUmiejetnosciProfesji: [['Hazard', 'Plotkowanie'], ['Opieka nad zwierzętami', 'Leczenie'], ['Powożenie', 'Jeździectwo'], ['Wiedza(imperium)', 'Spostrzegawczość']],
+        zdolnosci: [],
+        wyposazenie: []
+      }];
+    }
+
+    function getZolnierzOkretowy() {
+      return [{
+        title: 'Żołnierz okrętowy',
+        opis: 'blelbe',
+        WW: 10,
+        US: 10,
+        K: 10,
+        Odp: 0,
+        Zr: 5,
+        Int: 0,
+        SW: 5,
+        Ogd: 0,
+        A: 1,
+        Zyw: 3,
+        S: 0,
+        Wt: 0,
+        Sz: 0,
+        Mag: 0,
+        PO: 0,
+        PP: 0,
+        umiejetnosci: ['Mocna głowa', 'Pływanie', 'Unik', 'Wioślarstwo', 'Zastraszanie'],
+        wyborUmiejetnosciProfesji: [['Plotkowanie', 'Sekretny język(bitewny)'], ['Wiedza(jałowa kraina)', 'Hazard']],
+        zdolnosci: [],
+        wyposazenie: []
+      }];
+    } // umiejętności
+
+
+    function getBrzuchomowstwo() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Brzuchomówstwo',
+        cecha: 'Ogłada',
+        opis: 'Bohater potrafi mówić bez otwierania ust. Osoby uważnie obcerwujące Bohatera korzystające z tej umiejętności mogą wykonywać test spostrzegawczości przeciwko testowi brzuchomówstwa BG, żeby wykryć sztuczkę Bohatera.',
+        zdolnoscipokrewne: 'brak.'
+      }];
+    }
+
+    function getCharakteryzacja() {
+      return [{
+        typ: 'Podstawowa',
+        umiejetnosc: 'Charakteryzacja',
+        cecha: 'Ogłada',
+        opis: 'opis charakteryzacji',
+        zdolnoscipokrewne: 'naśladowca.'
+      }];
+    }
+
+    function getCzytanieiPisanie() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Czytanie i Pisanie',
+        cecha: 'Inteligencja',
+        opis: 'opis czytania i pisania',
+        zdolnoscipokrewne: 'poliglota.'
+      }];
+    }
+
+    function getCzytaniezWarg() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Czytanie z warg',
+        cecha: 'Inteligencja',
+        opis: 'opis czytania z warg',
+        zdolnoscipokrewne: 'bystry wzrok.'
+      }];
+    }
+
+    function getDowodzenie() {
+      return [{
+        typ: 'Podstawowa',
+        umiejetnosc: 'Dowodzenie',
+        cecha: 'Ogłada',
+        opis: 'opis dowodzenia',
+        zdolnoscipokrewne: 'brak'
+      }];
+    }
+
+    function getGadanina() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'gadanina',
+        cecha: 'Ogłada',
+        opis: 'opis ogłady',
+        zdolnoscipokrewne: 'brak.'
+      }];
+    }
+
+    function getHazard() {
+      return [{
+        typ: 'Podstawowa',
+        umiejetnosc: 'Hazard',
+        cecha: 'Inteligencja',
+        opis: 'opis hazardu',
+        zdolnoscipokrewne: 'geniusz arytmetyczny.'
+      }];
+    }
+
+    function getHipnoza() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Hipnoza',
+        cecha: 'Siła Woli',
+        opis: 'opis siły woli',
+        zdolnoscipokrewne: 'brak.'
+      }];
+    }
+
+    function getJezdziectwo() {
+      return [{
+        typ: 'Podstawowa',
+        umiejetnosc: 'Jeździectwo',
+        cecha: 'Zręczność',
+        opis: 'opis jezdziectwa',
+        zdolnoscipokrewne: 'woltyżerka.'
+      }];
+    }
+
+    function getJezykTajemnyMagiczny() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Język Tajemny(magiczny)',
+        cecha: 'Inteligencja',
+        opis: 'opis jezyk tajemny',
+        zdolnoscipokrewne: 'brak.'
+      }];
+    }
+
+    function getKuglarstwoAkrobatyka() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Kuglarstwo(akrobatyka)',
+        cecha: 'Ogłada',
+        opis: 'opis kuglarstwa',
+        zdolnoscipokrewne: 'człowiek-guma, naśladowca.'
+      }];
+    }
+
+    function getKuglarstwoAktorstwo() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Kuglarstwo(aktorstwo)',
+        cecha: 'Ogłada',
+        opis: 'opis kuglarstwa',
+        zdolnoscipokrewne: 'człowiek-guma, naśladowca.'
+      }];
+    }
+
+    function getKuglarstwoBlaznowanie() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Kuglarstwo(błaznowanie)',
+        cecha: 'Ogłada',
+        opis: 'opis kuglarstwa',
+        zdolnoscipokrewne: 'człowiek-guma, naśladowca.'
+      }];
+    }
+
+    function getKuglarstwoGawedziarstwo() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Kuglarstwo(gawędziarstwo)',
+        cecha: 'Ogłada',
+        opis: 'opis kuglarstwa',
+        zdolnoscipokrewne: 'człowiek-guma, naśladowca.'
+      }];
+    }
+
+    function getKuglarstwoKomedianctwo() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Kuglarstwo(komedianctwo)',
+        cecha: 'Ogłada',
+        opis: 'opis kuglarstwa',
+        zdolnoscipokrewne: 'człowiek-guma, naśladowca.'
+      }];
+    }
+
+    function getKuglarstwoMimika() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Kuglarstwo(mimika)',
+        cecha: 'Ogłada',
+        opis: 'opis kuglarstwa',
+        zdolnoscipokrewne: 'człowiek-guma, naśladowca.'
+      }];
+    }
+
+    function getKuglarstwoMuzykalnosc() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Kuglarstwo(muzykalność)',
+        cecha: 'Ogłada',
+        opis: 'opis kuglarstwa',
+        zdolnoscipokrewne: 'człowiek-guma, naśladowca.'
+      }];
+    }
+
+    function getKuglarstwoPolykanieOgnia() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Kuglarstwo(połykanie ognia)',
+        cecha: 'Ogłada',
+        opis: 'opis kuglarstwa',
+        zdolnoscipokrewne: 'człowiek-guma, naśladowca.'
+      }];
+    }
+
+    function getKuglarstwoSpiew() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Kuglarstwo(śpiew)',
+        cecha: 'Ogłada',
+        opis: 'opis kuglarstwa',
+        zdolnoscipokrewne: 'człowiek-guma, naśladowca.'
+      }];
+    }
+
+    function getKuglarstwoTaniec() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Kuglarstwo(taniec)',
+        cecha: 'Ogłada',
+        opis: 'opis kuglarstwa',
+        zdolnoscipokrewne: 'człowiek-guma, naśladowca.'
+      }];
+    }
+
+    function getKuglarstwoWrozenieZDloni() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Kuglarstwo(wróżenie z dłoni)',
+        cecha: 'Ogłada',
+        opis: 'opis kuglarstwa',
+        zdolnoscipokrewne: 'człowiek-guma, naśladowca.'
+      }];
+    }
+
+    function getKuglarstwoZonglerka() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Kuglarstwo(żonglerka)',
+        cecha: 'Ogłada',
+        opis: 'opis kuglarstwa',
+        zdolnoscipokrewne: 'człowiek-guma, naśladowca.'
+      }];
+    }
+
+    function getLeczenie() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Leczenie',
+        cecha: 'Inteligencja',
+        opis: 'opis leczenia',
+        zdolnoscipokrewne: 'chirurgia.'
+      }];
+    }
+
+    function getMocnaGlowa() {
+      return [{
+        typ: 'Podstawowa',
+        umiejetnosc: 'Mocna Głowa',
+        cecha: 'Zręczność',
+        opis: 'opis mocnej glowy',
+        zdolnoscipokrewne: 'brak.'
+      }];
+    }
+
+    function getNaukaAlchemia() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Nauka(alchemia)',
+        cecha: 'Inteligencja',
+        opis: 'opis jezdziectwa',
+        zdolnoscipokrewne: 'brak.'
+      }];
+    }
+
+    function getNaukaAnatomia() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Nauka(anatomia)',
+        cecha: 'Inteligencja',
+        opis: 'opis jezdziectwa',
+        zdolnoscipokrewne: 'brak.'
+      }];
+    }
+
+    function getNaukaAstronomia() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Nauka(astronomia)',
+        cecha: 'Inteligencja',
+        opis: 'opis jezdziectwa',
+        zdolnoscipokrewne: 'brak.'
+      }];
+    }
+
+    function getNaukaDemonologia() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Nauka(demonologia)',
+        cecha: 'Inteligencja',
+        opis: 'opis jezdziectwa',
+        zdolnoscipokrewne: 'brak.'
+      }];
+    }
+
+    function getNaukaFilozofia() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Nauka(filozofia)',
+        cecha: 'Inteligencja',
+        opis: 'opis jezdziectwa',
+        zdolnoscipokrewne: 'brak.'
+      }];
+    }
+
+    function getNaukaGenealogiaHeraldyka() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Nauka(genealogia/heraldyka)',
+        cecha: 'Inteligencja',
+        opis: 'opis jezdziectwa',
+        zdolnoscipokrewne: 'brak.'
+      }];
+    }
+
+    function getNaukaHistoria() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Nauka(historia)',
+        cecha: 'Inteligencja',
+        opis: 'opis jezdziectwa',
+        zdolnoscipokrewne: 'brak.'
+      }];
+    }
+
+    function getNaukaInzynieria() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Nauka(inżynieria)',
+        cecha: 'Inteligencja',
+        opis: 'opis jezdziectwa',
+        zdolnoscipokrewne: 'brak.'
+      }];
+    }
+
+    function getNaukaMagia() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Nauka(magia)',
+        cecha: 'Inteligencja',
+        opis: 'opis jezdziectwa',
+        zdolnoscipokrewne: 'brak.'
+      }];
+    }
+
+    function getNaukaMatematyka() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Nauka(matematyka)',
+        cecha: 'Inteligencja',
+        opis: 'opis jezdziectwa',
+        zdolnoscipokrewne: 'brak.'
+      }];
+    }
+
+    function getNaukaNekromancja() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Nauka(nekromancja)',
+        cecha: 'Inteligencja',
+        opis: 'opis jezdziectwa',
+        zdolnoscipokrewne: 'brak.'
+      }];
+    }
+
+    function getNaukaPrawo() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Nauka(prawo)',
+        cecha: 'Inteligencja',
+        opis: 'opis jezdziectwa',
+        zdolnoscipokrewne: 'brak.'
+      }];
+    }
+
+    function getNaukaRuny() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Nauka(runy)',
+        cecha: 'Inteligencja',
+        opis: 'opis jezdziectwa',
+        zdolnoscipokrewne: 'brak.'
+      }];
+    }
+
+    function getNaukaStrategiaTaktyka() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Nauka(strategia/taktyka)',
+        cecha: 'Inteligencja',
+        opis: 'opis jezdziectwa',
+        zdolnoscipokrewne: 'brak.'
+      }];
+    }
+
+    function getNaukaSztuka() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Nauka(sztuka)',
+        cecha: 'Inteligencja',
+        opis: 'opis jezdziectwa',
+        zdolnoscipokrewne: 'brak.'
+      }];
+    }
+
+    function getNaukaTeologia() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Nauka(teologia)',
+        cecha: 'Inteligencja',
+        opis: 'opis jezdziectwa',
+        zdolnoscipokrewne: 'brak.'
+      }];
+    }
+
+    function getNawigacja() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Nawigacja',
+        cecha: 'Inteligencja',
+        opis: 'opis nawigacji',
+        zdolnoscipokrewne: 'geniusz arytmetyczny, wyczucie kierunku.'
+      }];
+    }
+
+    function getOpiekaNadZwierzetami() {
+      return [{
+        typ: 'Podstawowa',
+        umiejetnosc: 'Opieka Nad Zwierzętami',
+        cecha: 'Inteligencja',
+        opis: 'opis opieki',
+        zdolnoscipokrewne: 'brak.'
+      }];
+    }
+
+    function getOswajanie() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Oswajanie',
+        cecha: 'Ogłada',
+        opis: 'opis oswajania',
+        zdolnoscipokrewne: 'brak.'
+      }];
+    }
+
+    function getOtwieranieZamkow() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Otwieranie Zamków',
+        cecha: 'Zręczność',
+        opis: 'opis otwierania zamkow  ',
+        zdolnoscipokrewne: 'brak.'
+      }];
+    }
+
+    function getPlotkowanie() {
+      return [{
+        typ: 'Podstawowa',
+        umiejetnosc: 'Plotkowanie',
+        cecha: 'Ogłada',
+        opis: 'opis plotkowania',
+        zdolnoscipokrewne: 'etykieta, łotrzyk.'
+      }];
+    }
+
+    function getPlywanie() {
+      return [{
+        typ: 'Podstawowa',
+        umiejetnosc: 'Pływanie',
+        cecha: 'Krzepa',
+        opis: 'opis plywania',
+        zdolnoscipokrewne: 'brak.'
+      }];
+    }
+
+    function getPowozenie() {
+      return [{
+        typ: 'Podstawowa',
+        umiejetnosc: 'Powożenie',
+        cecha: 'Krzepa',
+        opis: 'opis powozenia',
+        zdolnoscipokrewne: 'brak.'
+      }];
+    }
+
+    function getPrzekonywanie() {
+      return [{
+        typ: 'Podstawowa',
+        umiejetnosc: 'Przekonywanie',
+        cecha: 'Ogłada',
+        opis: 'opis przekonywania',
+        zdolnoscipokrewne: 'etykieta, intrygant, krasomówstwo, łotrzyk, przemawianie.'
+      }];
+    }
+
+    function getPrzeszukiwanie() {
+      return [{
+        typ: 'Podstawowa',
+        umiejetnosc: 'Przeszukiwanie',
+        cecha: 'Inteligencja',
+        opis: 'opis przeszukiwania',
+        zdolnoscipokrewne: 'brak.'
+      }];
+    }
+
+    function getRzemiosloAptekarstwo() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Rzemiosło(aptekarstwo)',
+        cecha: 'Inteligencja',
+        opis: 'opis rzemiosla ',
+        zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
+      }];
+    }
+
+    function getRzemiosloBednarstwo() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Rzemiosło(bednarstwo)',
+        cecha: 'Siła',
+        opis: 'opis rzemiosla ',
+        zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
+      }];
+    }
+
+    function getRzemiosloGarbarstwo() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Rzemiosło(garbarstwo)',
+        cecha: 'Siła',
+        opis: 'opis rzemiosla ',
+        zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
+      }];
+    }
+
+    function getRzemiosloGotowanie() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Rzemiosło(gotowanie)',
+        cecha: 'Inteligencja',
+        opis: 'opis rzemiosla ',
+        zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
+      }];
+    }
+
+    function getRzemiosloGornictwo() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Rzemiosło(górnictwo)',
+        cecha: 'Siła',
+        opis: 'opis rzemiosla ',
+        zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
+      }];
+    }
+
+    function getRzemiosloGornictwoOdkrywkowe() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Rzemiosło(górnictwo odkrywkowe)',
+        cecha: 'Siła',
+        opis: 'opis rzemiosla ',
+        zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
+      }];
+    }
+
+    function getRzemiosloHandel() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Rzemiosło(handel)',
+        cecha: 'Ogłada',
+        opis: 'opis rzemiosla ',
+        zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
+      }];
+    }
+
+    function getRzemiosloJubilerstwo() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Rzemiosło(jubilerstwo)',
+        cecha: 'Zręczność',
+        opis: 'opis rzemiosla ',
+        zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
+      }];
+    }
+
+    function getRzemiosloKaligrafia() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Rzemiosło(kaligrafia)',
+        cecha: 'Zręczność',
+        opis: 'opis rzemiosla ',
+        zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
+      }];
+    }
+
+    function getRzemiosloKamieniarstwo() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Rzemiosło(kamieniarstwo)',
+        cecha: 'Zręczność',
+        opis: 'opis rzemiosla ',
+        zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
+      }];
+    }
+
+    function getRzemiosloKartografia() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Rzemiosło(kartografia)',
+        cecha: 'Zręczność',
+        opis: 'opis rzemiosla ',
+        zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
+      }];
+    }
+
+    function getRzemiosloKowalstwo() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Rzemiosło(kowalstwo)',
+        cecha: 'Siła',
+        opis: 'opis rzemiosla ',
+        zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
+      }];
+    }
+
+    function getRzemiosloKrawiectwo() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Rzemiosło(krawiectwo)',
+        cecha: 'Zręczność',
+        opis: 'opis rzemiosla ',
+        zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
+      }];
+    }
+
+    function getRzemiosloMlynarstwo() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Rzemiosło(młynarstwo)',
+        cecha: 'Siła',
+        opis: 'opis rzemiosla ',
+        zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
+      }];
+    }
+
+    function getRzemiosloPiwowarstwo() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Rzemiosło(piwowarstwo)',
+        cecha: 'Inteligencja',
+        opis: 'opis rzemiosla ',
+        zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
+      }];
+    }
+
+    function getRzemiosloPlatnerstwo() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Rzemiosło(płatnerstwo)',
+        cecha: 'Siła',
+        opis: 'opis rzemiosla ',
+        zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
+      }];
+    }
+
+    function getRzemiosloRusznikarstwo() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Rzemiosło(rusznikarstwo)',
+        cecha: 'Zręczność',
+        opis: 'opis rzemiosla ',
+        zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
+      }];
+    }
+
+    function getRzemiosloRymarstwo() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Rzemiosło(rymarstwo)',
+        cecha: 'Zręczność',
+        opis: 'opis rzemiosla ',
+        zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
+      }];
+    }
+
+    function getRzemiosloStolarstwo() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Rzemiosło(stolarstwo)',
+        cecha: 'Zręczność',
+        opis: 'opis rzemiosla ',
+        zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
+      }];
+    }
+
+    function getRzemiosloSzkutnictwo() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Rzemiosło(szkutnictwo)',
+        cecha: 'Inteligencja',
+        opis: 'opis rzemiosla ',
+        zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
+      }];
+    }
+
+    function getRzemiosloSzewstwo() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Rzemiosło(szewstwo)',
+        cecha: 'Zręczność',
+        opis: 'opis rzemiosla ',
+        zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
+      }];
+    }
+
+    function getRzemiosloSztuka() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Rzemiosło(sztuka)',
+        cecha: 'Zręszność',
+        opis: 'opis rzemiosla ',
+        zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
+      }];
+    }
+
+    function getRzemiosloSwiecarstwo() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Rzemiosło(świecarstwo)',
+        cecha: 'Zręszność',
+        opis: 'opis rzemiosla ',
+        zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
+      }];
+    }
+
+    function getRzemiosloUprawaZiemi() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Rzemiosło(uprawa ziemi)',
+        cecha: 'Siła',
+        opis: 'opis rzemiosla ',
+        zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
+      }];
+    }
+
+    function getRzemiosloWyrobLukow() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Rzemiosło(wyrób łuków)',
+        cecha: 'Zręczność',
+        opis: 'opis rzemiosla ',
+        zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
+      }];
+    }
+
+    function getRzemiosloZielarstwo() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Rzemiosło(zielarstwo)',
+        cecha: 'Inteligencja',
+        opis: 'opis rzemiosla ',
+        zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
+      }];
+    }
+
+    function getRzemiosloZlotnictwo() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Rzemiosło(złotnictwo)',
+        cecha: 'Zręczność',
+        opis: 'opis rzemiosla ',
+        zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
+      }];
+    }
+
+    function getSekretneZnakiLowcow() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Sekretne Znaki(łowców)',
+        cecha: 'Inteligencja',
+        opis: 'opis sekretnych znakow',
+        zdolnoscipokrewne: 'brak.'
+      }];
+    }
+
+    function getSekretneZnakiRycerzyZakonnych() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Sekretne Znaki(rycerzy zakonnych)',
+        cecha: 'Inteligencja',
+        opis: 'opis sekretnych znakow',
+        zdolnoscipokrewne: 'brak.'
+      }];
+    }
+
+    function getSekretneZnakiZwiadowcow() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Sekretne Znaki(zwiadowców)',
+        cecha: 'Inteligencja',
+        opis: 'opis sekretnych znakow',
+        zdolnoscipokrewne: 'brak.'
+      }];
+    }
+
+    function getSekretneZnakiZlodziei() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Sekretne Znaki(złodziei)',
+        cecha: 'Inteligencja',
+        opis: 'opis sekretnych znakow',
+        zdolnoscipokrewne: 'brak.'
+      }];
+    }
+
+    function getSekretnyJezykBitewny() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Sekretny język(bitewny)',
+        cecha: 'Inteligencja',
+        opis: 'opis sekretny jezyk',
+        zdolnoscipokrewne: 'brak.'
+      }];
+    }
+
+    function getSekretnyJezykGildii() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Sekretny język(gildii)',
+        cecha: 'Inteligencja',
+        opis: 'opis sekretny jezyk',
+        zdolnoscipokrewne: 'brak.'
+      }];
+    }
+
+    function getSekretnyJezykLowcow() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Sekretny język(łowców)',
+        cecha: 'Inteligencja',
+        opis: 'opis sekretny jezyk',
+        zdolnoscipokrewne: 'brak.'
+      }];
+    }
+
+    function getSekretnyJezykZlodziejski() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Sekretny język(złodziejski)',
+        cecha: 'Inteligencja',
+        opis: 'opis sekretny jezyk',
+        zdolnoscipokrewne: 'brak.'
+      }];
+    }
+
+    function getSkradanieSie() {
+      return [{
+        typ: 'Podstawowa',
+        umiejetnosc: 'Skradanie się',
+        cecha: 'Zręczność',
+        opis: 'opis skradania',
+        zdolnoscipokrewne: 'grotołaz, ulicznik, wędrowiec.'
+      }];
+    }
+
+    function getSplatanieMagii() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Splatanie magii',
+        cecha: 'Siła Woli',
+        opis: 'opis spalatania ',
+        zdolnoscipokrewne: 'zmysł magii.'
+      }];
+    }
+
+    function getSpostrzegawczosc() {
+      return [{
+        typ: 'Podstawowa',
+        umiejetnosc: 'Spostrzegawczość',
+        cecha: 'Inteligencja',
+        opis: 'opis spostrzegawczosci',
+        zdolnoscipokrewne: 'bystry wzrok, czuły słuch, geniusz arytmetyczny.'
+      }];
+    }
+
+    function getSztukaPrzetrwania() {
+      return [{
+        typ: 'Podstawowa',
+        umiejetnosc: 'Sztuka Przetrwania',
+        cecha: 'Inteligencja',
+        opis: 'opis sztuki przetwrwania',
+        zdolnoscipokrewne: 'brak.'
+      }];
+    }
+
+    function getSledzenie() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Śledzenie',
+        cecha: 'Zręczność',
+        opis: 'opis sledzenia ',
+        zdolnoscipokrewne: 'brak.'
+      }];
+    }
+
+    function getTargowanie() {
+      return [{
+        typ: 'Podstawowa',
+        umiejetnosc: 'Targowanie',
+        cecha: 'Ogłada',
+        opis: 'opis targowania',
+        zdolnoscipokrewne: 'żyłka handlowa.'
+      }];
+    }
+
+    function getTorturowanie() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Torturowanie',
+        cecha: 'Ogłada',
+        opis: 'opis torturowania',
+        zdolnoscipokrewne: 'groźny.'
+      }];
+    }
+
+    function getTresura() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Tresura',
+        cecha: 'Ogłada',
+        opis: 'opis rtesury ',
+        zdolnoscipokrewne: 'brak.'
+      }];
+    }
+
+    function getTropienie() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Tropienie',
+        cecha: 'Inteligencja',
+        opis: 'opis tropienia',
+        zdolnoscipokrewne: 'brak.'
+      }];
+    }
+
+    function getUkrywanieSie() {
+      return [{
+        typ: 'Podstawowa',
+        umiejetnosc: 'Ukrywanie się',
+        cecha: 'Zręszność.',
+        opis: 'opis ukrywania ',
+        zdolnoscipokrewne: 'grotołaz, ulicznik, wędrowiec.'
+      }];
+    }
+
+    function getUnik() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Unik',
+        cecha: 'Zręczność',
+        opis: 'opis uniku',
+        zdolnoscipokrewne: 'brak.'
+      }];
+    }
+
+    function getWarzenieTrucizn() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Warzenie Trucizn',
+        cecha: 'Inteligencja',
+        opis: 'opis warzenia ',
+        zdolnoscipokrewne: 'brak.'
+      }];
+    }
+
+    function getWiedzaBretonia() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Wiedza(bretonia)',
+        cecha: 'Inteligencja',
+        opis: 'opis wiedzy',
+        zdolnoscipokrewne: 'obieżyświat.'
+      }];
+    }
+
+    function getWiedzaEstalia() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Wiedza(estalia)',
+        cecha: 'Inteligencja',
+        opis: 'opis wiedzy',
+        zdolnoscipokrewne: 'obieżyświat.'
+      }];
+    }
+
+    function getWiedzaImperium() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Wiedza(imperium)',
+        cecha: 'Inteligencja',
+        opis: 'opis wiedzy',
+        zdolnoscipokrewne: 'obieżyświat.'
+      }];
+    }
+
+    function getWiedzaJalowaKraina() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Wiedza(jałowa kraina)',
+        cecha: 'Inteligencja',
+        opis: 'opis wiedzy',
+        zdolnoscipokrewne: 'obieżyświat.'
+      }];
+    }
+
+    function getWiedzaKislev() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Wiedza(kislev)',
+        cecha: 'Inteligencja',
+        opis: 'opis wiedzy',
+        zdolnoscipokrewne: 'obieżyświat.'
+      }];
+    }
+
+    function getWiedzaKsiestwaGraniczne() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Wiedza(księstwa graniczne)',
+        cecha: 'Inteligencja',
+        opis: 'opis wiedzy',
+        zdolnoscipokrewne: 'obieżyświat.'
+      }];
+    }
+
+    function getWiedzaNorska() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Wiedza(norska)',
+        cecha: 'Inteligencja',
+        opis: 'opis wiedzy',
+        zdolnoscipokrewne: 'obieżyświat.'
+      }];
+    }
+
+    function getWiedzaTilea() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Wiedza(tilea)',
+        cecha: 'Inteligencja',
+        opis: 'opis wiedzy',
+        zdolnoscipokrewne: 'obieżyświat.'
+      }];
+    }
+
+    function getWiedzaElfy() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Wiedza(elfy)',
+        cecha: 'Inteligencja',
+        opis: 'opis wiedzy',
+        zdolnoscipokrewne: 'obieżyświat.'
+      }];
+    }
+
+    function getWiedzaKrasnoludy() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Wiedza(krasnoludy)',
+        cecha: 'Inteligencja',
+        opis: 'opis wiedzy',
+        zdolnoscipokrewne: 'obieżyświat.'
+      }];
+    }
+
+    function getWiedzaNiziolki() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Wiedza(niziołki)',
+        cecha: 'Inteligencja',
+        opis: 'opis wiedzy',
+        zdolnoscipokrewne: 'obieżyświat.'
+      }];
+    }
+
+    function getWiedzaOgry() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Wiedza(ogry)',
+        cecha: 'Inteligencja',
+        opis: 'opis wiedzy',
+        zdolnoscipokrewne: 'obieżyświat.'
+      }];
+    }
+
+    function getWioślarstwo() {
+      return [{
+        typ: 'Podstawowa',
+        umiejetnosc: 'Wioślarstwo',
+        cecha: 'Krzepa',
+        opis: 'opis wioslarstwa ',
+        zdolnoscipokrewne: 'brak.'
+      }];
+    }
+
+    function getWspinaczka() {
+      return [{
+        typ: 'Podstawowa',
+        umiejetnosc: 'Wspinaczka',
+        cecha: 'Krzepa',
+        opis: 'opis wspinaczki',
+        zdolnoscipokrewne: 'brak.'
+      }];
+    }
+
+    function getWycena() {
+      return [{
+        typ: 'Podstawowa',
+        umiejetnosc: 'Wycena',
+        cecha: 'Inteligencja',
+        opis: 'opis wyceny',
+        zdolnoscipokrewne: 'telent artystyczny, żyłka handlowa.'
+      }];
+    }
+
+    function getWykrywanieMagii() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Wykrywanie Magii',
+        cecha: 'Siła Woli',
+        opis: 'opis wykrywania magii',
+        zdolnoscipokrewne: 'zmysł magii.'
+      }];
+    }
+
+    function getZastawaniePulapek() {
+      return [{
+        typ: 'Podstawowa',
+        umiejetnosc: 'Zastawianie Pułapek',
+        cecha: 'Zręczność',
+        opis: 'opis zxastawainai',
+        zdolnoscipokrewne: 'brak.'
+      }];
+    }
+
+    function getZastraszanie() {
+      return [{
+        typ: 'Podstawowa',
+        umiejetnosc: 'Zastraszanie',
+        cecha: 'Krzepa',
+        opis: 'opis zastraszania',
+        zdolnoscipokrewne: 'groźny.'
+      }];
+    }
+
+    function getZnajomoscJezykaBretonski() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Znajomość Języka(bretoński)',
+        cecha: 'Inteligencja',
+        opis: 'opis znajomosci jezyka',
+        zdolnoscipokrewne: 'naśladowca, obieżyświat, poliglota.'
+      }];
+    }
+
+    function getZnajomoscjezykaEltharin() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Znajomość Języka(eltharin)',
+        cecha: 'Inteligencja',
+        opis: 'opis znajomosci jezyka',
+        zdolnoscipokrewne: 'naśladowca, obieżyświat, poliglota.'
+      }];
+    }
+
+    function getZnajomoscjezykaEstalisjki() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Znajomość Języka(estalijski)',
+        cecha: 'Inteligencja',
+        opis: 'opis znajomosci jezyka',
+        zdolnoscipokrewne: 'naśladowca, obieżyświat, poliglota.'
+      }];
+    }
+
+    function getZnajomoscjezykaKhazaldin() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Znajomość Języka(khazaldin)',
+        cecha: 'Inteligencja',
+        opis: 'opis znajomosci jezyka',
+        zdolnoscipokrewne: 'naśladowca, obieżyświat, poliglota.'
+      }];
+    }
+
+    function getZnajomoscjezykaKislevski() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Znajomość Języka(kislevski)',
+        cecha: 'Inteligencja',
+        opis: 'opis znajomosci jezyka',
+        zdolnoscipokrewne: 'naśladowca, obieżyświat, poliglota.'
+      }];
+    }
+
+    function getZnajomoscjezykaNorski() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Znajomość Języka(norski)',
+        cecha: 'Inteligencja',
+        opis: 'opis znajomosci jezyka',
+        zdolnoscipokrewne: 'naśladowca, obieżyświat, poliglota.'
+      }];
+    }
+
+    function getZnajomoscjezykaTileanski() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Znajomość Języka(tileanski)',
+        cecha: 'Inteligencja',
+        opis: 'opis znajomosci jezyka',
+        zdolnoscipokrewne: 'naśladowca, obieżyświat, poliglota.'
+      }];
+    }
+
+    function getZnajomoscJezykaStaroswiatowy() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Znajomość Języka(staroświatowy)',
+        cecha: 'Inteligencja',
+        opis: 'opis znajomosci jezyka',
+        zdolnoscipokrewne: 'naśladowca, obieżyświat, poliglota.'
+      }];
+    }
+
+    function getZnajomoscJezykaKlasyczny() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Znajomość Języka(klasyczny)',
+        cecha: 'Inteligencja',
+        opis: 'opis znajomosci jezyka',
+        zdolnoscipokrewne: 'naśladowca, obieżyświat, poliglota.'
+      }];
+    }
+
+    function getZnajomoscjezykaNiziolkow() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Znajomość Języka(niziołków)',
+        cecha: 'Inteligencja',
+        opis: 'opis znajomosci jezyka',
+        zdolnoscipokrewne: 'naśladowca, obieżyświat, poliglota.'
+      }];
+    }
+
+    function getZwinnePalce() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Zwinne palce',
+        cecha: 'Zręczność',
+        opis: 'opis zwinnych palcow',
+        zdolnoscipokrewne: 'brak.'
+      }];
+    }
+
+    function getZeglarstwo() {
+      return [{
+        typ: 'Zaawansowana',
+        umiejetnosc: 'Żeglarstwo',
+        cecha: 'Zręczność',
+        opis: 'opis zeglarstwa',
+        zdolnoscipokrewne: 'brak.'
       }];
     }
     /***/
@@ -4252,28 +8938,66 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-    /*! rxjs */
-    "./node_modules/rxjs/_esm2015/index.js");
-    /* harmony import */
-
-
-    var _bohater_logika_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    var _bohater_logika_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
     /*! ./bohater-logika.service */
     "./src/app/bohater/service/bohater-logika.service.ts");
 
     var SharedService = /*#__PURE__*/function () {
-      function SharedService(rasyService) {
+      function SharedService(logika) {
         _classCallCheck(this, SharedService);
 
-        this.rasyService = rasyService; // aktywna rasa
+        this.logika = logika; // statystyki początkowe rasy
 
-        this.rasa = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"](''); // statystyki aktywnej Rasy
+        this.poczatkoweStatystykiRasowe = {
+          rasatitle: '',
+          profesjatitle: '',
+          WW: 0,
+          US: 0,
+          K: 0,
+          Odp: 0,
+          Zr: 0,
+          Int: 0,
+          SW: 0,
+          Ogd: 0,
+          A: 0,
+          Zyw: 0,
+          S: 0,
+          Wt: 0,
+          Sz: 0,
+          Mag: 0,
+          PO: 0,
+          PP: 0,
+          umiejetnosci: [],
+          wyborUmiejetnosciRasy: [],
+          zdolnosci: [],
+          wyposazenie: []
+        }; // statystyki początkowe profesji
 
-        this.statystykiRasowe = []; // statystyki aktualne rasy i profesji
-
-        this.aktualneStatystyki = {
-          title: '',
+        this.schematRozwojuProfesja = {
+          rasatitle: '',
+          profesjatitle: '',
+          WW: 0,
+          US: 0,
+          K: 0,
+          Odp: 0,
+          Zr: 0,
+          Int: 0,
+          SW: 0,
+          Ogd: 0,
+          A: 0,
+          Zyw: 0,
+          S: 0,
+          Wt: 0,
+          Sz: 0,
+          Mag: 0,
+          PO: 0,
+          PP: 0,
+          umiejetnosci: [],
+          wyborUmiejetnosciProfesji: [[]],
+          zdolnosci: [],
+          wyposazenie: []
+        };
+        this.sumowaneStatystyki = {
           WW: 0,
           US: 0,
           K: 0,
@@ -4291,10 +9015,81 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           PO: 0,
           PP: 0
         };
-      } // funkcja losujaca
-
+      }
 
       _createClass(SharedService, [{
+        key: "resetStatystyk",
+        value: function resetStatystyk() {
+          this.poczatkoweStatystykiRasowe.WW = 0;
+          this.poczatkoweStatystykiRasowe.US = 0;
+          this.poczatkoweStatystykiRasowe.K = 0;
+          this.poczatkoweStatystykiRasowe.Odp = 0;
+          this.poczatkoweStatystykiRasowe.Zr = 0;
+          this.poczatkoweStatystykiRasowe.Int = 0;
+          this.poczatkoweStatystykiRasowe.SW = 0;
+          this.poczatkoweStatystykiRasowe.Ogd = 0;
+          this.poczatkoweStatystykiRasowe.A = 0;
+          this.poczatkoweStatystykiRasowe.Zyw = 0;
+          this.poczatkoweStatystykiRasowe.S = 0;
+          this.poczatkoweStatystykiRasowe.Wt = 0;
+          this.poczatkoweStatystykiRasowe.Sz = 0;
+          this.poczatkoweStatystykiRasowe.Mag = 0;
+          this.poczatkoweStatystykiRasowe.PO = 0;
+          this.poczatkoweStatystykiRasowe.PP = 0;
+          this.poczatkoweStatystykiRasowe.umiejetnosci = [];
+          this.poczatkoweStatystykiRasowe.wyborUmiejetnosciRasy = [];
+          this.poczatkoweStatystykiRasowe.zdolnosci = [];
+          this.poczatkoweStatystykiRasowe.wyposazenie = [];
+          console.log('zresetowano statystyki dla', this.poczatkoweStatystykiRasowe.rasatitle);
+          this.resetStatystykProfesja();
+        }
+      }, {
+        key: "resetStatystykProfesja",
+        value: function resetStatystykProfesja() {
+          this.schematRozwojuProfesja.WW = 0;
+          this.schematRozwojuProfesja.US = 0;
+          this.schematRozwojuProfesja.K = 0;
+          this.schematRozwojuProfesja.Odp = 0;
+          this.schematRozwojuProfesja.Zr = 0;
+          this.schematRozwojuProfesja.Int = 0;
+          this.schematRozwojuProfesja.SW = 0;
+          this.schematRozwojuProfesja.Ogd = 0;
+          this.schematRozwojuProfesja.A = 0;
+          this.schematRozwojuProfesja.Zyw = 0;
+          this.schematRozwojuProfesja.S = 0;
+          this.schematRozwojuProfesja.Wt = 0;
+          this.schematRozwojuProfesja.Sz = 0;
+          this.schematRozwojuProfesja.Mag = 0;
+          this.schematRozwojuProfesja.PO = 0;
+          this.schematRozwojuProfesja.PP = 0;
+          this.sumowaneStatystyki.WW = 0;
+          this.sumowaneStatystyki.US = 0;
+          this.sumowaneStatystyki.K = 0;
+          this.sumowaneStatystyki.Odp = 0;
+          this.sumowaneStatystyki.Zr = 0;
+          this.sumowaneStatystyki.Int = 0;
+          this.sumowaneStatystyki.SW = 0;
+          this.sumowaneStatystyki.Ogd = 0;
+          this.sumowaneStatystyki.A = 0;
+          this.sumowaneStatystyki.Zyw = 0;
+          this.sumowaneStatystyki.S = 0;
+          this.sumowaneStatystyki.Wt = 0;
+          this.sumowaneStatystyki.Sz = 0;
+          this.sumowaneStatystyki.Mag = 0;
+          this.sumowaneStatystyki.PO = 0;
+          this.sumowaneStatystyki.PP = 0;
+          this.schematRozwojuProfesja.umiejetnosci = [];
+          this.schematRozwojuProfesja.wyborUmiejetnosciProfesji = [[]];
+          this.schematRozwojuProfesja.zdolnosci = [];
+
+          if (this.schematRozwojuProfesja.profesjatitle !== '') {
+            console.log('zresetowano statystyki dla', this.schematRozwojuProfesja.profesjatitle);
+          }
+
+          this.schematRozwojuProfesja.profesjatitle = '';
+        } // funkcja losujaca
+
+      }, {
         key: "randomNumber",
         value: function randomNumber(min, max) {
           return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -4385,35 +9180,141 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "changeRasa",
         value: function changeRasa(rasa) {
-          var _this3 = this;
+          var _this4 = this;
 
           // pobranie poczatkowych statystyk rasowych
-          this.rasyService.getRasy().subscribe(function (items) {
-            return _this3.statystykiRasowe = items;
-          }); // przypisanie nazwy rasy do aktualnych statystyk
+          this.logika.getListaRasy().subscribe(function (items) {
+            return _this4.statystykiRasowe = items;
+          });
+          console.log(this.statystykiRasowe[0].rasatitle); // przypisanie nazwy rasy do aktualnych statystyk
 
-          this.aktualneStatystyki.title = rasa; // losowanie statystyk poczatkowych dla ras n=0 - czlowiek n=1 - krasnolud n=2 - elf n=3 - niziolek
+          this.poczatkoweStatystykiRasowe.rasatitle = rasa; // losowanie statystyk poczatkowych dla ras n=0 - czlowiek n=1 - krasnolud n=2 - elf n=3 - niziolek
 
           for (var n = 0; n < 4; n++) {
-            if (this.statystykiRasowe[n].title === rasa) {
-              this.aktualneStatystyki.WW = this.statystykiRasowe[n].WW + this.randomNumber(2, 40);
-              this.aktualneStatystyki.US = this.statystykiRasowe[n].US + this.randomNumber(2, 40);
-              this.aktualneStatystyki.K = this.statystykiRasowe[n].K + this.randomNumber(2, 40);
-              this.aktualneStatystyki.Odp = this.statystykiRasowe[n].Odp + this.randomNumber(2, 40);
-              this.aktualneStatystyki.Zr = this.statystykiRasowe[n].Zr + this.randomNumber(2, 40);
-              this.aktualneStatystyki.Int = this.statystykiRasowe[n].Int + this.randomNumber(2, 40);
-              this.aktualneStatystyki.SW = this.statystykiRasowe[n].SW + this.randomNumber(2, 40);
-              this.aktualneStatystyki.Ogd = this.statystykiRasowe[n].Ogd + this.randomNumber(2, 40);
-              this.aktualneStatystyki.A = 1;
-              this.aktualneStatystyki.Zyw = this.zywotnosc(n);
-              this.aktualneStatystyki.S = Math.floor(this.aktualneStatystyki.K / 10);
-              this.aktualneStatystyki.Wt = Math.floor(this.aktualneStatystyki.Odp / 10);
-              this.aktualneStatystyki.Sz = this.statystykiRasowe[n].Sz;
-              this.aktualneStatystyki.Mag = 0;
-              this.aktualneStatystyki.PO = 0;
-              this.aktualneStatystyki.PP = this.przeznaczenie(n);
+            if (this.statystykiRasowe[n].rasatitle === this.poczatkoweStatystykiRasowe.rasatitle) {
+              this.poczatkoweStatystykiRasowe.WW = this.statystykiRasowe[n].WW + this.randomNumber(2, 20);
+              this.poczatkoweStatystykiRasowe.US = this.statystykiRasowe[n].US + this.randomNumber(2, 20);
+              this.poczatkoweStatystykiRasowe.K = this.statystykiRasowe[n].K + this.randomNumber(2, 20);
+              this.poczatkoweStatystykiRasowe.Odp = this.statystykiRasowe[n].Odp + this.randomNumber(2, 20);
+              this.poczatkoweStatystykiRasowe.Zr = this.statystykiRasowe[n].Zr + this.randomNumber(2, 20);
+              this.poczatkoweStatystykiRasowe.Int = this.statystykiRasowe[n].Int + this.randomNumber(2, 20);
+              this.poczatkoweStatystykiRasowe.SW = this.statystykiRasowe[n].SW + this.randomNumber(2, 20);
+              this.poczatkoweStatystykiRasowe.Ogd = this.statystykiRasowe[n].Ogd + this.randomNumber(2, 20);
+              this.poczatkoweStatystykiRasowe.A = 1;
+              this.poczatkoweStatystykiRasowe.Zyw = this.zywotnosc(n);
+              this.poczatkoweStatystykiRasowe.S = Math.floor(this.poczatkoweStatystykiRasowe.K / 10);
+              this.poczatkoweStatystykiRasowe.Wt = Math.floor(this.poczatkoweStatystykiRasowe.Odp / 10);
+              this.poczatkoweStatystykiRasowe.Sz = this.statystykiRasowe[n].Sz;
+              this.poczatkoweStatystykiRasowe.Mag = 0;
+              this.poczatkoweStatystykiRasowe.PO = 0;
+              this.poczatkoweStatystykiRasowe.PP = this.przeznaczenie(n); // dodanie listy umiejetnosci rasowych
+
+              for (var m = 0; m < this.statystykiRasowe[n].umiejetnosci.length; m++) {
+                this.logika.getUmiejetnosci(this.statystykiRasowe[n].umiejetnosci[m]).subscribe(function (items) {
+                  return _this4.umiejetnosciRasowe = items;
+                });
+                this.poczatkoweStatystykiRasowe.umiejetnosci[m] = this.umiejetnosciRasowe;
+              }
+
+              console.log('pobranie listy umiejetnosci rasowych'); // dodanie umiejetnosci do wyboru
+
+              if (this.statystykiRasowe[n].wyborUmiejetnosciRasy !== undefined) {
+                for (var _m = 0; _m < this.statystykiRasowe[n].wyborUmiejetnosciRasy.length; _m++) {
+                  // zainicjalizowanie pustej tablicy jezeli nieistnieje
+                  if (!this.poczatkoweStatystykiRasowe.wyborUmiejetnosciRasy[_m]) {
+                    this.poczatkoweStatystykiRasowe.wyborUmiejetnosciRasy[_m] = [];
+                  }
+
+                  for (var p = 0; p < this.statystykiRasowe[n].wyborUmiejetnosciRasy[_m].length; p++) {
+                    this.logika.getUmiejetnosci(this.statystykiRasowe[n].wyborUmiejetnosciRasy[_m][p]).subscribe(function (items) {
+                      return _this4.umiejetnosciProfesji = items;
+                    });
+                    this.poczatkoweStatystykiRasowe.wyborUmiejetnosciRasy[_m][p] = this.umiejetnosciProfesji;
+                  }
+                }
+
+                console.log('pobrano umiejetnosci do wyboru dla', rasa);
+              }
             }
           }
+        } // zmiana profesji dodanie schematu rozwoju statystyk
+
+      }, {
+        key: "changeProfesja",
+        value: function changeProfesja(profesja) {
+          var _this5 = this;
+
+          this.logika.getProfesja(profesja).subscribe(function (items) {
+            return _this5.statystkiProfesji = items;
+          });
+          this.schematRozwojuProfesja.profesjatitle = profesja;
+          this.schematRozwojuProfesja.WW = this.statystkiProfesji[0].WW;
+          this.schematRozwojuProfesja.US = this.statystkiProfesji[0].US;
+          this.schematRozwojuProfesja.K = this.statystkiProfesji[0].K;
+          this.schematRozwojuProfesja.Odp = this.statystkiProfesji[0].Odp;
+          this.schematRozwojuProfesja.Zr = this.statystkiProfesji[0].Zr;
+          this.schematRozwojuProfesja.Int = this.statystkiProfesji[0].Int;
+          this.schematRozwojuProfesja.SW = this.statystkiProfesji[0].SW;
+          this.schematRozwojuProfesja.Ogd = this.statystkiProfesji[0].Ogd;
+          this.schematRozwojuProfesja.A = this.statystkiProfesji[0].A;
+          this.schematRozwojuProfesja.Zyw = this.statystkiProfesji[0].Zyw;
+          this.schematRozwojuProfesja.S = this.statystkiProfesji[0].S;
+          this.schematRozwojuProfesja.Wt = this.statystkiProfesji[0].Wt;
+          this.schematRozwojuProfesja.Sz = this.statystkiProfesji[0].Sz;
+          this.schematRozwojuProfesja.Mag = this.statystkiProfesji[0].Mag;
+          this.schematRozwojuProfesja.PO = this.statystkiProfesji[0].PO;
+          this.schematRozwojuProfesja.PP = this.statystkiProfesji[0].PP; // dodanie umiejetnosci
+
+          if (this.statystkiProfesji[0].umiejetnosci !== undefined) {
+            for (var n = 0; n < this.statystkiProfesji[0].umiejetnosci.length; n++) {
+              this.logika.getUmiejetnosci(this.statystkiProfesji[0].umiejetnosci[n]).subscribe(function (items) {
+                return _this5.umiejetnosciProfesji = items;
+              });
+              this.schematRozwojuProfesja.umiejetnosci[n] = this.umiejetnosciProfesji;
+            }
+
+            console.log('pobrano umiejetnosci dla', profesja);
+          } // dodanie umiejetnosci do wyboru
+
+
+          if (this.statystkiProfesji[0].wyborUmiejetnosciProfesji !== undefined) {
+            for (var _n2 = 0; _n2 < this.statystkiProfesji[0].wyborUmiejetnosciProfesji.length; _n2++) {
+              // zainicjalizowanie pustej tablicy jezeli nieistnieje
+              if (!this.schematRozwojuProfesja.wyborUmiejetnosciProfesji[_n2]) {
+                this.schematRozwojuProfesja.wyborUmiejetnosciProfesji[_n2] = [];
+              }
+
+              for (var p = 0; p < this.statystkiProfesji[0].wyborUmiejetnosciProfesji[_n2].length; p++) {
+                this.logika.getUmiejetnosci(this.statystkiProfesji[0].wyborUmiejetnosciProfesji[_n2][p]).subscribe(function (items) {
+                  return _this5.umiejetnosciProfesji = items;
+                });
+                this.schematRozwojuProfesja.wyborUmiejetnosciProfesji[_n2][p] = this.umiejetnosciProfesji;
+              }
+            }
+
+            console.log('pobrano umiejetnosci do wyboru dla', profesja);
+          }
+        } // sumowanie aktualnych statystyk
+
+      }, {
+        key: "changeAktualne",
+        value: function changeAktualne() {
+          this.sumowaneStatystyki.WW = this.poczatkoweStatystykiRasowe.WW + this.schematRozwojuProfesja.WW;
+          this.sumowaneStatystyki.US = this.poczatkoweStatystykiRasowe.US + this.schematRozwojuProfesja.US;
+          this.sumowaneStatystyki.K = this.poczatkoweStatystykiRasowe.K + this.schematRozwojuProfesja.K;
+          this.sumowaneStatystyki.Odp = this.poczatkoweStatystykiRasowe.Odp + this.schematRozwojuProfesja.Odp;
+          this.sumowaneStatystyki.Zr = this.poczatkoweStatystykiRasowe.Zr + this.schematRozwojuProfesja.Zr;
+          this.sumowaneStatystyki.Int = this.poczatkoweStatystykiRasowe.Int + this.schematRozwojuProfesja.Int;
+          this.sumowaneStatystyki.SW = this.poczatkoweStatystykiRasowe.SW + this.schematRozwojuProfesja.SW;
+          this.sumowaneStatystyki.Ogd = this.poczatkoweStatystykiRasowe.Ogd + this.schematRozwojuProfesja.Ogd;
+          this.sumowaneStatystyki.A = this.poczatkoweStatystykiRasowe.A + this.schematRozwojuProfesja.A;
+          this.sumowaneStatystyki.Zyw = this.poczatkoweStatystykiRasowe.Zyw + this.schematRozwojuProfesja.Zyw;
+          this.sumowaneStatystyki.S = Math.floor(this.sumowaneStatystyki.K / 10);
+          this.sumowaneStatystyki.Wt = Math.floor(this.sumowaneStatystyki.Odp / 10);
+          this.sumowaneStatystyki.Sz = this.poczatkoweStatystykiRasowe.Sz + this.schematRozwojuProfesja.Sz;
+          this.sumowaneStatystyki.Mag = this.poczatkoweStatystykiRasowe.Mag + this.schematRozwojuProfesja.Mag;
+          this.sumowaneStatystyki.PO = this.poczatkoweStatystykiRasowe.PO + this.schematRozwojuProfesja.PO;
+          this.sumowaneStatystyki.PP = this.poczatkoweStatystykiRasowe.PP + this.schematRozwojuProfesja.PP;
         }
       }]);
 
@@ -4421,7 +9322,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     }();
 
     SharedService.ɵfac = function SharedService_Factory(t) {
-      return new (t || SharedService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_bohater_logika_service__WEBPACK_IMPORTED_MODULE_2__["BohaterLogikaService"]));
+      return new (t || SharedService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_bohater_logika_service__WEBPACK_IMPORTED_MODULE_1__["BohaterLogikaService"]));
     };
 
     SharedService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({
@@ -4439,7 +9340,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         }]
       }], function () {
         return [{
-          type: _bohater_logika_service__WEBPACK_IMPORTED_MODULE_2__["BohaterLogikaService"]
+          type: _bohater_logika_service__WEBPACK_IMPORTED_MODULE_1__["BohaterLogikaService"]
         }];
       }, null);
     })();
@@ -4693,7 +9594,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getScoreList",
         value: function getScoreList() {
-          var _this4 = this;
+          var _this6 = this;
 
           this.scoreService.getScoreList().snapshotChanges().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])(function (changes) {
             return changes.map(function (c) {
@@ -4702,7 +9603,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               }, c.payload.doc.data());
             });
           })).subscribe(function (score) {
-            _this4.score = score;
+            _this6.score = score;
             return score.sort(function (a, b) {
               return a.czas - b.czas;
             });
@@ -4961,16 +9862,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.tabOdpowiedzi1[2] = zlywynik2;
           this.tabOdpowiedzi1[3] = zlywynik3; // przypisywanie odpowiedzi do losowych miejsc w nowej tablicy tabOdpowiedzi2
 
-          for (var _i = 0; _i < this.tabOdpowiedzi1.length; _i++) {
-            this.tab1[_i] = this.randomNumber(0, 3);
+          for (var _i2 = 0; _i2 < this.tabOdpowiedzi1.length; _i2++) {
+            this.tab1[_i2] = this.randomNumber(0, 3);
 
-            for (var j = _i; j !== 0; j--) {
-              if (this.tab1[_i] === this.tab1[j - 1]) {
-                _i--;
+            for (var j = _i2; j !== 0; j--) {
+              if (this.tab1[_i2] === this.tab1[j - 1]) {
+                _i2--;
               }
             }
 
-            this.tabOdpowiedzi2[this.tab1[_i]] = this.tabOdpowiedzi1[_i];
+            this.tabOdpowiedzi2[this.tab1[_i2]] = this.tabOdpowiedzi1[_i2];
           } // pokazywanie nowego zadania
 
 
@@ -5034,11 +9935,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "countDown",
         value: function countDown() {
-          var _this5 = this;
+          var _this7 = this;
 
           this.clearTimer();
           this.intervalId = window.setInterval(function () {
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this5, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this7, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
               return regeneratorRuntime.wrap(function _callee$(_context) {
                 while (1) {
                   switch (_context.prev = _context.next) {
@@ -6736,7 +11637,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       afAuth, // Inject Firebase auth service
       router, ngZone // NgZone service to remove outside scope warning
       ) {
-        var _this6 = this;
+        var _this8 = this;
 
         _classCallCheck(this, AuthService);
 
@@ -6749,8 +11650,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
         this.afAuth.authState.subscribe(function (user) {
           if (user) {
-            _this6.userData = user;
-            localStorage.setItem('user', JSON.stringify(_this6.userData));
+            _this8.userData = user;
+            localStorage.setItem('user', JSON.stringify(_this8.userData));
             JSON.parse(localStorage.getItem('user'));
           } else {
             localStorage.setItem('user', null);
@@ -6763,14 +11664,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass(AuthService, [{
         key: "SignIn",
         value: function SignIn(email, password) {
-          var _this7 = this;
+          var _this9 = this;
 
           return this.afAuth.signInWithEmailAndPassword(email, password).then(function (result) {
-            _this7.ngZone.run(function () {
-              _this7.router.navigate(['dodawanie']);
+            _this9.ngZone.run(function () {
+              _this9.router.navigate(['dodawanie']);
             });
 
-            _this7.SetUserData(result.user);
+            _this9.SetUserData(result.user);
           })["catch"](function (error) {
             window.alert(error.message);
           });
@@ -6779,14 +11680,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "SignUp",
         value: function SignUp(email, password) {
-          var _this8 = this;
+          var _this10 = this;
 
           return this.afAuth.createUserWithEmailAndPassword(email, password).then(function (result) {
             /* Call the SendVerificaitonMail() function when new user sign
             up and returns promise */
-            _this8.SendVerificationMail();
+            _this10.SendVerificationMail();
 
-            _this8.SetUserData(result.user);
+            _this10.SetUserData(result.user);
           })["catch"](function (error) {
             window.alert(error.message);
           });
@@ -6796,7 +11697,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "SendVerificationMail",
         value: function SendVerificationMail() {
           return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
-            var _this9 = this;
+            var _this11 = this;
 
             return regeneratorRuntime.wrap(function _callee2$(_context2) {
               while (1) {
@@ -6807,7 +11708,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                   case 2:
                     return _context2.abrupt("return", _context2.sent.sendEmailVerification().then(function () {
-                      _this9.router.navigate(['verify-email-address']);
+                      _this11.router.navigate(['verify-email-address']);
                     }));
 
                   case 3:
@@ -6833,24 +11734,24 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "GoogleAuth",
         // Sign in with Google
         value: function GoogleAuth() {
-          var _this10 = this;
+          var _this12 = this;
 
           return this.AuthLogin(new firebase__WEBPACK_IMPORTED_MODULE_2__["auth"].GoogleAuthProvider()).then(function () {
-            _this10.router.navigate(['dodawanie']);
+            _this12.router.navigate(['dodawanie']);
           });
         } // Auth logic to run auth providers
 
       }, {
         key: "AuthLogin",
         value: function AuthLogin(provider) {
-          var _this11 = this;
+          var _this13 = this;
 
           return this.afAuth.signInWithPopup(provider).then(function (result) {
-            _this11.ngZone.run(function () {
-              _this11.router.navigate(['dashboard']);
+            _this13.ngZone.run(function () {
+              _this13.router.navigate(['dashboard']);
             });
 
-            _this11.SetUserData(result.user);
+            _this13.SetUserData(result.user);
           })["catch"](function (error) {
             window.alert(error);
           });
@@ -6878,14 +11779,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "SignOut",
         value: function SignOut() {
-          var _this12 = this;
+          var _this14 = this;
 
           return this.afAuth.signOut().then(function () {
             localStorage.removeItem('user');
 
-            _this12.router.navigate(['sign-in']);
+            _this14.router.navigate(['sign-in']);
 
-            _this12.refresh();
+            _this14.refresh();
           });
         }
       }, {

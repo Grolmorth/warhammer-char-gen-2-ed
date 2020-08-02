@@ -32,3 +32,11 @@ p {
 .bohater {
     font-size: 12px;
 }
+
+
+/*tooltip umiejetnosci i zdolnosci*/
+
+.tooltip-class .tooltip-inner {
+    font-size: 90%;
+    max-width: 100%;
+}

@@ -2925,7 +2925,7 @@ function getZolnierz() {
       PO: 0,
       PP: 0,
       umiejetnosci: ['Unik', 'Zastraszanie'],
-      wyborUmiejetnosciProfesji: [['Hazard', 'Plotkowanie'], ['Opieka nad zwierzętami', 'Leczenie'], ['Powożenie', 'Jeździectwo'],['Wiedza(imperium)', 'Spostrzegawczość']],
+      wyborUmiejetnosciProfesji: [['Hazard', 'Plotkowanie'], ['Opieka nad zwierzętami', 'Leczenie'], ['Powożenie', 'Jeździectwo'], ['Wiedza(imperium)', 'Spostrzegawczość']],
 
       zdolnosci: [
 
@@ -2988,7 +2988,7 @@ function getCharakteryzacja() {
       typ: 'Podstawowa',
       umiejetnosc: 'Charakteryzacja',
       cecha: 'Ogłada',
-      opis: 'opis charakteryzacji',
+      opis: 'Wykorzystanie tej umiejętności pozwala BG maskować jego prawdziwy wygląd i udawać kogoś innego. Często potrzebne są dodatkowe rekwizyty, właściwe ubranie lub peruka. Dzięki tej umiejętności Bohater może przebrać się za przedstawiciela innej rasy, osobę płci przeciwnej, a nawet kogoś sławnego i znanego w całym kraju, choć tego rodzaju charakteryzacja jest znacznie trudniejsza. Przeciwko Charakteryzacji często wykorzystuje się test Spostrzegawczości przeciwnika.',
       zdolnoscipokrewne: 'naśladowca.'
     }
   ]
@@ -2999,7 +2999,7 @@ function getCzytanieiPisanie() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Czytanie i Pisanie',
       cecha: 'Inteligencja',
-      opis: 'opis czytania i pisania',
+      opis: 'Bohater umie czytać i pisać w dowolnym języku, którym umie się posługiwać W większości przypadków czytania i pisania nie trzeba testować. MG może jednak zdecydować, że test umiejętności jest potrzebny przy odcyfrowywaniu rękopisy spisanego w starożytnym języku lub zawierającym niezrozumiałe wyrażenia albo archaiczne słownictwo.',
       zdolnoscipokrewne: 'poliglota.'
     }
   ]
@@ -3010,7 +3010,7 @@ function getCzytaniezWarg() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Czytanie z warg',
       cecha: 'Inteligencja',
-      opis: 'opis czytania z warg',
+      opis: 'Dzięki tej umiejętności Bohater może zrozumieć rozmowy prowadzone poza zasięgiem jego słuchu lub gdy rozmowa jest zagłuszana przez jakieś odgłosy. Musi widzieć usta obserwowanej osoby, jak również znać język, w którym prowadzona jest rozmowa.',
       zdolnoscipokrewne: 'bystry wzrok.'
     }
   ]
@@ -3021,7 +3021,7 @@ function getDowodzenie() {
       typ: 'Podstawowa',
       umiejetnosc: 'Dowodzenie',
       cecha: 'Ogłada',
-      opis: 'opis dowodzenia',
+      opis: 'Korzystający z tej umiejętności Bohater cieszy się posłuchem u podwładnych. Po udanym teście umiejętności podwładni dokładnie wypełniają jego polecenia. Nieudany test powoduje, że rozkaz zostaje wypełniony błędnie lub też nie zostaje wykonany w ogóle. Dowodzenie nie ma wpływu na zachowanie osób postronnych, umożliwia posłuszeństwo osób podlegających władzy Bohatera.',
       zdolnoscipokrewne: 'brak'
     }
   ]
@@ -3032,7 +3032,7 @@ function getGadanina() {
       typ: 'Zaawansowana',
       umiejetnosc: 'gadanina',
       cecha: 'Ogłada',
-      opis: 'opis ogłady',
+      opis: ' Bohaterowie posiadający tę umiejętność mogą próbować zagadać osobę, zasypując ją potkiem słów. Korzystający z tej umiejętności Bohater zazwyczaj nie próbuje na nikogo wpływać (do tego służy przekonywanie), chce po prostu zyskać na czasie. Po udanym teście umiejętności ofiara ma prawo do testu Siły Woli, który określa, czy zorientowała się w tym, co się naprawdę dzieje. Nieudany test oznacza, że zagadana osoba nic nie robi przez całą rundę, zastanawiając się czy ma do czynienia z osobnikiem pijanym czy zwykłym idiotą, a może jedno i drugie. Gadanina nie przynosi rezultatu, jeśli ofiara bierze udział w walce lub stoi w obliczu ewidentnego zagrożenia życia. Bohater może próbować zagadać kilka osób (jedna osoba za każde 10pkt jego Ogłady), pod warunkiem, że wszystkie te osoby rozumieją język, którym się posługuje.',
       zdolnoscipokrewne: 'brak.'
     }
   ]
@@ -3043,7 +3043,7 @@ function getHazard() {
       typ: 'Podstawowa',
       umiejetnosc: 'Hazard',
       cecha: 'Inteligencja',
-      opis: 'opis hazardu',
+      opis: 'Umiejętność zwiększa szansę Bohatera na wygraną w grach losowych, takich jak karty lub kości. Każda uczestnicząca w grze postać wpłaca stawkę, a potem wszyscy grający równocześnie wykonują test Hazardu. Najniższy wynik rzutu (oczywiście po udanym teście) oznacza wygranie puli.',
       zdolnoscipokrewne: 'geniusz arytmetyczny.'
     }
   ]
@@ -3054,7 +3054,7 @@ function getHipnoza() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Hipnoza',
       cecha: 'Siła Woli',
-      opis: 'opis siły woli',
+      opis: 'Używając hipnozy Bohater może wprowadzić inną osobę w trans. Uwaga hipnotyzowanej osoby musi być przez minutę skupiona na jednej rzeczy. Potem należy wykonać test umiejętności. Osoby próbujące opierać się hipnozie mogą wykonać test Siły Woli. Osoba udziela odpowiedzi szczerze, zgodnie ze swoją wiedzą. Jeśli głęboko w coś wierzy, to udzieli takiej właśnie informacji. Po udzieleniu odpowiedzi na ostatnie pytanie osoba wychodzi z transu.',
       zdolnoscipokrewne: 'brak.'
     }
   ]
@@ -3065,7 +3065,7 @@ function getJezdziectwo() {
       typ: 'Podstawowa',
       umiejetnosc: 'Jeździectwo',
       cecha: 'Zręczność',
-      opis: 'opis jezdziectwa',
+      opis: 'Bohater potrafi jeździć konno lub na innych wierzchowcach. Zwykle jeżdżenie w normalnych warunkach nie wymaga wykonywania testu umiejętności. Jednakże może on być konieczny w przypadku jazdy galopem, wyścigu, wskakiwania na konia w biegu, itp.',
       zdolnoscipokrewne: 'woltyżerka.'
     }
   ]
@@ -3076,7 +3076,7 @@ function getJezykTajemnyMagiczny() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Język Tajemny(magiczny)',
       cecha: 'Inteligencja',
-      opis: 'opis jezyk tajemny',
+      opis: 'Dzięki tej umiejętności Bohater może rzucać zaklęcia. Znajomość języka tajemnego jest konieczna przy używaniu magicznych formuł. W odróżnieniu od innych języków, język tajemny nie jest używany w codziennych rozmowach, a wyłącznie do manipulowania mocą magiczną. Wszystkie magiczne pergaminy i księgi zapisane są w określonym języku tajemnym. Istnieje wiele takich języków. Najczęściej używane to: demoniczny, magiczny i tajemny elfi.',
       zdolnoscipokrewne: 'brak.'
     }
   ]
@@ -3087,7 +3087,7 @@ function getKuglarstwoAkrobatyka() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Kuglarstwo(akrobatyka)',
       cecha: 'Ogłada',
-      opis: 'opis kuglarstwa',
+      opis: ' Wykorzystywane jest do zabawiania publiczności.',
       zdolnoscipokrewne: 'człowiek-guma, naśladowca.'
     }
   ]
@@ -3098,7 +3098,7 @@ function getKuglarstwoAktorstwo() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Kuglarstwo(aktorstwo)',
       cecha: 'Ogłada',
-      opis: 'opis kuglarstwa',
+      opis: ' Wykorzystywane jest do zabawiania publiczności.',
       zdolnoscipokrewne: 'człowiek-guma, naśladowca.'
     }
   ]
@@ -3109,7 +3109,7 @@ function getKuglarstwoBlaznowanie() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Kuglarstwo(błaznowanie)',
       cecha: 'Ogłada',
-      opis: 'opis kuglarstwa',
+      opis: ' Wykorzystywane jest do zabawiania publiczności.',
       zdolnoscipokrewne: 'człowiek-guma, naśladowca.'
     }
   ]
@@ -3120,7 +3120,7 @@ function getKuglarstwoGawedziarstwo() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Kuglarstwo(gawędziarstwo)',
       cecha: 'Ogłada',
-      opis: 'opis kuglarstwa',
+      opis: ' Wykorzystywane jest do zabawiania publiczności.',
       zdolnoscipokrewne: 'człowiek-guma, naśladowca.'
     }
   ]
@@ -3131,7 +3131,7 @@ function getKuglarstwoKomedianctwo() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Kuglarstwo(komedianctwo)',
       cecha: 'Ogłada',
-      opis: 'opis kuglarstwa',
+      opis: ' Wykorzystywane jest do zabawiania publiczności.',
       zdolnoscipokrewne: 'człowiek-guma, naśladowca.'
     }
   ]
@@ -3142,7 +3142,7 @@ function getKuglarstwoMimika() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Kuglarstwo(mimika)',
       cecha: 'Ogłada',
-      opis: 'opis kuglarstwa',
+      opis: ' Wykorzystywane jest do zabawiania publiczności.',
       zdolnoscipokrewne: 'człowiek-guma, naśladowca.'
     }
   ]
@@ -3153,7 +3153,7 @@ function getKuglarstwoMuzykalnosc() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Kuglarstwo(muzykalność)',
       cecha: 'Ogłada',
-      opis: 'opis kuglarstwa',
+      opis: ' Wykorzystywane jest do zabawiania publiczności.',
       zdolnoscipokrewne: 'człowiek-guma, naśladowca.'
     }
   ]
@@ -3164,7 +3164,7 @@ function getKuglarstwoPolykanieOgnia() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Kuglarstwo(połykanie ognia)',
       cecha: 'Ogłada',
-      opis: 'opis kuglarstwa',
+      opis: ' Wykorzystywane jest do zabawiania publiczności.',
       zdolnoscipokrewne: 'człowiek-guma, naśladowca.'
     }
   ]
@@ -3175,7 +3175,7 @@ function getKuglarstwoSpiew() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Kuglarstwo(śpiew)',
       cecha: 'Ogłada',
-      opis: 'opis kuglarstwa',
+      opis: ' Wykorzystywane jest do zabawiania publiczności.',
       zdolnoscipokrewne: 'człowiek-guma, naśladowca.'
     }
   ]
@@ -3186,7 +3186,7 @@ function getKuglarstwoTaniec() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Kuglarstwo(taniec)',
       cecha: 'Ogłada',
-      opis: 'opis kuglarstwa',
+      opis: ' Wykorzystywane jest do zabawiania publiczności.',
       zdolnoscipokrewne: 'człowiek-guma, naśladowca.'
     }
   ]
@@ -3197,7 +3197,7 @@ function getKuglarstwoWrozenieZDloni() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Kuglarstwo(wróżenie z dłoni)',
       cecha: 'Ogłada',
-      opis: 'opis kuglarstwa',
+      opis: ' Wykorzystywane jest do zabawiania publiczności.',
       zdolnoscipokrewne: 'człowiek-guma, naśladowca.'
     }
   ]
@@ -3208,7 +3208,7 @@ function getKuglarstwoZonglerka() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Kuglarstwo(żonglerka)',
       cecha: 'Ogłada',
-      opis: 'opis kuglarstwa',
+      opis: ' Wykorzystywane jest do zabawiania publiczności.',
       zdolnoscipokrewne: 'człowiek-guma, naśladowca.'
     }
   ]
@@ -3219,7 +3219,7 @@ function getLeczenie() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Leczenie',
       cecha: 'Inteligencja',
-      opis: 'opis leczenia',
+      opis: 'Dzięki tej umiejętności Bohater może zapewnić opiekę medyczną rannej osobie. Udany test leczenia przywraca 1k10 punktów Żywotności w przypadku osoby lekko rannej lub 1 punkt Żywotności w przypadku osoby ciężko rannej. Ranna osoba może być leczona tylko raz podczas sytuacji krytycznej (bitwa, zasadzka, pułapka, upadek, itp.), która spowodowała utratę punktów Żywotności, lub zaraz po niej. Test leczenia można ponowić następnego dnia, jak również każdego kolejnego dnia.',
       zdolnoscipokrewne: 'chirurgia.'
     }
   ]
@@ -3230,7 +3230,7 @@ function getMocnaGlowa() {
       typ: 'Podstawowa',
       umiejetnosc: 'Mocna Głowa',
       cecha: 'Zręczność',
-      opis: 'opis mocnej glowy',
+      opis: 'Ta umiejętność zwiększa odporność Bohatera na alkohol. Doświadczeni poszukiwacze przygód potrafią sporo wypić i jednocześnie zachować względną trzeźwość. Test umiejętności wykonuje się po każdej porcji wypitego alkoholu.',
       zdolnoscipokrewne: 'brak.'
     }
   ]
@@ -3241,7 +3241,7 @@ function getNaukaAlchemia() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Nauka(alchemia)',
       cecha: 'Inteligencja',
-      opis: 'opis jezdziectwa',
+      opis: 'Ta umiejętność wykorzystywana jest do zapamiętywania ważniejszych informacji i liczb, jak też (gdy bohater posiada materiały pomocnicze i odpowiednie zasoby) do badań naukowych. Wymaga intensywnych studiów, lecz zapewnia znacznie szerszą i jednocześnie bardziej szczegółową znajomość problemu niż w przypadku wiedzy ogólnej. Nauka nie jest pojedynczą umiejętnością, lecz kategorią obejmującą różne, odrębne traktowanie umiejętności. Każda z nich musi zostać wykupiona oddzielnie. Musisz wydać 100PD za każdą opanowaną Naukę.',
       zdolnoscipokrewne: 'brak.'
     }
   ]
@@ -3252,7 +3252,7 @@ function getNaukaAnatomia() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Nauka(anatomia)',
       cecha: 'Inteligencja',
-      opis: 'opis jezdziectwa',
+      opis: 'Ta umiejętność wykorzystywana jest do zapamiętywania ważniejszych informacji i liczb, jak też (gdy bohater posiada materiały pomocnicze i odpowiednie zasoby) do badań naukowych. Wymaga intensywnych studiów, lecz zapewnia znacznie szerszą i jednocześnie bardziej szczegółową znajomość problemu niż w przypadku wiedzy ogólnej. Nauka nie jest pojedynczą umiejętnością, lecz kategorią obejmującą różne, odrębne traktowanie umiejętności. Każda z nich musi zostać wykupiona oddzielnie. Musisz wydać 100PD za każdą opanowaną Naukę.',
       zdolnoscipokrewne: 'brak.'
     }
   ]
@@ -3263,7 +3263,7 @@ function getNaukaAstronomia() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Nauka(astronomia)',
       cecha: 'Inteligencja',
-      opis: 'opis jezdziectwa',
+      opis: 'Ta umiejętność wykorzystywana jest do zapamiętywania ważniejszych informacji i liczb, jak też (gdy bohater posiada materiały pomocnicze i odpowiednie zasoby) do badań naukowych. Wymaga intensywnych studiów, lecz zapewnia znacznie szerszą i jednocześnie bardziej szczegółową znajomość problemu niż w przypadku wiedzy ogólnej. Nauka nie jest pojedynczą umiejętnością, lecz kategorią obejmującą różne, odrębne traktowanie umiejętności. Każda z nich musi zostać wykupiona oddzielnie. Musisz wydać 100PD za każdą opanowaną Naukę.',
       zdolnoscipokrewne: 'brak.'
     }
   ]
@@ -3274,7 +3274,7 @@ function getNaukaDemonologia() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Nauka(demonologia)',
       cecha: 'Inteligencja',
-      opis: 'opis jezdziectwa',
+      opis: 'Ta umiejętność wykorzystywana jest do zapamiętywania ważniejszych informacji i liczb, jak też (gdy bohater posiada materiały pomocnicze i odpowiednie zasoby) do badań naukowych. Wymaga intensywnych studiów, lecz zapewnia znacznie szerszą i jednocześnie bardziej szczegółową znajomość problemu niż w przypadku wiedzy ogólnej. Nauka nie jest pojedynczą umiejętnością, lecz kategorią obejmującą różne, odrębne traktowanie umiejętności. Każda z nich musi zostać wykupiona oddzielnie. Musisz wydać 100PD za każdą opanowaną Naukę.',
       zdolnoscipokrewne: 'brak.'
     }
   ]
@@ -3285,7 +3285,7 @@ function getNaukaFilozofia() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Nauka(filozofia)',
       cecha: 'Inteligencja',
-      opis: 'opis jezdziectwa',
+      opis: 'Ta umiejętność wykorzystywana jest do zapamiętywania ważniejszych informacji i liczb, jak też (gdy bohater posiada materiały pomocnicze i odpowiednie zasoby) do badań naukowych. Wymaga intensywnych studiów, lecz zapewnia znacznie szerszą i jednocześnie bardziej szczegółową znajomość problemu niż w przypadku wiedzy ogólnej. Nauka nie jest pojedynczą umiejętnością, lecz kategorią obejmującą różne, odrębne traktowanie umiejętności. Każda z nich musi zostać wykupiona oddzielnie. Musisz wydać 100PD za każdą opanowaną Naukę.',
       zdolnoscipokrewne: 'brak.'
     }
   ]
@@ -3296,7 +3296,7 @@ function getNaukaGenealogiaHeraldyka() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Nauka(genealogia/heraldyka)',
       cecha: 'Inteligencja',
-      opis: 'opis jezdziectwa',
+      opis: 'Ta umiejętność wykorzystywana jest do zapamiętywania ważniejszych informacji i liczb, jak też (gdy bohater posiada materiały pomocnicze i odpowiednie zasoby) do badań naukowych. Wymaga intensywnych studiów, lecz zapewnia znacznie szerszą i jednocześnie bardziej szczegółową znajomość problemu niż w przypadku wiedzy ogólnej. Nauka nie jest pojedynczą umiejętnością, lecz kategorią obejmującą różne, odrębne traktowanie umiejętności. Każda z nich musi zostać wykupiona oddzielnie. Musisz wydać 100PD za każdą opanowaną Naukę.',
       zdolnoscipokrewne: 'brak.'
     }
   ]
@@ -3307,7 +3307,7 @@ function getNaukaHistoria() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Nauka(historia)',
       cecha: 'Inteligencja',
-      opis: 'opis jezdziectwa',
+      opis: 'Ta umiejętność wykorzystywana jest do zapamiętywania ważniejszych informacji i liczb, jak też (gdy bohater posiada materiały pomocnicze i odpowiednie zasoby) do badań naukowych. Wymaga intensywnych studiów, lecz zapewnia znacznie szerszą i jednocześnie bardziej szczegółową znajomość problemu niż w przypadku wiedzy ogólnej. Nauka nie jest pojedynczą umiejętnością, lecz kategorią obejmującą różne, odrębne traktowanie umiejętności. Każda z nich musi zostać wykupiona oddzielnie. Musisz wydać 100PD za każdą opanowaną Naukę.',
       zdolnoscipokrewne: 'brak.'
     }
   ]
@@ -3318,7 +3318,7 @@ function getNaukaInzynieria() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Nauka(inżynieria)',
       cecha: 'Inteligencja',
-      opis: 'opis jezdziectwa',
+      opis: 'Ta umiejętność wykorzystywana jest do zapamiętywania ważniejszych informacji i liczb, jak też (gdy bohater posiada materiały pomocnicze i odpowiednie zasoby) do badań naukowych. Wymaga intensywnych studiów, lecz zapewnia znacznie szerszą i jednocześnie bardziej szczegółową znajomość problemu niż w przypadku wiedzy ogólnej. Nauka nie jest pojedynczą umiejętnością, lecz kategorią obejmującą różne, odrębne traktowanie umiejętności. Każda z nich musi zostać wykupiona oddzielnie. Musisz wydać 100PD za każdą opanowaną Naukę.',
       zdolnoscipokrewne: 'brak.'
     }
   ]
@@ -3329,7 +3329,7 @@ function getNaukaMagia() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Nauka(magia)',
       cecha: 'Inteligencja',
-      opis: 'opis jezdziectwa',
+      opis: 'Ta umiejętność wykorzystywana jest do zapamiętywania ważniejszych informacji i liczb, jak też (gdy bohater posiada materiały pomocnicze i odpowiednie zasoby) do badań naukowych. Wymaga intensywnych studiów, lecz zapewnia znacznie szerszą i jednocześnie bardziej szczegółową znajomość problemu niż w przypadku wiedzy ogólnej. Nauka nie jest pojedynczą umiejętnością, lecz kategorią obejmującą różne, odrębne traktowanie umiejętności. Każda z nich musi zostać wykupiona oddzielnie. Musisz wydać 100PD za każdą opanowaną Naukę.',
       zdolnoscipokrewne: 'brak.'
     }
   ]
@@ -3340,7 +3340,7 @@ function getNaukaMatematyka() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Nauka(matematyka)',
       cecha: 'Inteligencja',
-      opis: 'opis jezdziectwa',
+      opis: 'Ta umiejętność wykorzystywana jest do zapamiętywania ważniejszych informacji i liczb, jak też (gdy bohater posiada materiały pomocnicze i odpowiednie zasoby) do badań naukowych. Wymaga intensywnych studiów, lecz zapewnia znacznie szerszą i jednocześnie bardziej szczegółową znajomość problemu niż w przypadku wiedzy ogólnej. Nauka nie jest pojedynczą umiejętnością, lecz kategorią obejmującą różne, odrębne traktowanie umiejętności. Każda z nich musi zostać wykupiona oddzielnie. Musisz wydać 100PD za każdą opanowaną Naukę.',
       zdolnoscipokrewne: 'brak.'
     }
   ]
@@ -3351,7 +3351,7 @@ function getNaukaNekromancja() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Nauka(nekromancja)',
       cecha: 'Inteligencja',
-      opis: 'opis jezdziectwa',
+      opis: 'Ta umiejętność wykorzystywana jest do zapamiętywania ważniejszych informacji i liczb, jak też (gdy bohater posiada materiały pomocnicze i odpowiednie zasoby) do badań naukowych. Wymaga intensywnych studiów, lecz zapewnia znacznie szerszą i jednocześnie bardziej szczegółową znajomość problemu niż w przypadku wiedzy ogólnej. Nauka nie jest pojedynczą umiejętnością, lecz kategorią obejmującą różne, odrębne traktowanie umiejętności. Każda z nich musi zostać wykupiona oddzielnie. Musisz wydać 100PD za każdą opanowaną Naukę.',
       zdolnoscipokrewne: 'brak.'
     }
   ]
@@ -3362,7 +3362,7 @@ function getNaukaPrawo() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Nauka(prawo)',
       cecha: 'Inteligencja',
-      opis: 'opis jezdziectwa',
+      opis: 'Ta umiejętność wykorzystywana jest do zapamiętywania ważniejszych informacji i liczb, jak też (gdy bohater posiada materiały pomocnicze i odpowiednie zasoby) do badań naukowych. Wymaga intensywnych studiów, lecz zapewnia znacznie szerszą i jednocześnie bardziej szczegółową znajomość problemu niż w przypadku wiedzy ogólnej. Nauka nie jest pojedynczą umiejętnością, lecz kategorią obejmującą różne, odrębne traktowanie umiejętności. Każda z nich musi zostać wykupiona oddzielnie. Musisz wydać 100PD za każdą opanowaną Naukę.',
       zdolnoscipokrewne: 'brak.'
     }
   ]
@@ -3373,7 +3373,7 @@ function getNaukaRuny() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Nauka(runy)',
       cecha: 'Inteligencja',
-      opis: 'opis jezdziectwa',
+      opis: 'Ta umiejętność wykorzystywana jest do zapamiętywania ważniejszych informacji i liczb, jak też (gdy bohater posiada materiały pomocnicze i odpowiednie zasoby) do badań naukowych. Wymaga intensywnych studiów, lecz zapewnia znacznie szerszą i jednocześnie bardziej szczegółową znajomość problemu niż w przypadku wiedzy ogólnej. Nauka nie jest pojedynczą umiejętnością, lecz kategorią obejmującą różne, odrębne traktowanie umiejętności. Każda z nich musi zostać wykupiona oddzielnie. Musisz wydać 100PD za każdą opanowaną Naukę.',
       zdolnoscipokrewne: 'brak.'
     }
   ]
@@ -3384,7 +3384,7 @@ function getNaukaStrategiaTaktyka() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Nauka(strategia/taktyka)',
       cecha: 'Inteligencja',
-      opis: 'opis jezdziectwa',
+      opis: 'Ta umiejętność wykorzystywana jest do zapamiętywania ważniejszych informacji i liczb, jak też (gdy bohater posiada materiały pomocnicze i odpowiednie zasoby) do badań naukowych. Wymaga intensywnych studiów, lecz zapewnia znacznie szerszą i jednocześnie bardziej szczegółową znajomość problemu niż w przypadku wiedzy ogólnej. Nauka nie jest pojedynczą umiejętnością, lecz kategorią obejmującą różne, odrębne traktowanie umiejętności. Każda z nich musi zostać wykupiona oddzielnie. Musisz wydać 100PD za każdą opanowaną Naukę.',
       zdolnoscipokrewne: 'brak.'
     }
   ]
@@ -3395,7 +3395,7 @@ function getNaukaSztuka() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Nauka(sztuka)',
       cecha: 'Inteligencja',
-      opis: 'opis jezdziectwa',
+      opis: 'Ta umiejętność wykorzystywana jest do zapamiętywania ważniejszych informacji i liczb, jak też (gdy bohater posiada materiały pomocnicze i odpowiednie zasoby) do badań naukowych. Wymaga intensywnych studiów, lecz zapewnia znacznie szerszą i jednocześnie bardziej szczegółową znajomość problemu niż w przypadku wiedzy ogólnej. Nauka nie jest pojedynczą umiejętnością, lecz kategorią obejmującą różne, odrębne traktowanie umiejętności. Każda z nich musi zostać wykupiona oddzielnie. Musisz wydać 100PD za każdą opanowaną Naukę.',
       zdolnoscipokrewne: 'brak.'
     }
   ]
@@ -3406,7 +3406,7 @@ function getNaukaTeologia() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Nauka(teologia)',
       cecha: 'Inteligencja',
-      opis: 'opis jezdziectwa',
+      opis: 'Ta umiejętność wykorzystywana jest do zapamiętywania ważniejszych informacji i liczb, jak też (gdy bohater posiada materiały pomocnicze i odpowiednie zasoby) do badań naukowych. Wymaga intensywnych studiów, lecz zapewnia znacznie szerszą i jednocześnie bardziej szczegółową znajomość problemu niż w przypadku wiedzy ogólnej. Nauka nie jest pojedynczą umiejętnością, lecz kategorią obejmującą różne, odrębne traktowanie umiejętności. Każda z nich musi zostać wykupiona oddzielnie. Musisz wydać 100PD za każdą opanowaną Naukę.',
       zdolnoscipokrewne: 'brak.'
     }
   ]
@@ -3417,7 +3417,7 @@ function getNawigacja() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Nawigacja',
       cecha: 'Inteligencja',
-      opis: 'opis nawigacji',
+      opis: 'Umiejętność ta wykorzystywana jest do orientowania się na lądzie i na wodzie. W zależności od wiedzy i możliwości, Bohater może nawigować według mapy albo gwiazd lub posługując się wrodzonym wyczuciem kierunku. Dzięki tej umiejętności może również ocenić długość podróży, biorąc pod uwagę topografię okolicy, porę roku i pogodę. W normalnych warunkach, utrzymanie stałego kursu wymaga jednego udanego testu dziennie.',
       zdolnoscipokrewne: 'geniusz arytmetyczny, wyczucie kierunku.'
     }
   ]
@@ -3428,7 +3428,7 @@ function getOpiekaNadZwierzetami() {
       typ: 'Podstawowa',
       umiejetnosc: 'Opieka Nad Zwierzętami',
       cecha: 'Inteligencja',
-      opis: 'opis opieki',
+      opis: 'Umiejętność ta wykorzystywana jest podczas doglądania zwierząt domowych i hodowlanych (konie, woły, świnie, psy, itd.). Codzienne czynności i karmienie zwierząt nie wymagają testu umiejętności. Może być jednak potrzebny przy próbie wykrycia objawów choroby lub zastosowaniu specjalnych zabiegów (na przykład zaplatanie grzywy, czesanie, przygotowanie konia do parady wojskowej, itp.).',
       zdolnoscipokrewne: 'brak.'
     }
   ]
@@ -3439,7 +3439,7 @@ function getOswajanie() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Oswajanie',
       cecha: 'Ogłada',
-      opis: 'opis oswajania',
+      opis: 'Wyorzystywanie tej umiejętności umożliwia oswajanie zwierząt. Zwierzęta domowe i hodowlane zawsze zachowują się przyjaźnie wobec Bohatera, który posiada tę umiejętność. Zwierzęta dzikie lub tresowane (na przykład psy gończe lub bojowe) mogą dać się oswoić przy udanym teście umiejętności. MG może przydzielić modyfikatory przy próbie oswajania zwierząt wyjątkowo agresywnych lub wiernych innej osobie. Umiejętność ta nie działa na potwory.',
       zdolnoscipokrewne: 'brak.'
     }
   ]
@@ -3450,7 +3450,7 @@ function getOtwieranieZamkow() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Otwieranie Zamków',
       cecha: 'Zręczność',
-      opis: 'opis otwierania zamkow  ',
+      opis: 'Bohater potrafi otwierać wszelakiego rodzaju zamki i kłódki. Zazwyczaj do otwiercia zamka wystarczy jeden udany test umiejętności, ale przy próbach otworzenia szczególnie skomplikowanego mechanizmu Mistrz Gry może zażądać dodatkowych testów umiejętności.',
       zdolnoscipokrewne: 'brak.'
     }
   ]
@@ -3461,7 +3461,7 @@ function getPlotkowanie() {
       typ: 'Podstawowa',
       umiejetnosc: 'Plotkowanie',
       cecha: 'Ogłada',
-      opis: 'opis plotkowania',
+      opis: 'Wykorzystanie tej umiejętności pozwala na zbieranie informacji w czasie zwykłej rozmowy. Obejmuje wymianę najświeższych nowin, plotek o ważnych osobach oraz ogólnych informacji o wydarzeniach w okolicy.',
       zdolnoscipokrewne: 'etykieta, łotrzyk.'
     }
   ]
@@ -3472,7 +3472,7 @@ function getPlywanie() {
       typ: 'Podstawowa',
       umiejetnosc: 'Pływanie',
       cecha: 'Krzepa',
-      opis: 'opis plywania',
+      opis: 'Bohater umie pływać oraz nurkować. Pływanie w spokojnej wodzie nie wymaga testu. Test może być potrzebny przy próbie nurkowania, pływania w wartkim lub zdradliwym nurcie lub podczas próby przepłynięcia dłuższego dystansu. W czasie pływania Szybkość Bohatera spada o połowę.',
       zdolnoscipokrewne: 'brak.'
     }
   ]
@@ -3483,7 +3483,7 @@ function getPowozenie() {
       typ: 'Podstawowa',
       umiejetnosc: 'Powożenie',
       cecha: 'Krzepa',
-      opis: 'opis powozenia',
+      opis: 'Bohater potrafi kierować wozem, powozem, a nawet rydwanem. Powożenie w normalnych warunkach nie wymaga testu umiejętności. Test może być potrzebny w przypadku jazdy w trudnym terenie, z dużą prędkością lub przy wykonywaniu niebezpiecznych manewrów.',
       zdolnoscipokrewne: 'brak.'
     }
   ]
@@ -3494,7 +3494,7 @@ function getPrzekonywanie() {
       typ: 'Podstawowa',
       umiejetnosc: 'Przekonywanie',
       cecha: 'Ogłada',
-      opis: 'opis przekonywania',
+      opis: 'Ta umiejętność pozwala Bohaterowi wpływać na zachowanie innych osób. Może przekonywująco kłamać, blefować, a nawet skutecznie żebrać. Przekonywanie wykorzystuje się też podczas prób uwodzenia. W przypadku zastosowania tej umiejętności w celu nakłonienia kogoś do zrobienia czegoś niezwykłego lub niebezpiecznego, MG może pozwolić nakłanianej postaci na test Siły Woli. Bohater może próbować przekonać kilka osób (jedna osoba za każde 10pkt jego Ogłady), pod warunkiem że wszystkie te osoby rozumieją język, którym posługuje się bohater.',
       zdolnoscipokrewne: 'etykieta, intrygant, krasomówstwo, łotrzyk, przemawianie.'
     }
   ]
@@ -3505,7 +3505,7 @@ function getPrzeszukiwanie() {
       typ: 'Podstawowa',
       umiejetnosc: 'Przeszukiwanie',
       cecha: 'Inteligencja',
-      opis: 'opis przeszukiwania',
+      opis: 'Ta umiejętność jest wykorzystywana przy przeszukiwaniu obszaru lub pomieszczenia, w nadziei znalezienia wskazówek, ukrytych przejść, skarbów lub pułapek. Dokładne przeszukanie pomieszczenia lub niewielkiego obszaru wymaga jednego udanego testu umiejętności.',
       zdolnoscipokrewne: 'brak.'
     }
   ]
@@ -3516,7 +3516,7 @@ function getRzemiosloAptekarstwo() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Rzemiosło(aptekarstwo)',
       cecha: 'Inteligencja',
-      opis: 'opis rzemiosla ',
+      opis: 'Bohater jest fachowcem w jednej z dziedzin rzemiosła. Ta umiejętność obejmuje także te dziedziny, które formalnie nie są określone jako rzemiosło, ale wymagają posiadania wyuczonej wiedzy i odpowiednich narzędzi.',
       zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
     }
   ]
@@ -3527,7 +3527,7 @@ function getRzemiosloBednarstwo() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Rzemiosło(bednarstwo)',
       cecha: 'Siła',
-      opis: 'opis rzemiosla ',
+      opis: 'Bohater jest fachowcem w jednej z dziedzin rzemiosła. Ta umiejętność obejmuje także te dziedziny, które formalnie nie są określone jako rzemiosło, ale wymagają posiadania wyuczonej wiedzy i odpowiednich narzędzi.',
       zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
     }
   ]
@@ -3538,7 +3538,7 @@ function getRzemiosloGarbarstwo() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Rzemiosło(garbarstwo)',
       cecha: 'Siła',
-      opis: 'opis rzemiosla ',
+      opis: 'Bohater jest fachowcem w jednej z dziedzin rzemiosła. Ta umiejętność obejmuje także te dziedziny, które formalnie nie są określone jako rzemiosło, ale wymagają posiadania wyuczonej wiedzy i odpowiednich narzędzi.',
       zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
     }
   ]
@@ -3549,7 +3549,7 @@ function getRzemiosloGotowanie() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Rzemiosło(gotowanie)',
       cecha: 'Inteligencja',
-      opis: 'opis rzemiosla ',
+      opis: 'Bohater jest fachowcem w jednej z dziedzin rzemiosła. Ta umiejętność obejmuje także te dziedziny, które formalnie nie są określone jako rzemiosło, ale wymagają posiadania wyuczonej wiedzy i odpowiednich narzędzi.',
       zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
     }
   ]
@@ -3560,7 +3560,7 @@ function getRzemiosloGornictwo() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Rzemiosło(górnictwo)',
       cecha: 'Siła',
-      opis: 'opis rzemiosla ',
+      opis: 'Bohater jest fachowcem w jednej z dziedzin rzemiosła. Ta umiejętność obejmuje także te dziedziny, które formalnie nie są określone jako rzemiosło, ale wymagają posiadania wyuczonej wiedzy i odpowiednich narzędzi.',
       zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
     }
   ]
@@ -3571,7 +3571,7 @@ function getRzemiosloGornictwoOdkrywkowe() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Rzemiosło(górnictwo odkrywkowe)',
       cecha: 'Siła',
-      opis: 'opis rzemiosla ',
+      opis: 'Bohater jest fachowcem w jednej z dziedzin rzemiosła. Ta umiejętność obejmuje także te dziedziny, które formalnie nie są określone jako rzemiosło, ale wymagają posiadania wyuczonej wiedzy i odpowiednich narzędzi.',
       zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
     }
   ]
@@ -3582,7 +3582,7 @@ function getRzemiosloHandel() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Rzemiosło(handel)',
       cecha: 'Ogłada',
-      opis: 'opis rzemiosla ',
+      opis: 'Bohater jest fachowcem w jednej z dziedzin rzemiosła. Ta umiejętność obejmuje także te dziedziny, które formalnie nie są określone jako rzemiosło, ale wymagają posiadania wyuczonej wiedzy i odpowiednich narzędzi.',
       zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
     }
   ]
@@ -3593,7 +3593,7 @@ function getRzemiosloJubilerstwo() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Rzemiosło(jubilerstwo)',
       cecha: 'Zręczność',
-      opis: 'opis rzemiosla ',
+      opis: 'Bohater jest fachowcem w jednej z dziedzin rzemiosła. Ta umiejętność obejmuje także te dziedziny, które formalnie nie są określone jako rzemiosło, ale wymagają posiadania wyuczonej wiedzy i odpowiednich narzędzi.',
       zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
     }
   ]
@@ -3604,7 +3604,7 @@ function getRzemiosloKaligrafia() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Rzemiosło(kaligrafia)',
       cecha: 'Zręczność',
-      opis: 'opis rzemiosla ',
+      opis: 'Bohater jest fachowcem w jednej z dziedzin rzemiosła. Ta umiejętność obejmuje także te dziedziny, które formalnie nie są określone jako rzemiosło, ale wymagają posiadania wyuczonej wiedzy i odpowiednich narzędzi.',
       zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
     }
   ]
@@ -3615,7 +3615,7 @@ function getRzemiosloKamieniarstwo() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Rzemiosło(kamieniarstwo)',
       cecha: 'Zręczność',
-      opis: 'opis rzemiosla ',
+      opis: 'Bohater jest fachowcem w jednej z dziedzin rzemiosła. Ta umiejętność obejmuje także te dziedziny, które formalnie nie są określone jako rzemiosło, ale wymagają posiadania wyuczonej wiedzy i odpowiednich narzędzi.',
       zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
     }
   ]
@@ -3626,7 +3626,7 @@ function getRzemiosloKartografia() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Rzemiosło(kartografia)',
       cecha: 'Zręczność',
-      opis: 'opis rzemiosla ',
+      opis: 'Bohater jest fachowcem w jednej z dziedzin rzemiosła. Ta umiejętność obejmuje także te dziedziny, które formalnie nie są określone jako rzemiosło, ale wymagają posiadania wyuczonej wiedzy i odpowiednich narzędzi.',
       zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
     }
   ]
@@ -3637,7 +3637,7 @@ function getRzemiosloKowalstwo() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Rzemiosło(kowalstwo)',
       cecha: 'Siła',
-      opis: 'opis rzemiosla ',
+      opis: 'Bohater jest fachowcem w jednej z dziedzin rzemiosła. Ta umiejętność obejmuje także te dziedziny, które formalnie nie są określone jako rzemiosło, ale wymagają posiadania wyuczonej wiedzy i odpowiednich narzędzi.',
       zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
     }
   ]
@@ -3648,7 +3648,7 @@ function getRzemiosloKrawiectwo() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Rzemiosło(krawiectwo)',
       cecha: 'Zręczność',
-      opis: 'opis rzemiosla ',
+      opis: 'Bohater jest fachowcem w jednej z dziedzin rzemiosła. Ta umiejętność obejmuje także te dziedziny, które formalnie nie są określone jako rzemiosło, ale wymagają posiadania wyuczonej wiedzy i odpowiednich narzędzi.',
       zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
     }
   ]
@@ -3659,7 +3659,7 @@ function getRzemiosloMlynarstwo() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Rzemiosło(młynarstwo)',
       cecha: 'Siła',
-      opis: 'opis rzemiosla ',
+      opis: 'Bohater jest fachowcem w jednej z dziedzin rzemiosła. Ta umiejętność obejmuje także te dziedziny, które formalnie nie są określone jako rzemiosło, ale wymagają posiadania wyuczonej wiedzy i odpowiednich narzędzi.',
       zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
     }
   ]
@@ -3670,7 +3670,7 @@ function getRzemiosloPiwowarstwo() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Rzemiosło(piwowarstwo)',
       cecha: 'Inteligencja',
-      opis: 'opis rzemiosla ',
+      opis: 'Bohater jest fachowcem w jednej z dziedzin rzemiosła. Ta umiejętność obejmuje także te dziedziny, które formalnie nie są określone jako rzemiosło, ale wymagają posiadania wyuczonej wiedzy i odpowiednich narzędzi.',
       zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
     }
   ]
@@ -3681,7 +3681,7 @@ function getRzemiosloPlatnerstwo() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Rzemiosło(płatnerstwo)',
       cecha: 'Siła',
-      opis: 'opis rzemiosla ',
+      opis: 'Bohater jest fachowcem w jednej z dziedzin rzemiosła. Ta umiejętność obejmuje także te dziedziny, które formalnie nie są określone jako rzemiosło, ale wymagają posiadania wyuczonej wiedzy i odpowiednich narzędzi.',
       zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
     }
   ]
@@ -3692,7 +3692,7 @@ function getRzemiosloRusznikarstwo() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Rzemiosło(rusznikarstwo)',
       cecha: 'Zręczność',
-      opis: 'opis rzemiosla ',
+      opis: 'Bohater jest fachowcem w jednej z dziedzin rzemiosła. Ta umiejętność obejmuje także te dziedziny, które formalnie nie są określone jako rzemiosło, ale wymagają posiadania wyuczonej wiedzy i odpowiednich narzędzi.',
       zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
     }
   ]
@@ -3703,7 +3703,7 @@ function getRzemiosloRymarstwo() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Rzemiosło(rymarstwo)',
       cecha: 'Zręczność',
-      opis: 'opis rzemiosla ',
+      opis: 'Bohater jest fachowcem w jednej z dziedzin rzemiosła. Ta umiejętność obejmuje także te dziedziny, które formalnie nie są określone jako rzemiosło, ale wymagają posiadania wyuczonej wiedzy i odpowiednich narzędzi.',
       zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
     }
   ]
@@ -3714,7 +3714,7 @@ function getRzemiosloStolarstwo() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Rzemiosło(stolarstwo)',
       cecha: 'Zręczność',
-      opis: 'opis rzemiosla ',
+      opis: 'Bohater jest fachowcem w jednej z dziedzin rzemiosła. Ta umiejętność obejmuje także te dziedziny, które formalnie nie są określone jako rzemiosło, ale wymagają posiadania wyuczonej wiedzy i odpowiednich narzędzi.',
       zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
     }
   ]
@@ -3725,7 +3725,7 @@ function getRzemiosloSzkutnictwo() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Rzemiosło(szkutnictwo)',
       cecha: 'Inteligencja',
-      opis: 'opis rzemiosla ',
+      opis: 'Bohater jest fachowcem w jednej z dziedzin rzemiosła. Ta umiejętność obejmuje także te dziedziny, które formalnie nie są określone jako rzemiosło, ale wymagają posiadania wyuczonej wiedzy i odpowiednich narzędzi.',
       zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
     }
   ]
@@ -3736,7 +3736,7 @@ function getRzemiosloSzewstwo() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Rzemiosło(szewstwo)',
       cecha: 'Zręczność',
-      opis: 'opis rzemiosla ',
+      opis: 'Bohater jest fachowcem w jednej z dziedzin rzemiosła. Ta umiejętność obejmuje także te dziedziny, które formalnie nie są określone jako rzemiosło, ale wymagają posiadania wyuczonej wiedzy i odpowiednich narzędzi.',
       zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
     }
   ]
@@ -3747,7 +3747,7 @@ function getRzemiosloSztuka() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Rzemiosło(sztuka)',
       cecha: 'Zręszność',
-      opis: 'opis rzemiosla ',
+      opis: 'Bohater jest fachowcem w jednej z dziedzin rzemiosła. Ta umiejętność obejmuje także te dziedziny, które formalnie nie są określone jako rzemiosło, ale wymagają posiadania wyuczonej wiedzy i odpowiednich narzędzi.',
       zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
     }
   ]
@@ -3758,7 +3758,7 @@ function getRzemiosloSwiecarstwo() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Rzemiosło(świecarstwo)',
       cecha: 'Zręszność',
-      opis: 'opis rzemiosla ',
+      opis: 'Bohater jest fachowcem w jednej z dziedzin rzemiosła. Ta umiejętność obejmuje także te dziedziny, które formalnie nie są określone jako rzemiosło, ale wymagają posiadania wyuczonej wiedzy i odpowiednich narzędzi.',
       zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
     }
   ]
@@ -3769,7 +3769,7 @@ function getRzemiosloUprawaZiemi() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Rzemiosło(uprawa ziemi)',
       cecha: 'Siła',
-      opis: 'opis rzemiosla ',
+      opis: 'Bohater jest fachowcem w jednej z dziedzin rzemiosła. Ta umiejętność obejmuje także te dziedziny, które formalnie nie są określone jako rzemiosło, ale wymagają posiadania wyuczonej wiedzy i odpowiednich narzędzi.',
       zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
     }
   ]
@@ -3780,7 +3780,7 @@ function getRzemiosloWyrobLukow() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Rzemiosło(wyrób łuków)',
       cecha: 'Zręczność',
-      opis: 'opis rzemiosla ',
+      opis: 'Bohater jest fachowcem w jednej z dziedzin rzemiosła. Ta umiejętność obejmuje także te dziedziny, które formalnie nie są określone jako rzemiosło, ale wymagają posiadania wyuczonej wiedzy i odpowiednich narzędzi.',
       zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
     }
   ]
@@ -3791,7 +3791,7 @@ function getRzemiosloZielarstwo() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Rzemiosło(zielarstwo)',
       cecha: 'Inteligencja',
-      opis: 'opis rzemiosla ',
+      opis: 'Bohater jest fachowcem w jednej z dziedzin rzemiosła. Ta umiejętność obejmuje także te dziedziny, które formalnie nie są określone jako rzemiosło, ale wymagają posiadania wyuczonej wiedzy i odpowiednich narzędzi.',
       zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
     }
   ]
@@ -3802,7 +3802,7 @@ function getRzemiosloZlotnictwo() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Rzemiosło(złotnictwo)',
       cecha: 'Zręczność',
-      opis: 'opis rzemiosla ',
+      opis: 'Bohater jest fachowcem w jednej z dziedzin rzemiosła. Ta umiejętność obejmuje także te dziedziny, które formalnie nie są określone jako rzemiosło, ale wymagają posiadania wyuczonej wiedzy i odpowiednich narzędzi.',
       zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
     }
   ]
@@ -3813,7 +3813,7 @@ function getSekretneZnakiLowcow() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Sekretne Znaki(łowców)',
       cecha: 'Inteligencja',
-      opis: 'opis sekretnych znakow',
+      opis: ' Bohater potrafi odczytywać lub zapisywać zaszyfrowane wiadomości. Na obszarze Imperium stosuje się wiele systemów znaków. Sekretne znaki są zazwyczaj prostymi komunikatami używanymi głównie w celu ostrzeżenia, oznakowania obiektu, wskazania szlaku lub miejsca o szczególnym znaczeniu. Odczytanie lub zapisanie krótkiej, prostej wiadomości nie wymaga testu umiejętności. W przypadku bardziej skomplikowanych zapisów lub gdy fragmenty znaku są podniszczone albo zatarte, MG może nakazać wykonanie testu umiejętności z odpowiednimi modyfikatorami trudności.',
       zdolnoscipokrewne: 'brak.'
     }
   ]
@@ -3824,7 +3824,7 @@ function getSekretneZnakiRycerzyZakonnych() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Sekretne Znaki(rycerzy zakonnych)',
       cecha: 'Inteligencja',
-      opis: 'opis sekretnych znakow',
+      opis: ' Bohater potrafi odczytywać lub zapisywać zaszyfrowane wiadomości. Na obszarze Imperium stosuje się wiele systemów znaków. Sekretne znaki są zazwyczaj prostymi komunikatami używanymi głównie w celu ostrzeżenia, oznakowania obiektu, wskazania szlaku lub miejsca o szczególnym znaczeniu. Odczytanie lub zapisanie krótkiej, prostej wiadomości nie wymaga testu umiejętności. W przypadku bardziej skomplikowanych zapisów lub gdy fragmenty znaku są podniszczone albo zatarte, MG może nakazać wykonanie testu umiejętności z odpowiednimi modyfikatorami trudności.',
       zdolnoscipokrewne: 'brak.'
     }
   ]
@@ -3835,7 +3835,7 @@ function getSekretneZnakiZwiadowcow() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Sekretne Znaki(zwiadowców)',
       cecha: 'Inteligencja',
-      opis: 'opis sekretnych znakow',
+      opis: ' Bohater potrafi odczytywać lub zapisywać zaszyfrowane wiadomości. Na obszarze Imperium stosuje się wiele systemów znaków. Sekretne znaki są zazwyczaj prostymi komunikatami używanymi głównie w celu ostrzeżenia, oznakowania obiektu, wskazania szlaku lub miejsca o szczególnym znaczeniu. Odczytanie lub zapisanie krótkiej, prostej wiadomości nie wymaga testu umiejętności. W przypadku bardziej skomplikowanych zapisów lub gdy fragmenty znaku są podniszczone albo zatarte, MG może nakazać wykonanie testu umiejętności z odpowiednimi modyfikatorami trudności.',
       zdolnoscipokrewne: 'brak.'
     }
   ]
@@ -3846,7 +3846,7 @@ function getSekretneZnakiZlodziei() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Sekretne Znaki(złodziei)',
       cecha: 'Inteligencja',
-      opis: 'opis sekretnych znakow',
+      opis: ' Bohater potrafi odczytywać lub zapisywać zaszyfrowane wiadomości. Na obszarze Imperium stosuje się wiele systemów znaków. Sekretne znaki są zazwyczaj prostymi komunikatami używanymi głównie w celu ostrzeżenia, oznakowania obiektu, wskazania szlaku lub miejsca o szczególnym znaczeniu. Odczytanie lub zapisanie krótkiej, prostej wiadomości nie wymaga testu umiejętności. W przypadku bardziej skomplikowanych zapisów lub gdy fragmenty znaku są podniszczone albo zatarte, MG może nakazać wykonanie testu umiejętności z odpowiednimi modyfikatorami trudności.',
       zdolnoscipokrewne: 'brak.'
     }
   ]
@@ -3857,7 +3857,8 @@ function getSekretnyJezykBitewny() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Sekretny język(bitewny)',
       cecha: 'Inteligencja',
-      opis: 'opis sekretny jezyk',
+      opis: 'Znajomość sekretnego język pozwala na potajemne porozumiewanie się z przedstawicielami tej samej profesji lub grupy społecznej. Sekretne języki przypominają raczej uproszczony szyfr, a nie powszechnie używane formy porozumiewania się. Wykorzystując znaki, mowę ciała i słowa kodowe wplatane w zwykłą wypowiedź, Bohater może przekazać dodatkowe znaczenie wypowiadanych słów lub większą ilość informacji w krótkim czasie.' +
+        'W normalnych warunkach, gdy wszyscy rozmawiający znają dany sekretny język, test umiejętności nie jest potrzebny, aczkolwiek może być wymagany w niesprzyjających warunkach (na przykład na głośnej ulicy lub w czasie bitwy).',
       zdolnoscipokrewne: 'brak.'
     }
   ]
@@ -3868,7 +3869,8 @@ function getSekretnyJezykGildii() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Sekretny język(gildii)',
       cecha: 'Inteligencja',
-      opis: 'opis sekretny jezyk',
+      opis: 'Znajomość sekretnego język pozwala na potajemne porozumiewanie się z przedstawicielami tej samej profesji lub grupy społecznej. Sekretne języki przypominają raczej uproszczony szyfr, a nie powszechnie używane formy porozumiewania się. Wykorzystując znaki, mowę ciała i słowa kodowe wplatane w zwykłą wypowiedź, Bohater może przekazać dodatkowe znaczenie wypowiadanych słów lub większą ilość informacji w krótkim czasie.' +
+      'W normalnych warunkach, gdy wszyscy rozmawiający znają dany sekretny język, test umiejętności nie jest potrzebny, aczkolwiek może być wymagany w niesprzyjających warunkach (na przykład na głośnej ulicy lub w czasie bitwy).',
       zdolnoscipokrewne: 'brak.'
     }
   ]
@@ -3879,7 +3881,8 @@ function getSekretnyJezykLowcow() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Sekretny język(łowców)',
       cecha: 'Inteligencja',
-      opis: 'opis sekretny jezyk',
+      opis: 'Znajomość sekretnego język pozwala na potajemne porozumiewanie się z przedstawicielami tej samej profesji lub grupy społecznej. Sekretne języki przypominają raczej uproszczony szyfr, a nie powszechnie używane formy porozumiewania się. Wykorzystując znaki, mowę ciała i słowa kodowe wplatane w zwykłą wypowiedź, Bohater może przekazać dodatkowe znaczenie wypowiadanych słów lub większą ilość informacji w krótkim czasie.' +
+      'W normalnych warunkach, gdy wszyscy rozmawiający znają dany sekretny język, test umiejętności nie jest potrzebny, aczkolwiek może być wymagany w niesprzyjających warunkach (na przykład na głośnej ulicy lub w czasie bitwy).',
       zdolnoscipokrewne: 'brak.'
     }
   ]
@@ -3890,7 +3893,8 @@ function getSekretnyJezykZlodziejski() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Sekretny język(złodziejski)',
       cecha: 'Inteligencja',
-      opis: 'opis sekretny jezyk',
+      opis: 'Znajomość sekretnego język pozwala na potajemne porozumiewanie się z przedstawicielami tej samej profesji lub grupy społecznej. Sekretne języki przypominają raczej uproszczony szyfr, a nie powszechnie używane formy porozumiewania się. Wykorzystując znaki, mowę ciała i słowa kodowe wplatane w zwykłą wypowiedź, Bohater może przekazać dodatkowe znaczenie wypowiadanych słów lub większą ilość informacji w krótkim czasie.' +
+      'W normalnych warunkach, gdy wszyscy rozmawiający znają dany sekretny język, test umiejętności nie jest potrzebny, aczkolwiek może być wymagany w niesprzyjających warunkach (na przykład na głośnej ulicy lub w czasie bitwy).',
       zdolnoscipokrewne: 'brak.'
     }
   ]
@@ -3901,7 +3905,7 @@ function getSkradanieSie() {
       typ: 'Podstawowa',
       umiejetnosc: 'Skradanie się',
       cecha: 'Zręczność',
-      opis: 'opis skradania',
+      opis: 'Umiejętność ta umożliwia Bohaterowi ciche poruszanie się w prawie każdym terenie. Skradając się, Bohater może wykonywać najwyżej jedną akcję „ruch” w rundzie. Test skradania się jest często wykonywany w przeciwstawnym teście przeciwko Spostrzegawczości przeciwnika',
       zdolnoscipokrewne: 'grotołaz, ulicznik, wędrowiec.'
     }
   ]
@@ -3912,7 +3916,7 @@ function getSplatanieMagii() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Splatanie magii',
       cecha: 'Siła Woli',
-      opis: 'opis spalatania ',
+      opis: 'Wykorzystywanie tej umiejętności ułatwia Bohaterowi kontrolowanie Wiatrów Magii. Każde rzucenie zaklęcia wymaga manipulacji nimi, jednak splatanie magii wykorzystuje się wtedy, gdy wymagana jest większa kontrola nad czarem lub jego precyzyjne przygotowanie.',
       zdolnoscipokrewne: 'zmysł magii.'
     }
   ]
@@ -3923,7 +3927,7 @@ function getSpostrzegawczosc() {
       typ: 'Podstawowa',
       umiejetnosc: 'Spostrzegawczość',
       cecha: 'Inteligencja',
-      opis: 'opis spostrzegawczosci',
+      opis: 'BG, który posiada tę umiejętność, dokładniej obserwuje otoczenie, często zauważając szczegóły przeoczone przez innych. Dzięki temu ma większe szanse na zauważenie pułapki, zapadni lub ukrytego przejścia. Spostrzegawczość jest używana głównie do ustalania tego co Bohater widzi, choć obejmuje także pozostałe zmysły. Może być więc użyta do określania doznań smakowych, zapachowych, słuchowych i dotykowych. Spostrzegawczość bywa często stosowana w przeciwstawnych testach umiejętnościom takim jak Charakteryzacja, Skradanie się, i Ukrywanie się. Udany test umiejętności pozwala Bohaterowi na określenie liczebności, odległości, wielkości obserwowanego obiektu, itp. Nieudany test może oznaczać uzyskanie niedokładnych informacji.',
       zdolnoscipokrewne: 'bystry wzrok, czuły słuch, geniusz arytmetyczny.'
     }
   ]
@@ -3934,7 +3938,7 @@ function getSztukaPrzetrwania() {
       typ: 'Podstawowa',
       umiejetnosc: 'Sztuka Przetrwania',
       cecha: 'Inteligencja',
-      opis: 'opis sztuki przetwrwania',
+      opis: 'Umiejętność ta może zapewnić przeżycie w dziczy. Obejmuje znajomość technik łowienia ryb, polowania, oprawiania zwierzyny, rozpalania ognia, znajdowania pożywienia, konstruowania szałasów, itp.',
       zdolnoscipokrewne: 'brak.'
     }
   ]
@@ -3945,7 +3949,7 @@ function getSledzenie() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Śledzenie',
       cecha: 'Zręczność',
-      opis: 'opis sledzenia ',
+      opis: 'Wykorzystując tę umiejętność, bohater może podążać za kimś, samemu pozostając niezauważonym. Test śledzenia jest często wykorzystywany w przeciwstawnym teście umiejętności przeciwko Spostrzegawczości przeciwnika.',
       zdolnoscipokrewne: 'brak.'
     }
   ]
@@ -3956,7 +3960,7 @@ function getTargowanie() {
       typ: 'Podstawowa',
       umiejetnosc: 'Targowanie',
       cecha: 'Ogłada',
-      opis: 'opis targowania',
+      opis: 'Umiejętność ta umożliwia negocjowanie cen towarów i usług. W przypadku towarów codziennego użytku wystarczy zwykły test umiejętności. Jeśli bohater targuje się o cenny przedmiot, MG może zarządzić przeciwstawny test Targowania (z ewentualnymi modyfikacjami trudności).',
       zdolnoscipokrewne: 'żyłka handlowa.'
     }
   ]
@@ -3967,7 +3971,7 @@ function getTorturowanie() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Torturowanie',
       cecha: 'Ogłada',
-      opis: 'opis torturowania',
+      opis: 'Dzięki zastosowaniu rozmaitych działań i środków przymusu Bohater potrafi wydobyć interesujące go informacje od osoby niechętnej do współpracy. Umiejętność obejmuje zarówno psychiczne znęcanie się, jak i fizyczne tortury. Ofiara może opierać się torturom, wykonując test Siły Woli.',
       zdolnoscipokrewne: 'groźny.'
     }
   ]
@@ -3978,7 +3982,7 @@ function getTresura() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Tresura',
       cecha: 'Ogłada',
-      opis: 'opis rtesury ',
+      opis: 'Bohater potrafi uczyć zwierzęta wykonywania różnych sztuczek i słuchania prostych poleceń. Zwykle tresurze poddaje się psy, konie i sokoły, choć MG może pozwolić na tresowanie bardziej niezwykłych zwierząt. Wyuczenie zwierzęcia zajmuje sporo czasu. Test umiejętności należy wykonać raz na tydzień tresury. Nauczenie prostej sztuczki wymaga pojedynczego, udanego testu, średnio trudna sztuczka wymaga trzech udanych testów umiejętności, natomiast bardzo trudna – dziesięciu.',
       zdolnoscipokrewne: 'brak.'
     }
   ]
@@ -3989,7 +3993,7 @@ function getTropienie() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Tropienie',
       cecha: 'Inteligencja',
-      opis: 'opis tropienia',
+      opis: 'Bohater potrafi wyszukiwać ślady zwierząt, a także ludzi i innych stworzeń. Podążanie wyraźnym tropem nie wymaga testu umiejętności i nie spowalnia tempa poruszania się. Test umiejętności może być jednak potrzebny w trudnych warunkach terenu lub pogody. Odpowiedni poziom skuteczności może dostarczyć dodatkowych informacji (o liczebności grupy, odległości od tropionego stworzenia, a nawet jego cechach osobniczych).',
       zdolnoscipokrewne: 'brak.'
     }
   ]
@@ -4000,7 +4004,7 @@ function getUkrywanieSie() {
       typ: 'Podstawowa',
       umiejetnosc: 'Ukrywanie się',
       cecha: 'Zręszność.',
-      opis: 'opis ukrywania ',
+      opis: 'Wykorzystanie tej umiejętności umożliwia bohaterowi ukrywanie się w niemal dowolnym terenie, pod warunkiem, że istnieje realna szansa schowania się za jakimś obiektem (mur, drzewo, budynek, itp.). Przy próbie ukrycia się na otwartej, pustej przestrzeni (na przykład na środku ulicy) test umiejętności automatycznie jest nieudany. Ukrywanie się bywa często wykorzystywane przeciwko testowi Spostrzegawczości przeciwnika.',
       zdolnoscipokrewne: 'grotołaz, ulicznik, wędrowiec.'
     }
   ]
@@ -4011,7 +4015,7 @@ function getUnik() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Unik',
       cecha: 'Zręczność',
-      opis: 'opis uniku',
+      opis: 'Wykorzystanie tej umiejętności umożliwia bohaterowi uniknięcie ataku podczas walki wręcz. Unik można stosować najwyżej raz na rundę.',
       zdolnoscipokrewne: 'brak.'
     }
   ]
@@ -4022,7 +4026,7 @@ function getWarzenieTrucizn() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Warzenie Trucizn',
       cecha: 'Inteligencja',
-      opis: 'opis warzenia ',
+      opis: 'Bohater potrafi przyrządzać rozmaite trucizny pochodzenia zwierzęcego lub roślinnego, a także trucizny uzyskiwane alchemicznie.',
       zdolnoscipokrewne: 'brak.'
     }
   ]
@@ -4033,7 +4037,7 @@ function getWiedzaBretonia() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Wiedza(bretonia)',
       cecha: 'Inteligencja',
-      opis: 'opis wiedzy',
+      opis: 'Umiejętność ta zapewnia wiedzę o zwyczajach, strukturze władzy, najważniejszych dostojnikach, obyczajach ludowych oraz przesądach mieszkańców danej krainy, członków danej grupy społecznej lub przedstawicieli danej rasy. Widza nie jest równoznaczna ze studiami naukowymi (to oddaje umiejętność Nauka), lecz zapewnia jedynie podstawowe informacje, jakie bohater zdobył w czasie podróży po świecie.',
       zdolnoscipokrewne: 'obieżyświat.'
     }
   ]
@@ -4044,7 +4048,7 @@ function getWiedzaEstalia() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Wiedza(estalia)',
       cecha: 'Inteligencja',
-      opis: 'opis wiedzy',
+      opis: 'Umiejętność ta zapewnia wiedzę o zwyczajach, strukturze władzy, najważniejszych dostojnikach, obyczajach ludowych oraz przesądach mieszkańców danej krainy, członków danej grupy społecznej lub przedstawicieli danej rasy. Widza nie jest równoznaczna ze studiami naukowymi (to oddaje umiejętność Nauka), lecz zapewnia jedynie podstawowe informacje, jakie bohater zdobył w czasie podróży po świecie.',
       zdolnoscipokrewne: 'obieżyświat.'
     }
   ]
@@ -4055,7 +4059,7 @@ function getWiedzaImperium() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Wiedza(imperium)',
       cecha: 'Inteligencja',
-      opis: 'opis wiedzy',
+      opis: 'Umiejętność ta zapewnia wiedzę o zwyczajach, strukturze władzy, najważniejszych dostojnikach, obyczajach ludowych oraz przesądach mieszkańców danej krainy, członków danej grupy społecznej lub przedstawicieli danej rasy. Widza nie jest równoznaczna ze studiami naukowymi (to oddaje umiejętność Nauka), lecz zapewnia jedynie podstawowe informacje, jakie bohater zdobył w czasie podróży po świecie.',
       zdolnoscipokrewne: 'obieżyświat.'
     }
   ]
@@ -4066,7 +4070,7 @@ function getWiedzaJalowaKraina() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Wiedza(jałowa kraina)',
       cecha: 'Inteligencja',
-      opis: 'opis wiedzy',
+      opis: 'Umiejętność ta zapewnia wiedzę o zwyczajach, strukturze władzy, najważniejszych dostojnikach, obyczajach ludowych oraz przesądach mieszkańców danej krainy, członków danej grupy społecznej lub przedstawicieli danej rasy. Widza nie jest równoznaczna ze studiami naukowymi (to oddaje umiejętność Nauka), lecz zapewnia jedynie podstawowe informacje, jakie bohater zdobył w czasie podróży po świecie.',
       zdolnoscipokrewne: 'obieżyświat.'
     }
   ]
@@ -4077,7 +4081,7 @@ function getWiedzaKislev() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Wiedza(kislev)',
       cecha: 'Inteligencja',
-      opis: 'opis wiedzy',
+      opis: 'Umiejętność ta zapewnia wiedzę o zwyczajach, strukturze władzy, najważniejszych dostojnikach, obyczajach ludowych oraz przesądach mieszkańców danej krainy, członków danej grupy społecznej lub przedstawicieli danej rasy. Widza nie jest równoznaczna ze studiami naukowymi (to oddaje umiejętność Nauka), lecz zapewnia jedynie podstawowe informacje, jakie bohater zdobył w czasie podróży po świecie.',
       zdolnoscipokrewne: 'obieżyświat.'
     }
   ]
@@ -4088,7 +4092,7 @@ function getWiedzaKsiestwaGraniczne() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Wiedza(księstwa graniczne)',
       cecha: 'Inteligencja',
-      opis: 'opis wiedzy',
+      opis: 'Umiejętność ta zapewnia wiedzę o zwyczajach, strukturze władzy, najważniejszych dostojnikach, obyczajach ludowych oraz przesądach mieszkańców danej krainy, członków danej grupy społecznej lub przedstawicieli danej rasy. Widza nie jest równoznaczna ze studiami naukowymi (to oddaje umiejętność Nauka), lecz zapewnia jedynie podstawowe informacje, jakie bohater zdobył w czasie podróży po świecie.',
       zdolnoscipokrewne: 'obieżyświat.'
     }
   ]
@@ -4099,7 +4103,7 @@ function getWiedzaNorska() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Wiedza(norska)',
       cecha: 'Inteligencja',
-      opis: 'opis wiedzy',
+      opis: 'Umiejętność ta zapewnia wiedzę o zwyczajach, strukturze władzy, najważniejszych dostojnikach, obyczajach ludowych oraz przesądach mieszkańców danej krainy, członków danej grupy społecznej lub przedstawicieli danej rasy. Widza nie jest równoznaczna ze studiami naukowymi (to oddaje umiejętność Nauka), lecz zapewnia jedynie podstawowe informacje, jakie bohater zdobył w czasie podróży po świecie.',
       zdolnoscipokrewne: 'obieżyświat.'
     }
   ]
@@ -4110,7 +4114,7 @@ function getWiedzaTilea() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Wiedza(tilea)',
       cecha: 'Inteligencja',
-      opis: 'opis wiedzy',
+      opis: 'Umiejętność ta zapewnia wiedzę o zwyczajach, strukturze władzy, najważniejszych dostojnikach, obyczajach ludowych oraz przesądach mieszkańców danej krainy, członków danej grupy społecznej lub przedstawicieli danej rasy. Widza nie jest równoznaczna ze studiami naukowymi (to oddaje umiejętność Nauka), lecz zapewnia jedynie podstawowe informacje, jakie bohater zdobył w czasie podróży po świecie.',
       zdolnoscipokrewne: 'obieżyświat.'
     }
   ]
@@ -4121,7 +4125,7 @@ function getWiedzaElfy() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Wiedza(elfy)',
       cecha: 'Inteligencja',
-      opis: 'opis wiedzy',
+      opis: 'Umiejętność ta zapewnia wiedzę o zwyczajach, strukturze władzy, najważniejszych dostojnikach, obyczajach ludowych oraz przesądach mieszkańców danej krainy, członków danej grupy społecznej lub przedstawicieli danej rasy. Widza nie jest równoznaczna ze studiami naukowymi (to oddaje umiejętność Nauka), lecz zapewnia jedynie podstawowe informacje, jakie bohater zdobył w czasie podróży po świecie.',
       zdolnoscipokrewne: 'obieżyświat.'
     }
   ]
@@ -4132,7 +4136,7 @@ function getWiedzaKrasnoludy() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Wiedza(krasnoludy)',
       cecha: 'Inteligencja',
-      opis: 'opis wiedzy',
+      opis: 'Umiejętność ta zapewnia wiedzę o zwyczajach, strukturze władzy, najważniejszych dostojnikach, obyczajach ludowych oraz przesądach mieszkańców danej krainy, członków danej grupy społecznej lub przedstawicieli danej rasy. Widza nie jest równoznaczna ze studiami naukowymi (to oddaje umiejętność Nauka), lecz zapewnia jedynie podstawowe informacje, jakie bohater zdobył w czasie podróży po świecie.',
       zdolnoscipokrewne: 'obieżyświat.'
     }
   ]
@@ -4143,7 +4147,7 @@ function getWiedzaNiziolki() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Wiedza(niziołki)',
       cecha: 'Inteligencja',
-      opis: 'opis wiedzy',
+      opis: 'Umiejętność ta zapewnia wiedzę o zwyczajach, strukturze władzy, najważniejszych dostojnikach, obyczajach ludowych oraz przesądach mieszkańców danej krainy, członków danej grupy społecznej lub przedstawicieli danej rasy. Widza nie jest równoznaczna ze studiami naukowymi (to oddaje umiejętność Nauka), lecz zapewnia jedynie podstawowe informacje, jakie bohater zdobył w czasie podróży po świecie.',
       zdolnoscipokrewne: 'obieżyświat.'
     }
   ]
@@ -4154,7 +4158,7 @@ function getWiedzaOgry() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Wiedza(ogry)',
       cecha: 'Inteligencja',
-      opis: 'opis wiedzy',
+      opis: 'Umiejętność ta zapewnia wiedzę o zwyczajach, strukturze władzy, najważniejszych dostojnikach, obyczajach ludowych oraz przesądach mieszkańców danej krainy, członków danej grupy społecznej lub przedstawicieli danej rasy. Widza nie jest równoznaczna ze studiami naukowymi (to oddaje umiejętność Nauka), lecz zapewnia jedynie podstawowe informacje, jakie bohater zdobył w czasie podróży po świecie.',
       zdolnoscipokrewne: 'obieżyświat.'
     }
   ]
@@ -4165,7 +4169,7 @@ function getWioślarstwo() {
       typ: 'Podstawowa',
       umiejetnosc: 'Wioślarstwo',
       cecha: 'Krzepa',
-      opis: 'opis wioslarstwa ',
+      opis: 'Bohater potrafi sterować tratwami, barkami i innymi łodziami wiosłowymi. Utrzymanie kursu w normalnych warunkach nie wymagają testu umiejętności. MG może uznać za stosowne wykonanie testu w przypadku kiepskiej pogody, wysokiej fali, pokonywania progów rzecznych lub omijania mielizn.',
       zdolnoscipokrewne: 'brak.'
     }
   ]
@@ -4176,7 +4180,7 @@ function getWspinaczka() {
       typ: 'Podstawowa',
       umiejetnosc: 'Wspinaczka',
       cecha: 'Krzepa',
-      opis: 'opis wspinaczki',
+      opis: ' Twój bohater potrafi wspinać się na drzewa, mury, skalne ściany i inne pionowe przeszkody. W normalnych warunkach test umiejętności wykonuje się raz na rundę. Wspinanie się w czasie walki wymaga poświęcenia akcji podwójnej. Udany test oznacza, że bohater wspiął się na wysokość równą połowie jego Szybkości, mierzonej w metrach.',
       zdolnoscipokrewne: 'brak.'
     }
   ]
@@ -4187,7 +4191,7 @@ function getWycena() {
       typ: 'Podstawowa',
       umiejetnosc: 'Wycena',
       cecha: 'Inteligencja',
-      opis: 'opis wyceny',
+      opis: 'Bohater potrafi szacować wartość rzeczy codziennego użytku, jak również przedmiotów wartościowych, takich jak biżuteria, klejnoty i dzieła sztuki. Udany test umiejętności pozwala określić rynkową wartość przedmiotu. Ponieważ nieudany test umiejętności może spowodować błędne oszacowanie wartości przedmiotu, MG powinien wykonać rzut w tajemnicy i zależnie od wyniku poinformować gracza o ustalonej w ten sposób wartości przedmiotu.',
       zdolnoscipokrewne: 'telent artystyczny, żyłka handlowa.'
     }
   ]
@@ -4198,7 +4202,7 @@ function getWykrywanieMagii() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Wykrywanie Magii',
       cecha: 'Siła Woli',
-      opis: 'opis wykrywania magii',
+      opis: 'Umiejętność tak umożliwia bohaterowi wykrywanie subtelnych zawirowań, jakie towarzyszą magicznej aurze. Czarodzieje opisują to jako szósty, siódmy i ósmy zmysł człowieka. Wśród chłopstwa to zjawisko jest znane pod nazwą „wiedźmi wzrok”. Udany test umiejętności pozwala określić, czy przedmiot, postać lub obszar pozostaje pod wpływem czaru. Wykorzystując tę umiejętność, czarodziej może ustalić siłę Wiatrów Magii w najbliższej okolicy.',
       zdolnoscipokrewne: 'zmysł magii.'
     }
   ]
@@ -4209,7 +4213,7 @@ function getZastawaniePulapek() {
       typ: 'Podstawowa',
       umiejetnosc: 'Zastawianie Pułapek',
       cecha: 'Zręczność',
-      opis: 'opis zxastawainai',
+      opis: 'Bohater potrafi konstruować różnego rodzaju pułapki na zwierzęta. W Imperium używa się pułapek unieruchamiających, jak też uśmiercających złapane zwierzę. Za każdą założoną pułapkę wykonuje się jeden test umiejętności na dzień. Udany test oznacza, że w pułapkę złapało się zwierzę.',
       zdolnoscipokrewne: 'brak.'
     }
   ]
@@ -4220,7 +4224,7 @@ function getZastraszanie() {
       typ: 'Podstawowa',
       umiejetnosc: 'Zastraszanie',
       cecha: 'Krzepa',
-      opis: 'opis zastraszania',
+      opis: 'Dzięki tej umiejętności bohater może zastraszać lub zmuszać do uległości inne osoby. Ofiary, które nie chcą ugiąć się przed groźbami, mogą wykonać test SW. Reakcja postaci zależy całkowicie od decyzji MG, który bierze pod uwagę jej osobowość oraz wynik testu Zastraszania. W niektórych sytuacjach (szantaż, itp.), MG może uznać, że bardziej odpowiednią cechą do testu Zastraszania może być Ogłada.',
       zdolnoscipokrewne: 'groźny.'
     }
   ]
@@ -4231,7 +4235,7 @@ function getZnajomoscJezykaBretonski() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Znajomość Języka(bretoński)',
       cecha: 'Inteligencja',
-      opis: 'opis znajomosci jezyka',
+      opis: 'Ta umiejętność umożliwia bohaterowi porozumiewanie się w obcym języku. Większość języków Starego Świata wywodzi się ze wspólnego starożytnego narzecza, choć w ciągu wielu wieków różnice między poszczególnymi dialektami doprowadziły do powstania odrębnych języków. W normalnych warunkach, gdy wszyscy rozmawiający znają dany język, test umiejętności nie jest potrzebny. Test może być potrzebny w przypadku prób naśladowania regionalnych akcentów lub gdy bohater gracza próbuje przekonać słuchających, że język obcy jest jego ojczystym językiem.',
       zdolnoscipokrewne: 'naśladowca, obieżyświat, poliglota.'
     }
   ]
@@ -4242,7 +4246,7 @@ function getZnajomoscjezykaEltharin() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Znajomość Języka(eltharin)',
       cecha: 'Inteligencja',
-      opis: 'opis znajomosci jezyka',
+      opis: 'Ta umiejętność umożliwia bohaterowi porozumiewanie się w obcym języku. Większość języków Starego Świata wywodzi się ze wspólnego starożytnego narzecza, choć w ciągu wielu wieków różnice między poszczególnymi dialektami doprowadziły do powstania odrębnych języków. W normalnych warunkach, gdy wszyscy rozmawiający znają dany język, test umiejętności nie jest potrzebny. Test może być potrzebny w przypadku prób naśladowania regionalnych akcentów lub gdy bohater gracza próbuje przekonać słuchających, że język obcy jest jego ojczystym językiem.',
       zdolnoscipokrewne: 'naśladowca, obieżyświat, poliglota.'
     }
   ]
@@ -4253,7 +4257,7 @@ function getZnajomoscjezykaEstalisjki() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Znajomość Języka(estalijski)',
       cecha: 'Inteligencja',
-      opis: 'opis znajomosci jezyka',
+      opis: 'Ta umiejętność umożliwia bohaterowi porozumiewanie się w obcym języku. Większość języków Starego Świata wywodzi się ze wspólnego starożytnego narzecza, choć w ciągu wielu wieków różnice między poszczególnymi dialektami doprowadziły do powstania odrębnych języków. W normalnych warunkach, gdy wszyscy rozmawiający znają dany język, test umiejętności nie jest potrzebny. Test może być potrzebny w przypadku prób naśladowania regionalnych akcentów lub gdy bohater gracza próbuje przekonać słuchających, że język obcy jest jego ojczystym językiem.',
       zdolnoscipokrewne: 'naśladowca, obieżyświat, poliglota.'
     }
   ]
@@ -4264,7 +4268,7 @@ function getZnajomoscjezykaKhazaldin() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Znajomość Języka(khazaldin)',
       cecha: 'Inteligencja',
-      opis: 'opis znajomosci jezyka',
+      opis: 'Ta umiejętność umożliwia bohaterowi porozumiewanie się w obcym języku. Większość języków Starego Świata wywodzi się ze wspólnego starożytnego narzecza, choć w ciągu wielu wieków różnice między poszczególnymi dialektami doprowadziły do powstania odrębnych języków. W normalnych warunkach, gdy wszyscy rozmawiający znają dany język, test umiejętności nie jest potrzebny. Test może być potrzebny w przypadku prób naśladowania regionalnych akcentów lub gdy bohater gracza próbuje przekonać słuchających, że język obcy jest jego ojczystym językiem.',
       zdolnoscipokrewne: 'naśladowca, obieżyświat, poliglota.'
     }
   ]
@@ -4275,7 +4279,7 @@ function getZnajomoscjezykaKislevski() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Znajomość Języka(kislevski)',
       cecha: 'Inteligencja',
-      opis: 'opis znajomosci jezyka',
+      opis: 'Ta umiejętność umożliwia bohaterowi porozumiewanie się w obcym języku. Większość języków Starego Świata wywodzi się ze wspólnego starożytnego narzecza, choć w ciągu wielu wieków różnice między poszczególnymi dialektami doprowadziły do powstania odrębnych języków. W normalnych warunkach, gdy wszyscy rozmawiający znają dany język, test umiejętności nie jest potrzebny. Test może być potrzebny w przypadku prób naśladowania regionalnych akcentów lub gdy bohater gracza próbuje przekonać słuchających, że język obcy jest jego ojczystym językiem.',
       zdolnoscipokrewne: 'naśladowca, obieżyświat, poliglota.'
     }
   ]
@@ -4286,7 +4290,7 @@ function getZnajomoscjezykaNorski() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Znajomość Języka(norski)',
       cecha: 'Inteligencja',
-      opis: 'opis znajomosci jezyka',
+      opis: 'Ta umiejętność umożliwia bohaterowi porozumiewanie się w obcym języku. Większość języków Starego Świata wywodzi się ze wspólnego starożytnego narzecza, choć w ciągu wielu wieków różnice między poszczególnymi dialektami doprowadziły do powstania odrębnych języków. W normalnych warunkach, gdy wszyscy rozmawiający znają dany język, test umiejętności nie jest potrzebny. Test może być potrzebny w przypadku prób naśladowania regionalnych akcentów lub gdy bohater gracza próbuje przekonać słuchających, że język obcy jest jego ojczystym językiem.',
       zdolnoscipokrewne: 'naśladowca, obieżyświat, poliglota.'
     }
   ]
@@ -4297,7 +4301,7 @@ function getZnajomoscjezykaTileanski() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Znajomość Języka(tileanski)',
       cecha: 'Inteligencja',
-      opis: 'opis znajomosci jezyka',
+      opis: 'Ta umiejętność umożliwia bohaterowi porozumiewanie się w obcym języku. Większość języków Starego Świata wywodzi się ze wspólnego starożytnego narzecza, choć w ciągu wielu wieków różnice między poszczególnymi dialektami doprowadziły do powstania odrębnych języków. W normalnych warunkach, gdy wszyscy rozmawiający znają dany język, test umiejętności nie jest potrzebny. Test może być potrzebny w przypadku prób naśladowania regionalnych akcentów lub gdy bohater gracza próbuje przekonać słuchających, że język obcy jest jego ojczystym językiem.',
       zdolnoscipokrewne: 'naśladowca, obieżyświat, poliglota.'
     }
   ]
@@ -4308,7 +4312,7 @@ function getZnajomoscJezykaStaroswiatowy() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Znajomość Języka(staroświatowy)',
       cecha: 'Inteligencja',
-      opis: 'opis znajomosci jezyka',
+      opis: 'Ta umiejętność umożliwia bohaterowi porozumiewanie się w obcym języku. Większość języków Starego Świata wywodzi się ze wspólnego starożytnego narzecza, choć w ciągu wielu wieków różnice między poszczególnymi dialektami doprowadziły do powstania odrębnych języków. W normalnych warunkach, gdy wszyscy rozmawiający znają dany język, test umiejętności nie jest potrzebny. Test może być potrzebny w przypadku prób naśladowania regionalnych akcentów lub gdy bohater gracza próbuje przekonać słuchających, że język obcy jest jego ojczystym językiem.',
       zdolnoscipokrewne: 'naśladowca, obieżyświat, poliglota.'
     }
   ]
@@ -4319,7 +4323,7 @@ function getZnajomoscJezykaKlasyczny() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Znajomość Języka(klasyczny)',
       cecha: 'Inteligencja',
-      opis: 'opis znajomosci jezyka',
+      opis: 'Ta umiejętność umożliwia bohaterowi porozumiewanie się w obcym języku. Większość języków Starego Świata wywodzi się ze wspólnego starożytnego narzecza, choć w ciągu wielu wieków różnice między poszczególnymi dialektami doprowadziły do powstania odrębnych języków. W normalnych warunkach, gdy wszyscy rozmawiający znają dany język, test umiejętności nie jest potrzebny. Test może być potrzebny w przypadku prób naśladowania regionalnych akcentów lub gdy bohater gracza próbuje przekonać słuchających, że język obcy jest jego ojczystym językiem.',
       zdolnoscipokrewne: 'naśladowca, obieżyświat, poliglota.'
     }
   ]
@@ -4330,7 +4334,7 @@ function getZnajomoscjezykaNiziolkow() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Znajomość Języka(niziołków)',
       cecha: 'Inteligencja',
-      opis: 'opis znajomosci jezyka',
+      opis: 'Ta umiejętność umożliwia bohaterowi porozumiewanie się w obcym języku. Większość języków Starego Świata wywodzi się ze wspólnego starożytnego narzecza, choć w ciągu wielu wieków różnice między poszczególnymi dialektami doprowadziły do powstania odrębnych języków. W normalnych warunkach, gdy wszyscy rozmawiający znają dany język, test umiejętności nie jest potrzebny. Test może być potrzebny w przypadku prób naśladowania regionalnych akcentów lub gdy bohater gracza próbuje przekonać słuchających, że język obcy jest jego ojczystym językiem.',
       zdolnoscipokrewne: 'naśladowca, obieżyświat, poliglota.'
     }
   ]
@@ -4341,7 +4345,7 @@ function getZwinnePalce() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Zwinne palce',
       cecha: 'Zręczność',
-      opis: 'opis zwinnych palcow',
+      opis: 'Dzięki tej użytecznej umiejętności bohater potrafi ukryć w dłoni małe przedmioty lub wykonywać sztuczki z kartami i monetami. Zwinne palce przydają się również przy ukradkowym sięganiu do cudzych sakiewek. Test zwinnych palców jest często wykonywany w przeciwstawnym teście umiejętności przeciwko Spostrzegawczości przeciwnika.',
       zdolnoscipokrewne: 'brak.'
     }
   ]
@@ -4352,7 +4356,7 @@ function getZeglarstwo() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Żeglarstwo',
       cecha: 'Zręczność',
-      opis: 'opis zeglarstwa',
+      opis: 'Dzięki tej umiejętności bohater potrafi sterować statkami żaglowymi. Dodatkowo bohater dysponuje wiedzą o budowie okrętów, różnych rodzajach żagli, a także umiejętnością przewidywania pogody na morzu. Żeglowanie po spokojnych wodach nie wymaga testu umiejętności. Trudne warunki pogodowe, wysokie fale lub wykonywanie manewrów w czasie bitwy mogą wymagać testu umiejętności o odpowiednim stopniu trudności.',
       zdolnoscipokrewne: 'brak.'
     }
   ]
