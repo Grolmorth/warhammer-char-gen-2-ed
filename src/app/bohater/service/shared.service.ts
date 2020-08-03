@@ -369,6 +369,7 @@ export class SharedService {
       }
       console.log('pobrano umiejetnosci do wyboru dla', profesja);
     }
+    this.schematRozwojuProfesja.opis = this.statystkiProfesji[0].opis;
 
   }
   // sumowanie aktualnych statystyk

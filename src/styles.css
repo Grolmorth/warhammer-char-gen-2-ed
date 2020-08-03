@@ -33,6 +33,28 @@ p {
     font-size: 12px;
 }
 
+.colour1 {
+    background-color: #f3f7fb;
+}
+
+.colour2 {
+    background-color: #38515b;
+    color: #f3f7fb;
+}
+
+.colour3 {
+    background-color: #38515b
+}
+
+.colour4 {
+    background-color: #25252a
+}
+
+.colour5 {
+    background-color: #1b1716;
+    color: #f3f7fb;
+}
+
 
 /*tooltip umiejetnosci i zdolnosci*/
 

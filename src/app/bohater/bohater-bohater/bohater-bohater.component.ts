@@ -24,15 +24,19 @@ export class BohaterBohaterComponent implements OnInit {
   public dataa: string = this.selectedProfesjaId;
 
   // przypisanie tablic ras z charakterystykami
-  cechy: BohaterOgolne[] = [];
-  profesjaRoll: ProfesjaRoll[] = [];
+  cechy: BohaterOgolne[];
+  profesjaRoll: ProfesjaRoll[];
+  umiejetnosciProfesji: BohaterOgolne;
 
   constructor(private logika: BohaterLogikaService, private share: SharedService) { }
+
 
   // pobranie wszystkich ras z serwisu
   ngOnInit() {
     this.logika.getListaRasy().subscribe(items => this.cechy = items);
     console.log('pobrano rasy');
+
+
   }
 
   // logika przyciusku do zmiany rasy
@@ -67,6 +71,8 @@ export class BohaterBohaterComponent implements OnInit {
     this.share.changeProfesja(this.selectedProfesjaId);
     this.submittedProfesja = true;
     this.share.changeAktualne();
+    this.umiejetnosciProfesji = this.share.schematRozwojuProfesja;
+
 
   }
   innaProfesja() {

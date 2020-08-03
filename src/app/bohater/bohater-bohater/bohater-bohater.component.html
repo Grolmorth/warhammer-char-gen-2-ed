@@ -1,6 +1,6 @@
 <div class="container bohater text-center p-0 m-0">
 
-    <div class=" bg-dark text-light p-1"><b>Bohater</b></div>
+    <div class="colour2 p-1"><b>Bohater</b></div>
 
     <div class="">
         <div><label class="m-0 p-0" for="inputRasa"><b>Rasa</b></label></div>
@@ -26,6 +26,9 @@
                 <div [hidden]="!submittedProfesja">
                     <h2>{{selectedProfesjaId}}</h2>
                     <button class="btn btn-danger btn-sm m-1" (click)="innaProfesja()">Zmień profesję</button>
+
+                    <div *ngIf="this.submittedProfesja=== true" class="m-2 p-2 text-justify">{{umiejetnosciProfesji.opis}}</div>
+
                 </div>
 
             </div>

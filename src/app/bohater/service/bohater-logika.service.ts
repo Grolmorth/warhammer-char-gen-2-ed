@@ -969,8 +969,7 @@ function getAkolita() {
   return [
     {
       title: 'Akolita',
-      opis: 'W hierarchii wartości mieszkańców Starego Świata religia spadła na drugie miejsce, ustępując bogactwu, ale wciąż jeszcze wielu młodych ludzi obojga płci znajduje w sobie powołanie do służby bożej. Praca kapłana wymaga poświęcenia i determinacji duchowej. Bycie akolitą to pierwszy krok na drodze ku kapłaństwu. Młodzi duchowni przechodzą surowe ćwiczenia pod opieką starszych kapłanów. Do końca nowicjatu nie mogą nauczać ani wygłaszać kazań.Czas spędzają na studiowaniu świętych ksiąg, czytaniu i przepisywaniu manuskryptów oraz na poznawaniu sztuki wzniosłego przemawiania. Akolici uczą się również walki na wypadek, gdyby trzeba było bronić świątyni.',
-      // tslint:disable-next-line: max-line-length
+      opis: 'W hierarchii wartości mieszkańców Starego Świata religia spadła na drugie miejsce, ustępując bogactwu, ale wciąż jeszcze wielu młodych ludzi obojga płci znajduje w sobie powołanie do służby bożej. Praca kapłana wymaga poświęcenia i determinacji duchowej. Bycie akolitą to pierwszy krok na drodze ku kapłaństwu. Młodzi duchowni przechodzą surowe ćwiczenia pod opieką starszych kapłanów. Do końca nowicjatu nie mogą nauczać ani wygłaszać kazań. Czas spędzają na studiowaniu świętych ksiąg, czytaniu i przepisywaniu manuskryptów oraz na poznawaniu sztuki wzniosłego przemawiania. Akolici uczą się również walki na wypadek, gdyby trzeba było bronić świątyni. Uwagi: Musisz wybrać boga i Świątynię, którym służy Twój Bohater. Szczegółowy opis rozmaitych religii wyznawanych w Starym Święcie znajdziesz w Rozdziale VIII: Religie i wierzenia. Wybór bóstwa zapewnia dodatkową umiejętność lub zdolność, wymienioną w opisie kultu.',
       WW: 5,
       US: 5,
       K: 0,
@@ -1012,7 +1011,7 @@ function getBanita() {
   return [
     {
       title: 'Banita',
-      opis: 'blelbe',
+      opis: 'W Imperium kara za przestępstwo wymierzana jest szybko i bez litości. Nic więc dziwnego, że wielu ludzi wybiera ucieczkę przed strażnikami i życie na wygnaniu. W lasach pełno jest grup banitów, którzy nic tylko muszą ukrywać się przed stróżami prawa, ale także walczyć z żyjącymi w lasach potworami i sługami ciemności. Większość banitów to zwykli złodzieje i zbóje napadający na karawany i powozy. Inni próbują występować w obronie chłopów i walczyć o sprawiedliwość, przeciwstawiając się okrutnym rządom lokalnych panów. Banici, którzy napadają na żołnierzy i najemników szlacheckich, mogą liczyć na pomoc chłopów, przeważnie w formie żywności, schronienia i przekazywanych wiadomości. Wyśledzenie ich kryjówek, zazwyczaj ukrytych gdzieś w głębi lasu lub w trudnym, górskim terenie, jest wyjątkowo ciężkim zadaniem dla stróżów prawa. Miejscowi władcy i zarządcy często korzystają z usług łowców nagród, by unieszkodliwiać najbardziej kłopotliwych bandytów.',
       WW: 10,
       US: 10,
       K: 0,
@@ -1040,7 +1039,7 @@ function getberserkerZNorski() {
   return [
     {
       title: 'Berserker z Norski',
-      opis: 'blelbe',
+      opis: 'Norska to ponura kraina na północ od Imperium, nawiedzana przez śnieżne trolle i pomioty Chaosu. To także kraj twardych i walecznych wojowników. Najsłynniejszymi i jednocześnie najbardziej szalonymi są berserkerzy. Ruszają do walki bez pancerzy, by pokazać przeciwnikowi i swoim towarzyszom, że nie znają strachu. Przed walką doprowadzają się do szalu, gryząc tarcze lub łomocząc w nie mieczami. O ich wyczynach bardowie układają pieśni. O ich odwadze zaświadczają ci z żołnierzy Imperium, którzy przeżyli walkę z berserkerami. Spotykani w Imperium podróżnicy z Norski są wygnańcami, albo też przybyli ujrzeć krainy słabych południowców. Rzadko pozostają w jednym miejscu przez długi czas, gdyż niewielu stróżów prawa lubi mieć pod bokiem groźnego szaleńca. Berserkerzy są często zatrudniani jako najemnicy, głównie ze względu na swoją skuteczność. Idzie ona w parze z ceną, jakiej żądają za swoje usługi.',
       WW: 15,
       US: 0,
       K: 10,
@@ -1068,7 +1067,7 @@ function getChlop() {
   return [
     {
       title: 'Chłop',
-      opis: 'blelbe',
+      opis: 'Chłopi stanowią najliczniejszą część ludności Imperium. Szlachta rządzi, mieszczanie handlują, natomiast chłopi wykonują za nich najcięższą pracę. Uprawiają ziemię, wypasają bydło i zajmują się drobnym rzemiosłem. W czasie wojny walczą i giną za swojego władcę oraz Imperium. Wielu chłopów szuka lepszego życia w miastach, zasilając wciąż rosnącą rzeszę żebraków i biedaków żyjących na skraju śmierci głodowej. Większość chłopów całe życic spędza w swoich wioskach, otoczonych przez dzikie ostępy lub mroczne lasy. Mimo że są zacofani i przesądni, chłopi to prawdziwa sól tej ziemi.',
       WW: 5,
       US: 5,
       K: 5,
@@ -1104,7 +1103,7 @@ function getCiuraObozowa() {
   return [
     {
       title: 'Ciura Obozowa',
-      opis: 'blelbe',
+      opis: 'Liczne wojny z Chaosem, orkami i okolicznymi księstwami powodują, że wojska Imperium prawic zawsze są w polu. Po kraju krążą też kompanie najemników i oddziały ochotników, które przeczesują lasy w poszukiwaniu bandytów. Jednak wojsko rzadko podróżuje bez taborów i służby pomocniczej. Za armiami zawsze ciągnie się kolumna włóczęgów, zwanych ciurami obozowymi. Są wśród nich drobni handlarze opiekujący się taborami, rzemieślnicy próbujący zarobić gotowaniem i drobnymi naprawami, markietanki, a także złodzieje, którzy okradają zwłoki poległych. Traktowani z pogardą przez wyniosłych dowódców armii, ciury obozowe stanowią zaplecze o kluczowym znaczeniu dla oddziałów wojskowych w terenie.',
       WW: 0,
       US: 0,
       K: 0,
@@ -1135,7 +1134,7 @@ function getCyrkowiec() {
   return [
     {
       title: 'Cyrkowiec',
-      opis: 'blelbe',
+      opis: 'Cyrkowcy dostarczają rozrywki ludności Imperium. Akrobaci, siłacze, żonglerzy, hipnotyzerzy, woltyżerzy i brzuchomówcy - wszyscy występują dla spragnionej uciechy gawiedzi. Niektórzy robią to dla pieniędzy lub dla sławy i przyjemności, jaką daje zachwyt zgromadzonej publiczności. Inni wybierają życie cyrkowca, za wszelką cenę próbując wyrwać się z biedy. Cyrkowcy dużo podróżują, zazwyczaj w towarzystwie podobnych sobie kuglarzy. Trupy aktorskie dają przedstawienia w każdej wiosce, mieście i porcie. Szczęśliwcy mogą liczyć na wielokrotne występy, co pozwala na spędzenie kilku miesięcy w jednym miejscu. Ci. którym mniej się poszczęściło, podróżują dalej w poszukiwaniu hojniejszej publiczności (lub mniej podejrzliwej gwardii miejskiej). Najlepsi cyrkowcy cieszą się opieką arystokratów i zarabiają ogromne sumy. występując na zamkach i dworach.',
       WW: 5,
       US: 10,
       K: 0,
@@ -1170,7 +1169,7 @@ function getCyrulik() {
   return [
     {
       title: 'Cyrulik',
-      opis: 'blelbe',
+      opis: 'Cyrulicy zajmują się leczeniem najbiedniejszych obywateli Imperium. Wykonują zabiegi, często bolesne, które jednak okazują się zaskakująco skuteczne. Chociaż cyrulicy nie są tak wykształceni jak medycy, znają jednak podstawy anatomii. Dorabiają również jako balwierze, strzygąc włosy i brody, ale znani są głównie z prostych zabiegów leczniczych, wśród których dominuje puszczanie krwi, przystawianie pijawek oraz amputacje. Cyrulicy zawsze noszą przy sobie zestaw ostrych noży różnej długości, od niewielkich skalpeli po wielkie piły do cięcia kości. Niektórzy dysponują jeszcze bardziej przerażającymi narzędziami, których używają w najbardziej  znienawidzonej specjalności - wyrywaniu zębów. Większość statków morskich ma na pokładzie cyrulika, który dba o zdrowie żeglarzy. Czysto spotyka się ich również w miastach, szczególnie w biedniejszych dzielnicach.',
       WW: 5,
       US: 0,
       K: 0,
@@ -1203,7 +1202,7 @@ function getFanatyk() {
   return [
     {
       title: 'Fanatyk',
-      opis: 'blelbe',
+      opis: 'Fanatyk stracił wszystko, co było dla niego cenne. Być może jego rodzinę wymordowali zwierzoludzie albo cala wioska została spalona przez orki. Być może stracił majątek w wyniku intrygi przekupnego kupca albo młody szlachcic uprowadził lub zgwałcił jego córkę. Niezależnie od powodu, fanatyków utrzymuje A przy życiu tylko jedno - religia. Znajdują ukojenie w płomiennych kazaniach kapłanów Ulryka lub Sigmara. Wędrują w podartych łachmanach po całym Imperium, szukając sług zła lub osób skażonych Chaosem. Ukojenie od bólu i odkupienie  win może im zapewnić tylko przelewana w dobrej sprawie krew - zarówno ich własna, jak i wrogów Imperium. Nie są tak dobrze wyszkoleni jak żołnierze, ale rozpala ich żar prawdziwej wiary, a to naprawdę potężny oręż.',
       WW: 10,
       US: 0,
       K: 5,
@@ -1237,7 +1236,7 @@ function getFlisak() {
   return [
     {
       title: 'Flisak',
-      opis: 'blelbe',
+      opis: 'Rzeki w Imperium są ważnymi szlakami komunikacyjnymi i handlowymi. łączą większość głównych miast w kraju. Transportem rzecznym zajmują się flisacy, wożąc pasażerów i towary po niemal całym Imperium. Niektórzy podróżują nawet do Kisleva. Rzeki, choć bezpieczniejsze od mrocznych leśnych ścieżek, nic są całkowicie wolne od zagrożeń. Wiele szlaków rzecznych przecina dzikie tereny. Flisacy stale muszą mieć się na baczności, chroniąc podróżnych i ładunek przed atakami piratów na wodzie lub rozbójników na lądzie. Doświadczeni flisacy są pomysłowi i odważni. Świetnie radzą sobie z nawigacją i sterowaniem łodzią. Potrafią też sprawnie posługiwać się bronią.',
       WW: 10,
       US: 5,
       K: 5,
@@ -1271,7 +1270,7 @@ function getGiermek() {
   return [
     {
       title: 'Giermek',
-      opis: 'blelbe',
+      opis: 'Giermkowie towarzyszą rycerzowi w bitwie i podróży, zdobywając doświadczenie i umiejętności przydatne w walce. Zazwyczaj wywodzą się z rodów szlacheckich, jednak rzadko ich obowiązki wykraczają poza zajęcia godne służących. Zwykle ich jedynym zadaniem jest przynoszenie jadła i napitku swoim opiekunom lub zajmowanie się rumakiem i uprzężą rycerza. Ciężka praca ma nauczyć ich pokory i wytrzymałości na trudy, a także przygotować do bycia rycerzem. Pan giermka ma obowiązek wprawiać go w sztuce wojennej, choć wielu zaniedbuje wykonywania wymaganych ćwiczeń szermierki i taktyki. Synowie wpływowych szlachciców są giermkami zaledwie przez kilka miesięcy, natomiast biedniejsi młodzieńcy muszą czekać cale lata na ceremonię pasowania. Uwagi: Jeśli przy tworzeniu Bohatera Gracza wybierzesz umiejętności wiedza (Bretonia) i znajomość języka (bretoński), Twój Bohater może pochodzić z Bretonii.',
       WW: 10,
       US: 5,
       K: 5,
@@ -1305,7 +1304,7 @@ function getGladiator() {
   return [
     {
       title: 'Gladiator',
-      opis: 'blelbe',
+      opis: 'Walki gladiatorów to podobno ulubiona rozrywka ogrów. Możliwe, że brutalne walki na śmierć i życie są jedynym wkładem tej prymitywnej rasy w rozwój kultury Starego Świata. W przeszłości na arenie występowali przestępcy albo jeńcy wojenni. Wypuszczano ich grupą na środek areny otoczonej murem lub wykopanej w dole i rzucano kilka sztuk broni. Wygrywał ostatni pozostały przy życiu. Obecnie, niezależnie od wciąż wykorzystywanych skazańców i niewolników, istnieje też grupa zawodowych gladiatorów, którzy szukają na arenie bogactwa i sławy. Inni walczą jedynie po to. by przeżyć jak najdłużej, wśród wrzasków gawiedzi żądnej ich krwi. Najlepsi gladiatorzy zdobywają pokaźny majątek (z nagród oraz zakładów, jakie towarzyszą każdej walce). Gladiatorzy-niewolnicy mogą dzięki temu wykupić sobie wolność.',
       WW: 15,
       US: 0,
       K: 0,
@@ -1339,7 +1338,7 @@ function getGoniec() {
   return [
     {
       title: 'Goniec',
-      opis: 'blelbe',
+      opis: 'Krasnoludzkie twierdze w Górach Krańca Świata łączy skomplikowana sieć podziemnych korytarzy, zwana Undgrin Ankor. Łączność między fortecami zapewniają gońcy. Są to doskonale wyszkoleni młodzi biegacze, którzy doręczają wiadomości zapisane krasnoludzkim pismem runicznym. W ciągu ostatnich kilkuset lat praca gońca stała się jeszcze bardziej niebezpieczna. Muszą unikać wszędobylskich goblinów. Nadkładają drogi, omijając zablokowane korytarze i eksplorując dzikie, podziemne obszary. Często muszą podróżować na powierzchni ziemi. Najsilniejsi i najbardziej wytrzymali gońcy są wykorzystywani do przekazywania wiadomości między fortecami krasnoludów w górach a koloniami w głębi Imperium.',
       WW: 10,
       US: 0,
       K: 5,
@@ -1374,7 +1373,7 @@ function getGornik() {
   return [
     {
       title: 'Górnik',
-      opis: 'blelbe',
+      opis: 'Granice Imperium wyznaczają góry. Na wchodzie ciągnie się grzbiet Gór Krańca Świata, na południu leżą Góry Czarne, a na zachodzie Góry Szare. Pomimo zagrożenie ze strony goblinów i innych podziemnych stworów, ludzie i krasnoludy od niepamiętnych czasów pracowali w górskich kopalniach. Górnicy wydobywają złoto, srebro, kamienie szlachetne, ale przede wszystkim żelazo i rudy różnych metali. Inni poszukują złóż na powierzchni, szczególnie w Górach Środkowych, na granicy między prowincjami Hochland i Ostland. Mimo iż te pokryte lasami góry znajdują się w całości na terenach Imperium, są schronieniem dla trolli, zwierzoludzi i innych plugawych stworzeń. Przeżycie w takich warunkach wymaga nie lada wysiłku i umiejętności.',
       WW: 5,
       US: 5,
       K: 10,
@@ -1409,7 +1408,7 @@ function getGuslarz() {
   return [
     {
       title: 'Guślarz',
-      opis: 'blelbe',
+      opis: 'Guślarze potrafią rzucać czary nie mając formalnego wykształcenia w sztukach magicznych. Tworzą zaklęcia, używając instynktu, sztuczek i wykorzystując zakorzenione wśród ludzi przesądy. Choć czasem nie zdają sobie z tego sprawy, za każdym razem, gdy korzystają z magii, ryzykują zwróceniem na siebie uwagi demonów i innych istot nie z tego świata. Z tego powodu stają się celem poszukiwań i prześladowań ze strony łowców czarownic. Niektórzy guślarze decydują się na dołączenie do jednego z Kolegiów Magii. Inni próbują ukrywać swój dziki talent, zamieszkując z dala od ludzkich osad. Zwykle nie jest to najrozsądniejszy wybór.',
       WW: 0,
       US: 0,
       K: 0,
@@ -1444,7 +1443,7 @@ function getHienaCmentarna() {
   return [
     {
       title: 'Hiena Cmentarna',
-      opis: 'blelbe',
+      opis: 'Mimo pewnych podobieństw do porywaczy zwłok, hieny cmentarne różnią się od nich w zasadniczej kwestii. Bardziej niż trupami interesują się kosztownościami, jakie można znaleźć w grobowcach i kryptach. Mimo iż obecnie rzadko można znaleźć w grobach cenne przedmioty, to jednak istnieje sporo starożytnych nekropolii, które zawierają bezcenne skarby. Hieny cmentarne specjalizują się w odkrywaniu takich miejsc i ich plądrowaniu. Sekretne krypty znajdują się zazwyczaj w niedostępnych miejscach i bywają zabezpieczone pułapkami. Cmentarze w Imperium, uznawane za ziemię poświęconą, strzeżone są przez miejscowych strażników. Wejście na teren nekropolii może więc okazać się bardzo ryzykowne. Groby dostojników i władców mieszczą się w katakumbach świątyń i w miejscach strzeżonych nie tylko przez ludzi. Niewiele hien cmentarnych przeżywa na tyle długo, by uzbierać wielką fortunę.',
       WW: 10,
       US: 0,
       K: 0,
@@ -1479,7 +1478,7 @@ function getKanciarz() {
   return [
     {
       title: 'Kanciarz',
-      opis: 'blelbe',
+      opis: 'Kanciarze kierują się swoistym życiowym mottem: jeśli nie musisz, nie pracuj uczciwie. Sprytem i gładkimi słówkami próbują zdobyć możliwie najwyższą pozycję w hierarchii przestępców. Niektórzy pracują jako przewodnicy po najlepszych oberżach i zamtuzach w mieście. Inni parają się szulerstwem lub fałszerstwami. Kanciarz woli posługiwać się rozumem niż mieczem. Zawsze ma na podorędziu kilka wymyślonych opowiastek i wykrętów. Niektórzy kanciarze działają wyłącznie na dobrze sobie znanym terenie. Inni podróżują od osady do osady, zarabiając na wyrafinowanych szwindlach, a potem błyskawicznie znikają z miasta. Najlepsi kanciarze nie oszukują, tylko tworzą rzeczywistość. Nawet ich ofiary nie wiedzą, że padły ofiarą przekrętu.',
       WW: 5,
       US: 5,
       K: 0,
@@ -1514,7 +1513,7 @@ function getKozakKislevski() {
   return [
     {
       title: 'Koza kislevski',
-      opis: 'blelbe',
+      opis: 'Kozacy należeli do plemienia Ungolów, które zajmowało tereny na północny wschód od imperium. Plemię ze wschodu. zwane Gospodarami, najechało ich ziemie. podbiło lud Ungołów i założyło państwo Kislev. W tej wojnie Kozacy walczyli po stronie Gospodarów jako najemnicy przeciwko pozostałym Ungolom. Ich niezwykły styl walki wywarł spore wrażenie na starszyźnie Gospodarów, Od tamtego czasu regimenty Kozaków służą jako gwardia Carów Kisleva. Obecnie Kozacy nie są już odrębnym plemieniem. Lecz stanowią elitarną jednostkę bojową, tworzoną z najlepszych wojowników pochodzących z całego Kisleva. Uzbrojeni w łuki i dwuręczne topory są niezwykle wszechstronnymi wojownikami na polu bitwy. Wielu Kozaków, zmęczonych nieustanną Wojną w ojczyźnie podróżuje po imperium, wybierając życie najemnika lub poszukiwacza przygód.',
       WW: 10,
       US: 10,
       K: 0,
@@ -1549,7 +1548,7 @@ function getLesnik() {
   return [
     {
       title: 'Leśnik',
-      opis: 'blelbe',
+      opis: 'Leśnicy żyją zwykle w pobliżu wielkich puszcz, zajmując się ścinaniem drzew i łowiectwem dla potrzeb miejscowej ludności. Najbogatsi pracują w pobliżu wielkich posiadłości szlacheckich, zaś najodważniejsi żyją na skraju cywilizowanych obszarów, pomagając zasiedlać dzikie obszary. Leśnicy muszą zmagać się z czyhającymi w lasach bandytami, zwierzoludźmi i dziką zwierzyną. Na podorędziu mają topory, nie zawsze używane tylko do ścinania drzew. Przy tej okazji często dochodzi do zwad z elfami, które nie tolerują, ich zdaniem całkowicie niepotrzebnego, wycinania świętych lasów.',
       WW: 10,
       US: 0,
       K: 10,
@@ -1582,7 +1581,7 @@ function getLowca() {
   return [
     {
       title: 'Łowca',
-      opis: 'blelbe',
+      opis: 'Chociaż od powstania Imperium minęła ponad dwa i pół tysiąca lat, niektóre rzeczy pozostają niezmienne. Minio rozwoju wiosek i rolnictwa wielkie obszary wciąż porośnięte są przez lasy pełne dzikiego zwierza. Łowcy, tak jak ich przodkowie przed wiekami, używają tych samych metod, by wytropić zwierzynę i zabić ją celnym strzałem lub złapać w sidła. Podchodzenie zwierzyny wymaga wiele odwagi, szczególnie wobec nieustannego zagrożenia ze strony potworów, jakie zamieszkują leśne ostępy. Łowcy chętnie noszą futrzane płaszcze i czapy. Przy pierwszym spotkaniu mogą wydawać- się nieokrzesani, szczególnie w opinii mieszkańców miast. Łowcy szczycą się jednak swoją niezależnością, więc niespecjalnie przejmują się opinią innych.',
       WW: 0,
       US: 15,
       K: 0,
@@ -1615,7 +1614,7 @@ function getLowcaNagrod() {
   return [
     {
       title: 'Łowca Nagród',
-      opis: 'blelbe',
+      opis: 'Łowcy nagród zajmują się tropieniem przestępców  i uciekinierów oraz doprowadzaniem ich przed oblicze sprawiedliwości. Samotny łowca nagród może wejść tam, gdzie nic nie zdziała nawet zbrojny oddział stróży prawa. To czyni ich niezwykle pożytecznymi dla władz i stróżów prawa, choć zazwyczaj bywają traktowani z pogardą. Nagrody są zwykle wyznaczane przez miejscowych władców, gildie kupieckie oraz rady miejskie. Łowcy nagród to zawodowi zabójcy, którzy przywiązują niewielką wagę do ludzkiego życia. Są całkowicie bezwzględni. Używają wszelkich dostępnych metod, by wytropić i jeśli trzeba, zabić przestępcę. Budzą strach wśród biedniejszej części społeczeństwa, gdyż znane są przypadki, gdy łowcy nagród zabijali przygodnie napotkanych chłopów. Następnie przywozili ich ciała, ogłaszając, że są to trupy poszukiwanych przestępców. Pobierali nagrodę i odjeżdżali w swoją stronę.',
       WW: 5,
       US: 10,
       K: 5,
@@ -1648,7 +1647,7 @@ function getMieszczanin() {
   return [
     {
       title: 'Mieszczanin',
-      opis: 'blelbe',
+      opis: 'Wraz z rozwojem miast pojawiła się nowa klasa obywateli Imperium — mieszczanie. Ich przodkowie byli zwykłymi chłopami, którzy wydobyli się z nędzy i na nowo ułożyli sobie życie w mieście. Następne pokolenie tworzy już społeczność miejską, która rządzi się innymi prawami. Mieszczanie są właścicielami kramów, drobnymi handlarzami, a także świadczą rozliczne usługi na potrzeby ludności miejskiej. Niektórzy zostają kupcami lub urzędnikami miejskimi. Nie są traktowani z pogardą, tak jak chłopstwo, ale również nie cieszą się szacunkiem, takim jak przedstawiciele szlachty. Mimo że zarazy zbierają obfite żniwo wśród obywateli mieszkających w ciasno zabudowanych dzielnicach, to żaden z nich nie chce zamienić życia w mieście na ciężką harówkę na wsi. Dla nich życie w mieście to jedyna szansa, by wybić się ponad nędzny, chłopski stan.',
       WW: 5,
       US: 0,
       K: 0,
@@ -1681,7 +1680,7 @@ function getMytnik() {
   return [
     {
       title: 'Mytnik',
-      opis: 'blelbe',
+      opis: 'Praca poborcy podatkowego to niewdzięczny zawód. Na terenach wiejskich w zasadzie oznacza to wyrok śmierci. Mytnicy mieszkają w stanicach przy drodze, pobierając myto od przejeżdżających podróżnych. Pieniądze przeznaczane są głównie na naprawę i utrzymanie dróg w Imperium, ale to nie powstrzymuje ich użytkowników przed znieważaniem, biciem, a czasem nawet zabijaniem mytników. Na domiar złego, stanice poborców stanowią ulubiony cel ataków rozbójników i banitów. Profesja mytnika jest więc bardzo niebezpiecznym zajęciem. Mimo stosunkowo wysokich zarobków, niewielu ludzi pracuje długo w tym zawodzie.',
       WW: 10,
       US: 5,
       K: 5,
@@ -1714,7 +1713,7 @@ function getNajemnik() {
   return [
     {
       title: 'Najemnik',
-      opis: 'blelbe',
+      opis: 'W Starym Świecie wstrząsanym nieustannie wojnami, zawsze znajdzie się praca dla wojownika, który potrafi władać orężem i kocha brzęk złotych monet. Chociaż imperium Utrzymuje potężną armię, chętnie korzysta z pomocy kompanii najemników. Wynajmują ich także miejscowi władcy i bogaci kupcy. Wśród najemników trafiają się młodzi awanturnicy, ale także zawodowi żołnierze, weterani wielu bitew. Pochodzą z różnych regionów Imperium, ale najsłynniejsi przybywają z Tilei. Wszyscy najemnicy marzą o szybkim zdobyciu majątku, jednak większość dorabia się jedynie bezimiennej mogiły na koniec krótkiego życia. Uwagi: Jeśli w trakcie tworzenia Bohatera Gracza wybierzesz umiejętność wiedza (Tilea) i znajomość języka (tileański), Twój Bohater może pochodzić z Tilei.',
       WW: 10,
       US: 10,
       K: 5,
@@ -1747,7 +1746,7 @@ function getOchotnik() {
   return [
     {
       title: 'Ochotnik',
-      opis: 'blelbe',
+      opis: 'Ochotnicy tworzą lokalne oddziały straży miejskiej. Są to głównie chłopi z okolicznych wiosek. Zobowiązują się do służby w armii przez pewien okres w ciągu roku - zazwyczaj siedem dni - w trakcie którego odbywają ćwiczenia wojskowe. Poszczególne drużyny ochotnicze odbywają wspólne Ćwiczenia na wypadek zwołania pospolitego ruszenia. Nawet tak krótki okres służby może zwiększyć szanse przeżycia na przesiąkniętych krwią polach bitew Starego Świata. Dowódcy drużyn ochotniczych są zazwyczaj weteranami wojskowymi albo najemnikami. Niektóre kompanie ochotnicze muszą zapewnić swoim żołnierzom ekwipunek i uzbrojenie, inne są wyposażane przez lokalne władze. Oznacza to, że niektórzy z ochotników pojawiają się na ćwiczeniach w jednolitych mundurach i z bronią, natomiast inni mają  na sobie jedynie zwykle odzienie i łuki myśliwskie.',
       WW: 10,
       US: 5,
       K: 5,
@@ -1780,7 +1779,7 @@ function getOchroniarz() {
   return [
     {
       title: 'Ochroniarz',
-      opis: 'blelbe',
+      opis: 'Mieszkańcy Starego świata mawiają, że kupcy z Altdorfu są tak nieuczciwi, że nie ufają nawet samym sobie. Dlatego zatrudniają ochroniarzy, którzy strzegą bezpieczeństwa kupca i jego majątku. Stary Świat nie jest miejscem spokojnym, a wielkie miasta wcale nie są wyjątkiem od tej reguły. Bogaci i wpływowi kupcy zatrudniają więc osobistych ochroniarzy, którzy mają ich chronić przed złodziejami i drobnymi rzezimieszkami, Niektórzy wyglądają na oprychów (od których zresztą niewiele się różnią), ale inni często przywdziewają bogato zdobione liberie z herbem rodowym ich pana. Najbogatsi kupcy i wpływowi urzędnicy miejscy mają czasami tak liczne orszaki ochroniarzy, że przypominają prywatną gwardię.',
       WW: 10,
       US: 0,
       K: 5,
@@ -1813,7 +1812,7 @@ function getOprych() {
   return [
     {
       title: 'Oprych',
-      opis: 'blelbe',
+      opis: 'W światku przestępczym siła i brutalność oprychów są wysoko cenione. Tego rodzaju zalety przydają się przy odzyskiwaniu długów, uciszaniu zbyt gorliwego podżegacza lub eliminowaniu konkurencji. Kilka solidnych ciosów pałką zazwyczaj wystarcza. by adresat zrozumiał swój błąd, ale trudniejsze przypadki wymagają pełnego asortymentu narzędzi i bardziej brutalnych metod. W takim przypadku najlepszym wyjściem dla delikwenta jest opuszczenie miasta na jakiś czas. Cmentarze jednakże pełne są tych, którzy uwierzyli we własny spryt. Wszystkie gildie złodziei i organizacje przestępcze korzystają z usług zaufanych oprychów.',
       WW: 10,
       US: 0,
       K: 5,
@@ -1846,7 +1845,7 @@ function getPaz() {
   return [
     {
       title: 'Paź',
-      opis: 'blelbe',
+      opis: 'Paź jest osobistym służącym bogatego mieszczanina, kupca lub szlachcica, a czasem też pełni rolę adiutanta wysokiego rangą oficera wojskowego. Do jego obowiązków należy opieka nad odzieniem, uczesaniem i wygodą pana. Gdy pada deszcz paź natychmiast podaje płaszcz i kapelusz. Na uroczysty bal musi dobrać odpowiedni strój. Dobrze wyszkolony paź jest nieocenioną pomocą dla każdego szlachcica, który dba o swój wygląd, W porównaniu do służących ich życie wydaje się rajem, jednakże wielu paziów nienawidzi swoich zadufanych mocodawców. Kobiety, które usługują swoim paniom, nazywa się służkami.',
       WW: 0,
       US: 0,
       K: 0,
@@ -1879,7 +1878,7 @@ function getPodzegacz() {
   return [
     {
       title: 'Podżegacz',
-      opis: 'blelbe',
+      opis: 'Większość obywateli Imperium ma niewiele do powiedzenia w kwestii polityki. Stanowieniem i egzekwowaniem prawa zajmują się Imperator i elektorzy, przy wsparciu rozmaitych świątyń (wśród których najważniejszą rolę pełnią kulty Sigmara i Ulryka). Niemniej jednak w miastach Imperium dość częstym widokiem są różnego rodzaju działacze polityczni. Podżegacze agitują w rozmaitych sprawach, rozdają ulotki, a takie wygłaszają płomienne przemowy i apele, podburzając okoliczną ludność. W większości przypadków są ignorowani przez straż i władze. Jednak bardziej aktywni podżegacze - szczególnie tacy, którym udało się utrafić w czuły punkt niezadowolonych chłopów i mieszczan - mogą być uznani za niebezpiecznych przestępców, winnych zakłócania porządku publicznego. Tacy podżegacze bywają prześladowani przez miejskie straże, oskarżani o herezję przez lokalnych kapłanów lub wydawani w ręce łowców czarownic. Pomimo wielkiego ryzyka podżegacze wciąż działają. Niektórzy naprawdę wierzą w „sprawę”, za którą agitują, chociaż trafiają się też żądni władzy cynicy, równie występni jak ci, przeciw którym się opowiadają. ',
       WW: 5,
       US: 5,
       K: 0,
@@ -1912,7 +1911,7 @@ function getPorywaczZwlok() {
   return [
     {
       title: 'Porywacz zwłok',
-      opis: 'blelbe',
+      opis: 'Przedstawiciele medycznych i czarodziejskich profesji potrzebują stałych dostaw świeżych zwłok, zarówno dla celów naukowych, jak i dla hardziej mrocznych potrzeb. Zdobycie ich w sposób zgodny z prawem jest trudne, dlatego czarodzieje i medycy muszą korzystać z usług porywaczy zwłok. Jest to niewdzięczna praca, ale dość dobrze płatna. Najlepsze, czyli najświeższe ciała są sprzedawane po bardzo wysokich cenach. Ale ich zdobycie łączy się z ogromnym ryzykiem. Strażnicy, kapłani Morra i łowcy czarownic bacznie pilnują cmentarzy i surowo karzą wszelkich intruzów.',
       WW: 5,
       US: 5,
       K: 5,
@@ -1945,7 +1944,7 @@ function getPoslaniec() {
   return [
     {
       title: 'Posłaniec',
-      opis: 'blelbe',
+      opis: 'Wobec ogromnych odległości jakie dzielą główne miasta i zamki Imperium, konni posłańcy zapewniają najlepszy sposób przekazywania wiadomości. Z ich usług korzysta szlachta, kupcy i dowódcy wojskowi. Nieustraszeni samotnic wyruszają w drogę, wierząc, ze dzięki szybkości konia i własnemu sprytowi uda im się uniknąć zagrożeń. Często korzystają z pomocy strażników dróg, lecz nie wszędzie i nie zawsze jest to możliwe. Choć są jedynie dostarczycielami informacji, zdarza się, że po przekazaniu szczególnie złych wiadomości, nieszczęsnego posłańca spotyka smutny koniec.',
       WW: 5,
       US: 5,
       K: 0,
@@ -1978,7 +1977,7 @@ function getPrzemytnik() {
   return [
     {
       title: 'Przemytnik',
-      opis: 'blelbe',
+      opis: 'Działalność handlowa w portach i miastach Starego Świata podlega rozmaitym regulacjom prawnym i podatkowym. Imperialni poborcy podatkowi, mytnicy, miejscowi władcy. gildie rzemieślnicze i kupieckie, a nawet rozbójnicy i gildie złodziejskie - wszyscy próbują zarobić na kupcach. Podatki i tak są wysokie, a jeszcze trzeba płacić haracz piratom lub grasującym po drogach rozbójnikom. W wielkich portach zwłaszcza w Marienburgu, opodatkowane jest prawie wszystko, włącznie z ludźmi, czasem nawet po kilka razy. Nic więc dziwnego, że działalność przemytnicza rozwija się na coraz szerszą skalę. Przemyt towarów i ludzi jest zakazany prawem, ale dla większości mieszkańców imperium nie stanowi to znaczącej przeszkody. W ich opinii prawdziwymi złodziejami są miejscy urzędnicy i poborcy podatkowi.',
       WW: 5,
       US: 5,
       K: 0,
@@ -2011,7 +2010,7 @@ function getPrzepatrywacz() {
   return [
     {
       title: 'Przepatrywacz',
-      opis: 'blelbe',
+      opis: 'Przepatrywacze są doświadczonymi przewodnikami, którzy przeszukują teren dla potrzeb podróżujących oddziałów wojskowych i karawan kupieckich. Przez cały czas trwania podróży muszą utrzymywać stan wzmożonej czujności, nasłuchując i wypatrując zasadzek oraz zagrożeń. Ponieważ zazwyczaj działają w pojedynkę, muszą być samowystarczalni opanowani. Przepatrywacze wierzą swojemu instynktowi i samodzielnie podejmują decyzje, gdyż na szlaku nie mają do kogo zwrócić się o pomoc. Większość działa na dobrze im znanym obszarze, w pełni wykorzystując doskonałą orientacje w terenie. Nieliczni zajmują się. przepatrywaniem nieznanych szlaków i badaniem dzikich krain. Ich wynagrodzenie jest zazwyczaj dość wysokie, ale narażają się na duże ryzyko.',
       WW: 5,
       US: 10,
       K: 0,
@@ -2044,7 +2043,7 @@ function getPrzewoznik() {
   return [
     {
       title: 'Przewoźnik',
-      opis: 'blelbe',
+      opis: 'W Starym Świecie wiele osiedli leży nad brzegami rzek, przecinające kraj szlaki wodne są tak sama ważne dla handlu i komunikacji, jak drogi na lądzie. Przewoźnicy za drobną opłatą przeprawiają przez rzeki pasażerów i towary. Zazwyczaj korzystają z płaskodennych promów lub barek, które z łatwością przepływają nad mieliznami i mają sporą ładowność. Przewoźnicy którzy działają w mniej cywilizowanych terenach, zawsze trzymają pod ręką nabite garłacze, ze względu na stałe zagrożenie ze strony rozbójników i piratów. Wielu z nich to zwykli naciągacze, którzy zmieniają cenę za przeprawę, zależnie od szacowanej majętności podróżnych i od tego, jak desperacko chcą oni przedostać się na drugi brzeg. Ucieczka przed pościgiem może oznaczać nawet podwójną albo potrójną stawkę. ',
       WW: 5,
       US: 5,
       K: 10,
@@ -2077,7 +2076,7 @@ function getRybak() {
   return [
     {
       title: 'Rybak',
-      opis: 'blelbe',
+      opis: 'Rybacy utrzymują się z połowów Mieszkają w niewielkich wioskach, głównie na wybrzeżu Nordlandu. skąd wypływają na Morze Szponów w niedużych łodziach, nie zważając na nieustające ryzyko ze strony piratów. Rybacy żyją równie w głębi lądu, w małych osadach nad brzegami rzek. Są to osobnicy z natury samotni i nienależni. Na wodzie decyzja szypra jest ostateczna. Temperament i niezależność rybaków są jednym z powodów, dla których portowe tawerny należą do naprawdę niebezpiecznych miejsc. Uwagi: Jeśli w trakcie tworzenia Bohatera Gracza wybierzesz umiejętność wiedza Jałowa Kraina), Twój Bohater  może pochodzić z okolic wielkiego portu w Marienburgu.',
       WW: 0,
       US: 5,
       K: 10,
@@ -2110,7 +2109,7 @@ function getRzecznikRodu() {
   return [
     {
       title: 'Rzecznik rodu',
-      opis: 'blelbe',
+      opis: 'Władcy wielkich elfich rodów kupieckich nie orientują się zbytnio w realiach codziennego życia w Starym Świecie. Z ich punktu widzenia, ludzie żyją i umierają tak szybko, że trudno jest śledzić na bieżąco aktualne wydarzenia i zmiany w polityce Imperium, Jeśli potrzebują jakiejś informacji, zwracają się więc do rzeczników swoich rodów. Są to młode elfy, które reprezentują interesy rodów kupieckich w kontaktach z resztą świata. Zawierają transakcje, podpisują kontrakty i odpowiadają za całokształt kontaktów handlowych z ludźmi, szczególnie w największych ośrodkach handlowych w Altdorfie, Nuln i Marienburgu. Jednak nawet cierpliwość elfów ma swoje granice. Nic zatem dziwnego, że tak wielu rzeczników rezygnuje ze swojego stanowiska i wybiera znacznie ciekawsze życie poszukiwacza przygód.',
       WW: 5,
       US: 5,
       K: 0,
@@ -2143,7 +2142,7 @@ function getRzemieslnik() {
   return [
     {
       title: '',
-      opis: 'blelbe',
+      opis: 'Rzemieślnicy to fachowcy w jednej z wielu dziedzin rzemiosła, jakie znane są w Imperium. W miastach skupiają się w cechy rzemieślnicze, natomiast w wioskach cieszą się monopolem na swoje usługi. Zajmują się produkcją dóbr sprzedawanych przez kupców w całym kraju. Rzemieślnicy stanowią ważne ogniwo w gospodarce Imperium. Spośród różnych dziedzin rzemiosła najważniejsze to:  aptekarstwo, bednarstwo, garbarstwo, gotowanie, górnictwo, handel, jubilerstwo, kaligrafia, kamieniarstwo, kartografia, kowalstwo, krawiectwo, młynarstwo, piwowarstwo, płatnerstwo, rusznikarstwo, rymarstwo, stolarstwo, szkutnictwo, szewstwo, sztuka, świecarstwo, uprawa ziemi, wyrób luków, zielarstwo oraz złotnictwo. Rzemieślnicy zazwyczaj organizują się w cechy i gildie rzemieślnicze, które dziabią samodzielnie w poszczególnych miastach.',
       WW: 0,
       US: 0,
       K: 5,
@@ -2178,7 +2177,7 @@ function getRzezimieszek() {
   return [
     {
       title: 'Rzezimieszek',
-      opis: 'blelbe',
+      opis: 'Rzezimieszek to zabijaka do wynajęcia. Za odpowiednią cenę może pobić albo nastraszyć każdego, kogo wskaże mu zleceniodawca. W większości przypadków rzezimieszki ukrywają, że zostali wynajęci, wynajdując najbardziej nieprawdopodobne preteksty, by wszcząć bójkę z wyznaczoną ofiarą, Zleceniodawca zazwyczaj dyskretnie obserwuje upokorzenie swojego rywala lub wroga, czerpiąc zadowolenie z jego cierpienia. Poturbowanie kilku mieszczuchów jest stosunkowo tanie. Cena może wzrosnąć w zależności od umiejętności rzezimieszka, a także od wpływów ofiary oraz wymaganego przez zleceniodawcę stopnia w uszkodzenia jej ciała. większość rzezimieszków nie para się zabójstwem, zostawiając to gildii skrytobójców, ale za odpowiednią cenę można zamówić również i taką usługę. Nie trzeba dodawać, że strażnicy uważnie obserwują najbardziej znanych rzezimieszków, którzy z tego powodu zazwyczaj nie pozostają długo w jednym miejscu.',
       WW: 10,
       US: 0,
       K: 10,
@@ -2211,7 +2210,7 @@ function getSkryba() {
   return [
     {
       title: 'Skryba',
-      opis: 'blelbe',
+      opis: 'Znaczna część obywateli Imperium nie potrafi czytać ani pisać. Profesja skryby cieszy się więc dużym poważaniem. Prawie każdy ośrodek władzy, jednostka wojskowa lub zakon religijny potrzebuje znacznej liczby skrybów do prowadzenia ksiąg i rachunków. Istnieją także skrybowie, którzy pracują dla potrzeb zwykłych ludzi, pisząc za nich listy lub odczytując otrzymane wiadomości. Skrybowie są ludźmi wykształconymi i oczytanymi. Wielu z nich decyduje się na bardziej zaszczytną karierę prawnika albo uczonego. Niektórzy, znużeni czytaniem o przygodach innych ludzi, wyruszają na szlak, by zapisać w kronikach ludzkości rozdział o własnych wyczynach. Zazwyczaj znają kilka języków obcych, są zatem doskonałymi towarzyszami dalekich wypraw poza granice imperium.',
       WW: 0,
       US: 0,
       K: 0,
@@ -2244,7 +2243,7 @@ function getSluga() {
   return [
     {
       title: 'Sługa',
-      opis: 'blelbe',
+      opis: 'Niewiele osób w Imperium zajmuje niższe miejsce w hierarchii społecznej od sług. Ich praca, choć potrzebna, zazwyczaj jest traktowana z pogardą przez bogatszych ludzi. Dla posługacza, stajennego albo dziewki służebnej. ucieczka od ciężkiego życia wydaje się niemożliwością. Cały dzień, a często tez i noc, spędzają na znojnej pracy. Słudzy znajdują zatrudnienie głównie u szlachciców; karczmarzy i mistrzów gildii. Nieliczni potrafią wywalczyć sobie lepszą pozycję, ale jest to bardzo trudne. Nikt przecież nie zwraca uwagi na stajennego lub dziewkę w karczmie. Wielu służących ucieka więc od gnębiących ich pracodawców, wybierając pozornie łatwiejsze życie na szlaku.',
       WW: 5,
       US: 0,
       K: 5,
@@ -2277,7 +2276,7 @@ function getStraznik() {
   return [
     {
       title: 'Strażnik',
-      opis: 'blelbe',
+      opis: 'Początkowo obowiązek utrzymania porządku w mieście spoczywał na władzach cywilnych, które w tym celu korzystały z oddziałów straży i gwardii miejskiej, jednak gdy poziom korupcji przekroczył wszelkie granice przyzwoitości, Imperator powierzył to zadanie władzom wojskowym. Obecnie obowiązki straży miejskiej pełnią Żołnierze z garnizonów wojskowych. Dzięki temu zmalało łapownictwo, choć w armii również zdarzają się przypadki przekupstwa. Strażnicy są odpowiedzialni za utrzymywanie porządku i przestrzeganie prawa, mogą także aresztować podejrzanych. W mniejszych osadach służą również jako straż pożarna. Dla niektórych żołnierzy służba garnizonowa jest tylko tymczasowym przydziałem. Dla innych to zajęcie na cale życie.',
       WW: 10,
       US: 5,
       K: 5,
@@ -2310,7 +2309,7 @@ function getStraznikDrog() {
   return [
     {
       title: 'Strażnik Dróg',
-      opis: 'blelbe',
+      opis: 'Imperium wciąż pokrywają rozległe połacie dzikich obszarów. Chociaż miasta i porty łączy sieć dróg szlaków wodnych, to jednak większość ziem porastają gęste lasy, w których kryją się rozbójnicy, zwierzoludzie, mutanci i gobliny, Mimo Ciągłej czujności strażników dróg, nawet zwykła podróż z jednego miasta do drugiego może być niebezpieczną przygodą. Owi konni stróże prawa patrolują drogi i ścieżki leśne na terenie całego Imperium, strzegąc bezpieczeństwa podróżnych i kupieckich karawan. Z uwagi na swoją niewidką liczebność, strażnicy dróg współpracują z miejscowymi ochotnikami i żołnierzami, zwłaszcza gdy napotkają ślady liczniejszego wroga. Jednak w większości przypadków niewielkie grupy strażników dróg muszą samodzielnie eliminować zagrożenia dla komunikacji między miastami imperium.',
       WW: 10,
       US: 10,
       K: 5,
@@ -2343,7 +2342,7 @@ function getStraznikPol() {
   return [
     {
       title: 'Strażnik pól',
-      opis: 'blelbe',
+      opis: 'Kraina Zgromadzenia jawi się przybyszom jako kraj bezpieczny i spokojny. Jest to zasługa przede wszystkim strażników pól. Niziołki patrolują granice Krainy Zgromadzenia, odpędzającą potwory i niepożądanych intruzów. Są świetnymi zwiadowcami, w pełni wykorzystując znajomość tego obszaru. Preferują atak z zaskoczenia lub z dystansu, by zniwelować przewagę wzrostu przeciwników. Kraina Zgromadzenia graniczy z Sylvanią, więc strażnicy pól mają doświadczenie w walce z ożywieńcami. Salwy kamieni miotanych przez nieustraszonych niziołków przegoniły już niejedną bandę zombi.',
       WW: 5,
       US: 10,
       K: 0,
@@ -2376,7 +2375,7 @@ function getStraznikWiezienny() {
   return [
     {
       title: 'Strażnik więzienny',
-      opis: 'blelbe',
+      opis: 'Imperium jest krajem, w którym prawo jest respektowane. A to oznacza, miedzy innymi ogromną liczbę więzień. Pomimo wysiłków kapłanów Vereny, bogini sprawiedliwości, do więzień trafiają nie tylko przestępcy, także osoby niewinne. W mniemaniu sędziów lepsza jest nadmierna surowość niż przesadna pobłażliwość. Wiezienia w miastach to brudne, wilgotne lochy, które śmierdzą strachem, krwią i odchodami. Porządek w tych miejscach utrzymują strażnicy więzienni, którzy upokarzają i brutalnie karzą więźniów za wszelkie przejawy nieposłuszeństwa. Obce jest im poczucie sprawiedliwościowi lub uczucie litości i rzadko wysłuchują próśb bądź gróźb więźniów (choć chętnie przyjmują łapówki). Wielu z nich to brutale i sadyści którzy lubują się w zadawaniu cierpienia oddanym pod ich opiekę skazańcom.',
       WW: 10,
       US: 0,
       K: 10,
@@ -2409,7 +2408,7 @@ function getSzczurolap() {
   return [
     {
       title: 'Szczurołap',
-      opis: 'blelbe',
+      opis: 'Szczurołap to profesja często spotykana w Imperium. Żyją w wioskach, miastach i portach, zajmują się eliminowaniem szczurów, prawdziwej plagi obecnych czasów. Często podróżują od osady do osady, choć większe miasta mają swoje własne drużyny szczurołapów. Polują głównie na szczury, chociaż zwalczają też inne szkodniki. Mieszkający w mieście szczurołap większość czasu spędza w kanałach, brnąc przez ścieki w poszukiwaniu szczurów. To ciężka i śmierdząca robota, ale pomaga zapobiegać wybuchom zarazy.',
       WW: 5,
       US: 10,
       K: 0,
@@ -2442,7 +2441,7 @@ function getSzermierzEstalijski() {
   return [
     {
       title: 'Szermierz estalijski',
-      opis: 'blelbe',
+      opis: 'Królestwo Estalii leży na południowy zachód od Imperium. Pustkowia Chaosu są tylko legendą wśród mieszkańców tej słonecznej krainy, która nigdy nie zaznała grozy ataku krwiożerczych bestii, jak stało się to udziałem Imperium Kisleva. Mieszkańcy Estalii mają więc zupełnie inne zainteresowania, od nauki i studiów przyrodniczych, aż po rozboje i zatargi rodowe. Wszyscy Estalijczycy uwielbiają szermierkę. W każdym dużym mieście jest kilka szkól fechtunku, z których każda naucza własnego stylu walki. Większość z nich wywodzi się z nauk Mistrza Figueroa, legendarnego szermierza, który wykorzystał w szermierce najnowsze osiągnięcia nauki oraz znajomości anatomii. Kontynuatorzy jego dzieła podróżują po całym świecie, uczestnicząc w walkach i pojedynkach. Niektórzy, znudzeni własnym krajem, szukają przygód w Bretonii i Tilei. Najodważniejsi podróżują na północ, na ziemie Imperium, by skrzyżować szpady z tamtejszymi szermierzami, a także by ujrzeć kraj, który stoi na pierwszej linii walki z hordami Chaosu.',
       WW: 15,
       US: 0,
       K: 5,
@@ -2475,7 +2474,7 @@ function GetSzlachcic() {
   return [
     {
       title: 'Szlachcic',
-      opis: 'blelbe',
+      opis: 'Szlachta stanowi najwyższą warstwę społeczną w Imperium. Utrzymuje władze, ustanawia prawa i rządzi prowincjami. Najważniejszymi rodami szlacheckimi są rodziny elektorów, a wśród nich, oczywiście, ród Imperatora. Są także setki innych, bardziej lub mniej znaczących rodzin szlacheckich, które bez przerwy rywalizują ze sobą o władze i bogactwo. Jedni próbują zbić majątek na wojnie, inni zaś parają się polityką lub handlem. Żaden ze szlachciców nie zniży się do wykonywania zwykłej, w ich oczach nikczemnej, pracy. Najbogatsi szlachcice żyją na koszt swego rodu, spędzając dnie na polowaniach, a noce na bankietach, uroczystych balach i zabawach. Jednak młodsi potomkowie rodzin szlacheckich nie mają równie łatwego życia. Zgodnie z prawem, cały majątek dziedziczy najstarszy potomek, więc pozostali sami muszą wywalczyć sobie pozycję w świecie. Czasem oznacza to konieczność zadawania się z pospólstwem i wspólnej podróży z różnego rodzaju poszukiwaczami przygód.',
       WW: 10,
       US: 5,
       K: 0,
@@ -2508,7 +2507,7 @@ function getSmieciarz() {
   return [
     {
       title: 'Śmieciarz',
-      opis: 'blelbe',
+      opis: 'Śmieciarze są zbieraczami odpadków. Bywają nazywani szmaciarzami lub druciarzami i są częstym widokiem w wielkich miastach Imperium, które wytwarzają najwięcej odpadów. Śmieciarze żyją z tego, co wyrzucają inni. Ciągną swoje wózki przez wioski i miasteczka, zbierając stare kości, szmaty oraz inne odpadki i wywożą je w zamian za kilka pensów lub  trochę jedzenia. Zajmują się też drobnym handlem. To, co jest śmieciem dla bogatego mieszczanina, może być skarbem dla biedaka.',
       WW: 5,
       US: 0,
       K: 5,
@@ -2541,7 +2540,7 @@ function getTarczownik() {
   return [
     {
       title: 'Tarczownik',
-      opis: 'blelbe',
+      opis: 'W ciągu minionych lat wiele krasnoludzkich twierdz padło pod zmasowanymi atakami hord Chaosu i goblinów. Do obrony pozostałych fortec krasnoludy powołały elitarne oddziały wojowników, którzy szkolą się w walce prowadzonej pod ziemią. To właśnie oddziały tarczowników, twardych i zawziętych wojowników powstrzymują napór wrogich armii i zapewniają bezpieczeństwo swoim pobratymcom. W oddziałach tarczowników służą głównie krasnoludy, choć czasem dołączają do nich przedstawiciele innych ras, skuszeni obietnicą żołdu wypłacanego w szczerym złocie. Młode krasnoludy z Imperium często zgłaszają się do służby w oddziałach tarczowników, aby dowieść swego męstwa i wykazać się solidarnością z pobratymcami z górskich twierdz.',
       WW: 10,
       US: 0,
       K: 5,
@@ -2574,7 +2573,7 @@ function getUczenCzarodzieja() {
   return [
     {
       title: 'Uczeń Czarodzieja',
-      opis: 'blelbe',
+      opis: 'Ludzie obdarzeni talentem magicznym budzą instynktowny niepokój wśród pospólstwa. Nie bez powodu. Potrafią dokonywać rzeczy, które zaprzeczają zdrowemu rozsądkowi, jednak nie jest to dar, który łatwo kontrolować, Magiczna aura takich osób, szczególnie początkujących, przyciąga demony. Aby zapobiec nieszczęściu, czarodzieje wyszukują swoich potencjalnych następców i wysyłają ich naukę do jednego z ośmiu Kolegiów Magi. Tam młodzi uczniowie praktykują magię pod uważnym okiem mistrzów, jednocześnie zastanawiając się nad wyborem Tradycji. Niektórzy z nich służą czarodziejom, którzy odkryli i ich talent. Inni imają się różnych zajęć, by zarobić na czesne w Akademii Magii. Elfy mają, wrodzone zdolności magiczne, wiec nic muszną korzystać z ludzkich organizacji, zamiast tego ucząc się od elfich mistrzów magii. Szczegółowy opis poszczególnych Tradycji Magii znajdziesz w Rozdziale Magia.',
       WW: 0,
       US: 0,
       K: 0,
@@ -2607,7 +2606,7 @@ function getWeglarz() {
   return [
     {
       title: 'Węglarz',
-      opis: 'blelbe',
+      opis: 'Węglarzy można spotkać w prawie każdej wiosce Imperium. Zajmują się wypalaniem drewna, uzyskując w ten sposób węgieł drzewny, opał zużywany w czasie długich, zimowych miesięcy. To brudne i niebezpieczne zajęcie, więc węglarze mieszkają zazwyczaj na odludziu. Najlepszym miejscem, ze względu na obfitość drewna, są obrzeża lasów. Bliskość puszczy sprawia, że życie węglarza nie jest zbyt bezpieczne, gdyż odosobnione chaty często padają łupem plugawych leśnych stworów. Węglarze zawsze noszą przy sobie broń, choć zwykle jest to tylko ciężka dębowa pałka lub prosta siekiera.',
       WW: 5,
       US: 0,
       K: 5,
@@ -2640,7 +2639,7 @@ function getWloczykij() {
   return [
     {
       title: 'Włóczykij',
-      opis: 'blelbe',
+      opis: 'Włóczykij uwielbia życie na szlaku. Zwyczajny osiadły tryb życia chłopa lub mieszczanina postrzega jako więzienie. Któż chciałby codziennie budzić się w tym samym miejscu i codziennie robić to samo? Dla włóczykija każdy dzień jest nową przygodą na szlaku życia. Czasami podejmuje się prostych prac, by zarobić kilka szylingów, ale rzadko wytrzymuje długo w jednym miejscu. Wkrótce znów rusza na szlak, zwabiony wizją przygody. Mimo iż uwielbiają podróżować, włóczykije zdają sobie sprawy z niebezpieczeństw, jakie czyhają na drodze. Dla wspólnego bezpieczeństwa podróżują więc w większych grupach. W wielu miastach i osadach włóczęgostwo jest traktowane jak przestępstwo.',
       WW: 5,
       US: 10,
       K: 0,
@@ -2674,7 +2673,7 @@ function getWojownikKlanowy() {
   return [
     {
       title: 'Wojownik Klanowy',
-      opis: 'blelbe',
+      opis: 'Elfy od wieków zamieszkiwały odosobnione osady w wielkich puszczach Imperium. Wraz z rosnącym zagrożeniem ze strony Chaosu, obszarom tym zaczęła grozić zagłada. W Imperium pozostało już niewiele osad elfów. Największa z nich znajduje się w lesie Laurelorn. W cieniu olbrzymich drzew elfy toczą cichą lecz zażartą wojnę ze zwierzoludźmi i innymi potworami. Niewielkie drużyny wojowników, zwane klanami, walczą w obronie swoich ziem, próbując uchronić przed zniszczeniem ostatnie osady elfów w Imperium. Drużyny składają się ze spokrewnionych ze sobą elfów, które noszą na ubraniach godło swojego klanu. Wojownicy klanowi są świetnie wyszkolonymi łucznikami. Najczęściej atakują z dystansu lub urządzają zasadzki.',
       WW: 5,
       US: 5,
       K: 0,
@@ -2707,7 +2706,7 @@ function getWoznica() {
   return [
     {
       title: 'Woźnica',
-      opis: 'blelbe',
+      opis: 'Chociaż Imperium jest potężnym krajem z liczną armią, tereny leżące poza zasięgiem cywilizacji nie są bezpieczne. Olbrzymie połacie kraju pozostają dzikie i nigdy nie były zamieszkane. Wioski, miasta i porty łączy gęsta sieć dróg, którymi podróżują powozy imperialnych kompanii przewoźniczych. Kierujący nimi woźnice muszą radzić sobie nie tylko z opłakanym stanem rzadko naprawianych traktów, ale także z częstymi napadami rozbójników, goblinów lub zwierzoludzi. Woźnice ryzykują życiem, by bezpiecznie przewieźć pasażerów  i towary do miejsca przeznaczenia, Każdy dzień jest wyścigiem z czasem, by przed zmierzchem dotrzeć do wioski lub przydrożnej karczmy. Nikt nie chce, by noc zastała go na szlaku, zwłaszcza gdy na niebie świeci księżyc Chaosu.',
       WW: 5,
       US: 10,
       K: 0,
@@ -2740,7 +2739,7 @@ function getZabojcaTrolli() {
   return [
     {
       title: 'Zabójca trolli',
-      opis: 'blelbe',
+      opis: 'Krasnoludy, które zostały wygnane lub okryły się hańba, porzucają swój klan, by szukać śmierci. Polują na najstraszniejsze potwory, aby chwalebną śmiercią w walce zmazać popełnione zbrodnie. Większość dość szybko osiąga swój cel, jednak ci, którym udało się przeżyć, dołączają do niezwykłego bractwa zabójców trolli. Szukają najstraszniejszych przeciwników, a za idealnych wrogów uważane są trolle, gdyż spotkanie z nimi zazwyczaj kończy się śmiercią znacznie niniejszego i słabszego krasnoluda. Zabójcy troilli odróżniają się od innych krasnoludów. Barwią włosy na pomarańczowo, stawiają je i przycinają w czub. Noszą dziwaczne bransolety kolczyki, a ciało pokrywają wymyślnymi tatuażami. Głośno i często rozprawiają o swoich wyczynach, szczególnie przy obfitym jadle i mocnym napitku.',
       WW: 10,
       US: 0,
       K: 5,
@@ -2773,7 +2772,7 @@ function getZarzadca() {
   return [
     {
       title: 'Zarządca',
-      opis: 'blelbe',
+      opis: 'Zarządcy opiekują się majątkami arystokratów i wyższej szlachty. Ich głównym zadaniem jest gospodarowanie posiadłością oraz terenami wokół niej, przede wszystkim wioskami i lasami. Wśród podległego im chłopstwa zwykle znani są z niezwykle surowego egzekwowania należności wobec ich pana, głównie podatków i opłat. Obowiązki zarządców sprawiają, że są to osoby niezbyt popularne wśród poddanych, szczególnie w czasie żniw, Jako przedstawiciele ciemiężycieli, znienawidzeni zarządcy zwykle pierwsi padają ofiarą chłopskich niepokojów i buntów.',
       WW: 5,
       US: 5,
       K: 5,
@@ -2806,7 +2805,7 @@ function getZlodziej() {
   return [
     {
       title: 'Złodziej',
-      opis: 'blelbe',
+      opis: 'W Imperium mieszka wielu uczciwych, ciężko pracujących ludzi. Złodzieje, którzy regularnie uszczuplają ich majątek, stawiają sobie za punkt honoru dopilnowanie, by zacni obywatele stale musieli pracować tak ciężko jak zwykle. Złodzieje są wyjątkowo wszechstronni. Podejmują się każdego zlecenia, które może im zapewnić zysk. Wśród złodziejów trafiają się szantażyści, malwersanci, defraudanci, porywacze, kieszonkowcy, skrawkarze, bydło- i koniokrady oraz początkujący włamywacze. W większości miast działają gildie złodziei, które kontrolują działalność przestępczą na swoim terenie. W dużych miastach działa zwykle kilka gildii złodziei, zaciekle rywalizujących o strefy wpływów. Czasem prowadzi to do wybuchu wojny w podziemiu przestępczym i wyeliminowaniu jednej ze stron konfliktu. Najbogatsze i najbardziej wpływowe gildie złodziei zajmują się także prowadzeniem legalnych interesów, które wykorzystują jako przykrywkę dla działalności przestępczej. Z czasem porzucają nielegalne interesy, gdy zgromadzą dostatecznie duży kapitał by wejść w szereg gildii kupieckich.',
       WW: 5,
       US: 5,
       K: 0,
@@ -2839,7 +2838,7 @@ function getZak() {
   return [
     {
       title: 'Żak',
-      opis: 'blelbe',
+      opis: 'W każdym wielkim mieście Imperium znajduje się przynajmniej jeden uniwersytet. Większość z nich, między innymi Imperialna Akademia Inżynierii w Altdorfie, jest finansowana przez władze prowincji. Pierwszy imperialny uniwersytet powstał w Nuln, który do dziś jest głównym ośrodkiem szkolnictwa w Imperium, znany przede wszystkim z Imperialnej Akademii Artylerii. Żacy mogą wybierać spośród wielu kierunków studiów: od anatomii i historii, aż po inżynierię i astronomię. Wielu żaków woli jednak spędzać czas na pijatykach i zabawie w karczmach.  Zazwyczaj kończą naukę już po pierwszym roku, gdy z hukiem wylatują z uczelni. Młode elfy nie uczęszczają na ludzkie uniwersytety, zamiast tego pobierając nauki u własnych mistrzów wiedzy. Niziołki są dopuszczane do nauki na uniwersytetach, zgodnie z zapisem w Prawie Imperium, który wprowadzono pod naciskiem Starszego Krainy Zgromadzenia.',
       WW: 0,
       US: 0,
       K: 0,
@@ -2874,7 +2873,7 @@ function getZeglarz() {
   return [
     {
       title: 'Żeglarz',
-      opis: 'blelbe',
+      opis: 'Żeglarze pochodzą głównie z prowincji Imperium zwanej Nordlandem, położonej na wybrzeżu Morza Szponów. Liczne floty, składające się z wielkich galeonów, szkunerów zwanych wilczymi oraz galer wojennych, patrolują wody na północ od Imperium, broniąc je przed atakami piratów z Norski i Bretoni oraz przerażających flotylli Chaosu. Na pokładach imperialnych żaglowców służą wyłącznie najlepsi żeglarze. Pozostali wchodzą w skład załóg statków kupieckich, pirackich łodzi lub niewolniczych galer. Po wodach Morza Szponów pływają też statki elfów, zazwyczaj pod banderą wielkich rodów kupieckich. Największym portem Starego Świata jest Marienburg. Miasto i otaczający je obszar (zwany Jałową Krainą) już od wielu lat cieszy się niezależnością, mimo iż niegdyś stanowiły Westerland, jedną z prowincji Imperium. Morze Szponów jest miejscem bezustannej walki. Na zbryzganych krwią deskach pokładów żeglarze pracują w pocie czoła, by zarobić na żołd i kolejną porcję rumu.Uwagi: Jeśli w trakcie tworzenia BG wybierzesz umiejętność wiedza (Jałowa Kraina), twój Bohater będzie mógł pochodzić z okolic wielkiego portu w Marienburgu.',
       WW: 10,
       US: 5,
       K: 10,
@@ -2907,7 +2906,7 @@ function getZolnierz() {
   return [
     {
       title: 'Żołnierz',
-      opis: 'blelbe',
+      opis: 'Każda prowincja Imperium wystawia własną armię, wyszkoloną i wyposażoną na koszt miejscowych władców. Połączone wojska wszystkich prowincji tworzą Armię Imperium, którą wspomagają wojska ochotnicze i kompanię najemników. Żołnierze są zawodowymi wojownikami wywodzącymi się zazwyczaj z chłopstwa lub mieszczaństwa. Służą w garnizonach miejskich i fortach na terenie całego Imperium. Oddziały wojskowe patrolują też granice kraju, odpierając ataki najeźdźców. Większość żołnierzy szkoli się w walce halabardą lub w strzelaniu z rusznicy. Stanowiska dowódcze są zdominowane przez szlachtę, mimo iż w Armii Imperium obowiązuje system awansu oparty na zdolnościach żołnierza. Prosty chłop albo mieszczanin może więc dosłużyć się wysokiej rangi, choć taki przebieg kariery utrudnia nieprzychylne nastawienie klasy panującej. Niziołki i krasnoludy służą w odrębnych jednostkach Armii Imperium.',
       WW: 10,
       US: 10,
       K: 0,
@@ -2940,7 +2939,7 @@ function getZolnierzOkretowy() {
   return [
     {
       title: 'Żołnierz okrętowy',
-      opis: 'blelbe',
+      opis: 'Żołnierze okrętowi to wojownicy, którzy służą na okrętach floty Imperium i dużych statkach kupieckich. W odróżnieniu od żeglarzy, których zadaniem jest obsługa żagli i sterowaniem okrętem, jedynym obowiązkiem żołnierzy okrętowych jest obrona przed atakami wrogich jednostek i statków pirackich. Na lądzie często polują na pijanych żeglarzy, których siłą werbują do służby na statku. Niejeden marynarz obudził się na statku z dala od portu, pamiętając jedynie ostatni łyk alkoholu, a potem mocne uderzenie w tył głowy. Żołnierze okrętowi nie są mile widzianymi gośćmi w nadmorskich osadach, głównie ze względu na skłonność do nadużywania rumu i wszczynania burd. Jednak, gdy na horyzoncie pojawiają się żagle piratów, ci sami przyjmują pomoc zahartowanych w boju żołnierzy okrętowych. Uwagi: Jeśli w trakcie tworzenia BG wybierzesz umiejętność wiedza (Jałowa Kraina), Twój Bohater może pochodzić z okoli wielkiego portu w Marienburgu.',
       WW: 10,
       US: 10,
       K: 10,
