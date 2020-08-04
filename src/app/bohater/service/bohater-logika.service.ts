@@ -1,3 +1,4 @@
+import { Zdolnosci } from './zdolnosci';
 import { Injectable } from '@angular/core';
 
 import { of, Observable } from 'rxjs';
@@ -789,6 +790,336 @@ export class BohaterLogikaService {
       return of(items);
     }
   }
+  getZdolnosc(zdolnosc: string): Observable<Zdolnosci[]> {
+    if (zdolnosc === 'Artylerzysta') {
+      const items = getArtylerzysta();
+      return of(items);
+    }
+    else if (zdolnosc === 'Bardzo silny') {
+      const items = getBardzoSilny();
+      return of(items);
+    }
+    else if (zdolnosc === 'Bardzo szybki') {
+      const items = getBardzoSzybki();
+      return of(items);
+    }
+    else if (zdolnosc === 'Bijatyka') {
+      const items = getBijatyka();
+      return of(items);
+    }
+    else if (zdolnosc === 'Błyskawiczne przeładowanie') {
+      const items = getBlyskawicznePrzeladowanie();
+      return of(items);
+    }
+    else if (zdolnosc === 'Błyskawiczny blok') {
+      const items = getBlyskawicznyBlok();
+      return of(items);
+    }
+    else if (zdolnosc === 'Brawura') {
+      const items = getBrawura();
+      return of(items);
+    }
+    else if (zdolnosc === 'Broń naturalna') {
+      const items = getBronNaturalna();
+      return of(items);
+    }
+    else if (zdolnosc === 'Broń specjalna(różne)') {
+      const items = getBronSpecjalna();
+      return of(items);
+    }
+    else if (zdolnosc === 'Bystry wzrok') {
+      const items = getBystryWzrok();
+      return of(items);
+    }
+    else if (zdolnosc === 'Charyzmatyczny') {
+      const items = getCharyzmatyczny();
+      return of(items);
+    }
+    else if (zdolnosc === 'Chirurgia') {
+      const items = getChirurgia();
+      return of(items);
+    }
+    else if (zdolnosc === 'Chodu!') {
+      const items = getChodu();
+      return of(items);
+    }
+    else if (zdolnosc === 'Czarnoksięstwo') {
+      const items = getCzarnoksieswto();
+      return of(items);
+    }
+    else if (zdolnosc === 'Człowiek-guma') {
+      const items = getCzlowiekGuma();
+      return of(items);
+    }
+    else if (zdolnosc === 'Czuły słuch') {
+      const items = getCzulySluch();
+      return of(items);
+    }
+    else if (zdolnosc === 'Dotyk mocy') {
+      const items = getDotykMocy();
+      return of(items);
+    }
+    else if (zdolnosc === 'Etykieta') {
+      const items = getEtykieta();
+      return of(items);
+    }
+    else if (zdolnosc === 'Geniusz arytmetyczny') {
+      const items = getGeniuszArytmetyczny();
+      return of(items);
+    }
+    else if (zdolnosc === 'Grotołaz') {
+      const items = getGrotolaz();
+      return of(items);
+    }
+    else if (zdolnosc === 'Groźny') {
+      const items = getGrozny();
+      return of(items);
+    }
+    else if (zdolnosc === 'Gusła') {
+      const items = getGusla();
+      return of(items);
+    }
+    else if (zdolnosc === 'Intrygant') {
+      const items = getIntrygant();
+      return of(items);
+    }
+    else if (zdolnosc === 'Krasnoludzki fach') {
+      const items = getKrasnoludzkiFach();
+      return of(items);
+    }
+    else if (zdolnosc === 'Krasomówstwo') {
+      const items = getKrasomowstwo();
+      return of(items);
+    }
+    else if (zdolnosc === 'Krzepki') {
+      const items = getKrzepki();
+      return of(items);
+    }
+    else if (zdolnosc === 'Latanie') {
+      const items = getLatanie();
+      return of(items);
+    }
+    else if (zdolnosc === 'Lewitacja') {
+      const items = getLewitacja();
+      return of(items);
+    }
+    else if (zdolnosc === 'Łotrzyk') {
+      const items = getLotrzyk();
+      return of(items);
+    }
+    else if (zdolnosc === 'Magia czarnoksięska') {
+      const items = getMagiaCzaroksieska();
+      return of(items);
+    }
+    else if (zdolnosc === 'Magia kapłańska') {
+      const items = getMagiaKaplanska();
+      return of(items);
+    }
+    else if (zdolnosc === 'Magia powrzechna') {
+      const items = getMagiaPowrzechna();
+      return of(items);
+    }
+    else if (zdolnosc === 'Magia prosta') {
+      const items = getMagiaProsta();
+      return of(items);
+    }
+    else if (zdolnosc === 'Magia tajemna') {
+      const items = getMagiaTajemna();
+      return of(items);
+    }
+    else if (zdolnosc === 'Medytacja') {
+      const items = getMedytacja();
+      return of(items);
+    }
+    else if (zdolnosc === 'Morderczy atak') {
+      const items = getMorderczyAtak();
+      return of(items);
+    }
+    else if (zdolnosc === 'Morderczy pocisk') {
+      const items = getMorderczyPocisk();
+      return of(items);
+    }
+    else if (zdolnosc === 'Naśladowca') {
+      const items = getNasladowca();
+      return of(items);
+    }
+    else if (zdolnosc === 'Niepokojący') {
+      const items = getNiepokojacy();
+      return of(items);
+    }
+    else if (zdolnosc === 'Nieustraszony') {
+      const items = getNieustraszony();
+      return of(items);
+    }
+    else if (zdolnosc === 'Niezwykle odporny') {
+      const items = getNiezwykleOdporny();
+      return of(items);
+    }
+    else if (zdolnosc === 'Obieżyświat') {
+      const items = getObiezyswiat();
+      return of(items);
+    }
+    else if (zdolnosc === 'Oburęczność') {
+      const items = getOburecznosc();
+      return of(items);
+    }
+    else if (zdolnosc === 'Odporność na chaos') {
+      const items = getOdpornoscNaChaos();
+      return of(items);
+    }
+    else if (zdolnosc === 'Odporność na choroby') {
+      const items = getOdpornoscNaChoroby();
+      return of(items);
+    }
+    else if (zdolnosc === 'Odpornośc na magię') {
+      const items = getOdpornoscNaMagie();
+      return of(items);
+    }
+    else if (zdolnosc === 'Odporność na trucizny') {
+      const items = getOdpornoscNaTrucizny();
+      return of(items);
+    }
+    else if (zdolnosc === 'Odporność psychiczna') {
+      const items = getOdpornoscPsychiczna();
+      return of(items);
+    }
+    else if (zdolnosc === 'Odwaga') {
+      const items = getOdwaga();
+      return of(items);
+    }
+    else if (zdolnosc === 'Ogłuszanie') {
+      const items = getOgluszenie();
+      return of(items);
+    }
+    else if (zdolnosc === 'Opanowanie') {
+      const items = getOpanowanie();
+      return of(items);
+    }
+    else if (zdolnosc === 'Ożywieniec') {
+      const items = getOzywieniec();
+      return of(items);
+    }
+    else if (zdolnosc === 'Pancerz wiary') {
+      const items = getPancerzWiary();
+      return of(items);
+    }
+    else if (zdolnosc === 'Poliglota') {
+      const items = getPoliglota();
+      return of(items);
+    }
+    else if (zdolnosc === 'Przemawianie') {
+      const items = getPrzemawianie();
+      return of(items);
+    }
+    else if (zdolnosc === 'Przerażający') {
+      const items = getPrzerazajacy();
+      return of(items);
+    }
+    else if (zdolnosc === 'Rozbrajanie') {
+      const items = getRozbrajanie();
+      return of(items);
+    }
+    else if (zdolnosc === 'Silny cios') {
+      const items = getSilnyCios();
+      return of(items);
+    }
+    else if (zdolnosc === 'Straszny') {
+      const items = getStraszny();
+      return of(items);
+    }
+    else if (zdolnosc === 'Strzał mierzony') {
+      const items = getStrzalMierzony();
+      return of(items);
+    }
+    else if (zdolnosc === 'Strzał precyzyjny') {
+      const items = getStrzalPrecyzyjny();
+      return of(items);
+    }
+    else if (zdolnosc === 'Strzał przebijający') {
+      const items = getStrzalPrzebijajacy();
+      return of(items);
+    }
+    else if (zdolnosc === 'Strzelec wyborowy') {
+      const items = getStrzelecWyborowy();
+      return of(items);
+    }
+    else if (zdolnosc === 'Szał bojowy') {
+      const items = getSzalBojowy();
+      return of(items);
+    }
+    else if (zdolnosc === 'Szczęscie') {
+      const items = getSzczescie();
+      return of(items);
+    }
+    else if (zdolnosc === 'Szósty zmysł') {
+      const items = getSzostyZmysl();
+      return of(items);
+    }
+    else if (zdolnosc === 'Szybki refleks') {
+      const items = getSzybkiRefleks();
+      return of(items);
+    }
+    else if (zdolnosc === 'Szybkie wyciągnięcie') {
+      const items = getSzybkieWyciagniecie();
+      return of(items);
+    }
+    else if (zdolnosc === 'Talent artystyczny') {
+      const items = getTalentArtystyczny();
+      return of(items);
+    }
+    else if (zdolnosc === 'Twardziel') {
+      const items = getTwardziel();
+      return of(items);
+    }
+    else if (zdolnosc === 'Ulicznik') {
+      const items = getUlicznik();
+      return of(items);
+    }
+    else if (zdolnosc === 'Urodzony wojownik') {
+      const items = getUrodzonyWojownik();
+      return of(items);
+    }
+    else if (zdolnosc === 'Wędrowiec') {
+      const items = getWedrowiec();
+      return of(items);
+    }
+    else if (zdolnosc === 'Widzenie w ciemności') {
+      const items = getWidzenieWCiemnosci();
+      return of(items);
+    }
+    else if (zdolnosc === 'Woltyżerka') {
+      const items = getWoltyzerka();
+      return of(items);
+    }
+    else if (zdolnosc === 'Wyczucie kierunku') {
+      const items = getWyczucieKierunku();
+      return of(items);
+    }
+    else if (zdolnosc === 'Wykrywanie pułapek') {
+      const items = getWykrywaniePulapek();
+      return of(items);
+    }
+    else if (zdolnosc === 'Wyostrzone zmysły') {
+      const items = getWyostrzonezmysly();
+      return of(items);
+    }
+    else if (zdolnosc === 'Zapasy') {
+      const items = getZapasy();
+      return of(items);
+    }
+    else if (zdolnosc === 'Zapiekła nienawiść') {
+      const items = getZapieklaNienawisc();
+      return of(items);
+    }
+    else if (zdolnosc === 'Zmysł magii') {
+      const items = getZmyslMagii();
+      return of(items);
+    }
+    else if (zdolnosc === 'Żyłka handlowa') {
+      const items = getZylkaHandlowa();
+      return of(items);
+    }
+  }
 
 }
 
@@ -797,21 +1128,25 @@ function getMockRasy() {
   return [
     {
       rasatitle: 'Człowiek', WW: 20, US: 20, K: 20, Odp: 20, Zr: 20, Int: 20, SW: 20, Ogd: 20, Sz: 4,
-      umiejetnosci: ['Plotkowanie', 'Wiedza(imperium)', 'Znajomość języka(staroświatowy)']
+      umiejetnosci: ['Plotkowanie', 'Wiedza(imperium)', 'Znajomość języka(staroświatowy)'],
+      zdolnosci: ['Bardzo silny', 'Bardzo szybki']
     },
     {
       rasatitle: 'Krasnolud', WW: 30, US: 20, K: 20, Odp: 30, Zr: 10, Int: 20, SW: 20, Ogd: 10, Sz: 3,
       umiejetnosci: ['Znajomość języka(khazalid)', 'Wiedza(krasnoludy)', 'Znajomość języka(staroświatowy)'],
-      wyborUmiejetnosciRasy: [['Rzemiosło(górnictwo)', 'Rzemiosło(kamieniarstwo)', 'Rzemiosło(kowalstwo)']]
+      wyborUmiejetnosciRasy: [['Rzemiosło(górnictwo)', 'Rzemiosło(kamieniarstwo)', 'Rzemiosło(kowalstwo)']],
+      zdolnosci: ['Bardzo silny', 'Bardzo szybki']
     },
     {
       rasatitle: 'Elf', WW: 20, US: 30, K: 20, Odp: 20, Zr: 30, Int: 20, SW: 20, Ogd: 20, Sz: 5,
-      umiejetnosci: ['Wiedza(elfy)', 'Znajomość języka(eltharin)', 'Znajomość języka(staroświatowy)']
+      umiejetnosci: ['Wiedza(elfy)', 'Znajomość języka(eltharin)', 'Znajomość języka(staroświatowy)'],
+      zdolnosci: ['Bardzo silny', 'Bardzo szybki']
     },
     {
       rasatitle: 'Niziołek', WW: 10, US: 30, K: 10, Odp: 10, Zr: 30, Int: 20, SW: 20, Ogd: 30, Sz: 4,
       umiejetnosci: ['Plotkowanie', 'Znajomość języka(staroświatowy)', 'Wiedza(niziołki)', 'Znajomość języka(niziołków)', 'Nauka(genealogia/heraldyka)'],
-      wyborUmiejetnosciRasy: [['Rzemiosło(gotowanie)', 'Rzemiosło(uprawa ziemi)']]
+      wyborUmiejetnosciRasy: [['Rzemiosło(gotowanie)', 'Rzemiosło(uprawa ziemi)']],
+      zdolnosci: ['Bardzo silny', 'Bardzo szybki']
     }
   ];
 }
@@ -995,10 +1330,8 @@ function getAkolita() {
         'Znajomość języka(staroświatowy)'
       ],
       wyborUmiejetnosciProfesji: [['Nauka(astronomia)', 'Nauka(historia)']],
-
-      zdolnosci: [
-        'bardzo silny albo szybki refleks', 'charyzmatyczny albo urodzony wojownik', 'przemawianie'
-      ],
+      zdolnosci: ['przemawianie'],
+      wyborZdolnosciProfesji: [['Bardzo silny', 'Szybki refleks'], ['Charyzmatyczny', 'Urodzony wojownik']],
       wyposazenie: [
         'szaty kapłańskie', 'symbol boga'
       ]
@@ -3029,9 +3362,9 @@ function getGadanina() {
   return [
     {
       typ: 'Zaawansowana',
-      umiejetnosc: 'gadanina',
+      umiejetnosc: 'Gadanina',
       cecha: 'Ogłada',
-      opis: ' Bohaterowie posiadający tę umiejętność mogą próbować zagadać osobę, zasypując ją potkiem słów. Korzystający z tej umiejętności Bohater zazwyczaj nie próbuje na nikogo wpływać (do tego służy przekonywanie), chce po prostu zyskać na czasie. Po udanym teście umiejętności ofiara ma prawo do testu Siły Woli, który określa, czy zorientowała się w tym, co się naprawdę dzieje. Nieudany test oznacza, że zagadana osoba nic nie robi przez całą rundę, zastanawiając się czy ma do czynienia z osobnikiem pijanym czy zwykłym idiotą, a może jedno i drugie. Gadanina nie przynosi rezultatu, jeśli ofiara bierze udział w walce lub stoi w obliczu ewidentnego zagrożenia życia. Bohater może próbować zagadać kilka osób (jedna osoba za każde 10pkt jego Ogłady), pod warunkiem, że wszystkie te osoby rozumieją język, którym się posługuje.',
+      opis: 'Bohaterowie posiadający tę umiejętność mogą próbować zagadać osobę, zasypując ją potkiem słów. Korzystający z tej umiejętności Bohater zazwyczaj nie próbuje na nikogo wpływać (do tego służy przekonywanie), chce po prostu zyskać na czasie. Po udanym teście umiejętności ofiara ma prawo do testu Siły Woli, który określa, czy zorientowała się w tym, co się naprawdę dzieje. Nieudany test oznacza, że zagadana osoba nic nie robi przez całą rundę, zastanawiając się czy ma do czynienia z osobnikiem pijanym czy zwykłym idiotą, a może jedno i drugie. Gadanina nie przynosi rezultatu, jeśli ofiara bierze udział w walce lub stoi w obliczu ewidentnego zagrożenia życia. Bohater może próbować zagadać kilka osób (jedna osoba za każde 10pkt jego Ogłady), pod warunkiem, że wszystkie te osoby rozumieją język, którym się posługuje.',
       zdolnoscipokrewne: 'brak.'
     }
   ]
@@ -3869,7 +4202,7 @@ function getSekretnyJezykGildii() {
       umiejetnosc: 'Sekretny język(gildii)',
       cecha: 'Inteligencja',
       opis: 'Znajomość sekretnego język pozwala na potajemne porozumiewanie się z przedstawicielami tej samej profesji lub grupy społecznej. Sekretne języki przypominają raczej uproszczony szyfr, a nie powszechnie używane formy porozumiewania się. Wykorzystując znaki, mowę ciała i słowa kodowe wplatane w zwykłą wypowiedź, Bohater może przekazać dodatkowe znaczenie wypowiadanych słów lub większą ilość informacji w krótkim czasie.' +
-      'W normalnych warunkach, gdy wszyscy rozmawiający znają dany sekretny język, test umiejętności nie jest potrzebny, aczkolwiek może być wymagany w niesprzyjających warunkach (na przykład na głośnej ulicy lub w czasie bitwy).',
+        'W normalnych warunkach, gdy wszyscy rozmawiający znają dany sekretny język, test umiejętności nie jest potrzebny, aczkolwiek może być wymagany w niesprzyjających warunkach (na przykład na głośnej ulicy lub w czasie bitwy).',
       zdolnoscipokrewne: 'brak.'
     }
   ]
@@ -3881,7 +4214,7 @@ function getSekretnyJezykLowcow() {
       umiejetnosc: 'Sekretny język(łowców)',
       cecha: 'Inteligencja',
       opis: 'Znajomość sekretnego język pozwala na potajemne porozumiewanie się z przedstawicielami tej samej profesji lub grupy społecznej. Sekretne języki przypominają raczej uproszczony szyfr, a nie powszechnie używane formy porozumiewania się. Wykorzystując znaki, mowę ciała i słowa kodowe wplatane w zwykłą wypowiedź, Bohater może przekazać dodatkowe znaczenie wypowiadanych słów lub większą ilość informacji w krótkim czasie.' +
-      'W normalnych warunkach, gdy wszyscy rozmawiający znają dany sekretny język, test umiejętności nie jest potrzebny, aczkolwiek może być wymagany w niesprzyjających warunkach (na przykład na głośnej ulicy lub w czasie bitwy).',
+        'W normalnych warunkach, gdy wszyscy rozmawiający znają dany sekretny język, test umiejętności nie jest potrzebny, aczkolwiek może być wymagany w niesprzyjających warunkach (na przykład na głośnej ulicy lub w czasie bitwy).',
       zdolnoscipokrewne: 'brak.'
     }
   ]
@@ -3893,7 +4226,7 @@ function getSekretnyJezykZlodziejski() {
       umiejetnosc: 'Sekretny język(złodziejski)',
       cecha: 'Inteligencja',
       opis: 'Znajomość sekretnego język pozwala na potajemne porozumiewanie się z przedstawicielami tej samej profesji lub grupy społecznej. Sekretne języki przypominają raczej uproszczony szyfr, a nie powszechnie używane formy porozumiewania się. Wykorzystując znaki, mowę ciała i słowa kodowe wplatane w zwykłą wypowiedź, Bohater może przekazać dodatkowe znaczenie wypowiadanych słów lub większą ilość informacji w krótkim czasie.' +
-      'W normalnych warunkach, gdy wszyscy rozmawiający znają dany sekretny język, test umiejętności nie jest potrzebny, aczkolwiek może być wymagany w niesprzyjających warunkach (na przykład na głośnej ulicy lub w czasie bitwy).',
+        'W normalnych warunkach, gdy wszyscy rozmawiający znają dany sekretny język, test umiejętności nie jest potrzebny, aczkolwiek może być wymagany w niesprzyjających warunkach (na przykład na głośnej ulicy lub w czasie bitwy).',
       zdolnoscipokrewne: 'brak.'
     }
   ]
@@ -4357,6 +4690,671 @@ function getZeglarstwo() {
       cecha: 'Zręczność',
       opis: 'Dzięki tej umiejętności bohater potrafi sterować statkami żaglowymi. Dodatkowo bohater dysponuje wiedzą o budowie okrętów, różnych rodzajach żagli, a także umiejętnością przewidywania pogody na morzu. Żeglowanie po spokojnych wodach nie wymaga testu umiejętności. Trudne warunki pogodowe, wysokie fale lub wykonywanie manewrów w czasie bitwy mogą wymagać testu umiejętności o odpowiednim stopniu trudności.',
       zdolnoscipokrewne: 'brak.'
+    }
+  ]
+}
+// zdolnosci
+function getArtylerzysta() {
+  return [
+    {
+      zdolnosc: 'Artylerzysta',
+      opis: 'opis artylerzysta',
+    }
+  ]
+}
+function getBardzoSilny() {
+  return [
+    {
+      zdolnosc: 'Bardzo silny',
+      opis: 'opis artylerzysta',
+    }
+  ]
+}
+function getBardzoSzybki() {
+  return [
+    {
+      zdolnosc: 'Bardzo Szybki',
+      opis: 'opis artylerzysta',
+    }
+  ]
+}
+function getBijatyka() {
+  return [
+    {
+      zdolnosc: 'Bijatyka',
+      opis: 'opis artylerzysta',
+    }
+  ]
+}
+function getBlyskawicznePrzeladowanie() {
+  return [
+    {
+      zdolnosc: 'Błyskawiczne przeładowanie',
+      opis: 'opis artylerzysta',
+    }
+  ]
+}
+function getBlyskawicznyBlok() {
+  return [
+    {
+      zdolnosc: 'Błyskawiczny Blok',
+      opis: 'opis artylerzysta',
+    }
+  ]
+}
+function getBlyskotliwosc() {
+  return [
+    {
+      zdolnosc: 'Błyskotliwość',
+      opis: 'opis artylerzysta',
+    }
+  ]
+}
+function getBrawura() {
+  return [
+    {
+      zdolnosc: 'Brawura',
+      opis: 'opis artylerzysta',
+    }
+  ]
+}
+function getBronNaturalna() {
+  return [
+    {
+      zdolnosc: 'Broń naturalna',
+      opis: 'opis artylerzysta',
+    }
+  ]
+}
+function getBronSpecjalna() {
+  return [
+    {
+      zdolnosc: 'Broń specjalna(różne)',
+      opis: 'opis artylerzysta',
+    }
+  ]
+}
+function getBystryWzrok() {
+  return [
+    {
+      zdolnosc: 'Bystry wzrok',
+      opis: 'opis artylerzysta',
+    }
+  ]
+}
+function getCharyzmatyczny() {
+  return [
+    {
+      zdolnosc: 'Charyzmatyczny',
+      opis: 'opis artylerzysta',
+    }
+  ]
+}
+function getChirurgia() {
+  return [
+    {
+      zdolnosc: 'Chirurgia',
+      opis: 'opis artylerzysta',
+    }
+  ]
+}
+function getChodu() {
+  return [
+    {
+      zdolnosc: 'Chodu!',
+      opis: 'opis artylerzysta',
+    }
+  ]
+}
+function getCzarnoksieswto() {
+  return [
+    {
+      zdolnosc: 'Czarnoksięstwo',
+      opis: 'opis artylerzysta',
+    }
+  ]
+}
+function getCzlowiekGuma() {
+  return [
+    {
+      zdolnosc: 'Człowiek-guma',
+      opis: 'opis artylerzysta',
+    }
+  ]
+}
+function getCzulySluch() {
+  return [
+    {
+      zdolnosc: 'Czuły słuch',
+      opis: 'opis artylerzysta',
+    }
+  ]
+}
+function getDotykMocy() {
+  return [
+    {
+      zdolnosc: 'Dotyk mocy',
+      opis: 'opis artylerzysta',
+    }
+  ]
+}
+function getEtykieta() {
+  return [
+    {
+      zdolnosc: 'Etykieta',
+      opis: 'opis artylerzysta',
+    }
+  ]
+}
+function getGeniuszArytmetyczny() {
+  return [
+    {
+      zdolnosc: 'Geniusz arytmetyczny',
+      opis: 'opis artylerzysta',
+    }
+  ]
+}
+function getGrotolaz() {
+  return [
+    {
+      zdolnosc: 'Grotołaz',
+      opis: 'opis artylerzysta',
+    }
+  ]
+}
+function getGrozny() {
+  return [
+    {
+      zdolnosc: 'Groźny',
+      opis: 'opis artylerzysta',
+    }
+  ]
+}
+function getGusla() {
+  return [
+    {
+      zdolnosc: 'Gusła',
+      opis: 'opis artylerzysta',
+    }
+  ]
+}
+function getIntrygant() {
+  return [
+    {
+      zdolnosc: 'Intrygant',
+      opis: 'opis artylerzysta',
+    }
+  ]
+}
+function getKrasnoludzkiFach() {
+  return [
+    {
+      zdolnosc: 'Krasnoludzki fach',
+      opis: 'opis artylerzysta',
+    }
+  ]
+}
+function getKrasomowstwo() {
+  return [
+    {
+      zdolnosc: 'Krasomówstwo',
+      opis: 'opis artylerzysta',
+    }
+  ]
+}
+function getKrzepki() {
+  return [
+    {
+      zdolnosc: 'Krzepki',
+      opis: 'opis artylerzysta',
+    }
+  ]
+}
+function getLatanie() {
+  return [
+    {
+      zdolnosc: 'Latanie',
+      opis: 'opis artylerzysta',
+    }
+  ]
+}
+function getLewitacja() {
+  return [
+    {
+      zdolnosc: 'Lewitacja',
+      opis: 'opis artylerzysta',
+    }
+  ]
+}
+function getLotrzyk() {
+  return [
+    {
+      zdolnosc: 'Łotrzyk',
+      opis: 'opis artylerzysta',
+    }
+  ]
+}
+function getMagiaCzaroksieska() {
+  return [
+    {
+      zdolnosc: 'Magia Czarnoksięska',
+      opis: 'opis artylerzysta',
+    }
+  ]
+}
+function getMagiaKaplanska() {
+  return [
+    {
+      zdolnosc: 'Magia Kapłańska',
+      opis: 'opis artylerzysta',
+    }
+  ]
+}
+function getMagiaPowrzechna() {
+  return [
+    {
+      zdolnosc: 'Magia powrzechna',
+      opis: 'opis artylerzysta',
+    }
+  ]
+}
+function getMagiaProsta() {
+  return [
+    {
+      zdolnosc: 'Magia prosta',
+      opis: 'opis artylerzysta',
+    }
+  ]
+}
+function getMagiaTajemna() {
+  return [
+    {
+      zdolnosc: 'Magia tajemna',
+      opis: 'opis artylerzysta',
+    }
+  ]
+}
+function getMedytacja() {
+  return [
+    {
+      zdolnosc: 'Medytacja',
+      opis: 'opis artylerzysta',
+    }
+  ]
+}
+function getMorderczyAtak() {
+  return [
+    {
+      zdolnosc: 'Morderczy atak',
+      opis: 'opis artylerzysta',
+    }
+  ]
+}
+function getMorderczyPocisk() {
+  return [
+    {
+      zdolnosc: 'Morderczy pocisk',
+      opis: 'opis artylerzysta',
+    }
+  ]
+}
+function getNasladowca() {
+  return [
+    {
+      zdolnosc: 'Naśladowca',
+      opis: 'opis artylerzysta',
+    }
+  ]
+}
+function getNiepokojacy() {
+  return [
+    {
+      zdolnosc: 'Niepokojący',
+      opis: 'opis artylerzysta',
+    }
+  ]
+}
+function getNieustraszony() {
+  return [
+    {
+      zdolnosc: 'Nieustraszony',
+      opis: 'opis artylerzysta',
+    }
+  ]
+}
+function getNiezwykleOdporny() {
+  return [
+    {
+      zdolnosc: 'Niezwykle odporny',
+      opis: 'opis artylerzysta',
+    }
+  ]
+}
+function getObiezyswiat() {
+  return [
+    {
+      zdolnosc: 'Obieżyświat',
+      opis: 'opis artylerzysta',
+    }
+  ]
+}
+function getOburecznosc() {
+  return [
+    {
+      zdolnosc: 'Oburęczność',
+      opis: 'opis artylerzysta',
+    }
+  ]
+}
+function getOdpornoscNaChaos() {
+  return [
+    {
+      zdolnosc: 'Odporność na chaos',
+      opis: 'opis artylerzysta',
+    }
+  ]
+}
+function getOdpornoscNaChoroby() {
+  return [
+    {
+      zdolnosc: 'Odporność na choroby',
+      opis: 'opis artylerzysta',
+    }
+  ]
+}
+function getOdpornoscNaMagie() {
+  return [
+    {
+      zdolnosc: 'Odpornośc na magię',
+      opis: 'opis artylerzysta',
+    }
+  ]
+}
+function getOdpornoscNaTrucizny() {
+  return [
+    {
+      zdolnosc: 'Odporność na trucizny',
+      opis: 'opis artylerzysta',
+    }
+  ]
+}
+function getOdpornoscPsychiczna() {
+  return [
+    {
+      zdolnosc: 'Odporność psychiczna',
+      opis: 'opis artylerzysta',
+    }
+  ]
+}
+function getOdwaga() {
+  return [
+    {
+      zdolnosc: 'Odwaga',
+      opis: 'opis artylerzysta',
+    }
+  ]
+}
+function getOgluszenie() {
+  return [
+    {
+      zdolnosc: 'Ogłuszenie',
+      opis: 'opis artylerzysta',
+    }
+  ]
+}
+function getOpanowanie() {
+  return [
+    {
+      zdolnosc: 'Opanowanie',
+      opis: 'opis artylerzysta',
+    }
+  ]
+}
+function getOzywieniec() {
+  return [
+    {
+      zdolnosc: 'Ożywieniec',
+      opis: 'opis artylerzysta',
+    }
+  ]
+}
+function getPancerzWiary() {
+  return [
+    {
+      zdolnosc: 'Pancerz wiary',
+      opis: 'opis artylerzysta',
+    }
+  ]
+}
+function getPoliglota() {
+  return [
+    {
+      zdolnosc: 'Poliglota',
+      opis: 'opis artylerzysta',
+    }
+  ]
+}
+function getPrzemawianie() {
+  return [
+    {
+      zdolnosc: 'Przemawianie',
+      opis: 'opis artylerzysta',
+    }
+  ]
+}
+function getPrzerazajacy() {
+  return [
+    {
+      zdolnosc: 'Przerażający',
+      opis: 'opis artylerzysta',
+    }
+  ]
+}
+function getRozbrajanie() {
+  return [
+    {
+      zdolnosc: 'Rozbrajanie',
+      opis: 'opis artylerzysta',
+    }
+  ]
+}
+function getSilnyCios() {
+  return [
+    {
+      zdolnosc: 'Silny cios',
+      opis: 'opis artylerzysta',
+    }
+  ]
+}
+function getStraszny() {
+  return [
+    {
+      zdolnosc: 'Straszny',
+      opis: 'opis artylerzysta',
+    }
+  ]
+}
+function getStrzalMierzony() {
+  return [
+    {
+      zdolnosc: 'Strzał mierzony',
+      opis: 'opis artylerzysta',
+    }
+  ]
+}
+function getStrzalPrecyzyjny() {
+  return [
+    {
+      zdolnosc: '',
+      opis: 'opis artylerzysta',
+    }
+  ]
+}
+function getStrzalPrzebijajacy() {
+  return [
+    {
+      zdolnosc: 'Strzał przebijający',
+      opis: 'opis artylerzysta',
+    }
+  ]
+}
+function getStrzelecWyborowy() {
+  return [
+    {
+      zdolnosc: 'Strzelec wyborowy',
+      opis: 'opis artylerzysta',
+    }
+  ]
+}
+function getSzalBojowy() {
+  return [
+    {
+      zdolnosc: 'Szał bojowy',
+      opis: 'opis artylerzysta',
+    }
+  ]
+}
+function getSzczescie() {
+  return [
+    {
+      zdolnosc: 'Szczęście',
+      opis: 'opis artylerzysta',
+    }
+  ]
+}
+function getSzostyZmysl() {
+  return [
+    {
+      zdolnosc: 'Szósty zmysł',
+      opis: 'opis artylerzysta',
+    }
+  ]
+}
+function getSzybkiRefleks() {
+  return [
+    {
+      zdolnosc: 'Szybki refleks',
+      opis: 'opis artylerzysta',
+    }
+  ]
+}
+function getSzybkieWyciagniecie() {
+  return [
+    {
+      zdolnosc: 'Szybkie wyciągnięcie',
+      opis: 'opis artylerzysta',
+    }
+  ]
+}
+function getTalentArtystyczny() {
+  return [
+    {
+      zdolnosc: 'Talent artystyczny',
+      opis: 'opis artylerzysta',
+    }
+  ]
+}
+function getTwardziel() {
+  return [
+    {
+      zdolnosc: 'Twardziel',
+      opis: 'opis artylerzysta',
+    }
+  ]
+}
+function getUlicznik() {
+  return [
+    {
+      zdolnosc: 'Ulicznik',
+      opis: 'opis artylerzysta',
+    }
+  ]
+}
+function getUrodzonyWojownik() {
+  return [
+    {
+      zdolnosc: 'Urodzony wojownik',
+      opis: 'opis artylerzysta',
+    }
+  ]
+}
+function getWedrowiec() {
+  return [
+    {
+      zdolnosc: 'Wędrowiec',
+      opis: 'opis artylerzysta',
+    }
+  ]
+}
+function getWidzenieWCiemnosci() {
+  return [
+    {
+      zdolnosc: 'Widzenie w ciemności',
+      opis: 'opis artylerzysta',
+    }
+  ]
+}
+function getWoltyzerka() {
+  return [
+    {
+      zdolnosc: 'Woltyżerka',
+      opis: 'opis artylerzysta',
+    }
+  ]
+}
+function getWyczucieKierunku() {
+  return [
+    {
+      zdolnosc: 'Wyczucie kierunku',
+      opis: 'opis artylerzysta',
+    }
+  ]
+}
+function getWykrywaniePulapek() {
+  return [
+    {
+      zdolnosc: 'Wykrywanie pułapek',
+      opis: 'opis artylerzysta',
+    }
+  ]
+}
+function getWyostrzonezmysly() {
+  return [
+    {
+      zdolnosc: 'Wyostrzone zmysły',
+      opis: 'opis artylerzysta',
+    }
+  ]
+}
+function getZapasy() {
+  return [
+    {
+      zdolnosc: 'Zapasy',
+      opis: 'opis artylerzysta',
+    }
+  ]
+}
+function getZapieklaNienawisc() {
+  return [
+    {
+      zdolnosc: 'Zapiekła nienawiść',
+      opis: 'opis artylerzysta',
+    }
+  ]
+}
+function getZmyslMagii() {
+  return [
+    {
+      zdolnosc: 'Zmysł magii',
+      opis: 'opis artylerzysta',
+    }
+  ]
+}
+function getZylkaHandlowa() {
+  return [
+    {
+      zdolnosc: 'Żyłka handlowa',
+      opis: 'opis artylerzysta',
     }
   ]
 }

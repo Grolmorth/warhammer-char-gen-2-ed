@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { BohaterOgolne } from '../service/bohaterOgolne';
+import { BohaterLogikaService } from '../service/bohater-logika.service';
+import { SharedService } from '../service/shared.service';
 
 @Component({
   selector: 'app-bohater-zdolnosci',
@@ -7,9 +10,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BohaterZdolnosciComponent implements OnInit {
 
-  constructor() { }
 
-  ngOnInit(): void {
+  zdolnosciProfesji: BohaterOgolne;
+  zdolnosciRasy: BohaterOgolne;
+
+
+  public constructor(public logika: BohaterLogikaService, public share: SharedService) { }
+
+  ngOnInit() {
+
+    this.zdolnosciProfesji = this.share.schematRozwojuProfesja;
+    this.zdolnosciRasy = this.share.poczatkoweStatystykiRasowe;
   }
-
+  onWyborZdolnosciProfesja(schemat, [i]) {
+    this.share.schematRozwojuProfesja.zdolnosci.push(schemat);
+    this.share.schematRozwojuProfesja.wyborZdolnosciProfesji[i] = [];
+    console.log('dodano zdolnosc', schemat[0].zdolnosc, 'do puli zdolnosci');
+  }
+  onWyborZdolnosciRasa(schemat, [i]) {
+    this.share.poczatkoweStatystykiRasowe.zdolnosci.push(schemat);
+    this.share.poczatkoweStatystykiRasowe.wyborZdolnosciRasy[i] = [];
+    console.log('dodano zdolnosc', schemat[0].zdolnosc, 'do puli zdolnosci');
+  }
 }

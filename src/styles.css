@@ -12,18 +12,17 @@ body {
 #outlet {
     width: 100%;
     position: relative;
-}
-
-p {
-    font-weight: bold;
+    background: #fcfbf8;
 }
 
 
-/*table*/
+/*tytuł wątków*/
 
-.table-striped {
-    position: relative;
-    font-size: 15px;
+.title {
+    background: #fcfbf8;
+    background: radial-gradient(circle, #565254 0%, #fcfbf8 100%);
+    color: #fcfbf8;
+    cursor: default;
 }
 
 
@@ -33,26 +32,62 @@ p {
     font-size: 12px;
 }
 
-.colour1 {
-    background-color: #f3f7fb;
+.profesja-opis {
+    cursor: default;
+    font-size: 12px;
 }
 
-.colour2 {
-    background-color: #38515b;
-    color: #f3f7fb;
+.ng-select.custom .ng-select-container {
+    min-height: 15px;
+    border-radius: 10;
+    color: #dbedf3;
+    background-color: #404b69;
+    border-color: #404b69;
 }
 
-.colour3 {
-    background-color: #38515b
+.ng-dropdown-panel .ng-dropdown-panel-items .ng-option {
+    background-color: #283149;
+    border-color: #283149;
+    border-radius: 10;
+    color: #dbedf3;
+    padding: 8px 10px;
 }
 
-.colour4 {
-    background-color: #25252a
+
+/*kontener cechy*/
+
+.cechy-container {
+    color: #565254;
+    cursor: default;
 }
 
-.colour5 {
-    background-color: #1b1716;
-    color: #f3f7fb;
+
+/*cechy tabela*/
+
+.cechy-custom :hover {
+    background: #FFFFFF;
+}
+
+
+/*umiejetnosci i zdolnosci wybory*/
+
+.pick-one-title {
+    background: #54596F;
+    background: radial-gradient(circle, #54596F 20%, #fcfbf8 80%);
+    color: #fcfbf8;
+    cursor: default;
+}
+
+.pick-one {
+    background: #54596F;
+    color: #fcfbf8;
+    cursor: default;
+}
+
+.pick-one:hover {
+    background: #fcfbf8;
+    color: #54596F;
+    cursor: default;
 }
 
 
