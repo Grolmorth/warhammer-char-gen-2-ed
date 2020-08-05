@@ -3,16 +3,52 @@
 
     <div class="border-bottom border-dark">
         <div class="row ">
-            <div class="col-sm-2 ml-1"><b>Zdolność</b></div>
+            <div class="col-sm-3 ml-1"><b>Zdolność</b></div>
             <div class="col-sm ml-1"><b>Opis</b></div>
         </div>
     </div>
     <div class="border-bottom " *ngFor="let schemat of zdolnosciRasy.zdolnosci">
         <div class="row">
-            <div class="col-sm-2 ml-1">{{schemat[0].zdolnosc}}</div>
+            <div class="col-sm-3 ml-1">{{schemat[0].zdolnosc}}</div>
             <div class="col-sm ml-1">{{schemat[0].opis}}</div>
 
         </div>
     </div>
+    <div *ngFor="let schemat of zdolnosciRasy.wyborZdolnosciRasy let i=index">
+        <div *ngIf="zdolnosciRasy.wyborZdolnosciRasy[i][0]!== undefined">
+            <div class="border-bottom">
+                <div class=" text-center pick-one-title"><b>Wybierz jedno</b></div>
+            </div>
+            <div class="border-bottom" *ngFor="let schemat of zdolnosciRasy.wyborZdolnosciRasy[i]">
+                <button (click)="onWyborZdolnosciRasa(schemat, [i])" class="pick-one btn btn-sm p-0 m-0 container-fluid">
+                    <div class="row">
+                      <div class="col-sm-3 ml-1">{{schemat[0].zdolnosc}}</div>
+                      <div class="col-sm ml-1">{{schemat[0].opis}}</div>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="border-bottom " *ngFor="let schemat of zdolnosciProfesji.zdolnosci">
+        <div class="row">
+            <div class="col-sm-3 ml-1">{{schemat[0].zdolnosc}}</div>
+            <div class="col-sm ml-1">{{schemat[0].opis}}</div>
 
+        </div>
+    </div>
+    <div *ngFor="let schemat of zdolnosciProfesji.wyborZdolnosciProfesji let i=index">
+        <div *ngIf="zdolnosciProfesji.wyborZdolnosciProfesji[i][0]!== undefined">
+            <div class="border-bottom">
+                <div class=" text-center pick-one-title"><b>Wybierz jedno</b></div>
+            </div>
+            <div class="border-bottom" *ngFor="let schemat of zdolnosciProfesji.wyborZdolnosciProfesji[i]">
+                <button (click)="onWyborZdolnosciProfesja(schemat, [i])" class="pick-one btn btn-sm p-0 m-0 container-fluid">
+                  <div class="row">
+                    <div class="col-sm-3 ml-1">{{schemat[0].zdolnosc}}</div>
+                    <div class="col-sm ml-1">{{schemat[0].opis}}</div>
+                  </div>
+              </button>
+            </div>
+        </div>
+    </div>
 </div>

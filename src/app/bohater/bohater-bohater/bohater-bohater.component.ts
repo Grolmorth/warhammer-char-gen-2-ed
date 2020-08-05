@@ -41,13 +41,14 @@ export class BohaterBohaterComponent implements OnInit {
 
   // logika przyciusku do zmiany rasy
   nowaRasa() {
-    this.share.changeRasa(this.selectedRasaId);
     console.log('zmieniono rase na', this.selectedRasaId);
+    this.share.changeRasa(this.selectedRasaId);
+
     // ukrycie i pokazanie elementów html
     this.submittedRasa = true;
     // pobranie listy możliwych profesji
     this.logika.getListaProfesje(this.selectedRasaId).subscribe(items => this.profesjaRoll = items);
-    console.log('dostępne profesje z rasy:', this.selectedRasaId);
+
 
   }
   innaRasa() {

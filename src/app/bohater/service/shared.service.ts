@@ -276,7 +276,6 @@ export class SharedService {
 
     // pobranie poczatkowych statystyk rasowych
     this.logika.getListaRasy().subscribe(items => this.statystykiRasowe = items);
-    console.log(this.statystykiRasowe[0].rasatitle);
     // przypisanie nazwy rasy do aktualnych statystyk
     this.poczatkoweStatystykiRasowe.rasatitle = rasa;
 
@@ -333,7 +332,7 @@ export class SharedService {
           this.poczatkoweStatystykiRasowe.zdolnosci[m] = this.zdolnosciRasowe;
         }
         console.log('pobranie listy zdolnosci rasowych');
-        // dodanie umiejetnosci do wyboru
+        // dodanie zdolnosci do wyboru
         if (this.statystykiRasowe[n].wyborZdolnosciRasy !== undefined) {
           for (let m = 0; m < this.statystykiRasowe[n].wyborZdolnosciRasy.length; m++) {
             // zainicjalizowanie pustej tablicy jezeli nieistnieje
@@ -347,7 +346,7 @@ export class SharedService {
 
             }
           }
-          console.log('pobrano umiejetnosci do wyboru dla', rasa);
+          console.log('pobrano zdolnosci do wyboru dla', rasa);
         }
       }
     }
@@ -380,7 +379,6 @@ export class SharedService {
       for (let n = 0; n < this.statystkiProfesji[0].umiejetnosci.length; n++) {
         this.logika.getUmiejetnosci(this.statystkiProfesji[0].umiejetnosci[n]).subscribe(items => this.umiejetnosciProfesji = items);
         this.schematRozwojuProfesja.umiejetnosci[n] = this.umiejetnosciProfesji;
-
       }
       console.log('pobrano umiejetnosci dla', profesja);
     }
@@ -401,6 +399,31 @@ export class SharedService {
       console.log('pobrano umiejetnosci do wyboru dla', profesja);
     }
     this.schematRozwojuProfesja.opis = this.statystkiProfesji[0].opis;
+
+    // dodanie listy zdolnosci profesji
+    if (this.statystkiProfesji[0].zdolnosci !== undefined) {
+      for (let m = 0; m < this.statystkiProfesji[0].zdolnosci.length; m++) {
+        this.logika.getZdolnosc(this.statystkiProfesji[0].zdolnosci[m]).subscribe(items => this.zdolnosciProfesji = items);
+        this.schematRozwojuProfesja.zdolnosci[m] = this.zdolnosciProfesji;
+      }
+    }
+    console.log('pobranie listy zdolnosci rasowych');
+    // dodanie zdolnosci profesji do wyboru
+    if (this.statystkiProfesji[0].wyborZdolnosciProfesji !== undefined) {
+      for (let m = 0; m < this.statystkiProfesji[0].wyborZdolnosciProfesji.length; m++) {
+        // zainicjalizowanie pustej tablicy jezeli nieistnieje
+        if (!this.schematRozwojuProfesja.wyborZdolnosciProfesji[m]) {
+          this.schematRozwojuProfesja.wyborZdolnosciProfesji[m] = [];
+        }
+        for (let p = 0; p < this.statystkiProfesji[0].wyborZdolnosciProfesji[m].length; p++) {
+          this.logika.getZdolnosc(this.statystkiProfesji[0].wyborZdolnosciProfesji[m][p])
+            .subscribe(items => this.zdolnosciProfesji = items);
+          this.schematRozwojuProfesja.wyborZdolnosciProfesji[m][p] = this.zdolnosciProfesji;
+
+        }
+      }
+      console.log('pobrano zdolnosci do wyboru dla', profesja);
+    }
 
   }
   // sumowanie aktualnych statystyk
