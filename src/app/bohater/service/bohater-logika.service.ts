@@ -3405,7 +3405,7 @@ function getKuglarstwoAkrobatyka() {
       typ: 'Zaawansowana',
       umiejetnosc: 'Kuglarstwo(akrobatyka)',
       cecha: 'Ogłada',
-      opis: ' Wykorzystywane jest do zabawiania publiczności.',
+      opis: 'Wykorzystywane jest do zabawiania publiczności.',
       zdolnoscipokrewne: 'człowiek-guma, naśladowca.'
     }
   ]
@@ -3844,7 +3844,7 @@ function getRzemiosloBednarstwo() {
     {
       typ: 'Zaawansowana',
       umiejetnosc: 'Rzemiosło(bednarstwo)',
-      cecha: 'Siła',
+      cecha: 'Krzepa',
       opis: 'Bohater jest fachowcem w jednej z dziedzin rzemiosła. Ta umiejętność obejmuje także te dziedziny, które formalnie nie są określone jako rzemiosło, ale wymagają posiadania wyuczonej wiedzy i odpowiednich narzędzi.',
       zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
     }
@@ -3855,7 +3855,7 @@ function getRzemiosloGarbarstwo() {
     {
       typ: 'Zaawansowana',
       umiejetnosc: 'Rzemiosło(garbarstwo)',
-      cecha: 'Siła',
+      cecha: 'Krzepa',
       opis: 'Bohater jest fachowcem w jednej z dziedzin rzemiosła. Ta umiejętność obejmuje także te dziedziny, które formalnie nie są określone jako rzemiosło, ale wymagają posiadania wyuczonej wiedzy i odpowiednich narzędzi.',
       zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
     }
@@ -3877,7 +3877,7 @@ function getRzemiosloGornictwo() {
     {
       typ: 'Zaawansowana',
       umiejetnosc: 'Rzemiosło(górnictwo)',
-      cecha: 'Siła',
+      cecha: 'Krzepa',
       opis: 'Bohater jest fachowcem w jednej z dziedzin rzemiosła. Ta umiejętność obejmuje także te dziedziny, które formalnie nie są określone jako rzemiosło, ale wymagają posiadania wyuczonej wiedzy i odpowiednich narzędzi.',
       zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
     }
@@ -3888,7 +3888,7 @@ function getRzemiosloGornictwoOdkrywkowe() {
     {
       typ: 'Zaawansowana',
       umiejetnosc: 'Rzemiosło(górnictwo odkrywkowe)',
-      cecha: 'Siła',
+      cecha: 'Krzepa',
       opis: 'Bohater jest fachowcem w jednej z dziedzin rzemiosła. Ta umiejętność obejmuje także te dziedziny, które formalnie nie są określone jako rzemiosło, ale wymagają posiadania wyuczonej wiedzy i odpowiednich narzędzi.',
       zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
     }
@@ -3954,7 +3954,7 @@ function getRzemiosloKowalstwo() {
     {
       typ: 'Zaawansowana',
       umiejetnosc: 'Rzemiosło(kowalstwo)',
-      cecha: 'Siła',
+      cecha: 'Krzepa',
       opis: 'Bohater jest fachowcem w jednej z dziedzin rzemiosła. Ta umiejętność obejmuje także te dziedziny, które formalnie nie są określone jako rzemiosło, ale wymagają posiadania wyuczonej wiedzy i odpowiednich narzędzi.',
       zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
     }
@@ -3976,7 +3976,7 @@ function getRzemiosloMlynarstwo() {
     {
       typ: 'Zaawansowana',
       umiejetnosc: 'Rzemiosło(młynarstwo)',
-      cecha: 'Siła',
+      cecha: 'Krzepa',
       opis: 'Bohater jest fachowcem w jednej z dziedzin rzemiosła. Ta umiejętność obejmuje także te dziedziny, które formalnie nie są określone jako rzemiosło, ale wymagają posiadania wyuczonej wiedzy i odpowiednich narzędzi.',
       zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
     }
@@ -3998,7 +3998,7 @@ function getRzemiosloPlatnerstwo() {
     {
       typ: 'Zaawansowana',
       umiejetnosc: 'Rzemiosło(płatnerstwo)',
-      cecha: 'Siła',
+      cecha: 'Krzepa',
       opis: 'Bohater jest fachowcem w jednej z dziedzin rzemiosła. Ta umiejętność obejmuje także te dziedziny, które formalnie nie są określone jako rzemiosło, ale wymagają posiadania wyuczonej wiedzy i odpowiednich narzędzi.',
       zdolnoscipokrewne: 'krasnoludzki fach, talent artystyczny.'
     }
@@ -4684,7 +4684,7 @@ function getArtylerzysta() {
   return [
     {
       zdolnosc: 'Artylerzysta',
-      opis: 'opis artylerzysta',
+      opis: 'Bohater zostaje świetnie wyszkolony w obsłudze broni palnej. Dzięki tej zdolności może przeładować broń palną w czasie krótszym o akcję. Jeśli bohater posiada również zdolność błyskawiczne przeładowanie, może korzystać naraz z obu zdolności(skracając czas przeładowania broni palnej o akcję podwójną).',
     }
   ]
 }
@@ -4692,7 +4692,7 @@ function getBardzoSilny() {
   return [
     {
       zdolnosc: 'Bardzo silny',
-      opis: 'opis artylerzysta',
+      opis: 'Bohater obdarzony jest wyjątkową siła. Otrzymuje +5 do Krzepy, dodawane do początkowej wartości cechy. Może to zmienić wartość Siły BG.',
     }
   ]
 }
@@ -4700,7 +4700,7 @@ function getBardzoSzybki() {
   return [
     {
       zdolnosc: 'Bardzo Szybki',
-      opis: 'opis artylerzysta',
+      opis: 'Bohater potrafi poruszać się znacznie szybciej niż inni. Otrzymuje +1 do Szybkości, dodawane do początkowej wartości cechy.',
     }
   ]
 }
@@ -4708,7 +4708,7 @@ function getBijatyka() {
   return [
     {
       zdolnosc: 'Bijatyka',
-      opis: 'opis artylerzysta',
+      opis: 'Bohater nauczył się walczyć w karczemnych burdach i miejskich rozróbach. Otrzymuje modyfikator +10 do Walki Wręcz podczas ataku bez broni. Dodatkowo otrzymuje modyfikator +1 do obrażeń zadawanych podczas takiego ataku.',
     }
   ]
 }
@@ -4716,7 +4716,7 @@ function getBlyskawicznePrzeladowanie() {
   return [
     {
       zdolnosc: 'Błyskawiczne przeładowanie',
-      opis: 'opis artylerzysta',
+      opis: 'Bohater jest doświadczonym strzelcem. Dzięki tej zdolności może przeładować broń strzelecką w czasie krótszym o akcje. Bohater używający błyskawicznego przeładowania może napiąć kuszę w czasie jednej akcji zwykłej, podczas gdy normalnie wymaga to akcji podwójnej. Jeśli przeładowanie broni normalnie zajmuje akcje. korzystając z tej zdolności można to wykonać w ramach akcji natychmiastowej. Dzięki temu Bohater może przeładować taką broń praktycznie w mgnieniu oka, co pozwała na wykonanie ataku wielokrotnego" z broni strzeleckiej.',
     }
   ]
 }
@@ -4724,7 +4724,7 @@ function getBlyskawicznyBlok() {
   return [
     {
       zdolnosc: 'Błyskawiczny Blok',
-      opis: 'opis artylerzysta',
+      opis: 'Bohater, który wykonuje „atak wielokrotny", może poświęcić jeden z ataków, otrzymując w zamian możliwość sparowania ataku przeciwnika. Na przykład Bohater mający 3 Ataki i deklarujący atak wielokrotny, mógłby wykonać dwa ataki i raz sparować atak przeciwnika. Bohater nadal może parować najwyżej jeden atak na rundę. ',
     }
   ]
 }
@@ -4732,7 +4732,7 @@ function getBlyskotliwosc() {
   return [
     {
       zdolnosc: 'Błyskotliwość',
-      opis: 'opis artylerzysta',
+      opis: 'Bohater obdarzony jest wyjątkową inteligencją. Otrzymuje +5 do Inteligencji, dodawane do początkowej wartości cechy.',
     }
   ]
 }
@@ -4740,7 +4740,7 @@ function getBrawura() {
   return [
     {
       zdolnosc: 'Brawura',
-      opis: 'opis artylerzysta',
+      opis: 'Obdarzony tą zdolnością Bohater wykazuje się wyjątkową śmiałością i ruchliwością w walce. Może wykonać akcję "skok" poświęcając na to akcję zwykłą(zamiast akcji podwójnej). Zdolność zwiększa też maksymalny zasięg wszystkich skoków o 1 metr.',
     }
   ]
 }
@@ -4748,7 +4748,7 @@ function getBronNaturalna() {
   return [
     {
       zdolnosc: 'Broń naturalna',
-      opis: 'opis artylerzysta',
+      opis: 'Postać dysponuje ostrymi kłami lub pazurami, których z powodzeniem może używać w walce. W czasie walki bez broni jest traktowana, jak gdyby używała broni jednoręcznej. Broń naturalna nie pozwala na parowanie ciosów. W przypadku broni naturalnej nie można stosować rozbrajania.',
     }
   ]
 }
@@ -4756,7 +4756,7 @@ function getBronSpecjalnaDwureczna() {
   return [
     {
       zdolnosc: 'Broń specjalna(dwuręczna)',
-      opis: 'opis artylerzysta',
+      opis: 'Bohater potrafi władać bronią, która wymaga specjalistycznego treningu. Każda zdolność broń specjalna jest odrębną zdolnością.',
     }
   ]
 }
@@ -4764,7 +4764,7 @@ function getBronSpecjalnaKawaleryjska() {
   return [
     {
       zdolnosc: 'Broń specjalna(kawaleryjska)',
-      opis: 'opis artylerzysta',
+      opis: 'Bohater potrafi władać bronią, która wymaga specjalistycznego treningu. Każda zdolność broń specjalna jest odrębną zdolnością.',
     }
   ]
 }
@@ -4772,7 +4772,7 @@ function getBronSpecjalnaMechaniczna() {
   return [
     {
       zdolnosc: 'Broń specjalna(mechaniczna)',
-      opis: 'opis artylerzysta',
+      opis: 'Bohater potrafi władać bronią, która wymaga specjalistycznego treningu. Każda zdolność broń specjalna jest odrębną zdolnością.',
     }
   ]
 }
@@ -4780,7 +4780,7 @@ function getBronSpecjalnaPalna() {
   return [
     {
       zdolnosc: 'Broń specjalna(palna)',
-      opis: 'opis artylerzysta',
+      opis: 'Bohater potrafi władać bronią, która wymaga specjalistycznego treningu. Każda zdolność broń specjalna jest odrębną zdolnością.',
     }
   ]
 }
@@ -4788,7 +4788,7 @@ function getBronSpecjalnaParujaca() {
   return [
     {
       zdolnosc: 'Broń specjalna(parująca)',
-      opis: 'opis artylerzysta',
+      opis: 'Bohater potrafi władać bronią, która wymaga specjalistycznego treningu. Każda zdolność broń specjalna jest odrębną zdolnością.',
     }
   ]
 }
@@ -4796,7 +4796,7 @@ function getBronSpecjalnaRzucana() {
   return [
     {
       zdolnosc: 'Broń specjalna(rzucana)',
-      opis: 'opis artylerzysta',
+      opis: 'Bohater potrafi władać bronią, która wymaga specjalistycznego treningu. Każda zdolność broń specjalna jest odrębną zdolnością.',
     }
   ]
 }
@@ -4804,7 +4804,7 @@ function getBronSpecjalnaSzermiercza() {
   return [
     {
       zdolnosc: 'Broń specjalna(szermiercza)',
-      opis: 'opis artylerzysta',
+      opis: 'Bohater potrafi władać bronią, która wymaga specjalistycznego treningu. Każda zdolność broń specjalna jest odrębną zdolnością.',
     }
   ]
 }
@@ -4812,7 +4812,7 @@ function getBronSpecjalnaUnieruchamiajaca() {
   return [
     {
       zdolnosc: 'Broń specjalna(unieruchamiająca)',
-      opis: 'opis artylerzysta',
+      opis: 'Bohater potrafi władać bronią, która wymaga specjalistycznego treningu. Każda zdolność broń specjalna jest odrębną zdolnością.',
     }
   ]
 }
@@ -4820,7 +4820,7 @@ function getBronSpecjalnaKorbacze() {
   return [
     {
       zdolnosc: 'Broń specjalna(korbacze)',
-      opis: 'opis artylerzysta',
+      opis: 'Bohater potrafi władać bronią, która wymaga specjalistycznego treningu. Każda zdolność broń specjalna jest odrębną zdolnością.',
     }
   ]
 }
@@ -4828,7 +4828,7 @@ function getBronSpecjalnaKusze() {
   return [
     {
       zdolnosc: 'Broń specjalna(kusze)',
-      opis: 'opis artylerzysta',
+      opis: 'Bohater potrafi władać bronią, która wymaga specjalistycznego treningu. Każda zdolność broń specjalna jest odrębną zdolnością.',
     }
   ]
 }
@@ -4836,7 +4836,7 @@ function getBronSpecjalnaLuki() {
   return [
     {
       zdolnosc: 'Broń specjalna(łuk)',
-      opis: 'opis artylerzysta',
+      opis: 'Bohater potrafi władać bronią, która wymaga specjalistycznego treningu. Każda zdolność broń specjalna jest odrębną zdolnością.',
     }
   ]
 }
@@ -4844,7 +4844,7 @@ function getBronSpecjalnaProce() {
   return [
     {
       zdolnosc: 'Broń specjalna(proce)',
-      opis: 'opis artylerzysta',
+      opis: 'Bohater potrafi władać bronią, która wymaga specjalistycznego treningu. Każda zdolność broń specjalna jest odrębną zdolnością.',
     }
   ]
 }
@@ -4852,7 +4852,7 @@ function getBystryWzrok() {
   return [
     {
       zdolnosc: 'Bystry wzrok',
-      opis: 'opis artylerzysta',
+      opis: 'Bohater obdarzony jest doskonałym wzrokiem. Otrzymuje modyfikator +10 do testów spostrzegawczości podczas rozglądania się oraz do testów czytania z warg.',
     }
   ]
 }
@@ -4860,7 +4860,7 @@ function getCharyzmatyczny() {
   return [
     {
       zdolnosc: 'Charyzmatyczny',
-      opis: 'opis artylerzysta',
+      opis: 'Bohater obdarzony jest zniewalającym urokiem osobistym. Otrzymuje +5 do Ogłady, dodawane do początkowej wartości cechy.',
     }
   ]
 }
@@ -4868,7 +4868,7 @@ function getChirurgia() {
   return [
     {
       zdolnosc: 'Chirurgia',
-      opis: 'opis artylerzysta',
+      opis: 'Bohater poznał tajniki najnowszej wiedzy medycznej. Otrzymuje modyfikator +10 do testów leczenia. W przypadku leczenia ciężko rannego pacjenta udany test przywraca 2 punkty Żywotności zamiast, jak normalnie, tylko 1. Jeśli w wyniku trafienia krytycznego istnieje ryzyko utraty kończyny, pacjent leczony przez Chirurga otrzymuje modyfikator +20 do Odporności podczas testów związanych z ryzykiem utraty kończyny.',
     }
   ]
 }
@@ -4876,7 +4876,7 @@ function getChodu() {
   return [
     {
       zdolnosc: 'Chodu!',
-      opis: 'opis artylerzysta',
+      opis: 'W chwili zagrożenia Bohater odkrywa w sobie zadziwiające możliwości fizyczne. Uciekając z pola walki lub z miejsca zagrożenia, na 1k10 rund otrzymuje +1 do Szybkości.',
     }
   ]
 }
@@ -4884,7 +4884,7 @@ function getCzarnoksieswto() {
   return [
     {
       zdolnosc: 'Czarnoksięstwo',
-      opis: 'opis artylerzysta',
+      opis: 'Bohater poznał sekret Czarnej Magii Dhar i potrafi jej używać do wspomożenia siły swoich zaklęć. Korzystanie z czarnoksięstwa umożliwia zdobycie większej mocy, ale jest także bardziej ryzykowne. Za każdym razem, gdy Bohater rzuca czar, może wykorzystać energię Dhar do jego wzmocnienia. Wykonując rzut na poziom mocy czaru, możesz rzucić dodatkową kostką k10 i zignorować najmniejszy z uzyskanych wyników, który jednak liczy się przy sprawdzaniu Przekleństwa Tzeentcha. Na przykład czarodziej z Magią 2, który rzuca zaklęcie z wykorzystaniem czarnoksięstwa, rzuca 3k10 i wybiera dwa najwyższe wyniki. Wszystkie trzy kostki są używane do sprawdzania Przekleństwa Tzeentcha. Gdyby na kostkach wypadło 6, 6 i 6, poziom mocy czaru wyniósłby 12 (6+6), jednak czar wywołałby Poważną Manifestację Chaosu. Znajomość czarnoksięstwa jest wymagana przy rzucaniu czarów z magii czarnoksięskiej.',
     }
   ]
 }
@@ -4892,7 +4892,7 @@ function getCzlowiekGuma() {
   return [
     {
       zdolnosc: 'Człowiek-guma',
-      opis: 'opis artylerzysta',
+      opis: 'Bohater potrafi wyginać swoje ciało w sposób nieosiągalny dla zwykłych osób. Otrzymuje modyfikator +10 do testów kuglarstwa(akrobatyka) oraz modyfikator +20 do Zręczności podczas testów wyzwalania się z więzów, przeciskania przez szczeliny, itp.',
     }
   ]
 }
@@ -4900,7 +4900,7 @@ function getCzulySluch() {
   return [
     {
       zdolnosc: 'Czuły słuch',
-      opis: 'opis artylerzysta',
+      opis: 'Bohater obdarzony jest wyjątkowo czułym słuchem. Otrzymuje modyfikator +20 do testów spostrzegawczości podczas nasłuchiwania. ',
     }
   ]
 }
@@ -4908,7 +4908,7 @@ function getDotykMocy() {
   return [
     {
       zdolnosc: 'Dotyk mocy',
-      opis: 'opis artylerzysta',
+      opis: 'Niektóre czary używane w walce wymagają dotknięcia przeciwnika. Bohater, który posiada zdolność dotyk mocy, otrzymuje modyfikator +20 do Walki Wręcz przy testach związanych z rzucaniem czarów dotykowych. ',
     }
   ]
 }
@@ -4916,7 +4916,7 @@ function getEtykieta() {
   return [
     {
       zdolnosc: 'Etykieta',
-      opis: 'opis artylerzysta',
+      opis: 'Bohater potrafi odpowiednio zachowywać się we wszelkich sytuacjach towarzyskich. Otrzymuje modyfikator +10  do testów plotkowania i przekonywania podczas rozmów z przedstawicielami szlachty i arystokracji. Modyfikator stosuje się również w sytuacjach gdy wymagana jest znajomość etykiety (na przykład podszywanie się pod szlachcica z wykorzystaniem charakteryzacji).',
     }
   ]
 }
@@ -4924,7 +4924,7 @@ function getGeniuszArytmetyczny() {
   return [
     {
       zdolnosc: 'Geniusz arytmetyczny',
-      opis: 'opis artylerzysta',
+      opis: 'Bohater potrafi błyskawicznie rachować w umyśle oraz, mając do dyspozycji dostatecznie dużo czasu, może rozwiązać niemal dowolny problem matematyczny. Otrzymuje modyfikator +10 do testów hazardu i nawigacji oraz modyfikator +20 do testów spostrzegawczości związanych z oceną odległości, ciężaru, itd. ',
     }
   ]
 }
@@ -4932,7 +4932,7 @@ function getGrotolaz() {
   return [
     {
       zdolnosc: 'Grotołaz',
-      opis: 'opis artylerzysta',
+      opis: 'Bohater wychował się w jaskiniach bądź często po nich wędrował. Bez trudu potrafi poruszać się w podziemiach. Otrzymuje modyfikator +10 do testów skradania się i ukrywania się wykonywanych pod powierzchnią ziemi lub w jaskiniach. ',
     }
   ]
 }
@@ -4940,7 +4940,7 @@ function getGrozny() {
   return [
     {
       zdolnosc: 'Groźny',
-      opis: 'opis artylerzysta',
+      opis: 'Wygląd, wzrost lub zachowanie Bohatera wzbudzają respekt i instynktowny niepokój wśród obserwatorów. Otrzymuje modyfikator +10 do testów zastraszania i torturowania. ',
     }
   ]
 }
@@ -4948,7 +4948,7 @@ function getGusla() {
   return [
     {
       zdolnosc: 'Gusła',
-      opis: 'opis artylerzysta',
+      opis: 'Bohater odkrył w sobie dziki talent magiczny, który udoskonala metodą prób i błędów, nie mając dostępu do magicznych studiów. Bohater potrafi rzucać czary magii prostej (gusła) bez konieczności posiadania umiejętności język tajemny. Do rzucania czarów nadal wymagana jest zdolność magia prosta (gusła). Za każdym razem, gdy Bohater korzysta z zaklęć magii prostej (gusła), musisz rzucić dodatkową kostką k10. Wynik rzutu nie dodaje się do poziomu mocy czaru, lecz jest używany do sprawdzania Przekleństwa Tzeentcha. Jeśli Twój BG nauczy się umiejętności język tajemny, nie będziesz musiał rzucać dodatkową kostką.',
     }
   ]
 }
@@ -4956,7 +4956,7 @@ function getIntrygant() {
   return [
     {
       zdolnosc: 'Intrygant',
-      opis: 'opis artylerzysta',
+      opis: 'Bohater jest mistrzem rozgrywek politycznych i intryg. Otrzymuje modyfikator +10 do testów przekonywania związanych z intrygami oraz do Siły Woli podczas testów przeciwko przekonywaniu ze strony innych osób.',
     }
   ]
 }
@@ -4964,7 +4964,7 @@ function getKrasnoludzkiFach() {
   return [
     {
       zdolnosc: 'Krasnoludzki fach',
-      opis: 'opis artylerzysta',
+      opis: 'Krasnoludy są urodzonymi rzemieślnikami. Bohater otrzymuje modyfikator +10 do testów rzemiosła: górnictwo, kamieniarstwo, kowalstwo, jubilerstwo, piwowarstwo, płatnerstwo i rusznikarstwo.',
     }
   ]
 }
@@ -4972,7 +4972,7 @@ function getKrasomowstwo() {
   return [
     {
       zdolnosc: 'Krasomówstwo',
-      opis: 'opis artylerzysta',
+      opis: 'Bohater potrafi przemawiać tak pięknie i przekonywująco, że może poderwać do działania całe tłumy. Wykorzystując przekonywanie BG może oddziaływać na grupę osób 100 razy liczniejszą niż normalnie. Zdolność krasomówstwo wymaga uprzedniego opanowania zdolności przemawianie.',
     }
   ]
 }
@@ -4980,7 +4980,7 @@ function getKrzepki() {
   return [
     {
       zdolnosc: 'Krzepki',
-      opis: 'opis artylerzysta',
+      opis: 'Bohater, który posiada tę zdolność, w czasie wielu przygód nabrał niesamowitej krzepy. Może nosić ciężki pancerz lub zbroję płytową bez zmniejszenia Szybkości. Bohater może zignorować Obciążenie noszonej zbroi, jednak nadal musi uwzględnić modyfikator -10 do Zręczności wynikający z faktu noszenia średniego pancerza.',
     }
   ]
 }
@@ -4988,7 +4988,7 @@ function getLatanie() {
   return [
     {
       zdolnosc: 'Latanie',
-      opis: 'opis artylerzysta',
+      opis: 'Postać potrafi latać.',
     }
   ]
 }
@@ -4996,7 +4996,7 @@ function getLewitacja() {
   return [
     {
       zdolnosc: 'Lewitacja',
-      opis: 'opis artylerzysta',
+      opis: 'Postać potrafi unosić się nisko nad ziemią.',
     }
   ]
 }
@@ -5004,7 +5004,7 @@ function getLotrzyk() {
   return [
     {
       zdolnosc: 'Łotrzyk',
-      opis: 'opis artylerzysta',
+      opis: 'Bohater jest blisko związany ze światem przestępczym. Otrzymuje modyfikator +10 do testów plotkowania i przekonywania w kontaktach z przedstawicielami przestępczego półświatka.',
     }
   ]
 }
@@ -5012,7 +5012,7 @@ function getMagiaCzaroksieska() {
   return [
     {
       zdolnosc: 'Magia Czarnoksięska',
-      opis: 'opis artylerzysta',
+      opis: 'Twój Bohater poznał tajniki jednej z zakazanych tradycji magicznych. Podobnie jak w przypadku magii tajnej, zgłębianie sekretów magii czarnoksięskiej wymaga poświęcenia i wyboru jednej z dostępnych mrocznych tradycji. Każda magia czarnoksięska jest oddzielną zdolnością.',
     }
   ]
 }
@@ -5020,7 +5020,7 @@ function getMagiaKaplanska() {
   return [
     {
       zdolnosc: 'Magia Kapłańska',
-      opis: 'opis artylerzysta',
+      opis: 'Bohater jest tak żarliwym wyznawcą jakiegoś bóstwa, że dzięki jego modlitwom zdarzają się rzeczy nadprzyrodzone. Zgłębianie tajemnic boga wymaga fanatycznego poświecenia i zaangażowania. Bohater musi wybrać jednego boga, a w konsekwencji także jedną z magii kapłańskich. Każda magia kapłańska jest oddzielną zdolnością magiczną, pozwalającą na rzucanie czarów z dziedziny określonego bóstwa.',
     }
   ]
 }
@@ -5028,7 +5028,7 @@ function getMagiaPowrzechna() {
   return [
     {
       zdolnosc: 'Magia powrzechna',
-      opis: 'opis artylerzysta',
+      opis: 'Bohater potrafi rzucać zaklęcia, które są powszechnie używane przez czarodziejów i kapłanów. Magia powszechna obejmuje wybór czarów, z których każdy jest osobną zdolnością.',
     }
   ]
 }
@@ -5036,7 +5036,7 @@ function getMagiaProsta() {
   return [
     {
       zdolnosc: 'Magia prosta',
-      opis: 'opis artylerzysta',
+      opis: 'Bohater poznał podstawowe tajniki rzucania czarów. Magia prosta, podobnie jak magia tajemna, obejmuje kilka zdolności. Każdy rodzaj magii prostej jest traktowany jako oddzielna zdolność magiczna.',
     }
   ]
 }
@@ -5044,7 +5044,7 @@ function getMagiaProstaTajemna() {
   return [
     {
       zdolnosc: 'Magia prosta(tajemna)',
-      opis: 'opis artylerzysta',
+      opis: 'Bohater poznał podstawowe tajniki rzucania czarów. Magia prosta, podobnie jak magia tajemna, obejmuje kilka zdolności. Każdy rodzaj magii prostej jest traktowany jako oddzielna zdolność magiczna.',
     }
   ]
 }
@@ -5052,7 +5052,7 @@ function getMagiaProstaGusla() {
   return [
     {
       zdolnosc: 'Magia prosta(gusła)',
-      opis: 'opis artylerzysta',
+      opis: 'Bohater poznał podstawowe tajniki rzucania czarów. Magia prosta, podobnie jak magia tajemna, obejmuje kilka zdolności. Każdy rodzaj magii prostej jest traktowany jako oddzielna zdolność magiczna.',
     }
   ]
 }
@@ -5060,7 +5060,7 @@ function getMagiaTajemna() {
   return [
     {
       zdolnosc: 'Magia tajemna',
-      opis: 'opis artylerzysta',
+      opis: 'Bohater poznał tajniki jednej z kilku tradycji magicznych znanych w Imperium. Magia tajemna wymaga absolutnego poświecenia i długotrwałych studiów. W konsekwencji Bohater musi dokonać wyboru jednej z dostępnych tradycji i nie będzie mógł uczyć się innych. Każdy rodzaj magii tajemnej jest oddzielną zdolnością.',
     }
   ]
 }
@@ -5068,7 +5068,7 @@ function getMedytacja() {
   return [
     {
       zdolnosc: 'Medytacja',
-      opis: 'opis artylerzysta',
+      opis: 'Bohater potrafi skupić się na własnym wnętrzu i wejść w głęboki trans, ignorując doznania ze świata zewnętrznego. 	Podczas odprawiania rytuału BG otrzymuje modyfikator do poziomu mocy czarów równy wartości jego cechy Magia.',
     }
   ]
 }
@@ -5076,7 +5076,7 @@ function getMorderczyAtak() {
   return [
     {
       zdolnosc: 'Morderczy atak',
-      opis: 'opis artylerzysta',
+      opis: 'Dzięki znajomości podstaw anatomii Bohater potrafi wymierzyć atak w newralgiczną część ciała przeciwnika. Zwiększa to o 1 Wartość Krytyczną wszystkich trafień krytycznych zadanych przez BG.',
     }
   ]
 }
@@ -5084,7 +5084,7 @@ function getMorderczyPocisk() {
   return [
     {
       zdolnosc: 'Morderczy pocisk',
-      opis: 'opis artylerzysta',
+      opis: 'Bohater specjalizuje się w czarach typu "magiczny pocisk". Otrzymuje modyfikator +1 do rzutów na obrażenia, gdy atakuje czarami tego typu.',
     }
   ]
 }
@@ -5092,7 +5092,7 @@ function getNasladowca() {
   return [
     {
       zdolnosc: 'Naśladowca',
-      opis: 'opis artylerzysta',
+      opis: 'Bohater potrafi bezbłędnie naśladować różne odgłosy. Otrzymuje modyfikator +10 do testów: kuglarstwa (aktorstwo, błaznowanie, gawędziarstwo i komedianctwo), charakteryzacji (jeśli jednym z elementów przebrania jest naśladowanie głosu lub dźwięków) oraz znajomości języka, gdy próbuje udawać, że to jego język ojczysty.',
     }
   ]
 }
@@ -5100,7 +5100,7 @@ function getNiepokojacy() {
   return [
     {
       zdolnosc: 'Niepokojący',
-      opis: 'opis artylerzysta',
+      opis: 'Bohater ma w swoim wyglądzie coś takiego, że przeciwnicy stają się niespokojni. Widząc go, wrogowie muszą wykonać test Siły Woli. Nieudany test oznacza, że otrzymują modyfikator -10 do testów Walki Wręcz i Umiejętności Strzeleckich w czasie walki z Bohaterem. Podczas każdej kolejnej rundy mogą próbować przełamać swój lęk (wykonując kolejny test Siły Woli). Efekt mija, gdy jedna ze stron ucieknie z pola walki.',
     }
   ]
 }
@@ -5108,7 +5108,7 @@ function getNieustraszony() {
   return [
     {
       zdolnosc: 'Nieustraszony',
-      opis: 'opis artylerzysta',
+      opis: 'Bohater nie odczuwa strachu. Może jest naprawdę odważny, a może po prostu szalony. Bez względu na przyczynę jest odporny na Strach i w mniejszym stopniu ulega Grozie (wykonujesz rzut przeciw Grozie jako rzut przeciw Strachowi). Bohater jest również odporny na działanie umiejętności zastraszanie i zdolności niepokojący.',
     }
   ]
 }
@@ -5116,7 +5116,7 @@ function getNiezwykleOdporny() {
   return [
     {
       zdolnosc: 'Niezwykle odporny',
-      opis: 'opis artylerzysta',
+      opis: 'Bohater obdarzony jest wyjątkową odpornością. Otrzymuje +5 do Odporności, dodawane do początkowej wartości cechy. Może to zmienić wartość Wytrzymałości.',
     }
   ]
 }
@@ -5124,7 +5124,7 @@ function getObiezyswiat() {
   return [
     {
       zdolnosc: 'Obieżyświat',
-      opis: 'opis artylerzysta',
+      opis: 'Bohater w swoim życiu wiele podróżował, zdobywając rozległą wiedzę. Otrzymuje modyfikator +10 do testów wiedzy i znajomości języka.',
     }
   ]
 }
@@ -5132,7 +5132,7 @@ function getOburecznosc() {
   return [
     {
       zdolnosc: 'Oburęczność',
-      opis: 'opis artylerzysta',
+      opis: 'Bohater może używać obu rąk z jednakową sprawnością, nie otrzymując modyfikatora -20 do Walki Wręcz, gdy trzyma broń w słabszej ręce.',
     }
   ]
 }
@@ -5140,7 +5140,7 @@ function getOdpornoscNaChaos() {
   return [
     {
       zdolnosc: 'Odporność na chaos',
-      opis: 'opis artylerzysta',
+      opis: 'Bohater obdarzony jest naturalną odpornością na wpływ Chaosu. Otrzymuje modyfikator +10 do Siły Woli podczas testów przeciwko magii i efektom Chaosu. Jest również całkowicie odporny na mutacje Chaosu. Jednak nigdy nie będzie mógł rzucać czarów.',
     }
   ]
 }
@@ -5148,7 +5148,7 @@ function getOdpornoscNaChoroby() {
   return [
     {
       zdolnosc: 'Odporność na choroby',
-      opis: 'opis artylerzysta',
+      opis: 'Bohater jest obdarzony końskim zdrowiem. Otrzymuje modyfikator +10 do Odporności podczas testów przeciwko chorobom.',
     }
   ]
 }
@@ -5156,7 +5156,7 @@ function getOdpornoscNaMagie() {
   return [
     {
       zdolnosc: 'Odporność na magię',
-      opis: 'opis artylerzysta',
+      opis: 'Bohater w naturalny sposób opiera się działaniu czarów. Otrzymuje modyfikator +10 do Siły Woli podczas testów przeciwko magii.',
     }
   ]
 }
@@ -5164,7 +5164,7 @@ function getOdpornoscNaTrucizny() {
   return [
     {
       zdolnosc: 'Odporność na trucizny',
-      opis: 'opis artylerzysta',
+      opis: 'Wyjątkowa odporność organizmu pozwala Bohaterowi osłabiać działania trucizny. Otrzymuje modyfikator +10 do Odporności podczas testów przeciwko truciznom.',
     }
   ]
 }
@@ -5172,7 +5172,7 @@ function getOdpornoscPsychiczna() {
   return [
     {
       zdolnosc: 'Odporność psychiczna',
-      opis: 'opis artylerzysta',
+      opis: 'Bohater jest podatny na efekt szokujących i przerażających wydarzeń. Do momentu uzbierania 8 Punktów Obłędu nie musisz testować, czy Bohater nabawił się choroby umysłu.',
     }
   ]
 }
@@ -5180,7 +5180,7 @@ function getOdwaga() {
   return [
     {
       zdolnosc: 'Odwaga',
-      opis: 'opis artylerzysta',
+      opis: 'Bohater odznacza się wyjątkową odwagą. Otrzymuje modyfikator +10 do Siły Woli podczas testów przeciwko Strachowi i Grozie oraz zastraszaniu.',
     }
   ]
 }
@@ -5188,7 +5188,7 @@ function getOgluszenie() {
   return [
     {
       zdolnosc: 'Ogłuszenie',
-      opis: 'opis artylerzysta',
+      opis: 'Po udanym ataku bronią biała Bohater może zadeklarować próbę ogłuszenia przeciwnika, zamiast zadawać mu obrażenia. W takiej sytuacji należy wykonać przeciwstawny test Krzepy. Jeśli Bohater wygra, jego przeciwnik musi natychmiast wykonać test Odporności, dodając modyfikator +10 za każdy Punkt Zbroi hełmu lub osłony noszonej na głowie. Jeśli ten test będzie nieudany, przeciwnik zostaje ogłuszony na 1k10 rund. W tym czasie nie może podejmować żadnych akcji i nie może stosować umiejętności unik.',
     }
   ]
 }
@@ -5196,7 +5196,7 @@ function getOpanowanie() {
   return [
     {
       zdolnosc: 'Opanowanie',
-      opis: 'opis artylerzysta',
+      opis: 'Bohater nigdy nie traci zimnej krwi. Otrzymuje +5 do Siły Woli, dodawane do początkowej wartości cechy.',
     }
   ]
 }
@@ -5204,7 +5204,7 @@ function getOzywieniec() {
   return [
     {
       zdolnosc: 'Ożywieniec',
-      opis: 'opis artylerzysta',
+      opis: 'Postać jest nieumarłym stworem, przywróconym do życia za pomocą magii nekromanckiej. Jest odporna na Strach, Grozę, trucizny, choroby oraz wszystkie czary, umiejętności i zdolności, które wpływają na emocje i umysł.',
     }
   ]
 }
@@ -5212,7 +5212,7 @@ function getPancerzWiary() {
   return [
     {
       zdolnosc: 'Pancerz wiary',
-      opis: 'opis artylerzysta',
+      opis: 'Dzięki żarliwej modlitwie Bohater potrafi skutecznie rzucać czary, nawet nosząc pancerz. Zdolność umożliwia dodanie +3 do ujemnego modyfikatora do poziomu mocy czaru, który związany jest noszeniem zbroi. Na przykład rzucanie czarów i jednoczesne zasłanianie się ciężką tarczą jest obciążone modyfikatorem -3. Zdolność pancerz wiary redukuje ten modyfikator do 0.',
     }
   ]
 }
@@ -5220,7 +5220,7 @@ function getPoliglota() {
   return [
     {
       zdolnosc: 'Poliglota',
-      opis: 'opis artylerzysta',
+      opis: 'Bohater posiada naturalną zdolność uczenia się i zapamiętywania obcych języków. Otrzymuje modyfikator +10 do testów czytania i pisania oraz znajomości języka.',
     }
   ]
 }
@@ -5228,7 +5228,7 @@ function getPrzemawianie() {
   return [
     {
       zdolnosc: 'Przemawianie',
-      opis: 'opis artylerzysta',
+      opis: 'Gdy Bohater przemawia, potrafi skupić uwagę większej grupy słuchaczy. Wykorzystując przekonywanie, może oddziaływać na grupę osób 10 razy liczniejszą niż normalnie. ',
     }
   ]
 }
@@ -5236,7 +5236,7 @@ function getPrzerazajacy() {
   return [
     {
       zdolnosc: 'Przerażający',
-      opis: 'opis artylerzysta',
+      opis: 'Wygląd postaci wywołuje przerażenie wśród obserwatorów. Swoim zachowaniem wzbudza Grozę.',
     }
   ]
 }
@@ -5244,7 +5244,7 @@ function getRozbrajanie() {
   return [
     {
       zdolnosc: 'Rozbrajanie',
-      opis: 'opis artylerzysta',
+      opis: 'Po udanym ataku bronią białą, Bohater może podjąć próbę rozbrojenia przeciwnika, zamiast zadawać mu obrażenia. W takiej sytuacji należy wykonać przeciwstawny test Zręczności. Jeśli Bohater wygra, jego przeciwnik zostaje rozbrojony i upuszcza broń. Broń można podnieść, wykonując akcję "użycie przedmiotu". Jeśli przeciwnik wygra, utrzymuje broń w ręce. Nie można rozbrajać przeciwnika, który walczy bronią naturalną (kły, pazury, itp.).',
     }
   ]
 }
@@ -5252,7 +5252,7 @@ function getSilnyCios() {
   return [
     {
       zdolnosc: 'Silny cios',
-      opis: 'opis artylerzysta',
+      opis: 'Dzięki doświadczeniu nabytemu w wielu walkach Bohater potrafi precyzyjnie wymierzyć ciosy w walce wręcz. Otrzymuje modyfikator +1 do obrażeń zadawanych bronią białą.',
     }
   ]
 }
@@ -5260,7 +5260,7 @@ function getStraszny() {
   return [
     {
       zdolnosc: 'Straszny',
-      opis: 'opis artylerzysta',
+      opis: 'Wygląd postaci wywołuje przestrach wśród obserwatorów. Swoim zachowaniem wzbudza Strach.',
     }
   ]
 }
@@ -5268,7 +5268,7 @@ function getStrzalMierzony() {
   return [
     {
       zdolnosc: 'Strzał mierzony',
-      opis: 'opis artylerzysta',
+      opis: 'Wykonując atak bronią strzelecką, Bohater potrafi skoncentrować się i znacznie lepiej wycelować. Po zadeklarowaniu akcji "wycelowanie" otrzymuje modyfikator +20 do Umiejętności Strzeleckich przy rzucie na trafienie zamiast normalnego modyfikatora +10.',
     }
   ]
 }
@@ -5276,7 +5276,7 @@ function getStrzalPrecyzyjny() {
   return [
     {
       zdolnosc: '',
-      opis: 'opis artylerzysta',
+      opis: 'Wykonując atak bronią strzelecką, Bohater potrafi precyzyjnie wymierzyć strzał, który zadaje dodatkowe obrażenia. Otrzymuje modyfikator +1 do rzutów na obrażenia podczas ataku z użyciem broni strzeleckiej.',
     }
   ]
 }
@@ -5284,7 +5284,7 @@ function getStrzalPrzebijajacy() {
   return [
     {
       zdolnosc: 'Strzał przebijający',
-      opis: 'opis artylerzysta',
+      opis: 'Bohater potrafi znaleźć odsłoniętą szczelinę w pancerzu przeciwnika. Po udanym ataku bronią strzelecką może zignorować 1 Punkt Zbroi przeciwnika. Jeśli przeciwnik nie nosi zbroi, ta zdolność jest nieskuteczna.',
     }
   ]
 }
@@ -5292,7 +5292,7 @@ function getStrzelecWyborowy() {
   return [
     {
       zdolnosc: 'Strzelec wyborowy',
-      opis: 'opis artylerzysta',
+      opis: 'Bohater potrafi wyjątkowo celnie strzelać. Otrzymuje +5 do Umiejętności Strzeleckich , dodawane do początkowej wartości cechy.',
     }
   ]
 }
@@ -5300,7 +5300,7 @@ function getSzalBojowy() {
   return [
     {
       zdolnosc: 'Szał bojowy',
-      opis: 'opis artylerzysta',
+      opis: 'W trakcie walki Bohater potrafi wpaść w szał bojowy. Przez jedną rundę musi się doprowadzić do wściekłości (wyjąc, gryząc tarczę, bijąc w piersi, itd.). W następnej rundzie jego pierwotna natura bierze górę, modyfikator +10 do testów Siły Woli i Krzepy, (także +1 do Siły, czyli zadawanych obrażeń), przy jednoczesnym modyfikatorze -10 do testów Inteligencji i Walki Wręcz. Podczas walki zawsze atakuje najbliższego przeciwnika, wykonując "atak wielokrotny", "szarżę" lub "szaleńczy atak", nie może uciekać ani wykonywać akcji "odwrót". BG zostaje pod wpływem szału bojowego do końca starcia.',
     }
   ]
 }
@@ -5308,7 +5308,7 @@ function getSzczescie() {
   return [
     {
       zdolnosc: 'Szczęście',
-      opis: 'opis artylerzysta',
+      opis: 'Bohater jest nieprawdopodobnym szczęściarzem. Wydaje się wychodzić obronną ręką z najgorszych opresji. Każdego dnia dostaje dodatkowy Punkt Szczęścia.',
     }
   ]
 }
@@ -5316,7 +5316,7 @@ function getSzostyZmysl() {
   return [
     {
       zdolnosc: 'Szósty zmysł',
-      opis: 'opis artylerzysta',
+      opis: 'Bohater jest niezwykle czujny i niemal instynktownie wyczuwa zagrożenie. W przypadku zasadzki lub innego zagrożenia Mistrz Gry może wykonać tajny test Siły Woli Bohatera. Jeśli test okaże się udany, Mistrz Gry powinien Cię poinformować, że Twój Bohater ma złe przeczucie albo wrażenie, że jest obserwowany. Dzięki temu BG obdarzony szóstym zmysłem może uniknąć zaskoczenia w początkowej fazie walki.',
     }
   ]
 }
@@ -5324,7 +5324,7 @@ function getSzybkiRefleks() {
   return [
     {
       zdolnosc: 'Szybki refleks',
-      opis: 'opis artylerzysta',
+      opis: 'Bohater jest obdarzony wspaniałym refleksem. Otrzymuje +5 do Zręczności, dodawane do początkowej wartości cechy.',
     }
   ]
 }
@@ -5332,7 +5332,7 @@ function getSzybkieWyciagniecie() {
   return [
     {
       zdolnosc: 'Szybkie wyciągnięcie',
-      opis: 'opis artylerzysta',
+      opis: 'Dzięki tej zdolności Bohater potrafi szybko zareagować, błyskawicznie dobywając broni lub wyciągając inny przedmiot zza pasa lub z kieszeni. Raz na rundę może użyć akcji "użycie przedmiotu" jako akcji natychmiastowej.',
     }
   ]
 }
@@ -5340,7 +5340,7 @@ function getTalentArtystyczny() {
   return [
     {
       zdolnosc: 'Talent artystyczny',
-      opis: 'opis artylerzysta',
+      opis: 'Bohater potrafi tworzyć dzieła sztuki. Otrzymuje modyfikator +20 do testów rzemiosła (sztuka) oraz modyfikator +10 do testów wyceny przy szacowaniu wartości dzieła sztuki.',
     }
   ]
 }
@@ -5348,7 +5348,7 @@ function getTwardziel() {
   return [
     {
       zdolnosc: 'Twardziel',
-      opis: 'opis artylerzysta',
+      opis: 'Bohater jest wyjątkowo odporny na ból i zranienia. Otrzymuje +1 do Żywotności, dodawane do początkowej wartości cechy.',
     }
   ]
 }
@@ -5356,7 +5356,7 @@ function getUlicznik() {
   return [
     {
       zdolnosc: 'Ulicznik',
-      opis: 'opis artylerzysta',
+      opis: 'Bohater wychował się w mieście i z łatwością orientuje się w terenie zabudowanym. Otrzymuje modyfikator +10 do testów skradania się i ukrywania w mieście.',
     }
   ]
 }
@@ -5364,7 +5364,7 @@ function getUrodzonyWojownik() {
   return [
     {
       zdolnosc: 'Urodzony wojownik',
-      opis: 'opis artylerzysta',
+      opis: 'Bohater wyjątkowo sprawnie posługuje się bronią białą. Otrzymuje +5 do Walki Wręcz, dodawane do początkowej wartości cechy.',
     }
   ]
 }
@@ -5372,7 +5372,7 @@ function getWedrowiec() {
   return [
     {
       zdolnosc: 'Wędrowiec',
-      opis: 'opis artylerzysta',
+      opis: 'Bohater wychował się na wsi i z łatwością orientuje się w terenie wiejskim. Otrzymuje modyfikator+10 do testów skradania się i ukrywania na terenach poza miastem.',
     }
   ]
 }
@@ -5380,7 +5380,7 @@ function getWidzenieWCiemnosci() {
   return [
     {
       zdolnosc: 'Widzenie w ciemności',
-      opis: 'opis artylerzysta',
+      opis: 'Bohater dysponuje zdolnością wyraźnego widzenia przy oświetleniu porównywalnym ze światłem gwiazd. Zasięg wzroku w takich warunkach wynosi 30 metrów. Zdolność jest bezużyteczna w całkowitej ciemności.',
     }
   ]
 }
@@ -5388,7 +5388,7 @@ function getWoltyzerka() {
   return [
     {
       zdolnosc: 'Woltyżerka',
-      opis: 'opis artylerzysta',
+      opis: 'Bohater potrafi dokonywać niewiarygodnych czynów podczas jazdy konnej. Potrafi stać na rękach na grzbiecie galopującego wierzchowca, przeskakiwać z jednego konia na drugiego, zeskakiwać w pełnym biegu, itp. Bohater wykonuje testy jeździectwa tylko w najbardziej ekstremalnych sytuacjach, a i wtedy otrzymuje modyfikator +10 do testów tej umiejętności.',
     }
   ]
 }
@@ -5396,7 +5396,7 @@ function getWyczucieKierunku() {
   return [
     {
       zdolnosc: 'Wyczucie kierunku',
-      opis: 'opis artylerzysta',
+      opis: 'Bohater instynktownie potrafi określać strony świata i orientować się w przestrzeni. Prawie nigdy się nie gubi i bez wahania potrafi wskazać kierunek północny. Dodatkowo otrzymuje modyfikator +10 do testów nawigacji.',
     }
   ]
 }
@@ -5404,7 +5404,7 @@ function getWykrywaniePulapek() {
   return [
     {
       zdolnosc: 'Wykrywanie pułapek',
-      opis: 'opis artylerzysta',
+      opis: 'Bohater jest ekspertem w wykrywaniu i rozbrajaniu pułapek. Otrzymuje modyfikator +10 do testów spostrzegawczości i otwierania zamków związanych z wykrywaniem i unieszkodliwieniem pułapek.',
     }
   ]
 }
@@ -5412,7 +5412,7 @@ function getWyostrzonezmysly() {
   return [
     {
       zdolnosc: 'Wyostrzone zmysły',
-      opis: 'opis artylerzysta',
+      opis: 'Bohater posiada wyjątkowo wyczulone zmysły. Otrzymuje modyfikator +20 do wszystkich testów spostrzegawczości.',
     }
   ]
 }
@@ -5420,7 +5420,7 @@ function getZapasy() {
   return [
     {
       zdolnosc: 'Zapasy',
-      opis: 'opis artylerzysta',
+      opis: 'Bohater wyjątkowo dobrze walczy bez broni. Wykonując chwyt, otrzymuje modyfikator +10 do Walki Wręcz. Dodatkowo otrzymuje modyfikator +10 do Krzepy, gdy chwyta przeciwnika lub gdy wyzwala się z uścisku.',
     }
   ]
 }
@@ -5428,7 +5428,7 @@ function getZapieklaNienawisc() {
   return [
     {
       zdolnosc: 'Zapiekła nienawiść',
-      opis: 'opis artylerzysta',
+      opis: 'Bohater podziela głęboko zakorzenioną wśród jego ludu wrogość wobec wszystkich zielonoskórych. Ta wiekowa już tradycja napełnia go taką nienawiścią, że otrzymuje modyfikator +5 do Walki Wręcz, gdy atakuje gobliny, orki i hobgobliny.',
     }
   ]
 }
@@ -5436,7 +5436,7 @@ function getZmyslMagii() {
   return [
     {
       zdolnosc: 'Zmysł magii',
-      opis: 'opis artylerzysta',
+      opis: 'Bohater potrafi umiejętnie manipulować Wiatrami Magii. Otrzymuje modyfikator +10 do testów splatania magii oraz wykrywania magii.',
     }
   ]
 }
@@ -5444,7 +5444,7 @@ function getZylkaHandlowa() {
   return [
     {
       zdolnosc: 'Żyłka handlowa',
-      opis: 'opis artylerzysta',
+      opis: 'Bohater potrafi sprzedać niemal wszystko. Otrzymuje modyfikator +10 do testów targowania i wyceny.',
     }
   ]
 }
