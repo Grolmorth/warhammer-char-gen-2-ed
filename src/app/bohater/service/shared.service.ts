@@ -16,6 +16,7 @@ export class SharedService {
   statystykiRasowe: BohaterOgolne[];
   umiejetnosciRasowe: Umiejetnosci[];
   zdolnosciRasowe: Zdolnosci[];
+
   // statystyki początkowe rasy
   public poczatkoweStatystykiRasowe: BohaterOgolne =
     {
@@ -48,7 +49,26 @@ export class SharedService {
   statystkiProfesji: BohaterOgolne[];
   umiejetnosciProfesji: Umiejetnosci[];
   zdolnosciProfesji: Zdolnosci[];
-
+  // statystyki wykupionego schematu rozwoju
+  public wykupionyRozwoj: BohaterOgolne =
+  {
+    WW: 0,
+    US: 0,
+    K: 0,
+    Odp: 0,
+    Zr: 0,
+    Int: 0,
+    SW: 0,
+    Ogd: 0,
+    A: 0,
+    Zyw: 0,
+    S: 0,
+    Wt: 0,
+    Sz: 0,
+    Mag: 0,
+    PO: 0,
+    PP: 0,
+  };
   // statystyki początkowe profesji
   public schematRozwojuProfesja: BohaterOgolne =
     {
@@ -77,7 +97,6 @@ export class SharedService {
       wyposazenie: []
     };
   // suma statystyk rasowych i klasowych
-  statystykiAktualne: BohaterOgolne[];
   public sumowaneStatystyki: BohaterOgolne =
     {
       WW: 0,
@@ -97,7 +116,43 @@ export class SharedService {
       PO: 0,
       PP: 0
     };
-
+  // punkty statystyk ze zdolnosci
+  public zdolnosciStatystykiRasowe: BohaterOgolne = {
+    WW: 0,
+    US: 0,
+    K: 0,
+    Odp: 0,
+    Zr: 0,
+    Int: 0,
+    SW: 0,
+    Ogd: 0,
+    A: 0,
+    Zyw: 0,
+    S: 0,
+    Wt: 0,
+    Sz: 0,
+    Mag: 0,
+    PO: 0,
+    PP: 0
+  };
+  public zdolnosciStatystykiProfesji: BohaterOgolne = {
+    WW: 0,
+    US: 0,
+    K: 0,
+    Odp: 0,
+    Zr: 0,
+    Int: 0,
+    SW: 0,
+    Ogd: 0,
+    A: 0,
+    Zyw: 0,
+    S: 0,
+    Wt: 0,
+    Sz: 0,
+    Mag: 0,
+    PO: 0,
+    PP: 0
+  };
 
   constructor(private logika: BohaterLogikaService) { }
 
@@ -123,6 +178,16 @@ export class SharedService {
     this.poczatkoweStatystykiRasowe.zdolnosci = [];
     this.poczatkoweStatystykiRasowe.wyborZdolnosciRasy = [[]];
     this.poczatkoweStatystykiRasowe.wyposazenie = [];
+    this.zdolnosciStatystykiRasowe.WW = 0;
+    this.zdolnosciStatystykiRasowe.US = 0;
+    this.zdolnosciStatystykiRasowe.K = 0;
+    this.zdolnosciStatystykiRasowe.Odp = 0;
+    this.zdolnosciStatystykiRasowe.Zr = 0;
+    this.zdolnosciStatystykiRasowe.Int = 0;
+    this.zdolnosciStatystykiRasowe.SW = 0;
+    this.zdolnosciStatystykiRasowe.Ogd = 0;
+    this.zdolnosciStatystykiRasowe.Zyw = 0;
+    this.zdolnosciStatystykiRasowe.Sz = 0;
     console.log('zresetowano statystyki dla', this.poczatkoweStatystykiRasowe.rasatitle);
     this.resetStatystykProfesja();
 
@@ -161,6 +226,16 @@ export class SharedService {
     this.sumowaneStatystyki.Mag = 0;
     this.sumowaneStatystyki.PO = 0;
     this.sumowaneStatystyki.PP = 0;
+    this.zdolnosciStatystykiProfesji.WW = 0;
+    this.zdolnosciStatystykiProfesji.US = 0;
+    this.zdolnosciStatystykiProfesji.K = 0;
+    this.zdolnosciStatystykiProfesji.Odp = 0;
+    this.zdolnosciStatystykiProfesji.Zr = 0;
+    this.zdolnosciStatystykiProfesji.Int = 0;
+    this.zdolnosciStatystykiProfesji.SW = 0;
+    this.zdolnosciStatystykiProfesji.Ogd = 0;
+    this.zdolnosciStatystykiProfesji.Zyw = 0;
+    this.zdolnosciStatystykiProfesji.Sz = 0;
     this.schematRozwojuProfesja.umiejetnosci = [];
     this.schematRozwojuProfesja.wyborUmiejetnosciProfesji = [[]];
     this.schematRozwojuProfesja.zdolnosci = [];
@@ -328,8 +403,9 @@ export class SharedService {
 
         for (let m = 0; m < this.statystykiRasowe[n].zdolnosci.length; m++) {
           this.logika.getZdolnosc(this.statystykiRasowe[n].zdolnosci[m]).subscribe(items => this.zdolnosciRasowe = items);
-
           this.poczatkoweStatystykiRasowe.zdolnosci[m] = this.zdolnosciRasowe;
+          console.log(this.poczatkoweStatystykiRasowe.zdolnosci[m][0].zdolnosc);
+          this.zdolnosciDoCechyPoczatkowych(this.poczatkoweStatystykiRasowe.zdolnosci[m][0].zdolnosc, true);
         }
         console.log('pobranie listy zdolnosci rasowych');
         // dodanie zdolnosci do wyboru
@@ -405,6 +481,7 @@ export class SharedService {
       for (let m = 0; m < this.statystkiProfesji[0].zdolnosci.length; m++) {
         this.logika.getZdolnosc(this.statystkiProfesji[0].zdolnosci[m]).subscribe(items => this.zdolnosciProfesji = items);
         this.schematRozwojuProfesja.zdolnosci[m] = this.zdolnosciProfesji;
+        console.log(this.schematRozwojuProfesja.zdolnosci[m][0].zdolnosc);
       }
     }
     console.log('pobranie listy zdolnosci rasowych');
@@ -428,22 +505,92 @@ export class SharedService {
   }
   // sumowanie aktualnych statystyk
   changeAktualne() {
-    this.sumowaneStatystyki.WW = this.poczatkoweStatystykiRasowe.WW + this.schematRozwojuProfesja.WW;
-    this.sumowaneStatystyki.US = this.poczatkoweStatystykiRasowe.US + this.schematRozwojuProfesja.US;
-    this.sumowaneStatystyki.K = this.poczatkoweStatystykiRasowe.K + this.schematRozwojuProfesja.K;
-    this.sumowaneStatystyki.Odp = this.poczatkoweStatystykiRasowe.Odp + this.schematRozwojuProfesja.Odp;
-    this.sumowaneStatystyki.Zr = this.poczatkoweStatystykiRasowe.Zr + this.schematRozwojuProfesja.Zr;
-    this.sumowaneStatystyki.Int = this.poczatkoweStatystykiRasowe.Int + this.schematRozwojuProfesja.Int;
-    this.sumowaneStatystyki.SW = this.poczatkoweStatystykiRasowe.SW + this.schematRozwojuProfesja.SW;
-    this.sumowaneStatystyki.Ogd = this.poczatkoweStatystykiRasowe.Ogd + this.schematRozwojuProfesja.Ogd;
-    this.sumowaneStatystyki.A = this.poczatkoweStatystykiRasowe.A + this.schematRozwojuProfesja.A;
-    this.sumowaneStatystyki.Zyw = this.poczatkoweStatystykiRasowe.Zyw + this.schematRozwojuProfesja.Zyw;
-    this.sumowaneStatystyki.S = Math.floor(this.sumowaneStatystyki.K / 10);
-    this.sumowaneStatystyki.Wt = Math.floor(this.sumowaneStatystyki.Odp / 10);
-    this.sumowaneStatystyki.Sz = this.poczatkoweStatystykiRasowe.Sz + this.schematRozwojuProfesja.Sz;
-    this.sumowaneStatystyki.Mag = this.poczatkoweStatystykiRasowe.Mag + this.schematRozwojuProfesja.Mag;
-    this.sumowaneStatystyki.PO = this.poczatkoweStatystykiRasowe.PO + this.schematRozwojuProfesja.PO;
-    this.sumowaneStatystyki.PP = this.poczatkoweStatystykiRasowe.PP + this.schematRozwojuProfesja.PP;
+    this.sumowaneStatystyki.WW = this.poczatkoweStatystykiRasowe.WW + this.zdolnosciStatystykiRasowe.WW + this.zdolnosciStatystykiProfesji.WW;
+    this.sumowaneStatystyki.US = this.poczatkoweStatystykiRasowe.US + this.zdolnosciStatystykiRasowe.US + this.zdolnosciStatystykiProfesji.US;
+    this.sumowaneStatystyki.K = this.poczatkoweStatystykiRasowe.K + this.zdolnosciStatystykiRasowe.K + this.zdolnosciStatystykiProfesji.K;
+    this.sumowaneStatystyki.Odp = this.poczatkoweStatystykiRasowe.Odp + this.zdolnosciStatystykiRasowe.Odp + this.zdolnosciStatystykiProfesji.Odp;
+    this.sumowaneStatystyki.Zr = this.poczatkoweStatystykiRasowe.Zr + this.zdolnosciStatystykiRasowe.Zr + this.zdolnosciStatystykiProfesji.Zr;
+    this.sumowaneStatystyki.Int = this.poczatkoweStatystykiRasowe.Int + this.zdolnosciStatystykiRasowe.Int + this.zdolnosciStatystykiProfesji.Int;
+    this.sumowaneStatystyki.SW = this.poczatkoweStatystykiRasowe.SW + this.zdolnosciStatystykiRasowe.SW + this.zdolnosciStatystykiProfesji.SW;
+    this.sumowaneStatystyki.Ogd = this.poczatkoweStatystykiRasowe.Ogd + this.zdolnosciStatystykiRasowe.Ogd + this.zdolnosciStatystykiProfesji.Ogd;
+    this.sumowaneStatystyki.A = this.poczatkoweStatystykiRasowe.A;
+    this.sumowaneStatystyki.Zyw = this.poczatkoweStatystykiRasowe.Zyw + this.zdolnosciStatystykiRasowe.Zyw + this.zdolnosciStatystykiProfesji.Zyw;
+    this.sumowaneStatystyki.S = Math.floor((this.poczatkoweStatystykiRasowe.K + this.zdolnosciStatystykiRasowe.K + this.zdolnosciStatystykiProfesji.K) / 10);
+    this.sumowaneStatystyki.Wt = Math.floor((this.poczatkoweStatystykiRasowe.Odp + this.zdolnosciStatystykiRasowe.Odp + this.zdolnosciStatystykiProfesji.Odp) / 10);
+    this.sumowaneStatystyki.Sz = this.poczatkoweStatystykiRasowe.Sz + this.zdolnosciStatystykiRasowe.Sz + this.zdolnosciStatystykiProfesji.Sz;
+    this.sumowaneStatystyki.Mag = this.poczatkoweStatystykiRasowe.Mag;
+    this.sumowaneStatystyki.PO = this.poczatkoweStatystykiRasowe.PO;
+    this.sumowaneStatystyki.PP = this.poczatkoweStatystykiRasowe.PP;
+  }
+
+  // zdolnosci, które powodują zmiane cech poczatkowych, rasa=true - zdolnosci rasy, rasa=false - zdolnosci profesji, dwie po to, żeby można było resetować pojedynczo
+  zdolnosciDoCechyPoczatkowych(zdolnosc, rasa) {
+    if (rasa === true) {
+      if (zdolnosc === "Bardzo silny") {
+        this.zdolnosciStatystykiRasowe.K = this.zdolnosciStatystykiRasowe.K + 5;
+      }
+      else if (zdolnosc === "Urodzony wojownik") {
+        this.zdolnosciStatystykiRasowe.WW = this.zdolnosciStatystykiRasowe.WW + 5;
+      }
+      else if (zdolnosc === "Błyskotliwość") {
+        this.zdolnosciStatystykiRasowe.Int = this.zdolnosciStatystykiRasowe.Int + 5;
+      }
+      else if (zdolnosc === "Charyzmatyczny") {
+        this.zdolnosciStatystykiRasowe.Ogd = this.zdolnosciStatystykiRasowe.Ogd + 5;
+      }
+      else if (zdolnosc === "Niezwykle odporny") {
+        this.zdolnosciStatystykiRasowe.Odp = this.zdolnosciStatystykiRasowe.Odp + 5;
+      }
+      else if (zdolnosc === "Opanowanie") {
+        this.zdolnosciStatystykiRasowe.SW = this.zdolnosciStatystykiRasowe.SW + 5;
+      }
+      else if (zdolnosc === "Strzelec wyborowy") {
+        this.zdolnosciStatystykiRasowe.US = this.zdolnosciStatystykiRasowe.US + 5;
+      }
+      else if (zdolnosc === "Szybki refleks") {
+        this.zdolnosciStatystykiRasowe.Zr = this.zdolnosciStatystykiRasowe.Zr + 5;
+      }
+      else if (zdolnosc === "Twardziel") {
+        this.zdolnosciStatystykiRasowe.Zyw = this.zdolnosciStatystykiRasowe.Zyw + 1;
+      }
+      else if (zdolnosc === "Bardzo szybki") {
+        this.zdolnosciStatystykiRasowe.Sz = this.zdolnosciStatystykiRasowe.Sz + 1;
+      }
+    }
+    if (rasa === false) {
+      if (zdolnosc === "Bardzo silny") {
+        this.zdolnosciStatystykiProfesji.K = this.zdolnosciStatystykiProfesji.K + 5;
+      }
+      else if (zdolnosc === "Urodzony wojownik") {
+        this.zdolnosciStatystykiProfesji.WW = this.zdolnosciStatystykiProfesji.WW + 5;
+      }
+      else if (zdolnosc === "Błyskotliwość") {
+        this.zdolnosciStatystykiProfesji.Int = this.zdolnosciStatystykiProfesji.Int + 5;
+      }
+      else if (zdolnosc === "Charyzmatyczny") {
+        this.zdolnosciStatystykiProfesji.Ogd = this.zdolnosciStatystykiProfesji.Ogd + 5;
+      }
+      else if (zdolnosc === "Niezwykle odporny") {
+        this.zdolnosciStatystykiProfesji.Odp = this.zdolnosciStatystykiProfesji.Odp + 5;
+      }
+      else if (zdolnosc === "Opanowanie") {
+        this.zdolnosciStatystykiProfesji.SW = this.zdolnosciStatystykiProfesji.SW + 5;
+      }
+      else if (zdolnosc === "Strzelec wyborowy") {
+        this.zdolnosciStatystykiProfesji.US = this.zdolnosciStatystykiProfesji.US + 5;
+      }
+      else if (zdolnosc === "Szybki refleks") {
+        this.zdolnosciStatystykiProfesji.Zr = this.zdolnosciStatystykiProfesji.Zr + 5;
+      }
+      else if (zdolnosc === "Twardziel") {
+        this.zdolnosciStatystykiProfesji.Zyw = this.zdolnosciStatystykiProfesji.Zyw + 1;
+      }
+      else if (zdolnosc === "Bardzo szybki") {
+        this.zdolnosciStatystykiProfesji.Sz = this.zdolnosciStatystykiProfesji.Sz + 1;
+      }
+    }
+    this.changeAktualne();
   }
 
 }
+

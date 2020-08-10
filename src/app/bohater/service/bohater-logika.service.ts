@@ -4699,7 +4699,7 @@ function getBardzoSilny() {
 function getBardzoSzybki() {
   return [
     {
-      zdolnosc: 'Bardzo Szybki',
+      zdolnosc: 'Bardzo szybki',
       opis: 'Bohater potrafi poruszać się znacznie szybciej niż inni. Otrzymuje +1 do Szybkości, dodawane do początkowej wartości cechy.',
     }
   ]
@@ -5275,7 +5275,7 @@ function getStrzalMierzony() {
 function getStrzalPrecyzyjny() {
   return [
     {
-      zdolnosc: '',
+      zdolnosc: 'Strzał precyzyjny',
       opis: 'Wykonując atak bronią strzelecką, Bohater potrafi precyzyjnie wymierzyć strzał, który zadaje dodatkowe obrażenia. Otrzymuje modyfikator +1 do rzutów na obrażenia podczas ataku z użyciem broni strzeleckiej.',
     }
   ]

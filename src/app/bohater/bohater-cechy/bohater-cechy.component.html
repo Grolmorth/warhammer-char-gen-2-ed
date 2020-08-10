@@ -17,27 +17,43 @@
     <div class="border-bottom border-dark cechy-custom">
         <div class="row ">
             <div class="col-3 ml-1">Początkowa</div>
-            <div placement="top" class="col-1 ">{{poczatkowa.WW}}</div>
-            <div placement="top" class="col-1 ">{{poczatkowa.US}}</div>
-            <div placement="top" class="col-1 ">{{poczatkowa.K}}</div>
-            <div placement="top" class="col-1 ">{{poczatkowa.Odp}}</div>
-            <div placement="top" class="col-1 ">{{poczatkowa.Zr}}</div>
-            <div placement="top" class="col-1 ">{{poczatkowa.Int}}</div>
-            <div placement="top" class="col-1 ">{{poczatkowa.SW}}</div>
-            <div placement="top" class="col-1">{{poczatkowa.Ogd}}</div>
+            <div placement="top" class="col-1 ">{{poczatkowa.WW}}
+                <div *ngIf="zdolnosciStatystykiRasowe.WW +zdolnosciStatystykiProfesji.WW!==0">{{zdolnosciStatystykiRasowe.WW +zdolnosciStatystykiProfesji.WW}}</div>
+            </div>
+            <div placement="top" class="col-1 ">{{poczatkowa.US}}
+                <div *ngIf="zdolnosciStatystykiRasowe.US +zdolnosciStatystykiProfesji.US!==0">{{zdolnosciStatystykiRasowe.US +zdolnosciStatystykiProfesji.US}}</div>
+            </div>
+            <div placement="top" class="col-1 ">{{poczatkowa.K}}
+                <div *ngIf="zdolnosciStatystykiRasowe.K +zdolnosciStatystykiProfesji.K!==0">{{zdolnosciStatystykiRasowe.K +zdolnosciStatystykiProfesji.K}}</div>
+            </div>
+            <div placement="top" class="col-1 ">{{poczatkowa.Odp}}
+                <div *ngIf="zdolnosciStatystykiRasowe.Odp +zdolnosciStatystykiProfesji.Odp!==0">{{zdolnosciStatystykiRasowe.Odp +zdolnosciStatystykiProfesji.Odp}}</div>
+            </div>
+            <div placement="top" class="col-1 ">{{poczatkowa.Zr}}
+                <div *ngIf="zdolnosciStatystykiRasowe.Zr +zdolnosciStatystykiProfesji.Zr!==0">{{zdolnosciStatystykiRasowe.Zr +zdolnosciStatystykiProfesji.Zr}}</div>
+            </div>
+            <div placement="top" class="col-1 ">{{poczatkowa.Int}}
+                <div *ngIf="zdolnosciStatystykiRasowe.Int +zdolnosciStatystykiProfesji.Int!==0">{{zdolnosciStatystykiRasowe.Int +zdolnosciStatystykiProfesji.Int}}</div>
+            </div>
+            <div placement="top" class="col-1 ">{{poczatkowa.SW}}
+                <div *ngIf="zdolnosciStatystykiRasowe.SW +zdolnosciStatystykiProfesji.SW!==0">{{zdolnosciStatystykiRasowe.SW +zdolnosciStatystykiProfesji.SW}}</div>
+            </div>
+            <div placement="top" class="col-1">{{poczatkowa.Ogd}}
+                <div *ngIf="zdolnosciStatystykiRasowe.Ogd +zdolnosciStatystykiProfesji.Ogd!==0">{{zdolnosciStatystykiRasowe.Ogd +zdolnosciStatystykiProfesji.Ogd}}</div>
+            </div>
         </div>
     </div>
     <div class="border-bottom border-dark cechy-custom">
         <div class="row ">
             <div class="col-3 ml-1">Schemat Rozwoju</div>
-            <div placement="top" class="col-1 ">{{schematRozwoju.WW}}</div>
-            <div placement="top" class="col-1 ">{{schematRozwoju.US}}</div>
-            <div placement="top" class="col-1 ">{{schematRozwoju.K}}</div>
-            <div placement="top" class="col-1 ">{{schematRozwoju.Odp}}</div>
-            <div placement="top" class="col-1 ">{{schematRozwoju.Zr}}</div>
-            <div placement="top" class="col-1 ">{{schematRozwoju.Int}}</div>
-            <div placement="top" class="col-1 ">{{schematRozwoju.SW}}</div>
-            <div placement="top" class="col-1">{{schematRozwoju.Ogd}}</div>
+            <div placement="top" class="col-1 ">0/{{schematRozwoju.WW}}</div>
+            <div placement="top" class="col-1 ">0/{{schematRozwoju.US}}</div>
+            <div placement="top" class="col-1 ">0/{{schematRozwoju.K}}</div>
+            <div placement="top" class="col-1 ">0/{{schematRozwoju.Odp}}</div>
+            <div placement="top" class="col-1 ">0/{{schematRozwoju.Zr}}</div>
+            <div placement="top" class="col-1 ">0/{{schematRozwoju.Int}}</div>
+            <div placement="top" class="col-1 ">0/{{schematRozwoju.SW}}</div>
+            <div placement="top" class="col-1">0/{{schematRozwoju.Ogd}}</div>
         </div>
     </div>
     <div class="border-bottom border-dark cechy-custom">
@@ -70,10 +86,14 @@
         <div class="row ">
             <div class="col-3 ml-1">Początkowa</div>
             <div placement="top" class="col-1 ">{{poczatkowa.A}}</div>
-            <div placement="top" class="col-1 ">{{poczatkowa.Zyw}}</div>
+            <div placement="top" class="col-1 ">{{poczatkowa.Zyw}}
+                <div *ngIf="zdolnosciStatystykiRasowe.Zyw +zdolnosciStatystykiProfesji.Zyw!==0">{{zdolnosciStatystykiRasowe.Zyw +zdolnosciStatystykiProfesji.Zyw}}</div>
+            </div>
             <div placement="top" class="col-1 ">{{poczatkowa.S}}</div>
             <div placement="top" class="col-1 ">{{poczatkowa.Wt}}</div>
-            <div placement="top" class="col-1 ">{{poczatkowa.Sz}}</div>
+            <div placement="top" class="col-1 ">{{poczatkowa.Sz}}
+                <div *ngIf="zdolnosciStatystykiRasowe.Sz +zdolnosciStatystykiProfesji.Sz!==0">{{zdolnosciStatystykiRasowe.Sz +zdolnosciStatystykiProfesji.Sz}}</div>
+            </div>
             <div placement="top" class="col-1 ">{{poczatkowa.Mag}}</div>
             <div placement="top" class="col-1 ">{{poczatkowa.PO}}</div>
             <div placement="top" class="col-1">{{poczatkowa.PP}}</div>
@@ -82,14 +102,14 @@
     <div class="border-bottom border-dark cechy-custom">
         <div class="row ">
             <div class="col-3 ml-1">Schemat Rozwoju</div>
-            <div placement="top" class="col-1 ">{{schematRozwoju.A}}</div>
-            <div placement="top" class="col-1 ">{{schematRozwoju.Zyw}}</div>
-            <div placement="top" class="col-1 ">{{schematRozwoju.S}}</div>
-            <div placement="top" class="col-1 ">{{schematRozwoju.Wt}}</div>
-            <div placement="top" class="col-1 ">{{schematRozwoju.Sz}}</div>
-            <div placement="top" class="col-1 ">{{schematRozwoju.Mag}}</div>
-            <div placement="top" class="col-1 ">{{schematRozwoju.PO}}</div>
-            <div placement="top" class="col-1">{{schematRozwoju.PP}}</div>
+            <div placement="top" class="col-1 ">0/{{schematRozwoju.A}}</div>
+            <div placement="top" class="col-1 ">0/{{schematRozwoju.Zyw}}</div>
+            <div placement="top" class="col-1 ">0/{{schematRozwoju.S}}</div>
+            <div placement="top" class="col-1 ">0/{{schematRozwoju.Wt}}</div>
+            <div placement="top" class="col-1 ">0/{{schematRozwoju.Sz}}</div>
+            <div placement="top" class="col-1 ">0/{{schematRozwoju.Mag}}</div>
+            <div placement="top" class="col-1 ">0/{{schematRozwoju.PO}}</div>
+            <div placement="top" class="col-1">0/{{schematRozwoju.PP}}</div>
         </div>
     </div>
     <div class="cechy-custom">

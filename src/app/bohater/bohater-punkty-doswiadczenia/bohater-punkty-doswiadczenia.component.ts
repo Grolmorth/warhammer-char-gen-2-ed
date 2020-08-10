@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { BohaterLogikaService } from '../service/bohater-logika.service';
+import { SharedService } from '../service/shared.service';
+import { BohaterOgolne } from '../service/bohaterOgolne';
 
 @Component({
   selector: 'app-bohater-punkty-doswiadczenia',
@@ -7,7 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BohaterPunktyDoswiadczeniaComponent implements OnInit {
 
-  constructor() { }
+  doswiadczenie: Number = 100;
+  wykupioneCechy: BohaterOgolne;
+
+  constructor(public logika: BohaterLogikaService, public share: SharedService) { }
+
+
 
   ngOnInit(): void {
   }

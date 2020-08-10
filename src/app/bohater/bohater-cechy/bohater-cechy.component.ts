@@ -19,6 +19,8 @@ export class BohaterCechyComponent implements OnInit {
   schematRozwoju: BohaterOgolne;
 
   aktualne: BohaterOgolne;
+  zdolnosciStatystykiRasowe: BohaterOgolne;
+  zdolnosciStatystykiProfesji: BohaterOgolne;
 
 
   public constructor(public logika: BohaterLogikaService, public share: SharedService) { }
@@ -28,6 +30,8 @@ export class BohaterCechyComponent implements OnInit {
     this.poczatkowa = this.share.poczatkoweStatystykiRasowe;
     this.schematRozwoju = this.share.schematRozwojuProfesja;
     this.aktualne = this.share.sumowaneStatystyki;
+    this.zdolnosciStatystykiRasowe = this.share.zdolnosciStatystykiRasowe;
+    this.zdolnosciStatystykiProfesji = this.share.zdolnosciStatystykiProfesji;
 
 
   }

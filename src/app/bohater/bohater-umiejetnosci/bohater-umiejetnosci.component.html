@@ -1,14 +1,14 @@
 <div class="container bohater text-center  p-0 m-0">
     <div class="p-1 title"><b>Umiejętności</b></div>
 
-    <div class="border-bottom border-dark">
+    <div class="border-bottom border-dark cursorDefault">
         <div class="row ">
             <div class="col-sm ml-1"><b>Umiejętność</b></div>
             <div class="col-sm ml-1"><b>Cecha</b></div>
             <div class="col-sm ml-1"><b>Zdolności pokrewne</b></div>
         </div>
     </div>
-    <div class="border-bottom " *ngFor="let schemat of umiejetnosciRasy.umiejetnosci">
+    <div class="border-bottom cursorDefault" *ngFor="let schemat of umiejetnosciRasy.umiejetnosci">
         <div class="row " ngbTooltip={{schemat[0].opis}} tooltipClass="tooltip-class">
             <div class="col-sm ml-1">{{schemat[0].umiejetnosc}}</div>
             <div class="col-sm ml-1">{{schemat[0].cecha}}</div>
