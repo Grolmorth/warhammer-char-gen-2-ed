@@ -4,14 +4,105 @@
     <div class="cursorDefault">
         <div class="row ">
             <div class="col-sm-3 ml-1"><b>Ilość doświadczenia</b></div>
-            <div class="col-sm ml-1"><b>{{doswiadczenie}}</b></div>
+            <div class="col-sm ml-1">{{schematRozwoju.doswiadczenie}}</div>
+            <div class="col-sm ml-1" *ngIf="schematRozwoju.profesjatitle!==''"><button class="btn btn-success btn-sm m-1" (click)="dodajDoswiadczenie()">Dodaj 100 doświadczenia</button></div>
         </div>
     </div>
-    <button class="btn btn-primary btn-sm m-1">Zwiększenie cechy głównej +5</button>
-    <button class="btn btn-primary btn-sm m-1">Zwiększenie cechy drugorzędnej +1</button>
-    <button class="btn btn-primary btn-sm m-1 disabled">Wykupienie zdolności</button>
-    <button class="btn btn-primary btn-sm m-1 disabled">Wykupienie umiejętności</button>
-    <button class="btn btn-primary btn-sm m-1 disabled">Specjalizacja w umiejętności +10</button>
-    <button class="btn btn-primary btn-sm m-1 disabled">Wybór nowej profesji</button>
-    <button class="btn btn-primary btn-sm m-1 disabled">Wybór nowe profesji podstawowej (nie wyjściowej)</button>
+    <div [hidden]="submittedButton" *ngIf="schematRozwoju.doswiadczenie>=100 && schematRozwoju.profesjatitle!==''">
+        <div>
+            <p>Koszt: 100 punktów doświadczenia</p>
+        </div>
+        <button class="btn btn-primary btn-sm m-1" (click)="zwiekszenieCechyGlownej()">Zwiększenie cechy głównej +5</button>
+        <button class="btn btn-primary btn-sm m-1" (click)="zwiekszenieCechyDrugorzednej()">Zwiększenie cechy drugorzędnej +1</button>
+        <button class="btn btn-primary btn-sm m-1" (click)="wykupienieUmiejetnosci()">Wykupienie umiejętności</button>
+        <button class="btn btn-primary btn-sm m-1" (click)="wykupienieZdolnosci()">Wykupienie zdolności</button>
+        <button class="btn btn-primary btn-sm m-1 disabled">Specjalizacja w umiejętności +10</button>
+        <button class="btn btn-primary btn-sm m-1 disabled">Wybór nowej profesji</button>
+        <div>
+            <p>Koszt: 200 punktów doświadczenia</p>
+        </div>
+        <button class="btn btn-primary btn-sm m-1 disabled">Wybór nowe profesji podstawowej (nie wyjściowej)</button>
+    </div>
+    <div [hidden]="cechyGlowne" class="container" *ngIf="schematRozwoju.doswiadczenie>=100 && schematRozwoju.profesjatitle!==''">
+        <div class="p-1 title"><b>Zwiększenie cechy głównej +5</b></div>
+        <div class="row " *ngIf="schematRozwoju.WW-wykupioneCechy.WW!=0">
+            <div class="col-1 ">{{wykupioneCechy.WW}}/{{schematRozwoju.WW}}</div>
+            <div class="col-11"><button class="btn btn-primary btn-sm m-1" (click)="zwiekszenieWW()">Zwiększ Walkę Wręcz o +5</button></div>
+        </div>
+        <div class="row " *ngIf="schematRozwoju.US-wykupioneCechy.US!=0">
+            <div class="col-1 ">{{wykupioneCechy.US}}/{{schematRozwoju.US}}</div>
+            <div class="col-11"><button class="btn btn-primary btn-sm m-1" (click)="zwiekszenieUS()">Zwiększ Umiejętności Strzeleckie o +5</button></div>
+        </div>
+        <div class="row " *ngIf="schematRozwoju.K-wykupioneCechy.K!=0">
+            <div class="col-1 ">{{wykupioneCechy.K}}/{{schematRozwoju.K}}</div>
+            <div class="col-11"><button class="btn btn-primary btn-sm m-1" (click)="zwiekszenieK()">Zwiększ Krzepę o +5</button></div>
+        </div>
+        <div class="row " *ngIf="schematRozwoju.Odp-wykupioneCechy.Odp!=0">
+            <div class="col-1 ">{{wykupioneCechy.Odp}}/{{schematRozwoju.Odp}}</div>
+            <div class="col-11"><button class="btn btn-primary btn-sm m-1" (click)="zwiekszenieOdp()">Zwiększ Odporność o +5</button></div>
+        </div>
+        <div class="row " *ngIf="schematRozwoju.Zr-wykupioneCechy.Zr!=0">
+            <div class="col-1 ">{{wykupioneCechy.Zr}}/{{schematRozwoju.Zr}}</div>
+            <div class="col-11"><button class="btn btn-primary btn-sm m-1" (click)="zwiekszenieZr()">Zwiększ Zręczność o +5</button></div>
+        </div>
+        <div class="row " *ngIf="schematRozwoju.Int-wykupioneCechy.Int!=0">
+            <div class="col-1 ">{{wykupioneCechy.Int}}/{{schematRozwoju.Int}}</div>
+            <div class="col-11"><button class="btn btn-primary btn-sm m-1" (click)="zwiekszenieInt()">Zwiększ Inteligencję o +5</button></div>
+        </div>
+        <div class="row " *ngIf="schematRozwoju.SW-wykupioneCechy.SW!=0">
+            <div class="col-1 ">{{wykupioneCechy.SW}}/{{schematRozwoju.SW}}</div>
+            <div class="col-11"><button class="btn btn-primary btn-sm m-1" (click)="zwiekszenieSW()">Zwiększ Siłę Woli o +5</button></div>
+        </div>
+        <div class="row " *ngIf="schematRozwoju.Ogd-wykupioneCechy.Ogd!=0">
+            <div class="col-1">{{wykupioneCechy.Ogd}}/{{schematRozwoju.Ogd}}</div>
+            <div class="col-11"><button class="btn btn-primary btn-sm m-1" (click)="zwiekszenieOgd()">Zwiększ Ogładę o +5</button></div>
+        </div>
+        <div class="row ">
+            <div class="col-12"><button class="btn btn-danger btn-sm m-1" (click)="cofnijCechyGlowne()">Cofnij</button></div>
+        </div>
+    </div>
+    <div [hidden]="cechyDrugorzedne" class="container" *ngIf="schematRozwoju.doswiadczenie>=100 && schematRozwoju.profesjatitle!==''">
+        <div class="p-1 title"><b>Zwiększenie cechy drugorzędnej +1</b></div>
+        <div class="row " *ngIf="schematRozwoju.A-wykupioneCechy.A!=0">
+            <div class="col-1 ">{{wykupioneCechy.A}}/{{schematRozwoju.A}}</div>
+            <div class="col-11"><button class="btn btn-primary btn-sm m-1" (click)="zwiekszenieA()">Zwiększ Ataki o +1</button></div>
+        </div>
+        <div class="row " *ngIf="schematRozwoju.Zyw-wykupioneCechy.Zyw!=0">
+            <div class="col-1 ">{{wykupioneCechy.Zyw}}/{{schematRozwoju.Zyw}}</div>
+            <div class="col-11"><button class="btn btn-primary btn-sm m-1" (click)="zwiekszenieZyw()">Zwiększ Żywotności o +1</button></div>
+        </div>
+        <div class="row " *ngIf="schematRozwoju.Sz-wykupioneCechy.Sz!=0">
+            <div class="col-1 ">{{wykupioneCechy.Sz}}/{{schematRozwoju.Sz}}</div>
+            <div class="col-11"><button class="btn btn-primary btn-sm m-1" (click)="zwiekszenieSz()">Zwiększ Szybkość o +1</button></div>
+        </div>
+        <div class="row " *ngIf="schematRozwoju.Mag-wykupioneCechy.Mag!=0">
+            <div class="col-1 ">{{wykupioneCechy.Mag}}/{{schematRozwoju.Mag}}</div>
+            <div class="col-11"><button class="btn btn-primary btn-sm m-1" (click)="zwiekszenieMag()">Zwiększ Magii o +1</button></div>
+        </div>
+        <div class="row ">
+            <div class="col-12"><button class="btn btn-danger btn-sm m-1" (click)="cofnijCechyDrugorzedne()">Cofnij</button></div>
+        </div>
+    </div>
+    <div [hidden]="noweUmiejetnosci" *ngIf="schematRozwoju.doswiadczenie>=100 && schematRozwoju.profesjatitle!==''">
+        <div class="p-1 title"><b>Dodaj nową umiejętność</b></div>
+        <div>
+            <div>
+                <ng-select class="custom" [items]="umiejetnosciDoWykupienia" bindLabel="umiejetnoscititle" bindValue="umiejetnoscititle" [(ngModel)]="selectedUmiejetnosciId">
+                </ng-select>
+                <button class="btn btn-primary btn-sm m-1" (click)="dodajUmiejetnosc(selectedUmiejetnosciId)">Dodaj umiejętność</button>
+            </div>
+            <div class="col-12"><button class="btn btn-danger btn-sm m-1" (click)="cofnijNoweUmiejetnosci()">Cofnij</button></div>
+        </div>
+    </div>
+    <div [hidden]="noweZdolnosci" *ngIf="schematRozwoju.doswiadczenie>=100 && schematRozwoju.profesjatitle!==''">
+        <div class="p-1 title"><b>Dodaj nową zdolność</b></div>
+        <div>
+            <div>
+                <ng-select class="custom" [items]="zdolnosciDoWykupienia" bindLabel="umiejetnoscititle" bindValue="umiejetnoscititle" [(ngModel)]="selectedZdolnosciId">
+                </ng-select>
+                <button class="btn btn-primary btn-sm m-1" (click)="dodajZdolnosc(selectedZdolnosciId)">Dodaj umiejętność</button>
+            </div>
+            <div class="col-12"><button class="btn btn-danger btn-sm m-1" (click)="cofnijNoweZdolnosci()">Cofnij</button></div>
+        </div>
+    </div>
 </div>

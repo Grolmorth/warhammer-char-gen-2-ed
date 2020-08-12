@@ -1,128 +1,155 @@
 <div class="container text-center  cechy-container p-0 m-0">
     <div class="p-1 title"><b>Cechy</b></div>
-
+    <!--1 wiersz nazwy cech-->
     <div class="border-bottom border-dark">
         <div class="row ">
             <div class="col-3 ml-1">Cechy główne</div>
-            <div placement="top" class="col-1 " ngbTooltip="Walka Wręcz">WW</div>
-            <div placement="top" class="col-1 " ngbTooltip="Umiejętności Strzeleckie">US</div>
-            <div placement="top" class="col-1 " ngbTooltip="Krzepa">K</div>
-            <div placement="top" class="col-1 " ngbTooltip="Odporność">Odp</div>
-            <div placement="top" class="col-1 " ngbTooltip="Zręczność">Zr</div>
-            <div placement="top" class="col-1 " ngbTooltip="Inteligencja">Int</div>
-            <div placement="top" class="col-1 " ngbTooltip="Siła Woli">SW</div>
-            <div placement="top" class="col-1 " ngbTooltip="Ogłada">Ogd</div>
+            <div class="col-1 " ngbTooltip="Walka Wręcz">WW</div>
+            <div class="col-1 " ngbTooltip="Umiejętności Strzeleckie">US</div>
+            <div class="col-1 " ngbTooltip="Krzepa">K</div>
+            <div class="col-1 " ngbTooltip="Odporność">Odp</div>
+            <div class="col-1 " ngbTooltip="Zręczność">Zr</div>
+            <div class="col-1 " ngbTooltip="Inteligencja">Int</div>
+            <div class="col-1 " ngbTooltip="Siła Woli">SW</div>
+            <div class="col-1 " ngbTooltip="Ogłada">Ogd</div>
         </div>
     </div>
+    <!--2 wiersz cechy poczatkowe-->
     <div class="border-bottom border-dark cechy-custom">
         <div class="row ">
             <div class="col-3 ml-1">Początkowa</div>
-            <div placement="top" class="col-1 ">{{poczatkowa.WW}}
-                <div *ngIf="zdolnosciStatystykiRasowe.WW +zdolnosciStatystykiProfesji.WW!==0">{{zdolnosciStatystykiRasowe.WW +zdolnosciStatystykiProfesji.WW}}</div>
+            <div class="col-1 ">{{poczatkowa.WW}}
+                <div *ngIf="zdolnosciStatystykiRasowe.WW +zdolnosciStatystykiProfesji.WW!==0">
+                    <div placement="top" ngbTooltip="Zdolność: Urodzony wojownik">{{zdolnosciStatystykiRasowe.WW +zdolnosciStatystykiProfesji.WW}}</div>
+                </div>
             </div>
-            <div placement="top" class="col-1 ">{{poczatkowa.US}}
-                <div *ngIf="zdolnosciStatystykiRasowe.US +zdolnosciStatystykiProfesji.US!==0">{{zdolnosciStatystykiRasowe.US +zdolnosciStatystykiProfesji.US}}</div>
+            <div class="col-1 ">{{poczatkowa.US}}
+                <div *ngIf="zdolnosciStatystykiRasowe.US +zdolnosciStatystykiProfesji.US!==0">
+                    <div placement="top" ngbTooltip="Zdolność: Urodzony wojownik">{{zdolnosciStatystykiRasowe.US +zdolnosciStatystykiProfesji.US}}</div>
+                </div>
             </div>
-            <div placement="top" class="col-1 ">{{poczatkowa.K}}
-                <div *ngIf="zdolnosciStatystykiRasowe.K +zdolnosciStatystykiProfesji.K!==0">{{zdolnosciStatystykiRasowe.K +zdolnosciStatystykiProfesji.K}}</div>
+            <div class="col-1 ">{{poczatkowa.K}}
+                <div *ngIf="zdolnosciStatystykiRasowe.K +zdolnosciStatystykiProfesji.K!==0">
+                    <div placement="top" ngbTooltip="Zdolność: Bardzo silny">{{zdolnosciStatystykiRasowe.K +zdolnosciStatystykiProfesji.K}}</div>
+                </div>
             </div>
-            <div placement="top" class="col-1 ">{{poczatkowa.Odp}}
-                <div *ngIf="zdolnosciStatystykiRasowe.Odp +zdolnosciStatystykiProfesji.Odp!==0">{{zdolnosciStatystykiRasowe.Odp +zdolnosciStatystykiProfesji.Odp}}</div>
+            <div class="col-1 ">{{poczatkowa.Odp}}
+                <div *ngIf="zdolnosciStatystykiRasowe.Odp +zdolnosciStatystykiProfesji.Odp!==0">
+                    <div placement="top" ngbTooltip="Zdolność: Niezwykle odporny">{{zdolnosciStatystykiRasowe.Odp +zdolnosciStatystykiProfesji.Odp}}</div>
+                </div>
             </div>
-            <div placement="top" class="col-1 ">{{poczatkowa.Zr}}
-                <div *ngIf="zdolnosciStatystykiRasowe.Zr +zdolnosciStatystykiProfesji.Zr!==0">{{zdolnosciStatystykiRasowe.Zr +zdolnosciStatystykiProfesji.Zr}}</div>
+            <div class="col-1 ">{{poczatkowa.Zr}}
+                <div *ngIf="zdolnosciStatystykiRasowe.Zr +zdolnosciStatystykiProfesji.Zr!==0">
+                    <div placement="top" ngbTooltip="Zdolność: Szybki refleks">{{zdolnosciStatystykiRasowe.Zr +zdolnosciStatystykiProfesji.Zr}}</div>
+                </div>
             </div>
-            <div placement="top" class="col-1 ">{{poczatkowa.Int}}
-                <div *ngIf="zdolnosciStatystykiRasowe.Int +zdolnosciStatystykiProfesji.Int!==0">{{zdolnosciStatystykiRasowe.Int +zdolnosciStatystykiProfesji.Int}}</div>
+            <div class="col-1 ">{{poczatkowa.Int}}
+                <div *ngIf="zdolnosciStatystykiRasowe.Int +zdolnosciStatystykiProfesji.Int!==0">
+                    <div placement="top" ngbTooltip="Zdolność: Błyskotliwość">{{zdolnosciStatystykiRasowe.Int +zdolnosciStatystykiProfesji.Int}}</div>
+                </div>
             </div>
-            <div placement="top" class="col-1 ">{{poczatkowa.SW}}
-                <div *ngIf="zdolnosciStatystykiRasowe.SW +zdolnosciStatystykiProfesji.SW!==0">{{zdolnosciStatystykiRasowe.SW +zdolnosciStatystykiProfesji.SW}}</div>
+            <div class="col-1 ">{{poczatkowa.SW}}
+                <div *ngIf="zdolnosciStatystykiRasowe.SW +zdolnosciStatystykiProfesji.SW!==0">
+                    <div placement="top" ngbTooltip="Zdolność: Opanowanie">{{zdolnosciStatystykiRasowe.SW +zdolnosciStatystykiProfesji.SW}}</div>
+                </div>
             </div>
-            <div placement="top" class="col-1">{{poczatkowa.Ogd}}
-                <div *ngIf="zdolnosciStatystykiRasowe.Ogd +zdolnosciStatystykiProfesji.Ogd!==0">{{zdolnosciStatystykiRasowe.Ogd +zdolnosciStatystykiProfesji.Ogd}}</div>
+            <div class="col-1">{{poczatkowa.Ogd}}
+                <div *ngIf="zdolnosciStatystykiRasowe.Ogd +zdolnosciStatystykiProfesji.Ogd!==0">
+                    <div placement="top" ngbTooltip="Zdolność: Charyzmatyczny">{{zdolnosciStatystykiRasowe.Ogd +zdolnosciStatystykiProfesji.Ogd}}</div>
+                </div>
             </div>
         </div>
     </div>
+    <!--3 wiersz schemat rozwoju-->
     <div class="border-bottom border-dark cechy-custom">
         <div class="row ">
             <div class="col-3 ml-1">Schemat Rozwoju</div>
-            <div placement="top" class="col-1 ">0/{{schematRozwoju.WW}}</div>
-            <div placement="top" class="col-1 ">0/{{schematRozwoju.US}}</div>
-            <div placement="top" class="col-1 ">0/{{schematRozwoju.K}}</div>
-            <div placement="top" class="col-1 ">0/{{schematRozwoju.Odp}}</div>
-            <div placement="top" class="col-1 ">0/{{schematRozwoju.Zr}}</div>
-            <div placement="top" class="col-1 ">0/{{schematRozwoju.Int}}</div>
-            <div placement="top" class="col-1 ">0/{{schematRozwoju.SW}}</div>
-            <div placement="top" class="col-1">0/{{schematRozwoju.Ogd}}</div>
+            <div class="col-1">{{wykupionyRzowoj.WW}}/{{schematRozwoju.WW}}</div>
+            <div class="col-1">{{wykupionyRzowoj.US}}/{{schematRozwoju.US}}</div>
+            <div class="col-1">{{wykupionyRzowoj.K}}/{{schematRozwoju.K}}</div>
+            <div class="col-1">{{wykupionyRzowoj.Odp}}/{{schematRozwoju.Odp}}</div>
+            <div class="col-1">{{wykupionyRzowoj.Zr}}/{{schematRozwoju.Zr}}</div>
+            <div class="col-1">{{wykupionyRzowoj.Int}}/{{schematRozwoju.Int}}</div>
+            <div class="col-1">{{wykupionyRzowoj.SW}}/{{schematRozwoju.SW}}</div>
+            <div class="col-1">{{wykupionyRzowoj.Ogd}}/{{schematRozwoju.Ogd}}</div>
         </div>
     </div>
+    <!--4 wiersz aktualne-->
     <div class="border-bottom border-dark cechy-custom">
         <div class="row ">
             <div class="col-3 ml-1">Aktualna</div>
-            <div placement="top" class="col-1 ">{{aktualne.WW}}</div>
-            <div placement="top" class="col-1 ">{{aktualne.US}}</div>
-            <div placement="top" class="col-1 ">{{aktualne.K}}</div>
-            <div placement="top" class="col-1 ">{{aktualne.Odp}}</div>
-            <div placement="top" class="col-1 ">{{aktualne.Zr}}</div>
-            <div placement="top" class="col-1 ">{{aktualne.Int}}</div>
-            <div placement="top" class="col-1 ">{{aktualne.SW}}</div>
-            <div placement="top" class="col-1">{{aktualne.Ogd}}</div>
+            <div class="col-1 font-weight-bold">{{aktualne.WW}}</div>
+            <div class="col-1 font-weight-bold">{{aktualne.US}}</div>
+            <div class="col-1 font-weight-bold">{{aktualne.K}}</div>
+            <div class="col-1 font-weight-bold">{{aktualne.Odp}}</div>
+            <div class="col-1 font-weight-bold">{{aktualne.Zr}}</div>
+            <div class="col-1 font-weight-bold">{{aktualne.Int}}</div>
+            <div class="col-1 font-weight-bold">{{aktualne.SW}}</div>
+            <div class="col-1 font-weight-bold">{{aktualne.Ogd}}</div>
         </div>
     </div>
+    <!--5 wiersz nazwy cech-->
     <div class="border-bottom border-dark">
         <div class="row ">
             <div class="col-3 ml-1">Cechy drugorzędne</div>
-            <div placement="top" class="col-1 " ngbTooltip="Ataki">A</div>
-            <div placement="top" class="col-1 " ngbTooltip="Żywotność">Żyw</div>
-            <div placement="top" class="col-1 " ngbTooltip="Siła">S</div>
-            <div placement="top" class="col-1 " ngbTooltip="Wytrzymałość">Wt</div>
-            <div placement="top" class="col-1 " ngbTooltip="Szybkość">Sz</div>
-            <div placement="top" class="col-1 " ngbTooltip="Magia">Mag</div>
-            <div placement="top" class="col-1 " ngbTooltip="Punkty Obłędu">PO</div>
-            <div placement="top" class="col-1 " ngbTooltip="Punkty Przeznaczenia">PP</div>
+            <div class="col-1 " ngbTooltip="Ataki">A</div>
+            <div class="col-1 " ngbTooltip="Żywotność">Żyw</div>
+            <div class="col-1 " ngbTooltip="Siła">S</div>
+            <div class="col-1 " ngbTooltip="Wytrzymałość">Wt</div>
+            <div class="col-1 " ngbTooltip="Szybkość">Sz</div>
+            <div class="col-1 " ngbTooltip="Magia">Mag</div>
+            <div class="col-1 " ngbTooltip="Punkty Obłędu">PO</div>
+            <div class="col-1 " ngbTooltip="Punkty Przeznaczenia">PP</div>
         </div>
     </div>
+    <!--6 wiersz cechy poczatkowe-->
     <div class="border-bottom border-dark cechy-custom">
         <div class="row ">
             <div class="col-3 ml-1">Początkowa</div>
-            <div placement="top" class="col-1 ">{{poczatkowa.A}}</div>
-            <div placement="top" class="col-1 ">{{poczatkowa.Zyw}}
-                <div *ngIf="zdolnosciStatystykiRasowe.Zyw +zdolnosciStatystykiProfesji.Zyw!==0">{{zdolnosciStatystykiRasowe.Zyw +zdolnosciStatystykiProfesji.Zyw}}</div>
+            <div class="col-1 ">{{poczatkowa.A}}</div>
+            <div class="col-1 ">{{poczatkowa.Zyw}}
+                <div *ngIf="zdolnosciStatystykiRasowe.Zr +zdolnosciStatystykiProfesji.Zyw!==0">
+                    <div placement="top" ngbTooltip="Zdolność: Twardziel">{{zdolnosciStatystykiRasowe.Zyw +zdolnosciStatystykiProfesji.Zyw}}</div>
+                </div>
             </div>
-            <div placement="top" class="col-1 ">{{poczatkowa.S}}</div>
-            <div placement="top" class="col-1 ">{{poczatkowa.Wt}}</div>
-            <div placement="top" class="col-1 ">{{poczatkowa.Sz}}
-                <div *ngIf="zdolnosciStatystykiRasowe.Sz +zdolnosciStatystykiProfesji.Sz!==0">{{zdolnosciStatystykiRasowe.Sz +zdolnosciStatystykiProfesji.Sz}}</div>
+            <div class="col-1 "></div>
+            <div class="col-1 "></div>
+            <div class="col-1 ">{{poczatkowa.Sz}}
+                <div *ngIf="zdolnosciStatystykiRasowe.Sz +zdolnosciStatystykiProfesji.Sz!==0">
+                    <div placement="top" ngbTooltip="Zdolność: Bardzo Szybki">{{zdolnosciStatystykiRasowe.Sz +zdolnosciStatystykiProfesji.Sz}}</div>
+                </div>
             </div>
-            <div placement="top" class="col-1 ">{{poczatkowa.Mag}}</div>
-            <div placement="top" class="col-1 ">{{poczatkowa.PO}}</div>
-            <div placement="top" class="col-1">{{poczatkowa.PP}}</div>
+            <div class="col-1 ">{{poczatkowa.Mag}}</div>
+            <div class="col-1 "></div>
+            <div class="col-1"></div>
         </div>
     </div>
+    <!--7 wiersz schemat rozwoju-->
     <div class="border-bottom border-dark cechy-custom">
         <div class="row ">
             <div class="col-3 ml-1">Schemat Rozwoju</div>
-            <div placement="top" class="col-1 ">0/{{schematRozwoju.A}}</div>
-            <div placement="top" class="col-1 ">0/{{schematRozwoju.Zyw}}</div>
-            <div placement="top" class="col-1 ">0/{{schematRozwoju.S}}</div>
-            <div placement="top" class="col-1 ">0/{{schematRozwoju.Wt}}</div>
-            <div placement="top" class="col-1 ">0/{{schematRozwoju.Sz}}</div>
-            <div placement="top" class="col-1 ">0/{{schematRozwoju.Mag}}</div>
-            <div placement="top" class="col-1 ">0/{{schematRozwoju.PO}}</div>
-            <div placement="top" class="col-1">0/{{schematRozwoju.PP}}</div>
+            <div class="col-1 ">{{wykupionyRzowoj.A}}/{{schematRozwoju.A}}</div>
+            <div class="col-1 ">{{wykupionyRzowoj.Zyw}}/{{schematRozwoju.Zyw}}</div>
+            <div class="col-1 "></div>
+            <div class="col-1 "></div>
+            <div class="col-1 ">{{wykupionyRzowoj.Sz}}/{{schematRozwoju.Sz}}</div>
+            <div class="col-1 ">{{wykupionyRzowoj.Mag}}/{{schematRozwoju.Mag}}</div>
+            <div class="col-1 "></div>
+            <div class="col-1"></div>
         </div>
     </div>
+    <!--8 wiersz aktualne-->
     <div class="cechy-custom">
         <div class="row ">
             <div class="col-3 ml-1">Aktualna</div>
-            <div placement="top" class="col-1 ">{{aktualne.A}}</div>
-            <div placement="top" class="col-1 ">{{aktualne.Zyw}}</div>
-            <div placement="top" class="col-1 ">{{aktualne.S}}</div>
-            <div placement="top" class="col-1 ">{{aktualne.Wt}}</div>
-            <div placement="top" class="col-1 ">{{aktualne.Sz}}</div>
-            <div placement="top" class="col-1 ">{{aktualne.Mag}}</div>
-            <div placement="top" class="col-1 ">{{aktualne.PO}}</div>
-            <div placement="top" class="col-1">{{aktualne.PP}}</div>
+            <div class="col-1 font-weight-bold">{{aktualne.A}}</div>
+            <div class="col-1 font-weight-bold">{{aktualne.Zyw}}</div>
+            <div class="col-1 font-weight-bold">{{aktualne.S}}</div>
+            <div class="col-1 font-weight-bold">{{aktualne.Wt}}</div>
+            <div class="col-1 font-weight-bold">{{aktualne.Sz}}</div>
+            <div class="col-1 font-weight-bold ">{{aktualne.Mag}}</div>
+            <div class="col-1 font-weight-bold">{{aktualne.PO}}</div>
+            <div class="col-1 font-weight-bold">{{aktualne.PP}}</div>
         </div>
     </div>
 </div>

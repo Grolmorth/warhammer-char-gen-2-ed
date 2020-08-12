@@ -715,7 +715,6 @@ export class BohaterLogikaService {
       const items = getWiedzaOgry();
       return of(items);
     }
-
     else if (umiejetnosc === 'Wioślarstwo') {
       const items = getWioślarstwo();
       return of(items);
@@ -780,7 +779,6 @@ export class BohaterLogikaService {
       const items = getZnajomoscjezykaNiziolkow();
       return of(items);
     }
-
     else if (umiejetnosc === 'Zwinne palce') {
       const items = getZwinnePalce();
       return of(items);

@@ -34,9 +34,6 @@ export class BohaterBohaterComponent implements OnInit {
   // pobranie wszystkich ras z serwisu
   ngOnInit() {
     this.logika.getListaRasy().subscribe(items => this.cechy = items);
-    console.log('pobrano rasy');
-
-
   }
 
   // logika przyciusku do zmiany rasy

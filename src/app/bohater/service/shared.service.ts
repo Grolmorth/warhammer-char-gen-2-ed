@@ -51,29 +51,30 @@ export class SharedService {
   zdolnosciProfesji: Zdolnosci[];
   // statystyki wykupionego schematu rozwoju
   public wykupionyRozwoj: BohaterOgolne =
-  {
-    WW: 0,
-    US: 0,
-    K: 0,
-    Odp: 0,
-    Zr: 0,
-    Int: 0,
-    SW: 0,
-    Ogd: 0,
-    A: 0,
-    Zyw: 0,
-    S: 0,
-    Wt: 0,
-    Sz: 0,
-    Mag: 0,
-    PO: 0,
-    PP: 0,
-  };
+    {
+      WW: 0,
+      US: 0,
+      K: 0,
+      Odp: 0,
+      Zr: 0,
+      Int: 0,
+      SW: 0,
+      Ogd: 0,
+      A: 0,
+      Zyw: 0,
+      S: 0,
+      Wt: 0,
+      Sz: 0,
+      Mag: 0,
+      PO: 0,
+      PP: 0,
+    };
   // statystyki początkowe profesji
   public schematRozwojuProfesja: BohaterOgolne =
     {
       rasatitle: '',
       profesjatitle: '',
+      doswiadczenie: 0,
       WW: 0,
       US: 0,
       K: 0,
@@ -95,6 +96,7 @@ export class SharedService {
       zdolnosci: [],
       wyborZdolnosciProfesji: [[]],
       wyposazenie: []
+
     };
   // suma statystyk rasowych i klasowych
   public sumowaneStatystyki: BohaterOgolne =
@@ -210,6 +212,18 @@ export class SharedService {
     this.schematRozwojuProfesja.Mag = 0;
     this.schematRozwojuProfesja.PO = 0;
     this.schematRozwojuProfesja.PP = 0;
+    this.wykupionyRozwoj.WW = 0;
+    this.wykupionyRozwoj.US = 0;
+    this.wykupionyRozwoj.K = 0;
+    this.wykupionyRozwoj.Odp = 0;
+    this.wykupionyRozwoj.Zr = 0;
+    this.wykupionyRozwoj.Int = 0;
+    this.wykupionyRozwoj.SW = 0;
+    this.wykupionyRozwoj.Ogd = 0;
+    this.wykupionyRozwoj.A = 0;
+    this.wykupionyRozwoj.Zyw = 0;
+    this.wykupionyRozwoj.Sz = 0;
+    this.wykupionyRozwoj.Mag = 0;
     this.sumowaneStatystyki.WW = 0;
     this.sumowaneStatystyki.US = 0;
     this.sumowaneStatystyki.K = 0;
@@ -447,6 +461,7 @@ export class SharedService {
     this.schematRozwojuProfesja.Mag = this.statystkiProfesji[0].Mag;
     this.schematRozwojuProfesja.PO = this.statystkiProfesji[0].PO;
     this.schematRozwojuProfesja.PP = this.statystkiProfesji[0].PP;
+    this.schematRozwojuProfesja.doswiadczenie = 100;
 
 
 
@@ -505,20 +520,20 @@ export class SharedService {
   }
   // sumowanie aktualnych statystyk
   changeAktualne() {
-    this.sumowaneStatystyki.WW = this.poczatkoweStatystykiRasowe.WW + this.zdolnosciStatystykiRasowe.WW + this.zdolnosciStatystykiProfesji.WW;
-    this.sumowaneStatystyki.US = this.poczatkoweStatystykiRasowe.US + this.zdolnosciStatystykiRasowe.US + this.zdolnosciStatystykiProfesji.US;
-    this.sumowaneStatystyki.K = this.poczatkoweStatystykiRasowe.K + this.zdolnosciStatystykiRasowe.K + this.zdolnosciStatystykiProfesji.K;
-    this.sumowaneStatystyki.Odp = this.poczatkoweStatystykiRasowe.Odp + this.zdolnosciStatystykiRasowe.Odp + this.zdolnosciStatystykiProfesji.Odp;
-    this.sumowaneStatystyki.Zr = this.poczatkoweStatystykiRasowe.Zr + this.zdolnosciStatystykiRasowe.Zr + this.zdolnosciStatystykiProfesji.Zr;
-    this.sumowaneStatystyki.Int = this.poczatkoweStatystykiRasowe.Int + this.zdolnosciStatystykiRasowe.Int + this.zdolnosciStatystykiProfesji.Int;
-    this.sumowaneStatystyki.SW = this.poczatkoweStatystykiRasowe.SW + this.zdolnosciStatystykiRasowe.SW + this.zdolnosciStatystykiProfesji.SW;
-    this.sumowaneStatystyki.Ogd = this.poczatkoweStatystykiRasowe.Ogd + this.zdolnosciStatystykiRasowe.Ogd + this.zdolnosciStatystykiProfesji.Ogd;
-    this.sumowaneStatystyki.A = this.poczatkoweStatystykiRasowe.A;
-    this.sumowaneStatystyki.Zyw = this.poczatkoweStatystykiRasowe.Zyw + this.zdolnosciStatystykiRasowe.Zyw + this.zdolnosciStatystykiProfesji.Zyw;
+    this.sumowaneStatystyki.WW = this.poczatkoweStatystykiRasowe.WW + this.zdolnosciStatystykiRasowe.WW + this.zdolnosciStatystykiProfesji.WW + this.wykupionyRozwoj.WW;
+    this.sumowaneStatystyki.US = this.poczatkoweStatystykiRasowe.US + this.zdolnosciStatystykiRasowe.US + this.zdolnosciStatystykiProfesji.US + this.wykupionyRozwoj.US;
+    this.sumowaneStatystyki.K = this.poczatkoweStatystykiRasowe.K + this.zdolnosciStatystykiRasowe.K + this.zdolnosciStatystykiProfesji.K + this.wykupionyRozwoj.K;
+    this.sumowaneStatystyki.Odp = this.poczatkoweStatystykiRasowe.Odp + this.zdolnosciStatystykiRasowe.Odp + this.zdolnosciStatystykiProfesji.Odp + this.wykupionyRozwoj.Odp;
+    this.sumowaneStatystyki.Zr = this.poczatkoweStatystykiRasowe.Zr + this.zdolnosciStatystykiRasowe.Zr + this.zdolnosciStatystykiProfesji.Zr + this.wykupionyRozwoj.Zr;
+    this.sumowaneStatystyki.Int = this.poczatkoweStatystykiRasowe.Int + this.zdolnosciStatystykiRasowe.Int + this.zdolnosciStatystykiProfesji.Int + this.wykupionyRozwoj.Int;
+    this.sumowaneStatystyki.SW = this.poczatkoweStatystykiRasowe.SW + this.zdolnosciStatystykiRasowe.SW + this.zdolnosciStatystykiProfesji.SW + this.wykupionyRozwoj.SW;
+    this.sumowaneStatystyki.Ogd = this.poczatkoweStatystykiRasowe.Ogd + this.zdolnosciStatystykiRasowe.Ogd + this.zdolnosciStatystykiProfesji.Ogd + this.wykupionyRozwoj.Ogd;
+    this.sumowaneStatystyki.A = this.poczatkoweStatystykiRasowe.A + this.wykupionyRozwoj.A;
+    this.sumowaneStatystyki.Zyw = this.poczatkoweStatystykiRasowe.Zyw + this.zdolnosciStatystykiRasowe.Zyw + this.zdolnosciStatystykiProfesji.Zyw + this.wykupionyRozwoj.Zyw;
     this.sumowaneStatystyki.S = Math.floor((this.poczatkoweStatystykiRasowe.K + this.zdolnosciStatystykiRasowe.K + this.zdolnosciStatystykiProfesji.K) / 10);
     this.sumowaneStatystyki.Wt = Math.floor((this.poczatkoweStatystykiRasowe.Odp + this.zdolnosciStatystykiRasowe.Odp + this.zdolnosciStatystykiProfesji.Odp) / 10);
-    this.sumowaneStatystyki.Sz = this.poczatkoweStatystykiRasowe.Sz + this.zdolnosciStatystykiRasowe.Sz + this.zdolnosciStatystykiProfesji.Sz;
-    this.sumowaneStatystyki.Mag = this.poczatkoweStatystykiRasowe.Mag;
+    this.sumowaneStatystyki.Sz = this.poczatkoweStatystykiRasowe.Sz + this.zdolnosciStatystykiRasowe.Sz + this.zdolnosciStatystykiProfesji.Sz + this.wykupionyRozwoj.Sz;
+    this.sumowaneStatystyki.Mag = this.poczatkoweStatystykiRasowe.Mag + this.wykupionyRozwoj.Mag;
     this.sumowaneStatystyki.PO = this.poczatkoweStatystykiRasowe.PO;
     this.sumowaneStatystyki.PP = this.poczatkoweStatystykiRasowe.PP;
   }

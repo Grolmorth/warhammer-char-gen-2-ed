@@ -1,7 +1,8 @@
+import { BohaterOgolne } from './../service/bohaterOgolne';
 import { Component, OnInit } from '@angular/core';
 import { BohaterLogikaService } from '../service/bohater-logika.service';
 import { SharedService } from '../service/shared.service';
-import { BohaterOgolne } from '../service/bohaterOgolne';
+
 
 
 @Component({
@@ -21,6 +22,7 @@ export class BohaterCechyComponent implements OnInit {
   aktualne: BohaterOgolne;
   zdolnosciStatystykiRasowe: BohaterOgolne;
   zdolnosciStatystykiProfesji: BohaterOgolne;
+  wykupionyRzowoj:BohaterOgolne;
 
 
   public constructor(public logika: BohaterLogikaService, public share: SharedService) { }
@@ -32,6 +34,7 @@ export class BohaterCechyComponent implements OnInit {
     this.aktualne = this.share.sumowaneStatystyki;
     this.zdolnosciStatystykiRasowe = this.share.zdolnosciStatystykiRasowe;
     this.zdolnosciStatystykiProfesji = this.share.zdolnosciStatystykiProfesji;
+    this.wykupionyRzowoj = this.share.wykupionyRozwoj;
 
 
   }
