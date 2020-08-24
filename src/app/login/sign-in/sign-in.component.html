@@ -1,40 +1,40 @@
-<div class="displayTable">
-    <div class="displayTableCell">
+<div class="container">
+    <div class="container text-center">
 
-        <div class="authBlock">
-            <h3>Sign In</h3>
+        <div class="">
+            <h3>Zaloguj</h3>
             <div class="formGroup">
-                <input type="text" class="formControl" placeholder="Username" #userName required>
+                <input type="text" class="formControl" placeholder="Login" #userName required>
             </div>
 
             <div class="formGroup">
-                <input type="password" class="formControl" placeholder="Password" #userPassword required>
+                <input type="password" class="formControl" placeholder="Hasło" #userPassword required>
             </div>
 
             <!-- Calling SignIn Api from AuthService -->
             <div class="formGroup">
-                <input type="button" class="btn btn-primary" value="Log in" (click)="authService.SignIn(userName.value, userPassword.value)">
+                <input type="button" class="btn btn-primary m-1" value="Zaloguj" (click)="authService.SignIn(userName.value, userPassword.value)">
             </div>
 
             <div class="formGroup">
-                <span class="or"><span class="orInner">Or</span></span>
+                <span class="or"><span class="orInner">Lub</span></span>
             </div>
 
             <!-- Calling GoogleAuth Api from AuthService -->
             <div class="formGroup">
-                <button type="button" class="btn btn-primary" (click)="authService.GoogleAuth()">
+                <button type="button" class="btn btn-danger m-1" (click)="authService.GoogleAuth()">
           <i class="fab fa-google-plus-g"></i>
-          Log in with Google
+          Zaloguj z Google
         </button>
             </div>
 
-            <div class="forgotPassword">
-                <span routerLink="/forgot-password" class="btn btn-primary">Forgot Password?</span>
+            <div class="">
+                <span routerLink="/forgot-password" class="btn btn-primary m-1">Zapomniałeś hasła?</span>
             </div>
         </div>
 
-        <div class="redirectToLogin">
-            <span>Don't have an account?<span class="btn btn-primary" routerLink="/register-user"> Sign Up</span></span>
+        <div class="">
+            <span>Nie masz konta?<span class="btn btn-primary m-1" routerLink="/register-user"> Stwórz konto</span></span>
         </div>
 
     </div>

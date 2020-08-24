@@ -43,6 +43,7 @@ import { BohaterUmiejetnosciComponent } from './bohater/bohater-umiejetnosci/boh
 import { BohaterZdolnosciComponent } from './bohater/bohater-zdolnosci/bohater-zdolnosci.component';
 import { BohaterWyposarzenieComponent } from './bohater/bohater-wyposarzenie/bohater-wyposarzenie.component';
 import { BohaterPieniadzeComponent } from './bohater/bohater-pieniadze/bohater-pieniadze.component';
+import { ImportExportComponent } from './bohater/import-export/import-export.component';
 
 
 
@@ -76,6 +77,7 @@ import { BohaterPieniadzeComponent } from './bohater/bohater-pieniadze/bohater-p
     BohaterZdolnosciComponent,
     BohaterWyposarzenieComponent,
     BohaterPieniadzeComponent,
+    ImportExportComponent,
 
   ],
   imports: [

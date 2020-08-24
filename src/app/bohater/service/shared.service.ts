@@ -1,9 +1,11 @@
+import { ExportPostac } from './exportPostac';
 
 import { Injectable } from '@angular/core';
 import { BohaterLogikaService } from './bohater-logika.service';
 import { BohaterOgolne } from './bohaterOgolne';
 import { Umiejetnosci } from './umiejetnosci';
 import { Zdolnosci } from './zdolnosci';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 
 
 @Injectable({
@@ -20,6 +22,7 @@ export class SharedService {
   // statystyki początkowe rasy
   public poczatkoweStatystykiRasowe: BohaterOgolne =
     {
+      imie: '',
       rasatitle: '',
       profesjatitle: '',
       WW: 0,
@@ -44,6 +47,108 @@ export class SharedService {
       wyborZdolnosciRasy: [[]],
       wyposazenie: []
     };
+  // rasa bez wyborow do exportu
+  public postacDoExportu: ExportPostac =
+    {
+      imie: '',
+      rasatitle: '',
+      profesjatitle: '',
+      // statystyki rasy
+      WW: 0,
+      US: 0,
+      K: 0,
+      Odp: 0,
+      Zr: 0,
+      Int: 0,
+      SW: 0,
+      Ogd: 0,
+      A: 0,
+      Zyw: 0,
+      S: 0,
+      Wt: 0,
+      Sz: 0,
+      Mag: 0,
+      PO: 0,
+      PP: 0,
+      // statystyki profesji
+      WW1: 0,
+      US1: 0,
+      K1: 0,
+      Odp1: 0,
+      Zr1: 0,
+      Int1: 0,
+      SW1: 0,
+      Ogd1: 0,
+      A1: 0,
+      Zyw1: 0,
+      Sz1: 0,
+      Mag1: 0,
+      // maxymalne statystyki profesji
+      WW2: 0,
+      US2: 0,
+      K2: 0,
+      Odp2: 0,
+      Zr2: 0,
+      Int2: 0,
+      SW2: 0,
+      Ogd2: 0,
+      A2: 0,
+      Zyw2: 0,
+      Sz2: 0,
+      Mag2: 0,
+      // sumowane statystyki
+      WW3: 0,
+      US3: 0,
+      K3: 0,
+      Odp3: 0,
+      Zr3: 0,
+      Int3: 0,
+      SW3: 0,
+      Ogd3: 0,
+      A3: 0,
+      Zyw3: 0,
+      S3: 0,
+      Wt3: 0,
+      Sz3: 0,
+      Mag3: 0,
+      PO3: 0,
+      PP3: 0,
+      // statystyki ze zdolnosci rasy
+      WW4: 0,
+      US4: 0,
+      K4: 0,
+      Odp4: 0,
+      Zr4: 0,
+      Int4: 0,
+      SW4: 0,
+      Ogd4: 0,
+      A4: 0,
+      Zyw4: 0,
+      Sz4: 0,
+
+      // statystyki ze zdolnosci profesji
+      WW5: 0,
+      US5: 0,
+      K5: 0,
+      Odp5: 0,
+      Zr5: 0,
+      Int5: 0,
+      SW5: 0,
+      Ogd5: 0,
+      A5: 0,
+      Zyw5: 0,
+      Sz5: 0,
+
+      umiejetnosciRasowe: [],
+      umiejetnosciProfesji: [],
+
+      zdolnosciRasowe: [],
+      zdolnosciProfesji: [],
+
+      wyposazenie: []
+    };
+
+
 
   // statystyki aktywnej Profesji
   statystkiProfesji: BohaterOgolne[];
@@ -98,6 +203,7 @@ export class SharedService {
       wyposazenie: []
 
     };
+
   // suma statystyk rasowych i klasowych
   public sumowaneStatystyki: BohaterOgolne =
     {
@@ -155,8 +261,13 @@ export class SharedService {
     PO: 0,
     PP: 0
   };
+  // ścieżka do db
+  public dbPath = '/postacie/';
+  postacRef: AngularFirestoreCollection<BohaterOgolne> = null;
 
-  constructor(private logika: BohaterLogikaService) { }
+  constructor(public db: AngularFirestore, private logika: BohaterLogikaService) {
+    this.postacRef = db.collection(this.dbPath);
+  }
 
   resetStatystyk() {
     this.poczatkoweStatystykiRasowe.WW = 0;
@@ -258,6 +369,11 @@ export class SharedService {
       console.log('zresetowano statystyki dla', this.schematRozwojuProfesja.profesjatitle);
     }
     this.schematRozwojuProfesja.profesjatitle = '';
+  }
+  // przypisanie imienia
+  changeImie(string) {
+    this.poczatkoweStatystykiRasowe.imie = string;
+
   }
   // funkcja losujaca
   randomNumber(min, max) {
@@ -445,6 +561,7 @@ export class SharedService {
   changeProfesja(profesja: string) {
     this.logika.getProfesja(profesja).subscribe(items => this.statystkiProfesji = items);
     this.schematRozwojuProfesja.profesjatitle = profesja;
+    this.poczatkoweStatystykiRasowe.profesjatitle = profesja;
     this.schematRozwojuProfesja.WW = this.statystkiProfesji[0].WW;
     this.schematRozwojuProfesja.US = this.statystkiProfesji[0].US;
     this.schematRozwojuProfesja.K = this.statystkiProfesji[0].K;
@@ -537,7 +654,6 @@ export class SharedService {
     this.sumowaneStatystyki.PO = this.poczatkoweStatystykiRasowe.PO;
     this.sumowaneStatystyki.PP = this.poczatkoweStatystykiRasowe.PP;
   }
-
   // zdolnosci, które powodują zmiane cech poczatkowych, rasa=true - zdolnosci rasy, rasa=false - zdolnosci profesji, dwie po to, żeby można było resetować pojedynczo
   zdolnosciDoCechyPoczatkowych(zdolnosc, rasa) {
     if (rasa === true) {
@@ -606,6 +722,116 @@ export class SharedService {
     }
     this.changeAktualne();
   }
+  exportPostaci() {
+    this.postacDoExportu.imie = this.poczatkoweStatystykiRasowe.imie;
+    this.postacDoExportu.rasatitle = this.poczatkoweStatystykiRasowe.rasatitle;
+    this.postacDoExportu.profesjatitle = this.schematRozwojuProfesja.profesjatitle;
+    this.postacDoExportu.opis = this.schematRozwojuProfesja.opis;
+    // statystyki rasy
+    this.postacDoExportu.WW = this.poczatkoweStatystykiRasowe.WW;
+    this.postacDoExportu.US = this.poczatkoweStatystykiRasowe.US;
+    this.postacDoExportu.K = this.poczatkoweStatystykiRasowe.K;
+    this.postacDoExportu.Odp = this.poczatkoweStatystykiRasowe.Odp;
+    this.postacDoExportu.Zr = this.poczatkoweStatystykiRasowe.Zr;
+    this.postacDoExportu.Int = this.poczatkoweStatystykiRasowe.Int;
+    this.postacDoExportu.SW = this.poczatkoweStatystykiRasowe.SW;
+    this.postacDoExportu.Ogd = this.poczatkoweStatystykiRasowe.Ogd;
+    this.postacDoExportu.A = this.poczatkoweStatystykiRasowe.A;
+    this.postacDoExportu.Zyw = this.poczatkoweStatystykiRasowe.Zyw;
+    this.postacDoExportu.S = this.poczatkoweStatystykiRasowe.S;
+    this.postacDoExportu.Wt = this.poczatkoweStatystykiRasowe.Wt;
+    this.postacDoExportu.Sz = this.poczatkoweStatystykiRasowe.Sz;
+    this.postacDoExportu.Mag = this.poczatkoweStatystykiRasowe.Mag;
+    this.postacDoExportu.PO = this.poczatkoweStatystykiRasowe.PO;
+    this.postacDoExportu.PP = this.poczatkoweStatystykiRasowe.PP;
+    // statystyki profesji wykupione
+    this.postacDoExportu.WW1 = this.wykupionyRozwoj.WW;
+    this.postacDoExportu.US1 = this.wykupionyRozwoj.US;
+    this.postacDoExportu.K1 = this.wykupionyRozwoj.K;
+    this.postacDoExportu.Odp1 = this.wykupionyRozwoj.Odp;
+    this.postacDoExportu.Zr1 = this.wykupionyRozwoj.Zr;
+    this.postacDoExportu.Int1 = this.wykupionyRozwoj.Int;
+    this.postacDoExportu.SW1 = this.wykupionyRozwoj.SW;
+    this.postacDoExportu.Ogd1 = this.wykupionyRozwoj.Ogd;
+    this.postacDoExportu.A1 = this.wykupionyRozwoj.A;
+    this.postacDoExportu.Zyw1 = this.wykupionyRozwoj.Zyw;
+    this.postacDoExportu.Sz1 = this.wykupionyRozwoj.Sz;
+    this.postacDoExportu.Mag1 = this.wykupionyRozwoj.Mag;
+    // maxymalne statystyki profesji
+    this.postacDoExportu.WW2 = this.schematRozwojuProfesja.WW;
+    this.postacDoExportu.US2 = this.schematRozwojuProfesja.US;
+    this.postacDoExportu.K2 = this.schematRozwojuProfesja.K;
+    this.postacDoExportu.Odp2 = this.schematRozwojuProfesja.Odp;
+    this.postacDoExportu.Zr2 = this.schematRozwojuProfesja.Zr;
+    this.postacDoExportu.Int2 = this.schematRozwojuProfesja.Int;
+    this.postacDoExportu.SW2 = this.schematRozwojuProfesja.SW;
+    this.postacDoExportu.Ogd2 = this.schematRozwojuProfesja.Ogd;
+    this.postacDoExportu.A2 = this.schematRozwojuProfesja.A;
+    this.postacDoExportu.Zyw2 = this.schematRozwojuProfesja.Zyw;
+    this.postacDoExportu.Sz2 = this.schematRozwojuProfesja.Sz;
+    this.postacDoExportu.Mag2 = this.schematRozwojuProfesja.Mag;
+    // sumowane statystyki
+    this.postacDoExportu.WW3 = this.sumowaneStatystyki.WW;
+    this.postacDoExportu.US3 = this.sumowaneStatystyki.US;
+    this.postacDoExportu.K3 = this.sumowaneStatystyki.K;
+    this.postacDoExportu.Odp3 = this.sumowaneStatystyki.Odp;
+    this.postacDoExportu.Zr3 = this.sumowaneStatystyki.Zr;
+    this.postacDoExportu.Int3 = this.sumowaneStatystyki.Int;
+    this.postacDoExportu.SW3 = this.sumowaneStatystyki.SW;
+    this.postacDoExportu.Ogd3 = this.sumowaneStatystyki.Ogd;
+    this.postacDoExportu.A3 = this.sumowaneStatystyki.A;
+    this.postacDoExportu.Zyw3 = this.sumowaneStatystyki.Zyw;
+    this.postacDoExportu.S3 = this.sumowaneStatystyki.S;
+    this.postacDoExportu.Wt3 = this.sumowaneStatystyki.Wt;
+    this.postacDoExportu.Sz3 = this.sumowaneStatystyki.Sz;
+    this.postacDoExportu.Mag3 = this.sumowaneStatystyki.Mag;
+    this.postacDoExportu.PO3 = this.sumowaneStatystyki.PO;
+    this.postacDoExportu.PP3 = this.sumowaneStatystyki.PP;
+    // statystyki ze zdolnosci rasy
+    this.postacDoExportu.WW4 = this.zdolnosciStatystykiRasowe.WW;
+    this.postacDoExportu.US4 = this.zdolnosciStatystykiRasowe.US;
+    this.postacDoExportu.K4 = this.zdolnosciStatystykiRasowe.K;
+    this.postacDoExportu.Odp4 = this.zdolnosciStatystykiRasowe.Odp;
+    this.postacDoExportu.Zr4 = this.zdolnosciStatystykiRasowe.Zr;
+    this.postacDoExportu.Int4 = this.zdolnosciStatystykiRasowe.Int;
+    this.postacDoExportu.SW4 = this.zdolnosciStatystykiRasowe.SW;
+    this.postacDoExportu.Ogd4 = this.zdolnosciStatystykiRasowe.Ogd;
+    this.postacDoExportu.A4 = this.zdolnosciStatystykiRasowe.A;
+    this.postacDoExportu.Zyw4 = this.zdolnosciStatystykiRasowe.Zyw;
+    this.postacDoExportu.Sz4 = this.zdolnosciStatystykiRasowe.Sz;
+    // statystyki ze zdolnosci profesji
+    this.postacDoExportu.WW5 = this.zdolnosciStatystykiProfesji.WW;
+    this.postacDoExportu.US5 = this.zdolnosciStatystykiProfesji.US;
+    this.postacDoExportu.K5 = this.zdolnosciStatystykiProfesji.K;
+    this.postacDoExportu.Odp5 = this.zdolnosciStatystykiProfesji.Odp;
+    this.postacDoExportu.Zr5 = this.zdolnosciStatystykiProfesji.Zr;
+    this.postacDoExportu.Int5 = this.zdolnosciStatystykiProfesji.Int;
+    this.postacDoExportu.SW5 = this.zdolnosciStatystykiProfesji.SW;
+    this.postacDoExportu.Ogd5 = this.zdolnosciStatystykiProfesji.Ogd;
+    this.postacDoExportu.A5 = this.zdolnosciStatystykiProfesji.A;
+    this.postacDoExportu.Zyw5 = this.zdolnosciStatystykiProfesji.Zyw;
+    this.postacDoExportu.Sz5 = this.zdolnosciStatystykiProfesji.Sz;
+    for (let n = 0; n < this.poczatkoweStatystykiRasowe.umiejetnosci.length; n++) {
+      this.postacDoExportu.umiejetnosciRasowe[n] = this.poczatkoweStatystykiRasowe.umiejetnosci[n][0];
+    }
+    for (let n = 0; n < this.schematRozwojuProfesja.umiejetnosci.length; n++) {
+      this.postacDoExportu.umiejetnosciProfesji[n] = this.schematRozwojuProfesja.umiejetnosci[n][0];
+    }
+    for (let n = 0; n < this.poczatkoweStatystykiRasowe.zdolnosci.length; n++) {
+      this.postacDoExportu.zdolnosciRasowe[n] = this.poczatkoweStatystykiRasowe.zdolnosci[n][0];
+    }
+    for (let n = 0; n < this.schematRozwojuProfesja.zdolnosci.length; n++) {
+      this.postacDoExportu.zdolnosciProfesji[n] = this.schematRozwojuProfesja.zdolnosci[n][0];
+    }
 
+    this.postacDoExportu.doswiadczenie = this.schematRozwojuProfesja.doswiadczenie;
+    this.export(this.postacDoExportu);
+  }
+
+  export(postac: ExportPostac): void {
+
+    const param = JSON.parse(JSON.stringify(postac));
+    this.postacRef.add(param);
+  }
 }
 

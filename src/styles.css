@@ -5,6 +5,12 @@
     border: 0;
 }
 
+.formControl {
+    border: 1px solid grey;
+    border-radius: 5px;
+    margin: 1px;
+}
+
 body {
     background-color: #e2eef7;
 }

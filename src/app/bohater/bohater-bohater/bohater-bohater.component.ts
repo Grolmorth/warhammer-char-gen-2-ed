@@ -14,8 +14,7 @@ import { BohaterOgolne } from '../service/bohaterOgolne';
 })
 export class BohaterBohaterComponent implements OnInit {
 
-  submittedRasa = false;
-  submittedProfesja = false;
+  imieId: String;
   // przypisanie aktywnej rasy do pola typu string
   selectedRasaId: string;
   public data: string = this.selectedRasaId;
@@ -27,6 +26,7 @@ export class BohaterBohaterComponent implements OnInit {
   cechy: BohaterOgolne[];
   profesjaRoll: ProfesjaRoll[];
   umiejetnosciProfesji: BohaterOgolne;
+  aktualne: BohaterOgolne;
 
   constructor(private logika: BohaterLogikaService, private share: SharedService) { }
 
@@ -34,23 +34,26 @@ export class BohaterBohaterComponent implements OnInit {
   // pobranie wszystkich ras z serwisu
   ngOnInit() {
     this.logika.getListaRasy().subscribe(items => this.cechy = items);
+    this.aktualne = this.share.poczatkoweStatystykiRasowe;
+  }
+  // logika przyciusku do zmiany imienia
+  noweImie() {
+    this.share.changeImie(this.imieId);
+  }
+  inneImie() {
+    this.share.changeImie('');
   }
 
   // logika przyciusku do zmiany rasy
   nowaRasa() {
     console.log('zmieniono rase na', this.selectedRasaId);
     this.share.changeRasa(this.selectedRasaId);
-
-    // ukrycie i pokazanie elementów html
-    this.submittedRasa = true;
     // pobranie listy możliwych profesji
     this.logika.getListaProfesje(this.selectedRasaId).subscribe(items => this.profesjaRoll = items);
-
 
   }
   innaRasa() {
     // ukrycie i pokazanie elementów html
-    this.submittedRasa = false;
     console.log('wycofano rase', this.selectedRasaId, 'ponowne wybieranie rasy');
     this.share.changeRasa(this.selectedRasaId);
     // wyzerowanie statystyk początkowych
@@ -59,7 +62,8 @@ export class BohaterBohaterComponent implements OnInit {
     this.selectedRasaId = null;
     this.selectedProfesjaId = null;
     this.logika.getListaProfesje(this.selectedRasaId).subscribe(items => this.profesjaRoll = items);
-    this.submittedProfesja = false;
+    this.share.poczatkoweStatystykiRasowe.rasatitle = '';
+    this.share.poczatkoweStatystykiRasowe.profesjatitle = '';
 
   }
 
@@ -67,16 +71,13 @@ export class BohaterBohaterComponent implements OnInit {
   nowaProfesja() {
     console.log('nowa profesja', this.selectedProfesjaId);
     this.share.changeProfesja(this.selectedProfesjaId);
-    this.submittedProfesja = true;
     this.share.changeAktualne();
     this.umiejetnosciProfesji = this.share.schematRozwojuProfesja;
 
-
   }
   innaProfesja() {
-    this.submittedProfesja = false;
     this.share.resetStatystykProfesja();
-
+    this.share.poczatkoweStatystykiRasowe.profesjatitle = '';
   }
 
 

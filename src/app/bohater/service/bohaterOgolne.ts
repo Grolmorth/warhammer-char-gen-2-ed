@@ -1,5 +1,6 @@
 export interface BohaterOgolne {
 
+  imie?: string;
   rasatitle?: string;
   profesjatitle?: string;
   opis?: string;

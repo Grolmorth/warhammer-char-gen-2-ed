@@ -176,6 +176,7 @@ export class BohaterPunktyDoswiadczeniaComponent implements OnInit {
   cofnijNoweUmiejetnosci() {
     this.noweUmiejetnosci = true;
     this.submittedButton = false;
+    this.selectedUmiejetnosciId = null;
   }
   dodajUmiejetnosc(umiejetnosc) {
     this.logika.getUmiejetnosci(umiejetnosc).subscribe(items => this.umiejetnosciDoDodania = items);
@@ -191,12 +192,13 @@ export class BohaterPunktyDoswiadczeniaComponent implements OnInit {
   cofnijNoweZdolnosci() {
     this.noweZdolnosci = true;
     this.submittedButton = false;
+    this.selectedZdolnosciId = null;
   }
   dodajZdolnosc(zdolnosc) {
     this.logika.getZdolnosc(zdolnosc).subscribe(items => this.zdolnosciDoDodania = items);
     this.share.schematRozwojuProfesja.zdolnosci.push(this.zdolnosciDoDodania);
     this.share.zdolnosciDoCechyPoczatkowych(zdolnosc, false);
     this.share.schematRozwojuProfesja.doswiadczenie = this.share.schematRozwojuProfesja.doswiadczenie - 100;
-    this.cofnijNoweUmiejetnosci();
+    this.cofnijNoweZdolnosci();
   }
 }
