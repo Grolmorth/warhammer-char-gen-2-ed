@@ -86,7 +86,7 @@ export class AuthService {
   // Sign in with Google
   GoogleAuth() {
     return this.AuthLogin(new auth.GoogleAuthProvider()).then(() => {
-      this.router.navigate(['dodawanie']);
+      this.router.navigate(['bohater']);
     });
   }
 
@@ -96,7 +96,7 @@ export class AuthService {
     return this.afAuth.signInWithPopup(provider)
       .then((result) => {
         this.ngZone.run(() => {
-          this.router.navigate(['dashboard']);
+          this.router.navigate(['bohater']);
         });
         this.SetUserData(result.user);
       }).catch((error) => {

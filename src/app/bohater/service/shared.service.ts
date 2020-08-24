@@ -6,6 +6,7 @@ import { BohaterOgolne } from './bohaterOgolne';
 import { Umiejetnosci } from './umiejetnosci';
 import { Zdolnosci } from './zdolnosci';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+import { AuthService } from 'src/app/services/auth.service';
 
 
 @Injectable({
@@ -265,7 +266,7 @@ export class SharedService {
   public dbPath = '/postacie/';
   postacRef: AngularFirestoreCollection<BohaterOgolne> = null;
 
-  constructor(public db: AngularFirestore, private logika: BohaterLogikaService) {
+  constructor(public db: AngularFirestore, private logika: BohaterLogikaService, public authService: AuthService) {
     this.postacRef = db.collection(this.dbPath);
   }
 
@@ -709,7 +710,7 @@ export class SharedService {
     }
     this.changeAktualne();
   }
-  exportPostaci() {
+  async exportPostaci() {
     this.postacDoExportu.imie = this.poczatkoweStatystykiRasowe.imie;
     this.postacDoExportu.rasatitle = this.poczatkoweStatystykiRasowe.rasatitle;
     this.postacDoExportu.profesjatitle = this.schematRozwojuProfesja.profesjatitle;
@@ -813,6 +814,7 @@ export class SharedService {
     }
 
     this.postacDoExportu.doswiadczenie = this.schematRozwojuProfesja.doswiadczenie;
+    this.postacDoExportu.kto = (await this.authService.afAuth.currentUser).email;
     this.exportPostac(this.postacDoExportu);
   }
 

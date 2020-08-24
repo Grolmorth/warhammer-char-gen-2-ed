@@ -1,5 +1,6 @@
 import { SharedService } from './../service/shared.service';
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-import-export',
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ImportExportComponent implements OnInit {
 
-  constructor(public share: SharedService) { }
+  constructor(public share: SharedService, public authService: AuthService) { }
 
   ngOnInit(): void {
   }

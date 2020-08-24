@@ -1,9 +1,19 @@
 <div class="container bohater text-center  p-0 m-0">
     <div class="p-1 title"><b>Import</b></div>
-    <div class="border-bottom cursorDefault" *ngFor="let postac of postac">
-        <div>{{postac.imie}}</div>
-        <div>{{postac.rasatitle}}</div>
-        <div>{{postac.profesjatitle}}</div>
-        <div><button (click)="importujPostac(postac)">Importuj</button></div>
+    <div class=" row border-bottom cursorDefault">
+        <div class="col-sm ml-1 ">Imię</div>
+        <div class="col-sm ml-1 ">Rasa</div>
+        <div class="col-sm ml-1 ">Profesja</div>
+        <div class="col-sm ml-1 ">e-mail</div>
+        <div class="col-sm ml-1 "> </div>
+
+    </div>
+    <div class=" row border-bottom cursorDefault" *ngFor="let postac of postac">
+
+        <div class="col-sm ml-1 ">{{postac.imie}}</div>
+        <div class="col-sm ml-1 ">{{postac.rasatitle}}</div>
+        <div class="col-sm ml-1 ">{{postac.profesjatitle}}</div>
+        <div class="col-sm ml-1 ">{{postac.kto}}</div>
+        <div class="col-sm ml-1 "><button class="btn-sm btn-primary" (click)="importujPostac(postac)" routerLink="/bohater">Importuj</button></div>
     </div>
 </div>

@@ -97,5 +97,6 @@ export interface ExportPostac {
   wyposazenie?: Array<string>;
   inne?: any;
   uwagi?: string;
+  kto?: string;
 }
 

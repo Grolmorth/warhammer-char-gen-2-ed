@@ -1,7 +1,7 @@
 import { ImportBohateraComponent } from './import-bohatera/import-bohatera.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { DodawanieComponent } from './dodawanie/dodawanie.component';
+
 
 import { ForgotPasswordComponent } from './login/forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './login/verify-email/verify-email.component';

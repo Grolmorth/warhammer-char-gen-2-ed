@@ -1,7 +1,11 @@
 <div class="container bohater text-center p-0 m-0">
 
     <div class="p-1 title"><b>Import/Export</b></div>
-
-    <button class="btn btn-danger btn-sm m-1" (click)="export()">Export</button>
+    <div *ngIf="authService.isLoggedIn===false">
+        <a routerLink="/sign-in">
+            <p>Zaloguj, aby eksportować!</p>
+        </a>
+    </div>
+    <div *ngIf="authService.isLoggedIn===true"><button class="btn btn-danger btn-sm m-1" (click)="export()">Eksport</button></div>
 
 </div>
