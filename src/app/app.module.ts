@@ -44,6 +44,8 @@ import { BohaterZdolnosciComponent } from './bohater/bohater-zdolnosci/bohater-z
 import { BohaterWyposarzenieComponent } from './bohater/bohater-wyposarzenie/bohater-wyposarzenie.component';
 import { BohaterPieniadzeComponent } from './bohater/bohater-pieniadze/bohater-pieniadze.component';
 import { ImportExportComponent } from './bohater/import-export/import-export.component';
+import { ImportBohateraComponent } from './import-bohatera/import-bohatera.component';
+
 
 
 
@@ -78,12 +80,14 @@ import { ImportExportComponent } from './bohater/import-export/import-export.com
     BohaterWyposarzenieComponent,
     BohaterPieniadzeComponent,
     ImportExportComponent,
+    ImportBohateraComponent,
 
   ],
   imports: [
     NgSelectModule,
     NgOptionHighlightModule,
     RouterModule,
+
     BrowserModule,
     AppRoutingModule,
     NgbModule,

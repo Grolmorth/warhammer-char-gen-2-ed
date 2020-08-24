@@ -9,50 +9,48 @@
         </div>
     </div>
     <div class="border-bottom cursorDefault" *ngFor="let schemat of umiejetnosciRasy.umiejetnosci">
-        <div class="row " ngbTooltip={{schemat[0].opis}} tooltipClass="tooltip-class">
-            <div class="col-sm ml-1">{{schemat[0].umiejetnosc}}</div>
-            <div class="col-sm ml-1">{{schemat[0].cecha}}</div>
-            <div class="col-sm ml-1">{{schemat[0].zdolnoscipokrewne}}</div>
+        <div class=" row " ngbTooltip={{schemat[0].opis}} tooltipClass="tooltip-class ">
+            <div class="col-sm ml-1 ">{{schemat[0].umiejetnosc}}</div>
+            <div class="col-sm ml-1 ">{{schemat[0].cecha}}</div>
+            <div class="col-sm ml-1 ">{{schemat[0].zdolnoscipokrewne}}</div>
         </div>
     </div>
-    <div *ngFor="let schemat of umiejetnosciRasy.wyborUmiejetnosciRasy let i=index">
-        <div *ngIf="umiejetnosciRasy.wyborUmiejetnosciRasy[i][0]!== undefined">
-            <div class="border-bottom">
-                <div class=" text-center pick-one-title"><b>Wybierz jedno</b></div>
+    <div class="border-bottom cursorDefault" *ngFor="let schemat of umiejetnosciProfesji.umiejetnosci">
+        <div class=" row " ngbTooltip={{schemat[0].opis}} tooltipClass="tooltip-class ">
+            <div class="col-sm ml-1 ">{{schemat[0].umiejetnosc}}</div>
+            <div class="col-sm ml-1 ">{{schemat[0].cecha}}</div>
+            <div class="col-sm ml-1 ">{{schemat[0].zdolnoscipokrewne}}</div>
+        </div>
+    </div>
+    <div *ngFor="let schemat of umiejetnosciRasy.wyborUmiejetnosciRasy let i=index ">
+        <div *ngIf="umiejetnosciRasy.wyborUmiejetnosciRasy[i][0]!==undefined ">
+            <div class="border-bottom ">
+                <div class=" text-center pick-one-title "><b>Wybierz jedno</b></div>
             </div>
-            <div class="border-bottom" *ngFor="let schemat of umiejetnosciRasy.wyborUmiejetnosciRasy[i]">
+            <div class="border-bottom " *ngFor="let schemat of umiejetnosciRasy.wyborUmiejetnosciRasy[i] ">
 
 
-                <button (click)="onWyborUmiejetnosciRasa(schemat, [i])" class="pick-one btn btn-sm p-0 m-0 container-fluid">
-                      <div class="row" ngbTooltip={{schemat[0].opis}} tooltipClass="tooltip-class">
+                <button (click)="onWyborUmiejetnosciRasa(schemat, [i]) " class="pick-one btn btn-sm p-0 m-0 container-fluid ">
+                      <div class="row " ngbTooltip={{schemat[0].opis}} tooltipClass="tooltip-class ">
 
                         <div class="col-sm ml-1 ">{{schemat[0].umiejetnosc}}</div>
                         <div class="col-sm ml-1 ">{{schemat[0].cecha}}</div>
                         <div class="col-sm ml-1 ">{{schemat[0].zdolnoscipokrewne}}</div>
 
-        </div>
-        </button>
+                      </div>
+               </button>
             </div>
         </div>
     </div>
 
-    <div class="border-bottom" *ngFor="let schemat of umiejetnosciProfesji.umiejetnosci">
-        <div class="row " ngbTooltip={{schemat[0].opis}} tooltipClass="tooltip-class">
-            <div class="col-sm ml-1">{{schemat[0].umiejetnosc}}</div>
-            <div class="col-sm ml-1 ">{{schemat[0].cecha}}</div>
-            <div class="col-sm ml-1">{{schemat[0].zdolnoscipokrewne}}</div>
-        </div>
-    </div>
-
-
-    <div *ngFor="let schemat of umiejetnosciProfesji.wyborUmiejetnosciProfesji let i=index">
-        <div *ngIf="umiejetnosciProfesji.wyborUmiejetnosciProfesji[i][0]!== undefined">
-            <div class="border-bottom">
-                <div class=" text-center pick-one-title"><b>Wybierz jedno</b></div>
+    <div *ngFor="let schemat of umiejetnosciProfesji.wyborUmiejetnosciProfesji let i=index ">
+        <div *ngIf="umiejetnosciProfesji.wyborUmiejetnosciProfesji[i][0]!==undefined ">
+            <div class="border-bottom ">
+                <div class=" text-center pick-one-title "><b>Wybierz jedno</b></div>
             </div>
-            <div class="border-bottom " *ngFor="let schemat of umiejetnosciProfesji.wyborUmiejetnosciProfesji[i]">
-                <button (click)="onWyborUmiejetnosciProfesja(schemat, [i])" class="pick-one btn btn-sm p-0 m-0 container-fluid">
-                    <div class="row" ngbTooltip={{schemat[0].opis}} tooltipClass="tooltip-class">
+            <div class="border-bottom " *ngFor="let schemat of umiejetnosciProfesji.wyborUmiejetnosciProfesji[i] ">
+                <button (click)="onWyborUmiejetnosciProfesja(schemat, [i]) " class="pick-one btn btn-sm p-0 m-0 container-fluid ">
+                    <div class="row " ngbTooltip={{schemat[0].opis}} tooltipClass="tooltip-class ">
 
                         <div class="col-sm ml-1 ">{{schemat[0].umiejetnosc}}</div>
                         <div class="col-sm ml-1 ">{{schemat[0].cecha}}</div>

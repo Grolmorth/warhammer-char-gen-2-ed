@@ -11,7 +11,7 @@
                     <input type="text" id="imie" required [(ngModel)]="imieId" name="gdzie" placeholder="Imię">
                     <button class="btn btn-primary btn-sm m-1" (click)="noweImie()">Wybierz</button>
                 </div>
-                <button *ngIf="aktualne.imie!==''" class="btn btn-danger btn-sm m-1" (click)="inneImie()">Zmień imię</button>
+                <button *ngIf="aktualne.imie!=='' && aktualne.importowane!==true" class="btn btn-danger btn-sm m-1" (click)="inneImie()">Zmień imię</button>
             </div>
 
         </div>
@@ -25,7 +25,7 @@
                 </div>
                 <div>
                     <h2 class="">{{aktualne.rasatitle}}</h2>
-                    <button *ngIf="aktualne.rasatitle!==''" class="btn btn-danger btn-sm m-1" (click)="innaRasa()">Zmień rasę</button>
+                    <button *ngIf="aktualne.rasatitle!=='' && aktualne.importowane!==true" class="btn btn-danger btn-sm m-1" (click)="innaRasa()">Zmień rasę</button>
                 </div>
             </div>
         </div>
@@ -39,12 +39,12 @@
                 </div>
                 <div>
                     <h2>{{aktualne.profesjatitle}}</h2>
-                    <button *ngIf="aktualne.profesjatitle!==''" class="btn btn-danger btn-sm m-1" (click)="innaProfesja()">Zmień profesję</button>
+                    <button *ngIf="aktualne.profesjatitle!=='' && aktualne.importowane!==true" class="btn btn-danger btn-sm m-1" (click)="innaProfesja()">Zmień profesję</button>
 
-                    <div *ngIf="aktualne.profesjatitle!==''" class="m-2 p-2 text-justify profesja-opis">
+                    <!--    <div *ngIf="aktualne.profesjatitle!==''" class="m-2 p-2 text-justify profesja-opis">
                         <div class="p-1 title text-center"><b>Opis profesji</b></div>
                         <p class=" p-1 m-2">{{umiejetnosciProfesji.opis}}</p>
-                    </div>
+                    </div>-->
 
                 </div>
 

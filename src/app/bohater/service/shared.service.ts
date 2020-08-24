@@ -508,10 +508,8 @@ export class SharedService {
 
         for (let m = 0; m < this.statystykiRasowe[n].umiejetnosci.length; m++) {
           this.logika.getUmiejetnosci(this.statystykiRasowe[n].umiejetnosci[m]).subscribe(items => this.umiejetnosciRasowe = items);
-
           this.poczatkoweStatystykiRasowe.umiejetnosci[m] = this.umiejetnosciRasowe;
         }
-        console.log('pobranie listy umiejetnosci rasowych');
         // dodanie umiejetnosci do wyboru
 
         if (this.statystykiRasowe[n].wyborUmiejetnosciRasy !== undefined) {
@@ -524,20 +522,16 @@ export class SharedService {
               this.logika.getUmiejetnosci(this.statystykiRasowe[n].wyborUmiejetnosciRasy[m][p])
                 .subscribe(items => this.umiejetnosciProfesji = items);
               this.poczatkoweStatystykiRasowe.wyborUmiejetnosciRasy[m][p] = this.umiejetnosciProfesji;
-
             }
           }
-          console.log('pobrano umiejetnosci do wyboru dla', rasa);
         }
         // dodanie listy zdolnosci rasowych
 
         for (let m = 0; m < this.statystykiRasowe[n].zdolnosci.length; m++) {
           this.logika.getZdolnosc(this.statystykiRasowe[n].zdolnosci[m]).subscribe(items => this.zdolnosciRasowe = items);
           this.poczatkoweStatystykiRasowe.zdolnosci[m] = this.zdolnosciRasowe;
-          console.log(this.poczatkoweStatystykiRasowe.zdolnosci[m][0].zdolnosc);
           this.zdolnosciDoCechyPoczatkowych(this.poczatkoweStatystykiRasowe.zdolnosci[m][0].zdolnosc, true);
         }
-        console.log('pobranie listy zdolnosci rasowych');
         // dodanie zdolnosci do wyboru
         if (this.statystykiRasowe[n].wyborZdolnosciRasy !== undefined) {
           for (let m = 0; m < this.statystykiRasowe[n].wyborZdolnosciRasy.length; m++) {
@@ -580,15 +574,10 @@ export class SharedService {
     this.schematRozwojuProfesja.PP = this.statystkiProfesji[0].PP;
     this.schematRozwojuProfesja.doswiadczenie = 100;
 
-
-
-    // dodanie umiejetnosci
-    if (this.statystkiProfesji[0].umiejetnosci !== undefined) {
-      for (let n = 0; n < this.statystkiProfesji[0].umiejetnosci.length; n++) {
-        this.logika.getUmiejetnosci(this.statystkiProfesji[0].umiejetnosci[n]).subscribe(items => this.umiejetnosciProfesji = items);
-        this.schematRozwojuProfesja.umiejetnosci[n] = this.umiejetnosciProfesji;
-      }
-      console.log('pobrano umiejetnosci dla', profesja);
+    // dodanie umiejetnosci do listy umiejetnosci rasowych
+    for (let n = 0; n < this.statystkiProfesji[0].umiejetnosci.length; n++) {
+      this.logika.getUmiejetnosci(this.statystkiProfesji[0].umiejetnosci[n]).subscribe(items => this.umiejetnosciProfesji = items);
+      this.schematRozwojuProfesja.umiejetnosci.push(this.umiejetnosciProfesji);
     }
     // dodanie umiejetnosci do wyboru
     if (this.statystkiProfesji[0].wyborUmiejetnosciProfesji !== undefined) {
@@ -613,10 +602,8 @@ export class SharedService {
       for (let m = 0; m < this.statystkiProfesji[0].zdolnosci.length; m++) {
         this.logika.getZdolnosc(this.statystkiProfesji[0].zdolnosci[m]).subscribe(items => this.zdolnosciProfesji = items);
         this.schematRozwojuProfesja.zdolnosci[m] = this.zdolnosciProfesji;
-        console.log(this.schematRozwojuProfesja.zdolnosci[m][0].zdolnosc);
       }
     }
-    console.log('pobranie listy zdolnosci rasowych');
     // dodanie zdolnosci profesji do wyboru
     if (this.statystkiProfesji[0].wyborZdolnosciProfesji !== undefined) {
       for (let m = 0; m < this.statystkiProfesji[0].wyborZdolnosciProfesji.length; m++) {
@@ -811,6 +798,7 @@ export class SharedService {
     this.postacDoExportu.A5 = this.zdolnosciStatystykiProfesji.A;
     this.postacDoExportu.Zyw5 = this.zdolnosciStatystykiProfesji.Zyw;
     this.postacDoExportu.Sz5 = this.zdolnosciStatystykiProfesji.Sz;
+
     for (let n = 0; n < this.poczatkoweStatystykiRasowe.umiejetnosci.length; n++) {
       this.postacDoExportu.umiejetnosciRasowe[n] = this.poczatkoweStatystykiRasowe.umiejetnosci[n][0];
     }
@@ -825,13 +813,16 @@ export class SharedService {
     }
 
     this.postacDoExportu.doswiadczenie = this.schematRozwojuProfesja.doswiadczenie;
-    this.export(this.postacDoExportu);
+    this.exportPostac(this.postacDoExportu);
   }
 
-  export(postac: ExportPostac): void {
+  exportPostac(postac: ExportPostac): void {
 
     const param = JSON.parse(JSON.stringify(postac));
     this.postacRef.add(param);
+  }
+  importPostac(): AngularFirestoreCollection<ExportPostac> {
+    return this.postacRef;
   }
 }
 

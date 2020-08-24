@@ -1,3 +1,4 @@
+import { ImportBohateraComponent } from './import-bohatera/import-bohatera.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DodawanieComponent } from './dodawanie/dodawanie.component';
@@ -12,6 +13,7 @@ import { SekcjadodawanieComponent } from './sekcjadodawanie/sekcjadodawanie.comp
 import { BohaterComponent } from './bohater/bohater.component';
 
 
+
 const routes: Routes = [
   {
     path: '',
@@ -24,7 +26,8 @@ const routes: Routes = [
   { path: 'register-user', component: SignUpComponent },
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'forgot-password', component: ForgotPasswordComponent },
-  { path: 'verify-email-address', component: VerifyEmailComponent }
+  { path: 'verify-email-address', component: VerifyEmailComponent },
+  { path: 'import', component: ImportBohateraComponent }
 
 
 ];

@@ -4,6 +4,7 @@ import { BohaterLogikaService } from '../service/bohater-logika.service';
 import { SharedService } from '../service/shared.service';
 
 
+
 @Component({
   selector: 'app-bohater-umiejetnosci',
   templateUrl: './bohater-umiejetnosci.component.html',
@@ -15,7 +16,11 @@ export class BohaterUmiejetnosciComponent implements OnInit {
   umiejetnosciRasy: BohaterOgolne;
 
 
+
+
   public constructor(public logika: BohaterLogikaService, public share: SharedService) { }
+
+
 
   ngOnInit() {
 

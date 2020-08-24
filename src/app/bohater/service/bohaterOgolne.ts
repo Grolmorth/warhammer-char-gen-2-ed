@@ -30,5 +30,6 @@ export interface BohaterOgolne {
   wyposazenie?: Array<string>;
   inne?: any;
   uwagi?: string;
+  importowane?: boolean;
 }
 
