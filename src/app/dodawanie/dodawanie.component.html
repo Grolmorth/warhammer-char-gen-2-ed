@@ -7,8 +7,6 @@
 <div [hidden]="submitted">
     <p>{{liczba1}} + {{liczba2}} = ?</p>
     <div class="container">
-
-
         <div class="row" *ngFor="let odpowiedz of tabOdpowiedzi2">
             <div type="button" class="col btn-dark" (click)="czyWygrales(odpowiedz) ">
                 <p>{{odpowiedz}}</p>

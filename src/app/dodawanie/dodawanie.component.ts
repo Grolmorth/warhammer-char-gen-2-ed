@@ -28,6 +28,7 @@ export class DodawanieComponent {
   seconds = 0;
   score: Score = new Score();
   iloscPotrzebnychOdpowiedzi = 5;
+  ostatniWynik = 0;
 
   randomNumber(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -145,7 +146,11 @@ export class DodawanieComponent {
         this.score.ileOdpowiedzi = this.dobreodpowiedzi;
         this.score.czas = this.czas;
         this.score.who = (await this.authservice.afAuth.currentUser).email;
-        this.scoreservice.addScore(this.score);
+
+
+
+          this.scoreservice.addScore(this.score);
+
 
       } else {
         this.czas = this.seconds;

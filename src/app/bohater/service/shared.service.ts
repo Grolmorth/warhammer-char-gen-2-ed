@@ -14,11 +14,16 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class SharedService {
 
-
   // statystyki aktywnej Rasy
   statystykiRasowe: BohaterOgolne[];
   umiejetnosciRasowe: Umiejetnosci[];
   zdolnosciRasowe: Zdolnosci[];
+
+  exportDisabler = true;
+  wyborUmiejetnosciRasaDisabler = true;
+  wyborZdolnosciRasaDisabler = true;
+  wyborUmiejetnosciProfesjaDisabler = true;
+  wyborZdolnosciProdesjaDisabler = true;
 
   // statystyki początkowe rasy
   public poczatkoweStatystykiRasowe: BohaterOgolne =
@@ -149,8 +154,6 @@ export class SharedService {
       wyposazenie: []
     };
 
-
-
   // statystyki aktywnej Profesji
   statystkiProfesji: BohaterOgolne[];
   umiejetnosciProfesji: Umiejetnosci[];
@@ -269,7 +272,6 @@ export class SharedService {
   constructor(public db: AngularFirestore, private logika: BohaterLogikaService, public authService: AuthService) {
     this.postacRef = db.collection(this.dbPath);
   }
-
   resetStatystyk() {
     this.poczatkoweStatystykiRasowe.WW = 0;
     this.poczatkoweStatystykiRasowe.US = 0;
@@ -302,6 +304,8 @@ export class SharedService {
     this.zdolnosciStatystykiRasowe.Ogd = 0;
     this.zdolnosciStatystykiRasowe.Zyw = 0;
     this.zdolnosciStatystykiRasowe.Sz = 0;
+    this.wyborUmiejetnosciRasaDisabler = true;
+    this.wyborZdolnosciRasaDisabler = true;
     console.log('zresetowano statystyki dla', this.poczatkoweStatystykiRasowe.rasatitle);
     this.resetStatystykProfesja();
 
@@ -366,6 +370,8 @@ export class SharedService {
     this.schematRozwojuProfesja.wyborUmiejetnosciProfesji = [[]];
     this.schematRozwojuProfesja.zdolnosci = [];
     this.schematRozwojuProfesja.wyborZdolnosciProfesji = [[]];
+    this.wyborZdolnosciProdesjaDisabler = true;
+    this.wyborUmiejetnosciProfesjaDisabler = true;
     if (this.schematRozwojuProfesja.profesjatitle !== '') {
       console.log('zresetowano statystyki dla', this.schematRozwojuProfesja.profesjatitle);
     }
@@ -526,6 +532,11 @@ export class SharedService {
             }
           }
         }
+        // pozwolenie na eksport gdy brak umiejetnosci do wybory
+        else {
+          this.wyborUmiejetnosciRasaDisabler = false;
+
+        }
         // dodanie listy zdolnosci rasowych
 
         for (let m = 0; m < this.statystykiRasowe[n].zdolnosci.length; m++) {
@@ -548,6 +559,12 @@ export class SharedService {
             }
           }
           console.log('pobrano zdolnosci do wyboru dla', rasa);
+        }
+        // pozwolenie na eksport gdy brak umiejetnosci do wybory
+        else {
+          this.wyborZdolnosciRasaDisabler = false;
+
+          this.exportAbler();
         }
       }
     }
@@ -591,10 +608,14 @@ export class SharedService {
           this.logika.getUmiejetnosci(this.statystkiProfesji[0].wyborUmiejetnosciProfesji[n][p])
             .subscribe(items => this.umiejetnosciProfesji = items);
           this.schematRozwojuProfesja.wyborUmiejetnosciProfesji[n][p] = this.umiejetnosciProfesji;
-
         }
       }
-      console.log('pobrano umiejetnosci do wyboru dla', profesja);
+
+    }
+    // pozwolenie na eksport gdy brak umiejetnosci do wybory
+    else {
+      this.wyborUmiejetnosciProfesjaDisabler = false;
+
     }
     this.schematRozwojuProfesja.opis = this.statystkiProfesji[0].opis;
 
@@ -616,10 +637,13 @@ export class SharedService {
           this.logika.getZdolnosc(this.statystkiProfesji[0].wyborZdolnosciProfesji[m][p])
             .subscribe(items => this.zdolnosciProfesji = items);
           this.schematRozwojuProfesja.wyborZdolnosciProfesji[m][p] = this.zdolnosciProfesji;
-
         }
       }
-      console.log('pobrano zdolnosci do wyboru dla', profesja);
+    }
+    // pozwolenie na eksport gdy brak umiejetnosci do wybory
+    else {
+      this.wyborZdolnosciProdesjaDisabler = false;
+      this.exportAbler();
     }
 
   }
@@ -825,6 +849,12 @@ export class SharedService {
   }
   importPostac(): AngularFirestoreCollection<ExportPostac> {
     return this.postacRef;
+  }
+
+  exportAbler() {
+    if (this.wyborUmiejetnosciRasaDisabler === false && this.wyborUmiejetnosciProfesjaDisabler === false && this.wyborZdolnosciRasaDisabler === false && this.wyborZdolnosciProdesjaDisabler === false) {
+      this.exportDisabler = false;
+    }
   }
 }
 

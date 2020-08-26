@@ -139,6 +139,8 @@ export class ImportBohateraComponent implements OnInit {
       }
       this.shared.schematRozwojuProfesja.zdolnosci[n][0] = postac.zdolnosciProfesji[n];
     }
+    this.shared.exportDisabler = false;
+    this.shared.exportAbler();
   }
 
 

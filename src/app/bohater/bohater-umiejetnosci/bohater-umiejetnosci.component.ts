@@ -27,16 +27,41 @@ export class BohaterUmiejetnosciComponent implements OnInit {
     this.umiejetnosciProfesji = this.share.schematRozwojuProfesja;
     this.umiejetnosciRasy = this.share.poczatkoweStatystykiRasowe;
   }
+  umiejetnosc(element, index, array) {
+    return (element === []);
+  }
   onWyborUmiejetnosciProfesja(schemat, [i]) {
     this.share.schematRozwojuProfesja.umiejetnosci.push(schemat);
     this.share.schematRozwojuProfesja.wyborUmiejetnosciProfesji[i] = [];
-    console.log('dodano umiejetnosc', schemat[0].umiejetnosc, 'do puli umiejetnosci');
+    let m = 0;
+    for (let n = 0; n < this.share.schematRozwojuProfesja.wyborUmiejetnosciProfesji.length; n++) {
+      const passed = this.share.schematRozwojuProfesja.wyborUmiejetnosciProfesji[n].every(this.umiejetnosc);
+      if (passed === true) {
+        m = m + 1;
+        if (m === this.share.schematRozwojuProfesja.wyborUmiejetnosciProfesji.length) {
+          this.share.wyborUmiejetnosciProfesjaDisabler = false;
+        }
+      }
+    }
+    this.share.exportAbler();
   }
   onWyborUmiejetnosciRasa(schemat, [i]) {
     this.share.poczatkoweStatystykiRasowe.umiejetnosci.push(schemat);
     this.share.poczatkoweStatystykiRasowe.wyborUmiejetnosciRasy[i] = [];
-    console.log('dodano umiejetnosc', schemat[0].umiejetnosc, 'do puli umiejetnosci');
+    let m = 0;
+    for (let n = 0; n < this.share.poczatkoweStatystykiRasowe.wyborUmiejetnosciRasy.length; n++) {
+      const passed = this.share.poczatkoweStatystykiRasowe.wyborUmiejetnosciRasy[n].every(this.umiejetnosc);
+      if (passed === true) {
+        m = m + 1;
+        if (m === this.share.poczatkoweStatystykiRasowe.wyborUmiejetnosciRasy.length) {
+          this.share.wyborUmiejetnosciRasaDisabler = false;
+        }
+      }
+    }
+    this.share.exportAbler();
   }
+
+
 
 
 

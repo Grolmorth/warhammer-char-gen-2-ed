@@ -1,11 +1,17 @@
-<div class="container bohater text-center p-0 m-0">
+<div class="container bohater text-center p-0 m-0" *ngIf="rasa.WW!==0">
+    <div class="p-1 title"><b>Eksport</b></div>
+    <div class="row">
 
-    <div class="p-1 title"><b>Import/Export</b></div>
-    <div *ngIf="authService.isLoggedIn===false">
-        <a routerLink="/sign-in">
-            <p>Zaloguj, aby eksportować!</p>
-        </a>
+        <div class="" *ngIf="authService.isLoggedIn===false">
+            <button class="btn btn-primary btn-sm m-1" routerLink="/sign-in">
+              Zaloguj, aby eksportować!
+            </button>
+        </div>
+        <div *ngIf="authService.isLoggedIn===true">
+            <button class="btn btn-danger btn-sm m-1" [disabled]="this.share.exportDisabler" (click)="export()">Eksport</button>
+        </div>
+        <div class="">
+            <button class="btn btn-primary btn-sm m-1" (click)="refresh()">Od Nowa</button>
+        </div>
     </div>
-    <div *ngIf="authService.isLoggedIn===true"><button class="btn btn-danger btn-sm m-1" (click)="export()">Eksport</button></div>
-
 </div>
