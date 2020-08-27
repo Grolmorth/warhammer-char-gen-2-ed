@@ -31,8 +31,27 @@ export class BohaterUmiejetnosciComponent implements OnInit {
     return (element === []);
   }
   onWyborUmiejetnosciProfesja(schemat, [i]) {
-    this.share.schematRozwojuProfesja.umiejetnosci.push(schemat);
-    this.share.schematRozwojuProfesja.wyborUmiejetnosciProfesji[i] = [];
+    // sprawdzanie czy nie istnieje juz taka umiejetnosc rasowa, jezeli tak to +10/+20
+    let n = 0;
+    for (let m = 0; m < this.share.poczatkoweStatystykiRasowe.umiejetnosci.length; m++) {
+      if (this.share.poczatkoweStatystykiRasowe.umiejetnosci[m][0].umiejetnosc === schemat[0].umiejetnosc && n === 0) {
+        if (this.share.poczatkoweStatystykiRasowe.umiejetnosci[m][0].umiejetnosc10 === true) {
+          this.share.poczatkoweStatystykiRasowe.umiejetnosci[m][0].umiejetnosc20 = true;
+          this.share.schematRozwojuProfesja.wyborUmiejetnosciProfesji[i] = [];
+          n = 1;
+        }
+        this.share.poczatkoweStatystykiRasowe.umiejetnosci[m][0].umiejetnosc10 = true;
+        this.share.schematRozwojuProfesja.wyborUmiejetnosciProfesji[i] = [];
+        n = 1;
+      }
+    }
+    if (n === 0) {
+      this.share.schematRozwojuProfesja.umiejetnosci.push(schemat);
+      this.share.schematRozwojuProfesja.wyborUmiejetnosciProfesji[i] = [];
+      n = 1;
+    }
+
+    // eksport disabler gdy nie wybrano umiejetnosci
     let m = 0;
     for (let n = 0; n < this.share.schematRozwojuProfesja.wyborUmiejetnosciProfesji.length; n++) {
       const passed = this.share.schematRozwojuProfesja.wyborUmiejetnosciProfesji[n].every(this.umiejetnosc);

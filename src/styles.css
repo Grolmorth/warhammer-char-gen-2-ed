@@ -107,3 +107,15 @@ body {
     font-size: 90%;
     max-width: 100%;
 }
+
+
+/*footer*/
+
+.footer {
+    position: fixed;
+    right: 0;
+    bottom: 50%;
+}
+
+
+/*footer ends*/

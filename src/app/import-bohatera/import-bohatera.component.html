@@ -5,6 +5,7 @@
         <div class="col-sm ml-1 ">Rasa</div>
         <div class="col-sm ml-1 ">Profesja</div>
         <div class="col-sm ml-1 ">e-mail</div>
+        <div class="col-sm ml-1 ">data </div>
         <div class="col-sm ml-1 "> </div>
 
     </div>
@@ -14,6 +15,28 @@
         <div class="col-sm ml-1 ">{{postac.rasatitle}}</div>
         <div class="col-sm ml-1 ">{{postac.profesjatitle}}</div>
         <div class="col-sm ml-1 ">{{postac.kto}}</div>
-        <div class="col-sm ml-1 "><button class="btn-sm btn-primary" (click)="importujPostac(postac)" routerLink="/bohater">Importuj</button></div>
+        <div class="col-sm ml-1 ">{{postac.data|date:'short'}}</div>
+        <div class="col-sm ml-1 container">
+            <div class="row">
+                <div><button class="btn-sm btn-primary m-1" (click)="importujPostac(postac)" routerLink="/bohater">Importuj</button></div>
+                <div *ngIf="authService.isLoggedIn===true">
+                    <div *ngIf="authService.userData.email===postac.kto"><button class="btn-sm btn-danger m-1" data-toggle="modal" data-target="#usunPostacConfirm" (click)="probaUsun(postac.key, postac.imie)">Usun</button></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="modal fade" id="usunPostacConfirm" tabindex="-1" role="dialog" aria-labelledby="usunPostacConfirm" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="col-sm ml-1 ">Czy napewno usunąć: {{imie}}?</div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Anuluj</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="usunPostac(key)">Usuń</button>
+            </div>
+        </div>
     </div>
 </div>

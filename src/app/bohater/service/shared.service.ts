@@ -372,6 +372,15 @@ export class SharedService {
     this.schematRozwojuProfesja.wyborZdolnosciProfesji = [[]];
     this.wyborZdolnosciProdesjaDisabler = true;
     this.wyborUmiejetnosciProfesjaDisabler = true;
+    // resetowanie +10 +20 z umiejetnosci rasy
+    for (let n = 0; n < this.poczatkoweStatystykiRasowe.umiejetnosci.length; n++) {
+      if (this.poczatkoweStatystykiRasowe.umiejetnosci[n][0].umiejetnosc10 === true) {
+        this.poczatkoweStatystykiRasowe.umiejetnosci[n][0].umiejetnosc10 = false;
+        if (this.poczatkoweStatystykiRasowe.umiejetnosci[n][0].umiejetnosc20 === true) {
+          this.poczatkoweStatystykiRasowe.umiejetnosci[n][0].umiejetnosc20 = false;
+        }
+      }
+    }
     if (this.schematRozwojuProfesja.profesjatitle !== '') {
       console.log('zresetowano statystyki dla', this.schematRozwojuProfesja.profesjatitle);
     }
@@ -494,14 +503,14 @@ export class SharedService {
     // losowanie statystyk poczatkowych dla ras n=0 - czlowiek n=1 - krasnolud n=2 - elf n=3 - niziolek
     for (let n = 0; n < 4; n++) {
       if (this.statystykiRasowe[n].rasatitle === this.poczatkoweStatystykiRasowe.rasatitle) {
-        this.poczatkoweStatystykiRasowe.WW = this.statystykiRasowe[n].WW + this.randomNumber(2, 20);
-        this.poczatkoweStatystykiRasowe.US = this.statystykiRasowe[n].US + this.randomNumber(2, 20);
-        this.poczatkoweStatystykiRasowe.K = this.statystykiRasowe[n].K + this.randomNumber(2, 20);
-        this.poczatkoweStatystykiRasowe.Odp = this.statystykiRasowe[n].Odp + this.randomNumber(2, 20);
-        this.poczatkoweStatystykiRasowe.Zr = this.statystykiRasowe[n].Zr + this.randomNumber(2, 20);
-        this.poczatkoweStatystykiRasowe.Int = this.statystykiRasowe[n].Int + this.randomNumber(2, 20);
-        this.poczatkoweStatystykiRasowe.SW = this.statystykiRasowe[n].SW + this.randomNumber(2, 20);
-        this.poczatkoweStatystykiRasowe.Ogd = this.statystykiRasowe[n].Ogd + this.randomNumber(2, 20);
+        this.poczatkoweStatystykiRasowe.WW = this.statystykiRasowe[n].WW + this.randomNumber(1, 10) + this.randomNumber(1, 10);
+        this.poczatkoweStatystykiRasowe.US = this.statystykiRasowe[n].US + this.randomNumber(1, 10) + this.randomNumber(1, 10);
+        this.poczatkoweStatystykiRasowe.K = this.statystykiRasowe[n].K + this.randomNumber(1, 10) + this.randomNumber(1, 10);
+        this.poczatkoweStatystykiRasowe.Odp = this.statystykiRasowe[n].Odp + this.randomNumber(1, 10) + this.randomNumber(1, 10);
+        this.poczatkoweStatystykiRasowe.Zr = this.statystykiRasowe[n].Zr + this.randomNumber(1, 10) + this.randomNumber(1, 10);
+        this.poczatkoweStatystykiRasowe.Int = this.statystykiRasowe[n].Int + this.randomNumber(1, 10) + this.randomNumber(1, 10);
+        this.poczatkoweStatystykiRasowe.SW = this.statystykiRasowe[n].SW + this.randomNumber(1, 10) + this.randomNumber(1, 10);
+        this.poczatkoweStatystykiRasowe.Ogd = this.statystykiRasowe[n].Ogd + this.randomNumber(1, 10) + this.randomNumber(1, 10);
         this.poczatkoweStatystykiRasowe.A = 1;
         this.poczatkoweStatystykiRasowe.Zyw = this.zywotnosc(n);
         this.poczatkoweStatystykiRasowe.S = Math.floor(this.poczatkoweStatystykiRasowe.K / 10);
@@ -592,10 +601,20 @@ export class SharedService {
     this.schematRozwojuProfesja.PP = this.statystkiProfesji[0].PP;
     this.schematRozwojuProfesja.doswiadczenie = 100;
 
-    // dodanie umiejetnosci do listy umiejetnosci rasowych
+    // dodanie umiejetnosci do listy umiejetnosci profesji
     for (let n = 0; n < this.statystkiProfesji[0].umiejetnosci.length; n++) {
       this.logika.getUmiejetnosci(this.statystkiProfesji[0].umiejetnosci[n]).subscribe(items => this.umiejetnosciProfesji = items);
+      // sprawdzanie czy istnieje taka sama umiejetnosc rasy, jezeli tak dodanie specjjalizacji +10
+      for (let m = 0; m < this.poczatkoweStatystykiRasowe.umiejetnosci.length; m++) {
+        if (this.poczatkoweStatystykiRasowe.umiejetnosci[m][0].umiejetnosc === this.umiejetnosciProfesji[0].umiejetnosc) {
+          if (this.poczatkoweStatystykiRasowe.umiejetnosci[m][0].umiejetnosc10 === true) {
+            this.poczatkoweStatystykiRasowe.umiejetnosci[m][0].umiejetnosc20 = true;
+          }
+          this.poczatkoweStatystykiRasowe.umiejetnosci[m][0].umiejetnosc10 = true;
+        }
+      }
       this.schematRozwojuProfesja.umiejetnosci.push(this.umiejetnosciProfesji);
+
     }
     // dodanie umiejetnosci do wyboru
     if (this.statystkiProfesji[0].wyborUmiejetnosciProfesji !== undefined) {
@@ -839,6 +858,7 @@ export class SharedService {
 
     this.postacDoExportu.doswiadczenie = this.schematRozwojuProfesja.doswiadczenie;
     this.postacDoExportu.kto = (await this.authService.afAuth.currentUser).email;
+    this.postacDoExportu.data = new Date().toString();
     this.exportPostac(this.postacDoExportu);
   }
 

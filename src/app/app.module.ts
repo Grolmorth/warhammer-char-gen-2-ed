@@ -45,6 +45,8 @@ import { BohaterWyposarzenieComponent } from './bohater/bohater-wyposarzenie/boh
 import { BohaterPieniadzeComponent } from './bohater/bohater-pieniadze/bohater-pieniadze.component';
 import { ImportExportComponent } from './bohater/import-export/import-export.component';
 import { ImportBohateraComponent } from './import-bohatera/import-bohatera.component';
+import { FooterBohaterComponent } from './bohater/footer-bohater/footer-bohater.component';
+
 
 
 
@@ -81,6 +83,8 @@ import { ImportBohateraComponent } from './import-bohatera/import-bohatera.compo
     BohaterPieniadzeComponent,
     ImportExportComponent,
     ImportBohateraComponent,
+    FooterBohaterComponent,
+
 
   ],
   imports: [

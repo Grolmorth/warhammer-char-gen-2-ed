@@ -8,7 +8,8 @@
             </button>
         </div>
         <div *ngIf="authService.isLoggedIn===true">
-            <button class="btn btn-danger btn-sm m-1" [disabled]="this.share.exportDisabler" (click)="export()">Eksport</button>
+            <button class="btn btn-danger btn-sm m-1" [disabled]="exportDisabled===true " [disabled]="this.share.exportDisabler===true" (click)="export()">Eksport</button>
+            <div class="" *ngIf="this.share.exportDisabler">Skończ tworzyć postać, aby wyeksportować!</div>
         </div>
         <div class="">
             <button class="btn btn-primary btn-sm m-1" (click)="refresh()">Od Nowa</button>

@@ -5,6 +5,7 @@ import { SharedService } from '../bohater/service/shared.service';
 import { AuthService } from '../services/auth.service';
 import { map } from 'rxjs/internal/operators/map';
 
+
 @Component({
   selector: 'app-import-bohatera',
   templateUrl: './import-bohatera.component.html',
@@ -13,6 +14,8 @@ import { map } from 'rxjs/internal/operators/map';
 export class ImportBohateraComponent implements OnInit {
 
   postac: any;
+  key = '';
+  imie='';
 
   constructor(private shared: SharedService, public authService: AuthService) { }
 
@@ -20,6 +23,7 @@ export class ImportBohateraComponent implements OnInit {
     this.importListyPostaci();
   }
   importujPostac(postac) {
+    this.shared.resetStatystyk();
     this.shared.poczatkoweStatystykiRasowe.imie = postac.imie;
     this.shared.poczatkoweStatystykiRasowe.rasatitle = postac.rasatitle;
     this.shared.poczatkoweStatystykiRasowe.profesjatitle = postac.profesjatitle;
@@ -142,6 +146,13 @@ export class ImportBohateraComponent implements OnInit {
     this.shared.exportDisabler = false;
     this.shared.exportAbler();
   }
+  usunPostac(key: string): Promise<void> {
+    return this.shared.postacRef.doc(key).delete();
+  }
+  probaUsun(key, imie) {
+    this.key = key;
+    this.imie = imie;
+  }
 
 
 
@@ -150,7 +161,6 @@ export class ImportBohateraComponent implements OnInit {
       map(changes =>
         changes.map(c =>
           ({ key: c.payload.doc.id, ...c.payload.doc.data() })
-
         )
       )
     ).subscribe(postac => {

@@ -12,6 +12,8 @@ import { SharedService } from '../service/shared.service';
   styleUrls: ['./bohater-punkty-doswiadczenia.component.css']
 })
 export class BohaterPunktyDoswiadczeniaComponent implements OnInit {
+  umiejetnosciProfesji: BohaterOgolne;
+  umiejetnosciRasy: BohaterOgolne;
 
   wykupioneCechy: BohaterOgolne;
   submittedButton = false;
@@ -20,6 +22,9 @@ export class BohaterPunktyDoswiadczeniaComponent implements OnInit {
   cechyDrugorzedne = true;
   noweUmiejetnosci = true;
   noweZdolnosci = true;
+  umiejetnosc10 = true;
+
+  selectedUmiejetnosciWykupione: string;
   public umiejetnosciDoWykupienia: string[] = ['Brzuchomówstwo', 'Charakteryzacja', 'Czytanie i pisanie', 'Czytanie z warg', 'Dowodzenie', 'Gadanina', 'Hazard',
     'Hipnoza', 'Jeździectwo', 'Język tajemny(magiczny)', 'Kuglarstwo(akrobatyka)', 'Kuglarstwo(aktorstwo)',
     'Kuglarstwo(błaznowanie)', 'Kuglarstwo(gawędziarstwo)', 'Kuglarstwo(komedianctwo)', 'Kuglarstwo(mimika)',
@@ -71,6 +76,8 @@ export class BohaterPunktyDoswiadczeniaComponent implements OnInit {
   ngOnInit(): void {
     this.schematRozwoju = this.share.schematRozwojuProfesja;
     this.wykupioneCechy = this.share.wykupionyRozwoj;
+    this.umiejetnosciProfesji = this.share.schematRozwojuProfesja;
+    this.umiejetnosciRasy = this.share.poczatkoweStatystykiRasowe;
   }
 
   dodajDoswiadczenie() {
@@ -200,5 +207,46 @@ export class BohaterPunktyDoswiadczeniaComponent implements OnInit {
     this.share.zdolnosciDoCechyPoczatkowych(zdolnosc, false);
     this.share.schematRozwojuProfesja.doswiadczenie = this.share.schematRozwojuProfesja.doswiadczenie - 100;
     this.cofnijNoweZdolnosci();
+  }
+  // umiejetnosci +10
+  umiejetnosci10() {
+    this.submittedButton = true;
+    this.umiejetnosc10 = false;
+
+
+  }
+  cofnijUmiejetnosci10() {
+    this.umiejetnosc10 = true;
+    this.submittedButton = false;
+  }
+
+  dodajUmiejetnosc1020(umiejetnosc, cos){
+    this.dodajUmiejetnosc10(umiejetnosc, cos);
+    this.cofnijUmiejetnosci10();
+    this.share.schematRozwojuProfesja.doswiadczenie = this.share.schematRozwojuProfesja.doswiadczenie - 100;
+  }
+  // cos-true rasa, cos-false profesja
+  dodajUmiejetnosc10(umiejetnosc, cos) {
+    if (cos === true) {
+      for (let n = 0; n < this.umiejetnosciRasy.umiejetnosci.length; n++) {
+        if (this.umiejetnosciRasy.umiejetnosci[n][0].umiejetnosc === umiejetnosc) {
+          if (this.share.poczatkoweStatystykiRasowe.umiejetnosci[n][0].umiejetnosc10 === true) {
+            return this.share.poczatkoweStatystykiRasowe.umiejetnosci[n][0].umiejetnosc20 = true;
+          }
+          return this.share.poczatkoweStatystykiRasowe.umiejetnosci[n][0].umiejetnosc10 = true;
+
+        }
+      }
+    }
+    if (cos === false) {
+      for (let n = 0; n < this.umiejetnosciProfesji.umiejetnosci.length; n++) {
+        if (this.umiejetnosciProfesji.umiejetnosci[n][0].umiejetnosc === umiejetnosc) {
+          if (this.share.schematRozwojuProfesja.umiejetnosci[n][0].umiejetnosc10 === true) {
+            return this.share.schematRozwojuProfesja.umiejetnosci[n][0].umiejetnosc20 = true;
+          }
+          return this.share.schematRozwojuProfesja.umiejetnosci[n][0].umiejetnosc10 = true;
+        }
+      }
+    }
   }
 }

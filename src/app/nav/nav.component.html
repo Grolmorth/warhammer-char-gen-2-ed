@@ -7,12 +7,24 @@
             <li class="nav-item "><a class="nav-link" routerLink="import">Import Postaci</a></li>
             <li class="nav-item "><a class="nav-link" routerLink="bohater">Bohater</a></li>
             <li class="nav-item "><a class="nav-link" routerLink="dodawanie">Dodawanie</a></li>
-            <li class="nav-item " *ngIf="authService.userData as user; else login"><a class="nav-link" routerLink="sign-in" (click)="authService.SignOut()">Wyloguj</a></li>
+            <li class="nav-item "><a *ngIf="authService.userData as user" class="nav-link" routerLink="dashboard">{{user.email}}</a></li>
+            <li class="nav-item " *ngIf="authService.userData as user; else login"><a class="nav-link" routerLink="" data-toggle="modal" data-target="#logoutConfirmModal">Wyloguj</a></li>
             <ng-template #login>
                 <a class="nav-link" routerLink="sign-in">Zaloguj</a>
             </ng-template>
-            <li class="nav-item "><a *ngIf="authService.userData as user" class="nav-link" routerLink="dashboard">{{user.email}}</a></li>
-
         </ul>
     </div>
 </nav>
+<div class="modal fade" id="logoutConfirmModal" tabindex="-1" role="dialog" aria-labelledby="logoutConfirmModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                Czy napewno wylogować?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Anuluj</button>
+                <button type="button" class="btn btn-primary" routerLink="sign-in" (click)="authService.SignOut()">Wyloguj</button>
+            </div>
+        </div>
+    </div>
+</div>

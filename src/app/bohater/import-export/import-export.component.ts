@@ -12,6 +12,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class ImportExportComponent implements OnInit {
   rasa: BohaterOgolne;
   profesja: BohaterOgolne;
+  exportDisabled = false;
 
   constructor(public share: SharedService, public authService: AuthService) { }
 
@@ -24,6 +25,12 @@ export class ImportExportComponent implements OnInit {
   }
   export() {
     this.share.exportPostaci();
+    this.exportDisabled = true;
+
+    setTimeout(() => {
+      this.exportDisabled = false;
+    }, 3000);
+
   }
   refresh(): void {
     location.reload();

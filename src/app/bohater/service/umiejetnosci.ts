@@ -4,6 +4,8 @@ export interface Umiejetnosci {
   cecha: string;
   opis: string;
   zdolnoscipokrewne: string;
+  umiejetnosc10?: boolean;
+  umiejetnosc20?: boolean;
 
 }
 

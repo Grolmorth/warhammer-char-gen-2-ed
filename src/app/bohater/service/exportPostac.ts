@@ -98,5 +98,7 @@ export interface ExportPostac {
   inne?: any;
   uwagi?: string;
   kto?: string;
+  data?: string;
+  key?:string;
 }
 

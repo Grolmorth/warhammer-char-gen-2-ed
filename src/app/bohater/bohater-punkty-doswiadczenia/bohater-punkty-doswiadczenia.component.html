@@ -1,13 +1,14 @@
 <div class="container bohater text-center  p-0 m-0" *ngIf="schematRozwoju.profesjatitle!==''">
     <div class="p-1 title"><b>Punkty doświadczenia</b></div>
-
+    <!-- tabelka-->
     <div class="cursorDefault">
         <div class="row ">
             <div class="col-sm-3 ml-1"><b>Ilość doświadczenia</b></div>
             <div class="col-sm ml-1">{{schematRozwoju.doswiadczenie}}</div>
-            <div class="col-sm ml-1" *ngIf="schematRozwoju.profesjatitle!==''"><button class="btn btn-success btn-sm m-1" (click)="dodajDoswiadczenie()">Dodaj 100 doświadczenia</button></div>
+            <div class="col ml-1" *ngIf="schematRozwoju.profesjatitle!==''"><button class="btn btn-success btn-sm m-1" (click)="dodajDoswiadczenie()">Dodaj 100 doświadczenia</button></div>
         </div>
     </div>
+    <!-- doswiadczenie i buttony-->
     <div [hidden]="submittedButton" *ngIf="schematRozwoju.doswiadczenie>=100 && schematRozwoju.profesjatitle!==''">
         <div>
             <p>Koszt: 100 punktów doświadczenia</p>
@@ -16,13 +17,14 @@
         <button class="btn btn-primary btn-sm m-1" (click)="zwiekszenieCechyDrugorzednej()">Zwiększenie cechy drugorzędnej +1</button>
         <button class="btn btn-primary btn-sm m-1" (click)="wykupienieUmiejetnosci()">Wykupienie umiejętności</button>
         <button class="btn btn-primary btn-sm m-1" (click)="wykupienieZdolnosci()">Wykupienie zdolności</button>
-        <button class="btn btn-primary btn-sm m-1 disabled">Specjalizacja w umiejętności +10</button>
+        <button class="btn btn-primary btn-sm m-1" (click)="umiejetnosci10()">Specjalizacja w umiejętności +10</button>
         <button class="btn btn-primary btn-sm m-1 disabled">Wybór nowej profesji</button>
         <div>
             <p>Koszt: 200 punktów doświadczenia</p>
         </div>
         <button class="btn btn-primary btn-sm m-1 disabled">Wybór nowe profesji podstawowej (nie wyjściowej)</button>
     </div>
+    <!-- zwiekszenie cech glownych-->
     <div [hidden]="cechyGlowne" class="container" *ngIf="schematRozwoju.doswiadczenie>=100 && schematRozwoju.profesjatitle!==''">
         <div class="p-1 title"><b>Zwiększenie cechy głównej +5</b></div>
         <div class="row " *ngIf="schematRozwoju.WW-wykupioneCechy.WW!=0">
@@ -61,6 +63,7 @@
             <div class="col-12"><button class="btn btn-danger btn-sm m-1" (click)="cofnijCechyGlowne()">Cofnij</button></div>
         </div>
     </div>
+    <!-- zwiekszenie chech drugorzednych-->
     <div [hidden]="cechyDrugorzedne" class="container" *ngIf="schematRozwoju.doswiadczenie>=100 && schematRozwoju.profesjatitle!==''">
         <div class="p-1 title"><b>Zwiększenie cechy drugorzędnej +1</b></div>
         <div class="row " *ngIf="schematRozwoju.A-wykupioneCechy.A!=0">
@@ -83,6 +86,7 @@
             <div class="col-12"><button class="btn btn-danger btn-sm m-1" (click)="cofnijCechyDrugorzedne()">Cofnij</button></div>
         </div>
     </div>
+    <!-- dodanie umiejetnosci-->
     <div [hidden]="noweUmiejetnosci" *ngIf="schematRozwoju.doswiadczenie>=100 && schematRozwoju.profesjatitle!==''">
         <div class="p-1 title"><b>Dodaj nową umiejętność</b></div>
         <div>
@@ -94,6 +98,7 @@
             <div class="col-12"><button class="btn btn-danger btn-sm m-1" (click)="cofnijNoweUmiejetnosci()">Cofnij</button></div>
         </div>
     </div>
+    <!-- dodanie zdolnosci-->
     <div [hidden]="noweZdolnosci" *ngIf="schematRozwoju.doswiadczenie>=100 && schematRozwoju.profesjatitle!==''">
         <div class="p-1 title"><b>Dodaj nową zdolność</b></div>
         <div>
@@ -105,4 +110,26 @@
             <div class="col-12"><button class="btn btn-danger btn-sm m-1" (click)="cofnijNoweZdolnosci()">Cofnij</button></div>
         </div>
     </div>
+    <!-- specjalizacja w umiejetnosci +10-->
+    <div [hidden]="umiejetnosc10" *ngIf="schematRozwoju.doswiadczenie>=100 && schematRozwoju.profesjatitle!==''">
+        <div class="p-1 title"><b>Dodaj umiejętność modyfikator +10</b></div>
+        <div>
+            <div>
+                <div class="border-bottom cursorDefault" *ngFor="let schemat of umiejetnosciRasy.umiejetnosci">
+
+                    <div class="col-sm ml-1 " *ngIf="schemat[0].umiejetnosc20!==true" (click)=" dodajUmiejetnosc1020(schemat[0].umiejetnosc, true) ">{{schemat[0].umiejetnosc}}</div>
+
+                </div>
+            </div>
+            <div class="border-bottom cursorDefault" *ngFor="let schemat of umiejetnosciProfesji.umiejetnosci">
+
+                <div class="col-sm ml-1" *ngIf="schemat[0].umiejetnosc20!==true " (click)=" dodajUmiejetnosc1020(schemat[0].umiejetnosc, false) ">{{schemat[0].umiejetnosc}}</div>
+
+
+
+            </div>
+            <div class="col-12 "><button class="btn btn-danger btn-sm m-1 " (click)="cofnijUmiejetnosci10() ">Cofnij</button></div>
+        </div>
+    </div>
+
 </div>
