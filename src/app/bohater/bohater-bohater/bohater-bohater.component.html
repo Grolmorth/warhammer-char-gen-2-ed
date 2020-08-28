@@ -42,10 +42,12 @@
                     <h2>{{aktualne.profesjatitle}}</h2>
                     <button *ngIf="aktualne.profesjatitle!=='' && aktualne.importowane!==true" class="btn btn-danger btn-sm m-1" (click)="innaProfesja()">Zmień profesję</button>
                     <!--Opis-->
-                    <!--    <div *ngIf="aktualne.profesjatitle!==''" class="m-2 p-2 text-justify profesja-opis">
-                        <div class="p-1 title text-center"><b>Opis profesji</b></div>
-                        <p class=" p-1 m-2">{{umiejetnosciProfesji.opis}}</p>
-                    </div>-->
+                    <div *ngIf="aktualne.profesjatitle!==''" class="m-2 p-2 text-justify profesja-opis">
+                        <div class="p-1 title text-center"><b>Opis profesji/postaci</b></div>
+                        <div class=" p-1 m-2">
+                            <textarea type="text" wrap="soft" cols="70" [(ngModel)]="this.share.schematRozwojuProfesja.opis"></textarea>
+                        </div>
+                    </div>
 
                 </div>
 
@@ -53,6 +55,4 @@
 
         </div>
     </div>
-
-
 </div>

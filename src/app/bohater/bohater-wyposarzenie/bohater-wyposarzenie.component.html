@@ -1,20 +1,13 @@
-<table class=" table table-sm ">
-    <thead class="thead-dark">
-        <tr>
-            <th scope="col" colspan="3" class="text-center">Wyposażenie</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <th>Przedmiot</th>
-            <th>Obc.</th>
-            <th>Opis</th>
-        </tr>
-        <tr>
-            <td>Plecak</td>
-            <td>20</td>
-            <td>Prosty plecak pozwalający nieść dodatkowo 250 jednostek obciążenia.</td>
-        </tr>
+<div class="container bohater text-center p-0 m-0" *ngIf="this.share.schematRozwojuProfesja.WW!==0">
 
-    </tbody>
-</table>
+    <div class="p-1 title"><b>Wyposaenie</b></div>
+    <!--Wyposazenie-->
+
+    <div class="m-2 p-2 text-justify profesja-opis">
+        <div class=" p-1 m-2">
+            <textarea type="text" rows="4" cols="60" [(ngModel)]="this.share.schematRozwojuProfesja.wyposazenie"></textarea>
+        </div>
+    </div>
+
+
+</div>

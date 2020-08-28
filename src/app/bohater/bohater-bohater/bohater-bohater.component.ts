@@ -28,13 +28,18 @@ export class BohaterBohaterComponent implements OnInit {
   umiejetnosciProfesji: BohaterOgolne;
   aktualne: BohaterOgolne;
 
-  constructor(private logika: BohaterLogikaService, private share: SharedService) { }
+
+
+
+  constructor(private logika: BohaterLogikaService, public share: SharedService) { }
 
 
   // pobranie wszystkich ras z serwisu
   ngOnInit() {
     this.logika.getListaRasy().subscribe(items => this.cechy = items);
     this.aktualne = this.share.poczatkoweStatystykiRasowe;
+
+
   }
   // logika przyciusku do zmiany imienia
   noweImie() {
@@ -73,6 +78,8 @@ export class BohaterBohaterComponent implements OnInit {
     this.share.changeProfesja(this.selectedProfesjaId);
     this.share.changeAktualne();
     this.umiejetnosciProfesji = this.share.schematRozwojuProfesja;
+
+
 
   }
   innaProfesja() {

@@ -1571,16 +1571,11 @@ function getAkolita() {
         'Przekonywanie',
         'Spostrzegawczość',
         'Znajomość języka(klasyczny)',
-        'Znajomość języka(staroświatowy)'
-      ],
+        'Znajomość języka(staroświatowy)'],
       wyborUmiejetnosciProfesji: [['Nauka(astronomia)', 'Nauka(historia)']],
       zdolnosci: ['Przemawianie'],
       wyborZdolnosciProfesji: [['Bardzo silny', 'Szybki refleks'], ['Charyzmatyczny', 'Urodzony wojownik']],
-      wyposazenie: [
-        'szaty kapłańskie', 'symbol boga'
-      ]
-
-
+      wyposazenie:'szaty kapłańskie, symbol boga'
     }
   ];
 }
@@ -1608,7 +1603,7 @@ function getBanita() {
       umiejetnosci: ['Skradanie się', 'Spostrzegawczość', 'Ukrywanie się', 'Unik', 'Wspinaczka'],
       wyborUmiejetnosciProfesji: [['Opieka nad zwierzętami', 'Wiedza(imperium)'], ['Plotkowanie', 'Sekretne znaki(złodziei)'], ['Powożenie', 'Jeździectwo'], ['Zastawianie pułapek', 'Pływanie']],
       wyborZdolnosciProfesji: [['Strzał mierzony', 'Ogłuszanie'], ['Wędrowiec', 'Łotrzyk']],
-      wyposazenie: []
+      wyposazenie: 'łuk, 10 strzał, lekki pancerz(skórzany kaftan)'
     }
   ];
 }
@@ -1635,7 +1630,7 @@ function getberserkerZNorski() {
       PP: 0,
       umiejetnosci: ['Kuglarstwo(gawędziarstwo)', 'Mocna głowa', 'Pływanie', 'Wiedza(norska)', 'Zastraszanie', 'Znajomość języka(norski)'],
       zdolnosci: ['Broń specjalna(dwuręczna)', 'Groźny', 'Szał bojowy', 'Szybkie wyciągnięcie'],
-      wyposazenie: []
+      wyposazenie: 'broń dwuręczna albo tarcza, lekki pancerz(skórzany kaftan), butelka gorzałki'
     }
   ];
 }
@@ -1671,7 +1666,7 @@ function getChlop() {
         ['Zastawianie pułapek', 'Wioślarstwo'],
         ['Wspinaczka', 'Skradanie się']],
       wyborZdolnosciProfesji: [['Chodu!', 'Broń specjalna(proca)'], ['Twardziel', 'Wędrowiec']],
-      wyposazenie: []
+      wyposazenie: 'proca albo kij, skórzany bukłak'
     }
   ];
 }
@@ -1703,7 +1698,7 @@ function getCiuraObozowa() {
       ['Znajomość języka(bretoński)', 'Znajomość języka(kislevski)', 'Znajomość języka(tileański)']],
       zdolnosci: ['Chodu!'],
       wyborZdolnosciProfesji: [['Odporność na choroby', 'Obieżyświat'], ['Twardziel', 'Charyzmatyczny'], ['Żyłka handlowa', 'Bijatyka']],
-      wyposazenie: []
+      wyposazenie: 'taliznam szczęścia albo narzędzia(rzemieślnika), sakiewka, namiot'
     }
   ];
 }
@@ -1733,7 +1728,7 @@ function getCyrkowiec() {
       ['Kuglarstwo(akrobatyka)', 'Kuglarstwo(aktorstwo)', 'Kuglarstwo(błaznowanie)', 'Kuglarstwo(gawędziarstwo)', 'Kuglarstwo(komedianctwo)', 'Kuglarstwo(mimika)', 'Kuglarstwo(muzykalność)', 'Kuglarstwo(połykanie ognia)', 'Kuglarstwo(śpiew)', 'Kuglarstwo(taniec)', 'Kuglarstwo(wróżenie z dłoni)', 'Kuglarstwo(żonglerka)'],
       ['Opieka nad zwierzętami', 'Pływanie'], ['Wycena', 'Plotkowanie'], ['Brzuchomówstwo', 'Gadanina', 'Hipnoza', 'Jeździectwo', 'Oswajanie', 'Tresura', 'Wspinaczka', 'Zwinne palce']],
       wyborZdolnosciProfesji: [['Bardzo silny', 'Broń specjalna(rzucana)', 'Człowiek-guma', 'Naśladowca', 'Przemawianie', 'Strzał mierzony', 'Szybki refleks', 'Szybkie wyciągnięcie', 'Woltyżerka', 'Zapasy'], ['Bardzo silny', 'Broń specjalna(rzucana)', 'Człowiek-guma', 'Naśladowca', 'Przemawianie', 'Strzał mierzony', 'Szybki refleks', 'Szybkie wyciągnięcie', 'Woltyżerka', 'Zapasy']],
-      wyposazenie: []
+      wyposazenie: 'lekki pancerz(skórzana kaftan), jeden przedmiot do wyboru spośród: 3 noże do rzucania, 2 topory do rzucania, instrument muzyczny(dowolny), narzędzia(kuglarza), jeden przedmiot do wyboru spośród: kustium cyrkowca(dowolny) albo ubranie dobrej jakości'
     }
   ];
 }
@@ -1762,9 +1757,7 @@ function getCyrulik() {
       wyborUmiejetnosciProfesji: [['Powożenie', 'Pływanie'], ['Znajomość języka(bretoński)', 'Znajomość języka(staroświatowy)', 'Znajomość języka(tileański)']],
       zdolnosci: ['Chirurgia'],
       wyborZdolnosciProfesji: [['Charyzmatyczny', 'Niezwykle odporny'], ['Odporność na choroby', 'Błyskotliwość']],
-      wyposazenie: [
-
-      ]
+      wyposazenie: 'narzędzia(cyrulika)'
     }
   ];
 }
@@ -1792,10 +1785,7 @@ function getFanatyk() {
       umiejetnosci: ['Czytanie i pisanie', 'Nauka(teologia)', 'Przekonywanie', 'Wiedza(imperium)', 'Zastraszanie'],
       zdolnosci: ['Broń specjalna(korbacz)', 'Przemawianie'],
       wyborZdolnosciProfesji: [['Opanowanie', 'Bardzo silny'], ['Twardziel', 'Charyzmatyczny']],
-      wyposazenie: [
-
-      ]
-    }
+      wyposazenie:'korbacz, albo morgensztern, lekki pancerz(skórzana kurta), butelka spirytusu lub gorzałki dobrej jakości'}
   ];
 }
 function getFlisak() {
@@ -1822,9 +1812,7 @@ function getFlisak() {
       umiejetnosci: ['Nawigacja', 'Pływanie', 'Spostrzegawczość', 'Sztuka przetrwania', 'Wioślarstwo', 'Żeglarstwo'],
       wyborUmiejetnosciProfesji: [['Mocna głowa', 'Plotkowanie'], ['Sekretny język(łowców)', 'Znajomość języka(kislevski)'], ['Wiedza(imperium)', 'Wiedza(kislev)']],
       zdolnosci: ['Obieżyświat', 'Wyczucie kierunku'],
-      wyposazenie: [
-
-      ]
+      wyposazenie:'lekki pancerz(skórzana kurta), łódź wiosłowa'
     }
   ];
 }
@@ -1852,9 +1840,7 @@ function getGiermek() {
       umiejetnosci: ['Jeździectwo', 'Opieka nad zwierzętami', 'Tresura', 'Unik'],
       wyborUmiejetnosciProfesji: [['Nauka(genealogia/heraldyka)', 'Wiedza(bretonia)'], ['Przekonywanie', 'Plotkowanie'], ['Znajomość języka(bretoński)', 'Znajomość języka(staroświatowy)']],
       zdolnosci: ['Broń specjalna(kawaleryjska)', 'Etykieta', 'Silny cios'],
-      wyposazenie: [
-
-      ]
+      wyposazenie: 'lanca, średni pancerz(kaftan kolczy, czepiec kolczy i skórzana kurta), tarcza, koń z siodłem i uprzężą'
     }
   ];
 }
@@ -1882,7 +1868,7 @@ function getGladiator() {
       umiejetnosci: ['Unik', 'Zastraszanie'],
       zdolnosci: ['Broń specjalna(parująca)', 'Silny cios'],
       wyborZdolnosciProfesji: [['Bardzo silny', 'Odporność psychiczna'], ['Broń specjalna(dwuręczna)', 'Broń specjalna(korbacz)'], ['Rozbrajanie', 'Zapasy'], ['Szybkie wyciągnięcie', 'Morderczy atak']],
-      wyposazenie: []
+      wyposazenie: 'korbacz albo broń dwuręczna, kastet, średni pancerz(kaftan kolczy i skórzana kurta), tarcza albo puklerz'
     }
   ];
 }
@@ -1911,7 +1897,7 @@ function getGoniec() {
       umiejetnosci: ['Nawigacja', 'Pływanie', 'Sekretne znaki(zwiadowców)', 'Spostrzegawczość', 'Sztuka przetrwania', 'Unik'],
       zdolnosci: ['Błyskawiczne przeładowanie', 'Chodu!', 'Wyczucie kierunku'],
       wyborZdolnosciProfesji: [['Bardzo szybki', 'Szósty zmysł'], ['Niezwykle odporny', 'Bardzo silny']],
-      wyposazenie: []
+      wyposazenie: 'kusza i 10 bełtów, lekki pancerz(skórzana kurta), mikstura leczenia, talizman szczęścia'
     }
   ];
 }
@@ -1942,7 +1928,7 @@ function getGornik() {
       wyborUmiejetnosciProfesji: [['Rzemiosło(górnictwo)', 'Rzemiosło(górnictwo odkrywkowe)'], ['Ukrywanie się', 'Powożenie'], ['Wycena', 'Sztuka przetrwania']],
       zdolnosci: ['Broń specjalna(dwuręczna)', 'Wyczucie kierunku'],
       wyborZdolnosciProfesji: [['Niezwykle odporny', 'Urodzony wojownik']],
-      wyposazenie: []
+      wyposazenie: 'broń dwuręczna(dwuręczny kilof), lekki pancerz(skórzana kurta), kilof, łopata, latarnia sztormowa, olej do latarni'
     }
   ];
 }
@@ -1969,7 +1955,8 @@ function getGuslarz() {
       PP: 0,
       umiejetnosci: ['Przeszukiwanie', 'Splatanie magii', 'Spostrzegawczość', 'Wykrywanie magii'],
       wyborUmiejetnosciProfesji: [['Leczenie', 'Hipnoza'], ['Opieka nad zwierzętami', 'Targowanie'], ['Oswajanie', 'Rzemiosło(aptekarstwo)'], ['Przekonywanie', 'Zastraszanie']],
-      zdolnosci: ['Gusła', 'Magia prosta(gusła)']
+      zdolnosci: ['Gusła', 'Magia prosta(gusła)'],
+      wyposazenie:'mikstura leczenia, płaszcz z kapturem'
     }
   ];
 }
@@ -1998,7 +1985,7 @@ function getHienaCmentarna() {
       umiejetnosci: ['Czytanie i pisanie', 'Zastraszanie', 'Przeszukiwanie', 'Spostrzegawczość', 'Wspinaczka', 'Wycena'],
       wyborUmiejetnosciProfesji: [['Otwieranie zamków', 'Skradanie się'], ['Ukrywanie się', 'Sztuka przetrwania'], ['Wiedza(imperium)', 'Sekretne znaki(złodziei)'], ['Znajomość języka(eltharin)', 'Znajomość języka(khazalid)', 'Znajomość języka(klasyczny)']],
       wyborZdolnosciProfesji: [['Szczęście', 'Szósty zmysł'], ['Wykrywanie pułapek', 'Grotołaz']],
-      wyposazenie: []
+      wyposazenie:'lekki pancerz(skórzana kurta), łom, latarnia, olej do latarni, 10 metrów liny, 2 worki'
     }
   ];
 }
@@ -2027,7 +2014,7 @@ function getKanciarz() {
       wyborUmiejetnosciProfesji: [['Hazard', 'Sekretne znaki(złodziei)'], ['Kuglarstwo(aktorstwo)', 'Kuglarstwo(gawędziarstwo)'], ['Plotkowanie', 'Targowanie'], ['Przeszukiwanie', 'Sekretny język(złodziejski)']],
       zdolnosci: ['Przemawianie'],
       wyborZdolnosciProfesji: [['Chodu!', 'Łotrzyk'], ['Szczęście', 'Szósty zmysł']],
-      wyposazenie: []
+      wyposazenie: 'ubranie najlepszej jakości albo zestaw kości do gry albo talia kart, 1k10 zk'
     }
   ];
 }
@@ -2055,7 +2042,7 @@ function getKozakKislevski() {
       umiejetnosci: ['Mocna głowa', 'Przeszukiwanie', 'Spostrzegawczość', 'Sztuka przetrwania', 'Unik', 'Wiedza(kislev)', 'Znajomość języka(kislevski)'],
       wyborUmiejetnosciProfesji: [['Hazard', 'Targowanie']],
       zdolnosci: ['Broń specjalna(dwuręczna)', 'Morderczy atak'],
-      wyposazenie: []
+      wyposazenie: 'łuk i 10 strzał, broń dwuręczna(dwuręczny topór), średni pancerz(kolczuga, skórzana kurta i skórzane nogawice)'
     }
   ];
 }
@@ -2084,7 +2071,7 @@ function getLesnik() {
       wyborUmiejetnosciProfesji: [['Tropienie', 'Zastawianie pułapek']],
       zdolnosci: ['Broń specjalna(dwuręczna)', 'Wędrowiec'],
       wyborZdolnosciProfesji: [['Bardzo szybki', 'Niezwykle odporny']],
-      wyposazenie: []
+      wyposazenie: 'broń dwuręczna(dwuręczny topór), lekki pancerz(skórzana kurta), odtrutki'
     }
   ];
 }
@@ -2113,7 +2100,7 @@ function getLowca() {
       wyborUmiejetnosciProfesji: [['Przeszukiwanie', 'Pływanie'], ['Skradanie się', 'Zastawianie pułapek']],
       zdolnosci: ['Błyskawiczne przeładowanie'],
       wyborZdolnosciProfesji: [['Strzelec wyborowy', 'Wędrowiec'], ['Szybki refleks', 'Niezwykle odporny'], ['Twardziel', 'Broń specjalna(łuk)']],
-      wyposazenie: []
+      wyposazenie: 'długi łuk i 10 strzał, 2 potrzaski albo wnyki na zwierzęta, odtrutki'
     }
   ];
 }
@@ -2141,7 +2128,7 @@ function getLowcaNagrod() {
       umiejetnosci: ['Przeszukiwanie', 'Skradanie się', 'Spostrzegawczość', 'Sztuka przetrwania', 'Śledzenie', 'Tropienie', 'Zastraszanie'],
       zdolnosci: ['Broń specjalna(unieruchamiająca)', 'Wędrowiec'],
       wyborZdolnosciProfesji: [['Strzał mierzony', 'Silny cios'], ['Strzelec wyborowy', 'Ogłuszanie']],
-      wyposazenie: []
+      wyposazenie: 'kusza i 10 bełtów, sieć, lekki pancerz(skórzany kaftan i skórzany hełm), kajdany, 10 metrów liny'
     }
   ];
 }
@@ -2170,7 +2157,7 @@ function getMieszczanin() {
       wyborUmiejetnosciProfesji: [['Plotkowanie', 'Czytanie i pisanie'], ['Wiedza(imperium)', 'Mocna głowa'], ['Znajomość języka(bretoński)', 'Znajomość języka(kislevski)', 'Znajomość języka(tileański)']],
       zdolnosci: ['Żyłka handlowa'],
       wyborZdolnosciProfesji: [['Błyskotliwość', 'Charyzmatyczny']],
-      wyposazenie: []
+      wyposazenie: 'ubranie dobrej jakości, liczydło, latarnia'
     }
   ];
 }
@@ -2198,7 +2185,7 @@ function getMytnik() {
       umiejetnosci: ['Czytanie i pisanie', 'Przeszukiwanie', 'Spostrzegawczość', 'Unik', 'Wycena'],
       wyborUmiejetnosciProfesji: [['Plotkowanie', 'Targowanie'], ['Znajomość języka(bretoński)', 'Znajomość języka(kislevski)', 'Znajomość języka(tileański)']],
       wyborZdolnosciProfesji: [['Szybki refleks', 'Strzelec wyborowy']],
-      wyposazenie: []
+      wyposazenie: 'kusza i 10 bełtów, średni pancerz(kaftan kolczy i skórzany kaftan), tarcza, zamykana na kłódkę skrzynia, 1k10zk'
     }
   ];
 }
@@ -2226,7 +2213,7 @@ function getNajemnik() {
       umiejetnosci: ['Sekretny język(bitewny)', 'Unik'],
       wyborUmiejetnosciProfesji: [['Opieka nad zwierzętami', 'Hazard'], ['Plotkowanie', 'Targowanie'], ['Powożenie', 'Jeździectwo'], ['Spostrzegawczość', 'Przeszukiwanie'], ['Wiedza(bretonia)', 'Wiedza(kislev)', 'Wiedza(tilea)'], ['Znajomość języka(tileański)', 'Pływanie']],
       wyborZdolnosciProfesji: [['Błyskawiczne przeładowanie', 'Silny cios'], ['Rozbrajanie', 'Szybkie wyciągnięcie'], ['Strzał mierzony', 'Ogłuszanie']],
-      wyposazenie: []
+      wyposazenie: 'kusza i 10 bełtów, średni pancerz(kaftan kolczy i skórzana kurta), tarcza, mikstura lecznicza'
     }
   ];
 }
@@ -2255,7 +2242,7 @@ function getOchotnik() {
       wyborUmiejetnosciProfesji: [['Hazard', 'Plotkowanie'], ['Powożenie', 'Pływanie'], ['Rzemiosło(aptekarstwo)', 'Rzemiosło(bednarstwo)', 'Rzemiosło(garbarstwo)', 'Rzemiosło(gotowanie)', 'Rzemiosło(górnictwo)', 'Rzemiosło(górnictwo odkrywkowe)', 'Rzemiosło(handel)', 'Rzemiosło(jubilerstwo)', 'Rzemiosło(kaligrafia)', 'Rzemiosło(kamieniarstwo)', 'Rzemiosło(kartografia)', 'Rzemiosło(kowalstwo)', 'Rzemiosło(krawiectwo)', 'Rzemiosło(młynarstwo)', 'Rzemiosło(piwowarstwo)', 'Rzemiosło(płatnerstwo)', 'Rzemiosło(rusznikarstwo)', 'Rzemiosło(rymarstwo)', 'Rzemiosło(stolarstwo)', 'Rzemiosło(szkutnictwo)', 'Rzemiosło(szewstwo)', 'Rzemiosło(sztuka)', 'Rzemiosło(świecarstwo)', 'Rzemiosło(uprawa ziemi)', 'Rzemiosło(wyrób łuków)', 'Rzemiosło(zielarstwo)', 'Rzemiosło(złotnictwo)']],
       zdolnosci: ['Silny cios'],
       wyborZdolnosciProfesji: [['Broń specjalna(dwuręczna)', 'Błyskawiczne przeładowanie']],
-      wyposazenie: []
+      wyposazenie: 'halabarda albo łuk i 10 strzał, lekki pancerz(skórzana kurta i skórzany hełm), mundur'
     }
   ];
 }
@@ -2283,8 +2270,7 @@ function getOchroniarz() {
       umiejetnosci: ['Leczenie', 'Spostrzegawczość', 'Unik', 'Zastraszanie'],
       zdolnosci: ['Bijatyka', 'Broń specjalna(parująca)', 'Broń specjalna(rzucana)', 'Ogłuszanie'],
       wyborZdolnosciProfesji: [['Bardzo silny', 'Niezwykle odporny'], ['Rozbrajanie', 'Szybkie wyciągnięcie']],
-      wyposazenie: []
-    }
+      wyposazenie: 'dwa topory albo 3 noże do rzucania, kastety, lekki pancerz(skórzana kurta), puklerz'}
   ];
 }
 function getOprych() {
@@ -2311,7 +2297,7 @@ function getOprych() {
       umiejetnosci: ['Hazard', 'Mocna głowa', 'Sekretny język(złodziejski)', 'Unik', 'Zastraszanie'],
       zdolnosci: ['Ogłuszanie', 'Rozbrajanie'],
       wyborZdolnosciProfesji: [['Morderczy atak', 'Zapasy'], ['Odporność na trucizny', 'Szybkie wyciągnięcie'], ['Opanowanie', 'Szybki refleks']],
-      wyposazenie: []
+      wyposazenie: 'kastety, średni pancerz(kaftan kolczy i skórzany kaftan)'
     }
   ];
 }
@@ -2340,7 +2326,7 @@ function getPaz() {
       wyborUmiejetnosciProfesji: [['Plotkowanie', 'Znajomość języka(bretoński)', 'Znajomość języka(staroświatowy)']],
       zdolnosci: ['Etykieta'],
       wyborZdolnosciProfesji: [['Opanowanie', 'Charyzmatyczny'], ['Żyłka handlowa', 'Obieżyświat']],
-      wyposazenie: []
+      wyposazenie: '2 komplety ubrań najlepszej jakości, liberia, perfumy, mieszek'
     }
   ];
 }
@@ -2369,7 +2355,7 @@ function getPodzegacz() {
       wyborUmiejetnosciProfesji: [['Nauka(historia)', 'Plotkowanie'], ['Nauka(prawo)', 'Wiedza(imperium)'], ['Znajomość języka(bretoński)', 'Znajomość języka(tileański)']],
       zdolnosci: ['Chodu!', 'Przemawianie'],
       wyborZdolnosciProfesji: [['Opanowanie', 'Bijatyka']],
-      wyposazenie: []
+      wyposazenie: 'lekki pancerz(skórzana kurta), ubranie dobrej jakości, 2k10 ulotek różnej treści'
     }
   ];
 }
@@ -2398,7 +2384,7 @@ function getPorywaczZwlok() {
       wyborUmiejetnosciProfesji: [['Plotkowanie', 'Targowanie']],
       zdolnosci: ['Chodu!', 'Odporność na choroby'],
       wyborZdolnosciProfesji: [['Łotrzyk', 'Odporność psychiczna']],
-      wyposazenie: []
+      wyposazenie: 'latarnia, olej do latarni, kilof, łopatak, worek'
     }
   ];
 }
@@ -2426,7 +2412,7 @@ function getPoslaniec() {
       umiejetnosci: ['Jeździectwo', 'Nawigacja', 'Opieka nad zwierzętami', 'Pływanie', 'Sekretne znaki(zwiadowców)', 'Spostrzegawczość', 'Sztuka przetrwania', 'Znajomość języka(staroświatowy)'],
       wyborUmiejetnosciProfesji: [['Wiedza(imperium)', 'Wiedza(jałowa kraina)', 'Plotkowanie']],
       zdolnosci: ['Obieżyświat', 'Wyczucie kierunku'],
-      wyposazenie: []
+      wyposazenie: 'lekki pancerz(skórzana kurta), tarcza, koń z siodłem i uprzężą(albo kuc dla niziołków), tuba do mapy'
     }
   ];
 }
@@ -2454,7 +2440,7 @@ function getPrzemytnik() {
       umiejetnosci: ['Pływanie', 'Powożenie', 'Przeszukiwanie', 'Skradanie się', 'Spostrzegawczość', 'Targowanie', 'Wioślarstwo', 'Wycena'],
       wyborUmiejetnosciProfesji: [['Plotkowanie', 'Sekretny język(złodziejski)'], ['Znajomość języka(bretoński)', 'Znajomość języka(kislevski)', 'Sekretne znaki(złodziei)']],
       wyborZdolnosciProfesji: [['Żyłka handlowa', 'Łotrzyk']],
-      wyposazenie: []
+      wyposazenie: 'lekki pancerz(skórzana kurta), koń pociągowy i wóz albo łódź wiosłowa, 2 pochodnie'
     }
   ];
 }
@@ -2482,8 +2468,7 @@ function getPrzepatrywacz() {
       umiejetnosci: ['Jeździectwo', 'Nawigacja', 'Opieka nad zwierzętami', 'Przeszukiwanie', 'Skradanie się', 'Spostrzegawczość', 'Sztuka przetrwania', 'Tropienie'],
       zdolnosci: ['Broń specjalna(unieruchamiająca)', 'Wyczucie kierunku'],
       wyborZdolnosciProfesji: [['Opanowanie', 'Bardzo silny']],
-      wyposazenie: []
-    }
+      wyposazenie: 'łuk i 10 strzał, albo kusza i 10 bełtów, bicz albo arkan, sieć, lekki pancerz(skórzana kurta), tarcza, koń z siodłem i uprzężą, 10 metrów liny'}
   ];
 }
 function getPrzewoznik() {
@@ -2511,7 +2496,7 @@ function getPrzewoznik() {
       wyborUmiejetnosciProfesji: [['Plotkowanie', 'Zastraszanie'], ['Wycena', 'Sekretny język(łowców)']],
       zdolnosci: [],
       wyborZdolnosciProfesji: [['Broń specjalna(palna)', 'Bijatyka'], ['Strzelec wyborowy', 'Charyzmatyczny']],
-      wyposazenie: []
+      wyposazenie: 'kusza i 10 bełtów albo garłacz z zapasem amunicji na 10 strzałów, lekki pancerz(skórzany kaftan)'
     }
   ];
 }
@@ -2539,7 +2524,7 @@ function getRybak() {
       umiejetnosci: ['Pływanie', 'Spostrzegawczość', 'Sztuka przetrwania', 'Wioślarstwo', 'Żeglarstwo'],
       wyborUmiejetnosciProfesji: [['Mocna głowa', 'Targowanie'], ['Nawigacja', 'Rzemiosło(handel)'], ['Wiedza(imperium)', 'Wiedza(jałowa kraina)'], ['Znajomość języka(staroświatowy)', 'Znajomość języka(norski)']],
       wyborZdolnosciProfesji: [['Twardziel', 'Błyskotliwość'], ['Wyczucie kierunku', 'Bijatyka']],
-      wyposazenie: []
+      wyposazenie: 'włócznia, sieć, lina z kotwiczką'
     }
   ];
 }
@@ -2567,7 +2552,7 @@ function getRzecznikRodu() {
       umiejetnosci: ['Czytanie i pisanie', 'Plotkowanie', 'Pływanie', 'Przekonywanie', 'Rzemiosło(handel)', 'Sekretny język(gildii)', 'Spostrzegawczość', 'Targowanie', 'Wycena'],
       wyborUmiejetnosciProfesji: [['Wiedza(imperium)', 'Wiedza(jałowa kraina)']],
       wyborZdolnosciProfesji: [['Obieżyświat', 'Żyłka handlowa']],
-      wyposazenie: []
+      wyposazenie: 'lekki pancerz(skórzana kurta), 2 komplety ubrań dobrej jakości, przybory do pisania'
     }
   ];
 }
@@ -2597,7 +2582,7 @@ function getRzemieslnik() {
       ['Rzemiosło(aptekarstwo)', 'Rzemiosło(bednarstwo)', 'Rzemiosło(garbarstwo)', 'Rzemiosło(gotowanie)', 'Rzemiosło(górnictwo)', 'Rzemiosło(górnictwo odkrywkowe)', 'Rzemiosło(handel)', 'Rzemiosło(jubilerstwo)', 'Rzemiosło(kaligrafia)', 'Rzemiosło(kamieniarstwo)', 'Rzemiosło(kartografia)', 'Rzemiosło(kowalstwo)', 'Rzemiosło(krawiectwo)', 'Rzemiosło(młynarstwo)', 'Rzemiosło(piwowarstwo)', 'Rzemiosło(płatnerstwo)', 'Rzemiosło(rusznikarstwo)', 'Rzemiosło(rymarstwo)', 'Rzemiosło(stolarstwo)', 'Rzemiosło(szkutnictwo)', 'Rzemiosło(szewstwo)', 'Rzemiosło(sztuka)', 'Rzemiosło(świecarstwo)', 'Rzemiosło(uprawa ziemi)', 'Rzemiosło(wyrób łuków)', 'Rzemiosło(zielarstwo)', 'Rzemiosło(złotnictwo)'],
       ['Rzemiosło(aptekarstwo)', 'Rzemiosło(bednarstwo)', 'Rzemiosło(garbarstwo)', 'Rzemiosło(gotowanie)', 'Rzemiosło(górnictwo)', 'Rzemiosło(górnictwo odkrywkowe)', 'Rzemiosło(handel)', 'Rzemiosło(jubilerstwo)', 'Rzemiosło(kaligrafia)', 'Rzemiosło(kamieniarstwo)', 'Rzemiosło(kartografia)', 'Rzemiosło(kowalstwo)', 'Rzemiosło(krawiectwo)', 'Rzemiosło(młynarstwo)', 'Rzemiosło(piwowarstwo)', 'Rzemiosło(płatnerstwo)', 'Rzemiosło(rusznikarstwo)', 'Rzemiosło(rymarstwo)', 'Rzemiosło(stolarstwo)', 'Rzemiosło(szkutnictwo)', 'Rzemiosło(szewstwo)', 'Rzemiosło(sztuka)', 'Rzemiosło(świecarstwo)', 'Rzemiosło(uprawa ziemi)', 'Rzemiosło(wyrób łuków)', 'Rzemiosło(zielarstwo)', 'Rzemiosło(złotnictwo)']],
       wyborZdolnosciProfesji: [['Żyłka handlowa', 'Błyskotliwość']],
-      wyposazenie: []
+      wyposazenie: 'lekki pancerz(skórzany kaftan), 1k10 zk'
     }
   ];
 }
@@ -2626,7 +2611,7 @@ function getRzezimieszek() {
       wyborUmiejetnosciProfesji: [['Plotkowanie', 'Targowanie']],
       zdolnosci: ['Bijatyka', 'Morderczy atak', 'Ogłuszanie', 'Silny cios'],
       wyborZdolnosciProfesji: [['Groźny', 'Charyzmatyczny'], ['Rozbrajanie', 'Szybkie wyciągnięcie']],
-      wyposazenie: []
+      wyposazenie: 'średni pancerz(kaftan kolczy i skórzana kurta), tarcza, koń z siodłem i uprzężą'
     }
   ];
 }
@@ -2654,7 +2639,7 @@ function getSkryba() {
       umiejetnosci: ['Czytanie i pisanie', 'Rzemiosło(kaligrafia)', 'Sekretny język(gildii)', 'Spostrzegawczość', 'Wiedza(imperium)', 'Znajomość języka(klasyczny)'],
       wyborUmiejetnosciProfesji: [['Nauka(astronomia)', 'Nauka(anatomia)', 'Nauka(alchemia)', 'Nauka(demonologia)', 'Nauka(filozofia)', 'Nauka(historia)', 'Nauka(inżynieria)', 'Nauka(magia)', 'Nauka(genealogia/heraldyka)', 'Nauka(matematyka)', 'Nauka(nekromancja)', 'Nauka(prawo)', 'Nauka(runy)', 'Nauka(strategia/taktyka)', 'Nauka(sztuka)', 'Nauka(teologia)'], ['Wiedza(imperium)', 'Plotkowanie'], ['Znajomość języka(staroświatowy)', 'Znajomość języka(tileański)']],
       zdolnosci: ['Poliglota'],
-      wyposazenie: []
+      wyposazenie: 'nóż, dwie świece woskowe, 5 zapałek, ilustrowana księga, przybory do pisania, wosk do pieczęci'
     }
   ];
 }
@@ -2682,7 +2667,7 @@ function getSluga() {
       umiejetnosci: ['Gadanina', 'Plotkowanie', 'Spostrzegawczość', 'Unik'],
       wyborUmiejetnosciProfesji: [['Czytanie i pisanie', 'Zwinne palce'], ['Opieka nad zwierzętami', 'Rzemiosło(gotowanie)'], ['Powożenie', 'Przeszukiwanie'], ['Targowanie', 'Wycena']],
       wyborZdolnosciProfesji: [['Niezwykle odporny', 'Szybki refleks'], ['Czuły słuch', 'Chodu!'], ['Etykieta', 'Twardziel']],
-      wyposazenie: []
+      wyposazenie: 'ubranie dobrej jakości, manierka, krzesiwo i hubka, latarnia sztormowa, olej do latarni'
     }
   ];
 }
@@ -2710,7 +2695,7 @@ function getStraznik() {
       umiejetnosci: ['Nauka(prawo)', 'Plotkowanie', 'Przeszukiwanie', 'Spostrzegawczość', 'Tropienie', 'Unik', 'Zastraszanie'],
       zdolnosci: ['Ogłuszanie', 'Silny cios'],
       wyborZdolnosciProfesji: [['Opanowanie', 'Błyskotliwość'], ['Rozbrajanie', 'Błyskotliwość']],
-      wyposazenie: []
+      wyposazenie: 'lekki pancerz(skórzana kurta), mudnur, latarnia na drągu, olej do latarni'
     }
   ];
 }
@@ -2739,8 +2724,7 @@ function getStraznikDrog() {
       wyborUmiejetnosciProfesji: [['Tropienie', 'Sekretne znaki(zwiadowców)'], ['Wiedza(imperium)', 'Plotkowanie']],
       zdolnosci: ['Broń specjalna(palna)'],
       wyborZdolnosciProfesji: [['Szybkie wyciągnięcie', 'Błyskawiczne przeładowanie']],
-      wyposazenie: []
-    }
+      wyposazenie: 'pistolet z 10 kulami i zapasem prochu, średni pancerz(kaftan kolczy i skórzana kurta), tarcza, lekki koń bojowy z siodłem i uprzężą(albo kuc dla niziołka), 10 metrów liny'}
   ];
 }
 function getStraznikPol() {
@@ -2767,7 +2751,7 @@ function getStraznikPol() {
       umiejetnosci: ['Przeszukiwanie', 'Skradanie się', 'Spostrzegawczość', 'Sztuka przetrwania', 'Tropienie', 'Ukrywanie się'],
       wyborUmiejetnosciProfesji: [['Nauka(nekromancja)', 'Wiedza(imperium)']],
       wyborZdolnosciProfesji: [['Bardzo szybki', 'Błyskotliwość'], ['Strzał precyzyjny', 'Błyskawiczne przeładowanie'], ['Wędrowiec', 'Szybkie wyciągnięcie']],
-      wyposazenie: []
+      wyposazenie: 'proca z amunicją, kuc z siodłem i uprzężą, latarnia, olej do latarni, łopata'
     }
   ];
 }
@@ -2795,7 +2779,7 @@ function getStraznikWiezienny() {
       umiejetnosci: ['Dowodzenie', 'Mocna głowa', 'Przeszukiwanie', 'Spostrzegawczość', 'Unik', 'Zastraszanie'],
       wyborUmiejetnosciProfesji: [['Leczenie', 'Zwinne palce']],
       zdolnosci: ['Broń specjalna(unieruchamiająca)', 'Odporność na choroby', 'Odporność na trucizny', 'Zapasy'],
-      wyposazenie: []
+      wyposazenie: 'jedna broń do wyboru: bolas, sieć albo arkan, butelka podłego wina, manierka'
     }
   ];
 }
@@ -2822,8 +2806,7 @@ function getSzczurolap() {
       PP: 0,
       umiejetnosci: ['Opieka nad zwierzętami', 'Przeszukiwanie', 'Skradanie się', 'Spostrzegawczość', 'Tresura', 'Ukrywanie się', 'Zastawianie pułapek'],
       zdolnosci: ['Broń specjalna(proca)', 'Grotołaz', 'Odporność na choroby', 'Odporność na trucizny'],
-      wyborZdolnosciProfesji: [[]],
-      wyposazenie: []
+      wyposazenie: 'proca z amunicją, 4 pułapki na szczury, drąg z martwymi szczurami(1k10), mały ale zajadły pies'
     }
   ];
 }
@@ -2851,7 +2834,7 @@ function getSzermierzEstalijski() {
       umiejetnosci: ['Czytanie i pisanie', 'Nauka(anatomia)', 'Unik', 'Wiedza(estalia)', 'Znajomość języka(estalijski)'],
       zdolnosci: ['Broń specjalna(szermiercza)', 'Silny cios'],
       wyborZdolnosciProfesji: [['Brawura', 'Szybki refleks'], ['Szybkie wyciągnięcie', 'Morderczy atak']],
-      wyposazenie: []
+      wyposazenie: 'szpada albo rapier, ubranie najlepszej jakości, perfumy, mikstura leczenia'
     }
   ];
 }
@@ -2880,7 +2863,7 @@ function GetSzlachcic() {
       wyborUmiejetnosciProfesji: [['Gadanina', 'Dowodzenie'], ['Hazard', 'Plotkowanie'], ['Mocna głowa', 'Kuglarstwo(muzykalność)']],
       zdolnosci: ['Etykieta'],
       wyborZdolnosciProfesji: [['Błyskotliwość', 'Broń specjalna(szermiercza)'], ['Broń specjalna(parująca)', 'Intrygant'], ['Szczęście', 'Przemawianie']],
-      wyposazenie: []
+      wyposazenie: 'szpada, lewak, strój szlachecki z herbem rodu, koń z siodłem i uprzężą, 1k10zk, biżuteria o wartości 6k10zk'
     }
   ];
 }
@@ -2908,7 +2891,7 @@ function getSmieciarz() {
       umiejetnosci: ['Opieka nad zwierzętami', 'Powożenie', 'Przeszukiwanie', 'Spostrzegawczość', 'Targowanie', 'Wiedza(imperium)', 'Wycena'],
       wyborUmiejetnosciProfesji: [['Przekonywanie', 'Plotkowanie']],
       wyborZdolnosciProfesji: [['Opanowanie', 'Łotrzyk'], ['Twardziel', 'Odporność na choroby']],
-      wyposazenie: []
+      wyposazenie: 'wózek, 3 worki'
     }
   ];
 }
@@ -2936,7 +2919,7 @@ function getTarczownik() {
       umiejetnosci: ['Nawigacja', 'Spostrzegawczość', 'Śledzenie', 'Unik', 'Wspinaczka'],
       zdolnosci: ['Morderczy atak', 'Ogłuszanie', 'Silny cios', 'Wyczucie kierunku'],
       wyborZdolnosciProfesji: [['Czuły słuch', 'Opanowanie']],
-      wyposazenie: []
+      wyposazenie: 'kusza i 10 bełtów, średni pancerz(kolczuga skórzana kurta i skórzane nogawice), tarcza, 10 metrów liny z kotwiczką, bukłak z wodą'
     }
   ];
 }
@@ -2964,7 +2947,7 @@ function getUczenCzarodzieja() {
       umiejetnosci: ['Czytanie i pisanie', 'Język tajemny(magiczny)', 'Nauka(magia)', 'Przeszukiwanie', 'Splatanie magii', 'Spostrzegawczość', 'Wykrywanie magii', 'Znajomość języka(klasyczny)'],
       zdolnosci: ['Magia prosta(tajemna)'],
       wyborZdolnosciProfesji: [['Błyskotliwość', 'Niezwykle odporny'], ['Zmysł magii', 'Dotyk mocy']],
-      wyposazenie: []
+      wyposazenie: 'kij, plecak, księga wiedzy tajemnej'
     }
   ];
 }
@@ -2993,7 +2976,7 @@ function getWeglarz() {
       wyborUmiejetnosciProfesji: [['Powożenie', 'Plotkowanie'], ['Wiedza(imperium)', 'Ukrywanie się']],
       zdolnosci: ['Chodu!'],
       wyborZdolnosciProfesji: [['Błyskotliwość', 'Bardzo silny']],
-      wyposazenie: []
+      wyposazenie: 'broń jednoręczna(topór albo pałka), 3 pochodnie, krzesiwo i hubka'
     }
   ];
 }
@@ -3023,7 +3006,7 @@ function getWloczykij() {
       ['Leczenie', 'Spostrzegawczość'], ['Plotkowanie', 'Sekretny język(łowców)', 'Sekretny język(złodziejski)'], ['Targowanie', 'Pływanie'], ['Wiedza(bretonia)', 'Wiedza(estalia)', 'Wiedza(kislev)', 'Wiedza(tilea)']],
       zdolnosci: ['Obieżyświat'],
       wyborZdolnosciProfesji: [['Bardzo szybki', 'Wędrowiec'], ['Strzelec wyborowy', 'Wyczucie kierunku']],
-      wyposazenie: []
+      wyposazenie: 'plecak, prowiant(1 tydzień), namiot, bukłak z wodą'
     }
   ];
 }
@@ -3051,7 +3034,7 @@ function getWojownikKlanowy() {
       umiejetnosci: ['Skradanie się', 'Spostrzegawczość', 'Sztuka przetrwania', 'Tropienie', 'Ukrywanie się', 'Unik', 'Wspinaczka'],
       wyborUmiejetnosciProfesji: [['Leczenie', 'Przeszukiwanie']],
       wyborZdolnosciProfesji: [['Błyskawiczne przeładowanie', 'Urodzony wojownik'], ['Strzelec wyborowy', 'Wędrowiec']],
-      wyposazenie: []
+      wyposazenie: 'elfi łuk i 10 strzał, lekki pancerz(skórzana kurta)'
     }
   ];
 }
@@ -3080,7 +3063,7 @@ function getWoznica() {
       wyborUmiejetnosciProfesji: [['Leczenie', 'Jeździectwo'], ['Plotkowanie', 'Targowanie'], ['Znajomość języka(bretoński)', 'Znajomość języka(kislevski)', 'Znajomość języka(tileański)']],
       zdolnosci: ['Broń specjalna(palna)'],
       wyborZdolnosciProfesji: [['Szybkie wyciągnięcie', 'Obieżyświat']],
-      wyposazenie: []
+      wyposazenie: 'garłacz z zapasem amunicji na 10 strzałów, średni pancerz(kaftan kolczy i skórzana kurta), instrument muzyczny(róg woźnicy)'
     }
   ];
 }
@@ -3108,7 +3091,7 @@ function getZabojcaTrolli() {
       umiejetnosci: ['Mocna głowa', 'Unik', 'Zastraszanie'],
       zdolnosci: ['Bijatyka', 'Broń specjalna(dwuręczna)', 'Silny cios', 'Twardziel'],
       wyborZdolnosciProfesji: [['Rozbrajanie', 'Szybkie wyciągnięcie'], ['Szybki refleks', 'Niezwykle odporny']],
-      wyposazenie: []
+      wyposazenie: 'broń dwuręczna(topór), lekki pancerz(skórzany kaftan), butelka spirytusu albo gorzałki kiepskiej jakości'
     }
   ];
 }
@@ -3137,7 +3120,7 @@ function getZarzadca() {
       wyborUmiejetnosciProfesji: [['Dowodzenie', 'Nawigacja'], ['Opieka nad zwierzętami', 'Plotkowanie'], ['Zastraszanie', 'Wiedza(imperium)']],
       zdolnosci: ['Przemawianie'],
       wyborZdolnosciProfesji: [['Etykieta', 'Geniusz arytmetyczny']],
-      wyposazenie: []
+      wyposazenie: 'lekki pancerz(skórzana kurta i skórzany hełm), ubranie dobrej jakości, koń z siodłem i uprzężą'
     }
   ];
 }
@@ -3165,7 +3148,7 @@ function getZlodziej() {
       umiejetnosci: ['Przeszukiwanie', 'Skradanie się', 'Spostrzegawczość', 'Ukrywanie się'],
       wyborUmiejetnosciProfesji: [['Czytanie i pisanie', 'Zwinne palce'], ['Hazard', 'Otwieranie zamków'], ['Przekonywanie', 'Wspinaczka'], ['Sekretny język(złodziejski)', 'Sekretne znaki(złodziei)'], ['Wycena', 'Charakteryzacja']],
       wyborZdolnosciProfesji: [['Geniusz arytmetyczny', 'Wykrywanie pułapek'], ['Ulicznik', 'Łotrzyk']],
-      wyposazenie: []
+      wyposazenie: 'lekki pancerz(skórzany kaftan), worek, wytrychy, 10 metrów liny'
     }
   ];
 }
@@ -3195,7 +3178,7 @@ function getZak() {
       ['Nauka(astronomia)', 'Nauka(anatomia)', 'Nauka(alchemia)', 'Nauka(demonologia)', 'Nauka(filozofia)', 'Nauka(historia)', 'Nauka(inżynieria)', 'Nauka(magia)', 'Nauka(genealogia/heraldyka)', 'Nauka(matematyka)', 'Nauka(nekromancja)', 'Nauka(prawo)', 'Nauka(runy)', 'Nauka(strategia/taktyka)', 'Nauka(sztuka)', 'Nauka(teologia)', 'Plotkowanie'],
       ['Przekonywanie', 'Mocna głowa']],
       wyborZdolnosciProfesji: [['Błyskotliwość', 'Charyzmatyczny'], ['Etykieta', 'Poliglota'], ['Obieżyświat', 'Geniusz arytmetyczny']],
-      wyposazenie: []
+      wyposazenie: 'dwie księgi związane z wybraną dziedziną nauki, przybory do pisania'
     }
   ];
 }
@@ -3224,7 +3207,7 @@ function getZeglarz() {
       wyborUmiejetnosciProfesji: [['Mocna głowa', 'Spostrzegawczość'], ['Wiedza(bretonia)', 'Wiedza(norska)', 'Wiedza(tilea)', 'Wiedza(jałowa kraina)'], ['Znajomość języka(bretoński)', 'Znajomość języka(tileański)', 'Znajomość języka(norski)']],
       zdolnosci: ['Obieżyświat'],
       wyborZdolnosciProfesji: [['Silny cios', 'Brawura'], ['Twardziel', 'Bijatyka']],
-      wyposazenie: []
+      wyposazenie: 'lekki pancerz(skórzany kaftan), butelka gorzałki kiepskiej jakości'
     }
   ];
 }
@@ -3252,7 +3235,7 @@ function getZolnierz() {
       umiejetnosci: ['Unik', 'Zastraszanie'],
       wyborUmiejetnosciProfesji: [['Hazard', 'Plotkowanie'], ['Opieka nad zwierzętami', 'Leczenie'], ['Powożenie', 'Jeździectwo'], ['Wiedza(imperium)', 'Spostrzegawczość']],
       wyborZdolnosciProfesji: [['Broń specjalna(palna)', 'Broń specjalna(dwuręczna)'], ['Morderczy atak', 'Błyskawiczne przeładowanie'], ['Ogłuszanie', 'Strzał precyzyjny'], ['Rozbrajanie', 'Szybkie wyciągnięcie'], ['Strzał mierzony', 'Silny cios']],
-      wyposazenie: []
+      wyposazenie: 'broń dwuręczna(halabarda), albo rusznica z amunicją na 10 strzałów, lekki pancerz(skórznia) mundur, tarcza'
     }
   ];
 }
@@ -3281,7 +3264,7 @@ function getZolnierzOkretowy() {
       wyborUmiejetnosciProfesji: [['Plotkowanie', 'Sekretny język(bitewny)'], ['Wiedza(jałowa kraina)', 'Hazard']],
       zdolnosci: ['Ogłuszanie', 'Silny cios'],
       wyborZdolnosciProfesji: [['Rozbrajanie', 'Szybkie wyciągnięcie']],
-      wyposazenie: []
+      wyposazenie: 'łuk i 10 strzał, albo kusza i 10 bełtów, lekki pancerz(skórzana kurta), tarcza, 10 metrów liny z kotwiczką'
     }
   ];
 }

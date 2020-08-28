@@ -15,7 +15,7 @@ export class ImportBohateraComponent implements OnInit {
 
   postac: any;
   key = '';
-  imie='';
+  imie = '';
 
   constructor(private shared: SharedService, public authService: AuthService) { }
 
@@ -28,8 +28,8 @@ export class ImportBohateraComponent implements OnInit {
     this.shared.poczatkoweStatystykiRasowe.rasatitle = postac.rasatitle;
     this.shared.poczatkoweStatystykiRasowe.profesjatitle = postac.profesjatitle;
     this.shared.schematRozwojuProfesja.profesjatitle = postac.profesjatitle;
+    this.shared.schematRozwojuProfesja.opis = postac.opis;
 
-    // this.shared.schematRozwojuProfesja.opis = postac.opis;
 
     // statystyki rasy
     this.shared.poczatkoweStatystykiRasowe.WW = postac.WW;

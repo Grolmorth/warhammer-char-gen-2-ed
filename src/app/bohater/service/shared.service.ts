@@ -7,6 +7,7 @@ import { Umiejetnosci } from './umiejetnosci';
 import { Zdolnosci } from './zdolnosci';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { AuthService } from 'src/app/services/auth.service';
+import { __core_private_testing_placeholder__ } from '@angular/core/testing';
 
 
 @Injectable({
@@ -51,7 +52,7 @@ export class SharedService {
       wyborUmiejetnosciRasy: [[]],
       zdolnosci: [],
       wyborZdolnosciRasy: [[]],
-      wyposazenie: []
+      wyposazenie: ''
     };
   // rasa bez wyborow do exportu
   public postacDoExportu: ExportPostac =
@@ -151,7 +152,7 @@ export class SharedService {
       zdolnosciRasowe: [],
       zdolnosciProfesji: [],
 
-      wyposazenie: []
+      wyposazenie: ''
     };
 
   // statystyki aktywnej Profesji
@@ -204,7 +205,7 @@ export class SharedService {
       wyborUmiejetnosciProfesji: [[]],
       zdolnosci: [],
       wyborZdolnosciProfesji: [[]],
-      wyposazenie: []
+      wyposazenie:''
 
     };
 
@@ -293,7 +294,7 @@ export class SharedService {
     this.poczatkoweStatystykiRasowe.wyborUmiejetnosciRasy = [[]];
     this.poczatkoweStatystykiRasowe.zdolnosci = [];
     this.poczatkoweStatystykiRasowe.wyborZdolnosciRasy = [[]];
-    this.poczatkoweStatystykiRasowe.wyposazenie = [];
+    this.poczatkoweStatystykiRasowe.wyposazenie = '';
     this.zdolnosciStatystykiRasowe.WW = 0;
     this.zdolnosciStatystykiRasowe.US = 0;
     this.zdolnosciStatystykiRasowe.K = 0;
@@ -600,6 +601,9 @@ export class SharedService {
     this.schematRozwojuProfesja.PO = this.statystkiProfesji[0].PO;
     this.schematRozwojuProfesja.PP = this.statystkiProfesji[0].PP;
     this.schematRozwojuProfesja.doswiadczenie = 100;
+    this.schematRozwojuProfesja.opis = this.statystkiProfesji[0].opis;
+
+    this.schematRozwojuProfesja.wyposazenie = this.statystkiProfesji[0].wyposazenie;
 
     // dodanie umiejetnosci do listy umiejetnosci profesji
     for (let n = 0; n < this.statystkiProfesji[0].umiejetnosci.length; n++) {
@@ -636,8 +640,6 @@ export class SharedService {
       this.wyborUmiejetnosciProfesjaDisabler = false;
 
     }
-    this.schematRozwojuProfesja.opis = this.statystkiProfesji[0].opis;
-
     // dodanie listy zdolnosci profesji
     if (this.statystkiProfesji[0].zdolnosci !== undefined) {
       for (let m = 0; m < this.statystkiProfesji[0].zdolnosci.length; m++) {
@@ -758,6 +760,7 @@ export class SharedService {
     this.postacDoExportu.rasatitle = this.poczatkoweStatystykiRasowe.rasatitle;
     this.postacDoExportu.profesjatitle = this.schematRozwojuProfesja.profesjatitle;
     this.postacDoExportu.opis = this.schematRozwojuProfesja.opis;
+    this.postacDoExportu.wyposazenie = this.schematRozwojuProfesja.wyposazenie;
     // statystyki rasy
     this.postacDoExportu.WW = this.poczatkoweStatystykiRasowe.WW;
     this.postacDoExportu.US = this.poczatkoweStatystykiRasowe.US;
