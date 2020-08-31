@@ -46,6 +46,9 @@ import { BohaterPieniadzeComponent } from './bohater/bohater-pieniadze/bohater-p
 import { ImportExportComponent } from './bohater/import-export/import-export.component';
 import { ImportBohateraComponent } from './import-bohatera/import-bohatera.component';
 import { FooterBohaterComponent } from './bohater/footer-bohater/footer-bohater.component';
+import { ProfesjeComponent } from './profesje/profesje.component';
+import { UmiejetnosciComponent } from './umiejetnosci/umiejetnosci.component';
+import { ZdolnosciComponent } from './zdolnosci/zdolnosci.component';
 
 
 
@@ -84,6 +87,9 @@ import { FooterBohaterComponent } from './bohater/footer-bohater/footer-bohater.
     ImportExportComponent,
     ImportBohateraComponent,
     FooterBohaterComponent,
+    ProfesjeComponent,
+    UmiejetnosciComponent,
+    ZdolnosciComponent,
 
 
   ],

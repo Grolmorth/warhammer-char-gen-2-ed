@@ -3,6 +3,7 @@ export interface BohaterOgolne {
   imie?: string;
   rasatitle?: string;
   profesjatitle?: string;
+  title?:string;
   opis?: string;
   WW?: number;
   US?: number;

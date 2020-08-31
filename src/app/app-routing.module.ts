@@ -11,16 +11,22 @@ import { DashboardComponent } from './login/dashboard/dashboard.component';
 import { AuthGuard } from './services/auth.guard';
 import { SekcjadodawanieComponent } from './sekcjadodawanie/sekcjadodawanie.component';
 import { BohaterComponent } from './bohater/bohater.component';
+import { ZdolnosciComponent } from './zdolnosci/zdolnosci.component';
+import { UmiejetnosciComponent } from './umiejetnosci/umiejetnosci.component';
+import { ProfesjeComponent } from './profesje/profesje.component';
 
 
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/',
+    redirectTo: 'bohater',
     pathMatch: 'full'
   },
   { path: 'bohater', component: BohaterComponent },
+  { path: 'zdolnosci', component: ZdolnosciComponent },
+  { path: 'umiejetnosci', component: UmiejetnosciComponent },
+  { path: 'profesje', component: ProfesjeComponent },
   { path: 'dodawanie', component: SekcjadodawanieComponent },
   { path: 'sign-in', component: SignInComponent },
   { path: 'register-user', component: SignUpComponent },

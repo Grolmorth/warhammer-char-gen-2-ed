@@ -307,7 +307,6 @@ export class SharedService {
     this.zdolnosciStatystykiRasowe.Sz = 0;
     this.wyborUmiejetnosciRasaDisabler = true;
     this.wyborZdolnosciRasaDisabler = true;
-    console.log('zresetowano statystyki dla', this.poczatkoweStatystykiRasowe.rasatitle);
     this.resetStatystykProfesja();
 
 
@@ -860,6 +859,7 @@ export class SharedService {
     }
 
     this.postacDoExportu.doswiadczenie = this.schematRozwojuProfesja.doswiadczenie;
+    this.postacDoExportu.wyposazenie = this.schematRozwojuProfesja.wyposazenie;
     this.postacDoExportu.kto = (await this.authService.afAuth.currentUser).email;
     this.postacDoExportu.data = new Date().toString();
     this.exportPostac(this.postacDoExportu);

@@ -6,6 +6,10 @@
         <ul class="navbar-nav mx-auto">
             <li class="nav-item "><a class="nav-link" routerLink="import">Import Postaci</a></li>
             <li class="nav-item "><a class="nav-link" routerLink="bohater">Bohater</a></li>
+
+            <li class="nav-item "><a class="nav-link" routerLink="profesje">Profesje</a></li>
+            <li class="nav-item "><a class="nav-link" routerLink="zdolnosci">Zdolności</a></li>
+            <li class="nav-item "><a class="nav-link" routerLink="umiejetnosci">Umiejętności</a></li>
             <li class="nav-item "><a class="nav-link" routerLink="dodawanie">Dodawanie</a></li>
             <li class="nav-item "><a *ngIf="authService.userData as user" class="nav-link" routerLink="dashboard">{{user.email}}</a></li>
             <li class="nav-item " *ngIf="authService.userData as user; else login"><a class="nav-link" routerLink="" data-toggle="modal" data-target="#logoutConfirmModal">Wyloguj</a></li>

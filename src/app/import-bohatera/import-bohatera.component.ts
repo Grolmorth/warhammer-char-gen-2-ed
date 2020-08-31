@@ -30,7 +30,6 @@ export class ImportBohateraComponent implements OnInit {
     this.shared.schematRozwojuProfesja.profesjatitle = postac.profesjatitle;
     this.shared.schematRozwojuProfesja.opis = postac.opis;
 
-
     // statystyki rasy
     this.shared.poczatkoweStatystykiRasowe.WW = postac.WW;
     this.shared.poczatkoweStatystykiRasowe.US = postac.US;
@@ -143,6 +142,7 @@ export class ImportBohateraComponent implements OnInit {
       }
       this.shared.schematRozwojuProfesja.zdolnosci[n][0] = postac.zdolnosciProfesji[n];
     }
+    this.shared.schematRozwojuProfesja.wyposazenie = postac.wyposazenie;
     this.shared.exportDisabler = false;
     this.shared.exportAbler();
   }
