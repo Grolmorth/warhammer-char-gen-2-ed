@@ -152,4 +152,37 @@
             <div class="col-1 font-weight-bold">{{aktualne.PP}}</div>
         </div>
     </div>
+    <!--9 średnia dla jednej statytstyki-->
+    <div class="row " *ngIf="this.share.poczatkoweStatystykiRasowe.shallya">
+        <div class="col">
+            <ng-select class="custom" [items]="mods" [(ngModel)]="mod" placeholder="Wybierz ceche do zmiany">
+            </ng-select>
+            <button class="m-1" mat-raised-button color="accent" [disabled]="mod===undefined" data-toggle="modal" data-target="#shallya" (click)="shallya(mod)">Łaska Shallyi</button>
+        </div>
+
+    </div>
+    <!--10 wiersz zmiana PO i PP-->
+    <div class="row ">
+        <div class="col">
+            <button class="m-1" mat-raised-button color="accent" (click)="po(true)">Punkty Obłędu +</button>
+            <button class="m-1" mat-raised-button color="accent" (click)="po(false)">Punkty Obłędu -</button>
+        </div>
+        <div class="col">
+            <button class="m-1" mat-raised-button color="accent" (click)="pp(true)">Punkty Przeznaczenia +</button>
+            <button class="m-1" mat-raised-button color="accent" (click)="pp(false)">Punkty Przeznaczenia -</button>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="shallya" tabindex="-1" role="dialog" aria-labelledby="shallya" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                Uwaga! Łaskę Shallyi można wykorzystać tylko raz!<br> Czy na pewno zmienić {{mod}} {{shalyaAktualne}} na {{shalyaZmiana}}?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Nie</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="shallyaConfirm(mod)">Tak</button>
+            </div>
+        </div>
+    </div>
 </div>

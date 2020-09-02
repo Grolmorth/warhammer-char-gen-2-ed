@@ -3,10 +3,11 @@
     <div class="p-1 title"><b>Wyposażenie</b></div>
     <!--Wyposazenie-->
 
-    <div class="m-2 p-2 text-justify profesja-opis">
-        <div class=" p-1 m-2">
-            <textarea type="text" rows="4" cols="60" [(ngModel)]="this.share.schematRozwojuProfesja.wyposazenie"></textarea>
-        </div>
+    <div class="m-2 p-2 text-justify">
+        <mat-form-field class=" p-1 m-2 full-width">
+            <mat-label>Wyposażenie Bohatera</mat-label>
+            <textarea matInput [(ngModel)]="this.share.schematRozwojuProfesja.wyposazenie"></textarea>
+        </mat-form-field>
     </div>
 
 

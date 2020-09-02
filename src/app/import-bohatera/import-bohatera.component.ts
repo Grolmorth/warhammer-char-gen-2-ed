@@ -115,6 +115,7 @@ export class ImportBohateraComponent implements OnInit {
     this.shared.zdolnosciStatystykiProfesji.Zyw = postac.Zyw5;
     this.shared.zdolnosciStatystykiProfesji.Sz = postac.Sz5;
     this.shared.schematRozwojuProfesja.doswiadczenie = postac.doswiadczenie;
+    this.shared.poczatkoweStatystykiRasowe.shallya = postac.shalya;
     // znacznik zimportowanej postaci
     this.shared.poczatkoweStatystykiRasowe.importowane = true;
 

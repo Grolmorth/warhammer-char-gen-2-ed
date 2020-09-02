@@ -94,9 +94,11 @@ export interface ExportPostac {
   zdolnosciRasowe?: Array<string>;
   zdolnosciProfesji?: Array<string>;
   doswiadczenie?: number;
+  shalya?:boolean;
   wyposazenie?: string;
   inne?: any;
   uwagi?: string;
+
   kto?: string;
   data?: string;
   key?:string;

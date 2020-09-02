@@ -12,14 +12,10 @@ import { AsideComponent } from './dodawanie/aside/aside.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { NgOptionHighlightModule } from '@ng-select/ng-option-highlight';
-
-
 import { environment } from 'src/environments/environment';
-
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
-
 import { ForgotPasswordComponent } from './login/forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './login/verify-email/verify-email.component';
 import { RouterModule } from '@angular/router';
@@ -49,9 +45,11 @@ import { FooterBohaterComponent } from './bohater/footer-bohater/footer-bohater.
 import { ProfesjeComponent } from './profesje/profesje.component';
 import { UmiejetnosciComponent } from './umiejetnosci/umiejetnosci.component';
 import { ZdolnosciComponent } from './zdolnosci/zdolnosci.component';
+import { ChatComponent } from './bohater/chat/chat.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-
-
+import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
 
 
 @NgModule({
@@ -90,6 +88,7 @@ import { ZdolnosciComponent } from './zdolnosci/zdolnosci.component';
     ProfesjeComponent,
     UmiejetnosciComponent,
     ZdolnosciComponent,
+    ChatComponent,
 
 
   ],
@@ -98,6 +97,9 @@ import { ZdolnosciComponent } from './zdolnosci/zdolnosci.component';
     NgOptionHighlightModule,
     RouterModule,
 
+    MatInputModule,
+    MatButtonModule,
+
     BrowserModule,
     AppRoutingModule,
     NgbModule,
@@ -105,7 +107,9 @@ import { ZdolnosciComponent } from './zdolnosci/zdolnosci.component';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     AngularFireAuthModule, NgbModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+
 
   ],
   providers: [AuthService],

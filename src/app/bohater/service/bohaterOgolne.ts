@@ -32,5 +32,6 @@ export interface BohaterOgolne {
   inne?: any;
   uwagi?: string;
   importowane?: boolean;
+  shallya?:boolean;
 }
 

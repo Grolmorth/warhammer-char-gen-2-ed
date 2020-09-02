@@ -205,7 +205,7 @@ export class SharedService {
       wyborUmiejetnosciProfesji: [[]],
       zdolnosci: [],
       wyborZdolnosciProfesji: [[]],
-      wyposazenie:''
+      wyposazenie: ''
 
     };
 
@@ -519,6 +519,9 @@ export class SharedService {
         this.poczatkoweStatystykiRasowe.Mag = 0;
         this.poczatkoweStatystykiRasowe.PO = 0;
         this.poczatkoweStatystykiRasowe.PP = this.przeznaczenie(n);
+
+        //łaska shallyi
+        this.poczatkoweStatystykiRasowe.shallya = true;
 
         // dodanie listy umiejetnosci rasowych
 
@@ -859,6 +862,7 @@ export class SharedService {
     }
 
     this.postacDoExportu.doswiadczenie = this.schematRozwojuProfesja.doswiadczenie;
+    this.postacDoExportu.shalya = this.poczatkoweStatystykiRasowe.shallya;
     this.postacDoExportu.wyposazenie = this.schematRozwojuProfesja.wyposazenie;
     this.postacDoExportu.kto = (await this.authService.afAuth.currentUser).email;
     this.postacDoExportu.data = new Date().toString();

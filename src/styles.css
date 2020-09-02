@@ -1,24 +1,15 @@
 @import "~@ng-select/ng-select/themes/default.theme.css";
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
 * {
     padding: 0;
     margin: 0;
     border: 0;
 }
 
-.formControl {
-    border: 1px solid grey;
-    border-radius: 5px;
-    margin: 1px;
-}
-
-body {
-    background-color: #e2eef7;
-}
-
 #outlet {
     width: 100%;
     position: relative;
-    background: #fcfbf8;
+    background-color: #fcfbf8;
 }
 
 .cursorDefault {
@@ -119,3 +110,22 @@ body {
 
 
 /*footer ends*/
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    background-color: #fcfbf8;
+}
+
+.mat-button {
+    width: 100%;
+}
+
+.full-width {
+    width: 100%;
+}
