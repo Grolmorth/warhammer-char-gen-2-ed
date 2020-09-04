@@ -1,65 +1,76 @@
 <div class="container bohater text-center p-0 m-0">
+    <mat-expansion-panel expanded="true" showToggle>
+        <!-- #enddocregion hide-toggle -->
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Bohater
+            </mat-panel-title>
+            <mat-panel-description>
+                Ogólne informacje o Bohaterze
+            </mat-panel-description>
+        </mat-expansion-panel-header>
 
-    <div class="p-1 title"><b>Bohater</b></div>
-
-    <div class="">
-        <!--Imie-->
-        <div class="border-bottom border-dark"><label class="m-0 p-0" for="nameInput"><b>Imię Bohatera</b></label></div>
-        <div>
+        <div class="">
+            <!--Imie-->
+            <div class="border-bottom border-dark"><label class="m-0 p-0" for="nameInput"><b>Imię Bohatera</b></label></div>
             <div>
-                <h2 *ngIf="aktualne.imie!==''">{{aktualne.imie}}</h2>
-                <div *ngIf="aktualne.imie===''">
-
-                    <mat-form-field class="form__group field">
-                        <mat-label>Imię</mat-label>
-                        <input matInput type="input" id="imie" class="form__field" required [(ngModel)]="imieId" placeholder="Imię" name="imię">
-
-                    </mat-form-field>
-                    <button class="m-1 mat-button" mat-raised-button color="primary" [disabled]="imieId===undefined ||imieId.valueOf()===''" (click)="noweImie()">Wybierz</button>
-                </div>
-                <button *ngIf="aktualne.imie!=='' && aktualne.importowane!==true" class="m-1 mat-button" mat-raised-button color="warn" (click)="inneImie()">Zmień imię</button>
-            </div>
-        </div>
-        <!--Rasa-->
-        <div *ngIf="aktualne.imie!==''||aktualne.rasatitle!==''">
-            <div class="border-bottom border-dark"><label class="m-0 p-0" for="inputRasa"><b>Rasa</b></label></div>
-            <div>
-                <div *ngIf="aktualne.rasatitle===''" class="text-center">
-                    <ng-select class="custom" [items]="cechy" bindLabel="rasatitle" bindValue="rasatitle" [(ngModel)]="selectedRasaId" placeholder="Wybierz">
-                    </ng-select>
-                    <button class="mat-button m-1" mat-raised-button color="primary" [disabled]="selectedRasaId===undefined || selectedRasaId===null" (click)="nowaRasa()">Wybierz</button>
-                </div>
                 <div>
-                    <h2 class="">{{aktualne.rasatitle}}</h2>
-                    <button *ngIf="aktualne.rasatitle!=='' && aktualne.importowane!==true" mat-raised-button color="warn" class="mat-button m-1" (click)="innaRasa()">Zmień rasę</button>
-                </div>
-            </div>
-        </div>
-        <!--Profesja-->
-        <div *ngIf="aktualne.rasatitle!==''">
-            <div class="border-bottom border-dark"><label class="m-0 p-0" for="inputProfesja"><b>Profesja</b></label></div>
-            <div>
-                <div *ngIf="aktualne.profesjatitle===''">
-                    <ng-select class="custom" [items]="profesjaRoll" bindLabel="profesjatitle" bindValue="profesjatitle" [(ngModel)]="selectedProfesjaId" placeholder="Wybierz">
-                    </ng-select>
-                    <button class="mat-button m-1" mat-raised-button color="primary" [disabled]="selectedProfesjaId===undefined || selectedProfesjaId===null" (click)="nowaProfesja()">Wybierz</button>
-                </div>
-                <div>
-                    <h2>{{aktualne.profesjatitle}}</h2>
-                    <button *ngIf="aktualne.profesjatitle!=='' && aktualne.importowane!==true" mat-raised-button color="warn" class="mat-button m-1" (click)="innaProfesja()">Zmień profesję</button>
-                    <!--Opis-->
-                    <div *ngIf="aktualne.profesjatitle!==''" class="m-2 p-2 text-justify profesja-opis text-center">
-                        <div class="p-1 title text-center"><b>Opis profesji/postaci</b></div>
-                        <mat-form-field class=" p-1 m-2 full-width">
-                            <mat-label>Opisz swoją postać</mat-label>
-                            <textarea matInput [(ngModel)]="this.share.schematRozwojuProfesja.opis"></textarea>
+                    <h2 *ngIf="aktualne.imie!==''">{{aktualne.imie}}</h2>
+                    <div *ngIf="aktualne.imie===''">
+
+                        <mat-form-field class="form__group field">
+                            <mat-label>Imię</mat-label>
+                            <input matInput type="input" id="imie" class="form__field" required [(ngModel)]="imieId" placeholder="Imię" name="imię">
+
                         </mat-form-field>
+                        <button class="m-1 mat-button" mat-raised-button color="primary" [disabled]="imieId===undefined ||imieId.valueOf()===''" (click)="noweImie()">Wybierz</button>
+                    </div>
+                    <button *ngIf="aktualne.imie!=='' && aktualne.importowane!==true" class="m-1 mat-button" mat-raised-button color="warn" (click)="inneImie()">Zmień imię</button>
+                </div>
+            </div>
+            <!--Rasa-->
+            <div>
+                <div class="border-bottom border-dark"><label class="m-0 p-0" for="inputRasa"><b>Rasa</b></label></div>
+                <div>
+                    <div *ngIf="aktualne.rasatitle===''" class="text-center">
+                        <ng-select class="custom" [items]="cechy" bindLabel="rasatitle" bindValue="rasatitle" [(ngModel)]="selectedRasaId" placeholder="Wybierz">
+                        </ng-select>
+                        <button class="mat-button m-1" mat-raised-button color="primary" [disabled]="selectedRasaId===undefined || selectedRasaId===null" (click)="nowaRasa()">Wybierz</button>
+                    </div>
+                    <div>
+                        <h2 class="">{{aktualne.rasatitle}}</h2>
+                        <button *ngIf="aktualne.rasatitle!=='' && aktualne.importowane!==true" mat-raised-button color="warn" class="mat-button m-1" (click)="innaRasa()">Zmień rasę</button>
+                    </div>
+                </div>
+            </div>
+            <!--Profesja-->
+            <div>
+                <div class="border-bottom border-dark"><label class="m-0 p-0" for="inputProfesja"><b>Profesja</b></label></div>
+                <div>
+                    <div *ngIf="aktualne.profesjatitle===''">
+                        <ng-select class="custom" [items]="profesjaRoll" bindLabel="profesjatitle" bindValue="profesjatitle" [(ngModel)]="selectedProfesjaId" placeholder="Wybierz">
+                        </ng-select>
+                        <button class="mat-button m-1" mat-raised-button color="primary" [disabled]="selectedProfesjaId===undefined || selectedProfesjaId===null" (click)="nowaProfesja()">Wybierz</button>
+                    </div>
+                    <div>
+                        <h2>{{aktualne.profesjatitle}}</h2>
+                        <button *ngIf="aktualne.profesjatitle!=='' && aktualne.importowane!==true" mat-raised-button color="warn" class="mat-button m-1" (click)="innaProfesja()">Zmień profesję</button>
+                        <!--miejsceee-->
+                        <div *ngIf="aktualne.profesjatitle===''"><br><br><br><br><br><br><br><br><br></div>
+                        <!--Opis-->
+                        <div *ngIf="aktualne.profesjatitle!==''" class="m-2 p-2 text-justify profesja-opis text-center">
+                            <div class="border-bottom border-dark"><label class="m-0 p-0" for="inputProfesja"><b>Opis postaci</b></label></div>
+                            <mat-form-field class=" p-1 m-2 full-width">
+                                <mat-label>Opisz swoją postać</mat-label>
+                                <textarea matInput [(ngModel)]="this.share.schematRozwojuProfesja.opis"></textarea>
+                            </mat-form-field>
+                        </div>
+
                     </div>
 
                 </div>
 
             </div>
-
         </div>
-    </div>
+    </mat-expansion-panel>
 </div>

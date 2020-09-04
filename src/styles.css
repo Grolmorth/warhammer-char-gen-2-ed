@@ -6,10 +6,39 @@
     border: 0;
 }
 
+body {
+    background: url(assets/bg0.jpg) no-repeat center center fixed;
+    background-size: cover;
+    animation: bganimation infinite 20s;
+}
+
+@keyframes bganimation {
+    0%,
+    12% {
+        background-image: url(/assets/bg0.jpg);
+    }
+    12%,
+    37% {
+        background-image: url(/assets/bg01.jpg);
+    }
+    37%,
+    62% {
+        background-image: url(/assets/bg02.jpg);
+    }
+    62%,
+    87% {
+        background-image: url(/assets/bg03.jpg);
+    }
+    87%,
+    100% {
+        background-image: url(/assets/bg0.jpg);
+    }
+}
+
 #outlet {
     width: 100%;
     position: relative;
-    background-color: #fcfbf8;
+    background-color: #fcfbf87a;
 }
 
 .cursorDefault {

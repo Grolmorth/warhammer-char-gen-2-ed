@@ -50,6 +50,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 
 @NgModule({
@@ -99,6 +100,7 @@ import {MatButtonModule} from '@angular/material/button';
 
     MatInputModule,
     MatButtonModule,
+    MatExpansionModule,
 
     BrowserModule,
     AppRoutingModule,

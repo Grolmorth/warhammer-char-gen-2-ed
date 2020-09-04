@@ -1,18 +1,28 @@
 <div class="container bohater text-center p-0 m-0" *ngIf="rasa.WW!==0">
-    <div class="p-1 title"><b>Eksport</b></div>
-    <div class="row">
+    <mat-expansion-panel hideToggle expanded="true">
+        <!-- #enddocregion hide-toggle -->
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Eksport
+            </mat-panel-title>
+            <mat-panel-description>
+            </mat-panel-description>
+        </mat-expansion-panel-header>
 
-        <div class="" *ngIf="authService.isLoggedIn===false">
-            <button class="btn btn-primary btn-sm m-1" routerLink="/sign-in">
+        <div class="row">
+
+            <div class="" *ngIf="authService.isLoggedIn===false">
+                <button class="btn btn-primary btn-sm m-1" routerLink="/sign-in">
               Zaloguj, aby eksportować!
             </button>
+            </div>
+            <div *ngIf="authService.isLoggedIn===true">
+                <button class="btn btn-danger btn-sm m-1" [disabled]="exportDisabled===true " [disabled]="this.share.exportDisabler===true" (click)="export()">Eksport</button>
+                <div class="" *ngIf="this.share.exportDisabler">Skończ tworzyć postać, aby wyeksportować!</div>
+            </div>
+            <div class="">
+                <button class="btn btn-primary btn-sm m-1" (click)="refresh()">Od Nowa</button>
+            </div>
         </div>
-        <div *ngIf="authService.isLoggedIn===true">
-            <button class="btn btn-danger btn-sm m-1" [disabled]="exportDisabled===true " [disabled]="this.share.exportDisabler===true" (click)="export()">Eksport</button>
-            <div class="" *ngIf="this.share.exportDisabler">Skończ tworzyć postać, aby wyeksportować!</div>
-        </div>
-        <div class="">
-            <button class="btn btn-primary btn-sm m-1" (click)="refresh()">Od Nowa</button>
-        </div>
-    </div>
+    </mat-expansion-panel>
 </div>
