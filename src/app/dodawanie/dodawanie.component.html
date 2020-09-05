@@ -1,17 +1,28 @@
-<p>Odpowiadaj póki nie osiągniesz {{iloscPotrzebnychOdpowiedzi}} dobych wyników</p>
-<button class="btn btn-success m-1" (click)="getRandom()" (click)="resetPytania()">Nowe zadanie</button>
+<mat-expansion-panel expanded="true" showToggle>
+    <!-- #enddocregion hide-toggle -->
+    <mat-expansion-panel-header>
+        <mat-panel-title>
+            Dodawanie
+        </mat-panel-title>
+        <mat-panel-description>
 
-<button class="btn btn-danger m-1" (click)="przegrales()">Stop</button>
-<p>dobre odpowiedzi: {{dobreodpowiedzi}} w ciągu {{czas |number:'1.2-2'}} sekund</p>
+        </mat-panel-description>
+    </mat-expansion-panel-header>
+    <p>Odpowiadaj póki nie osiągniesz {{iloscPotrzebnychOdpowiedzi}} dobych wyników</p>
+    <button class="btn btn-success m-1" (click)="getRandom()" (click)="resetPytania()">Nowe zadanie</button>
 
-<div [hidden]="submitted">
-    <p>{{liczba1}} + {{liczba2}} = ?</p>
-    <div class="container">
-        <div class="row" *ngFor="let odpowiedz of tabOdpowiedzi2">
-            <div type="button" class="col btn-dark" (click)="czyWygrales(odpowiedz) ">
-                <p>{{odpowiedz}}</p>
+    <button class="btn btn-danger m-1" (click)="przegrales()">Stop</button>
+    <p>dobre odpowiedzi: {{dobreodpowiedzi}} w ciągu {{czas |number:'1.2-2'}} sekund</p>
+
+    <div [hidden]="submitted">
+        <p>{{liczba1}} + {{liczba2}} = ?</p>
+        <div class="container">
+            <div class="row" *ngFor="let odpowiedz of tabOdpowiedzi2">
+                <div type="button" class="col btn-dark" (click)="czyWygrales(odpowiedz) ">
+                    <p>{{odpowiedz}}</p>
+                </div>
             </div>
-        </div>
 
+        </div>
     </div>
-</div>
+</mat-expansion-panel>

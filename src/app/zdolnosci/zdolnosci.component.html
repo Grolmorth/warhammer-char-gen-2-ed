@@ -1,29 +1,32 @@
-<div class="container bohater text-center  p-0 m-0"></div>
-<div>
-    <div class="p-1 title text-center"><b>Zdolności</b></div>
-    <div>
+<mat-card>
+    <div class="container bohater text-center  p-0 m-0">
         <div>
-            <ng-select class="custom text-center" [items]="zdolnosci" bindLabel="umiejetnoscititle" bindValue="umiejetnoscititle" placeholder="Wybierz" [(ngModel)]="selectedZdolnosciId" (change)="update(selectedZdolnosciId)">
-            </ng-select>
+            <div class="p-1 text-center"><b>Zdolności</b></div>
+            <div>
+                <div>
+                    <ng-select class="custom text-center" [items]="zdolnosci" bindLabel="umiejetnoscititle" bindValue="umiejetnoscititle" placeholder="Wybierz" [(ngModel)]="selectedZdolnosciId" (change)="update(selectedZdolnosciId)">
+                    </ng-select>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="m-1" *ngIf="selectedZdolnosciId===''">Wybierz zdolność, aby wyświetlić opis</div>
+        <div class=" cursorDefault">
+            <div class="container bohater  p-0 m-0" *ngFor="let schemat of zdolnosc">
+                <div class="row">
+                    <div class="col-2 col-sm-2 m-1 ">Umiejętność: </div>
+                    <div class="col-auto  m-1"><b>{{schemat.zdolnosc}} </b></div>
+                </div>
+                <div class="row">
+                    <div class="col-2 col-sm-2 m-1 ">Opis: </div>
+                    <div class="col  m-1">{{schemat.opis}} </div>
+                </div>
+
+
+
+            </div>
 
         </div>
     </div>
-</div>
-
-<div class="m-1" *ngIf="selectedZdolnosciId===''">Wybierz zdolność, aby wyświetlić opis</div>
-<div class="border-bottom cursorDefault">
-    <div class="container bohater  p-0 m-0" *ngFor="let schemat of zdolnosc">
-        <div class="row">
-            <div class="col-2 col-sm-2 m-1 ">Umiejętność: </div>
-            <div class="col-auto  m-1"><b>{{schemat.zdolnosc}} </b></div>
-        </div>
-        <div class="row">
-            <div class="col-2 col-sm-2 m-1 ">Opis: </div>
-            <div class="col  m-1">{{schemat.opis}} </div>
-        </div>
-
-
-
-    </div>
-
-</div>
+</mat-card>

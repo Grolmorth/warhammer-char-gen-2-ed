@@ -1,164 +1,167 @@
-<div class="container bohater text-center  p-0 m-0">
-</div>
-<div>
-    <div class="p-1 title text-center"><b>Profesje</b></div>
-    <div>
-        <div>
-            <ng-select class="custom text-center" [items]="profesje" placeholder="Wybierz" [(ngModel)]="selectedProfesjaId" (change)="update(selectedProfesjaId)">
-            </ng-select>
+<mat-card>
+    <div class="container bohater text-center  p-0 m-0">
 
+
+        <div class="p-1 text-center"><b>Profesje</b></div>
+        <div>
+            <div>
+                <ng-select class="custom text-center" [items]="profesje" placeholder="Wybierz" [(ngModel)]="selectedProfesjaId" (change)="update(selectedProfesjaId)">
+                </ng-select>
+
+            </div>
         </div>
     </div>
-</div>
-<div class="m-1">
-    <div class="m-1" *ngIf="selectedProfesjaId===''">Wybierz profesję, aby wyświetlić opis</div>
-    <div class=" cursorDefault">
-        <div class="container bohater  p-0 m-0" *ngFor="let schemat of profesja">
-            <!--profesja-->
-            <div class="border-bottom  border-dark">
-                <div class="row ">
-                    <div class="col-2 col-sm-2 m-1 ">Profesja: </div>
-                    <div class="col-auto  m-1"><b>{{schemat.title}} </b></div>
+    <div class="m-1">
+        <div class="m-1" *ngIf="selectedProfesjaId===''">Wybierz profesję, aby wyświetlić opis</div>
+        <div class=" cursorDefault">
+            <div class="container bohater  p-0 m-0" *ngFor="let schemat of profesja">
+                <!--profesja-->
+                <div class="border-bottom  border-dark">
+                    <div class="row ">
+                        <div class="col-2 col-sm-2 m-1 ">Profesja: </div>
+                        <div class="col-auto  m-1"><b>{{schemat.title}} </b></div>
+                    </div>
                 </div>
-            </div>
-            <!--opis-->
-            <div class="border-bottom  border-dark">
-                <div class="row ">
-                    <div class="col-2 col-sm-2 m-1 ">Opis: </div>
-                    <div class="col  m-1">{{schemat.opis}} </div>
+                <!--opis-->
+                <div class="border-bottom  border-dark">
+                    <div class="row ">
+                        <div class="col-2 col-sm-2 m-1 ">Opis: </div>
+                        <div class="col  m-1">{{schemat.opis}} </div>
+                    </div>
                 </div>
-            </div>
-            <!--statystyki-->
-            <div class="border-bottom  border-dark">
-                <div class="row ">
-                    <div class="col-2 col-sm-2 m-1 ">Statystyki: </div>
-                    <div class="col  m-1 text-center">
-                        <div class="container text-center  cechy-container p-0 m-0"></div>
-                        <!--1 wiersz nazwy cech-->
-                        <div class="border-bottom border-dark">
-                            <div class="row ">
-                                <div class="col-3 ml-1">Cechy główne</div>
-                                <div class="col-1 " ngbTooltip="Walka Wręcz">WW</div>
-                                <div class="col-1 " ngbTooltip="Umiejętności Strzeleckie">US</div>
-                                <div class="col-1 " ngbTooltip="Krzepa">K</div>
-                                <div class="col-1 " ngbTooltip="Odporność">Odp</div>
-                                <div class="col-1 " ngbTooltip="Zręczność">Zr</div>
-                                <div class="col-1 " ngbTooltip="Inteligencja">Int</div>
-                                <div class="col-1 " ngbTooltip="Siła Woli">SW</div>
-                                <div class="col-1 " ngbTooltip="Ogłada">Ogd</div>
+                <!--statystyki-->
+                <div class="border-bottom  border-dark">
+                    <div class="row ">
+                        <div class="col-2 col-sm-2 m-1 ">Statystyki: </div>
+                        <div class="col  m-1 text-center">
+                            <div class="container text-center  cechy-container p-0 m-0"></div>
+                            <!--1 wiersz nazwy cech-->
+                            <div class="border-bottom border-dark">
+                                <div class="row ">
+                                    <div class="col-3 ml-1">Cechy główne</div>
+                                    <div class="col-1 " ngbTooltip="Walka Wręcz">WW</div>
+                                    <div class="col-1 " ngbTooltip="Umiejętności Strzeleckie">US</div>
+                                    <div class="col-1 " ngbTooltip="Krzepa">K</div>
+                                    <div class="col-1 " ngbTooltip="Odporność">Odp</div>
+                                    <div class="col-1 " ngbTooltip="Zręczność">Zr</div>
+                                    <div class="col-1 " ngbTooltip="Inteligencja">Int</div>
+                                    <div class="col-1 " ngbTooltip="Siła Woli">SW</div>
+                                    <div class="col-1 " ngbTooltip="Ogłada">Ogd</div>
+                                </div>
                             </div>
-                        </div>
-                        <!--2 wiersz schemat rozwoju-->
-                        <div class="border-bottom border-dark">
-                            <div class="row ">
-                                <div class="col-3 ml-1">Schemat Rozwoju</div>
-                                <div class="col-1">{{schemat.WW}}</div>
-                                <div class="col-1">{{schemat.US}}</div>
-                                <div class="col-1">{{schemat.K}}</div>
-                                <div class="col-1">{{schemat.Odp}}</div>
-                                <div class="col-1">{{schemat.Zr}}</div>
-                                <div class="col-1">{{schemat.Int}}</div>
-                                <div class="col-1">{{schemat.SW}}</div>
-                                <div class="col-1">{{schemat.Ogd}}</div>
+                            <!--2 wiersz schemat rozwoju-->
+                            <div class="border-bottom border-dark">
+                                <div class="row ">
+                                    <div class="col-3 ml-1">Schemat Rozwoju</div>
+                                    <div class="col-1">{{schemat.WW}}</div>
+                                    <div class="col-1">{{schemat.US}}</div>
+                                    <div class="col-1">{{schemat.K}}</div>
+                                    <div class="col-1">{{schemat.Odp}}</div>
+                                    <div class="col-1">{{schemat.Zr}}</div>
+                                    <div class="col-1">{{schemat.Int}}</div>
+                                    <div class="col-1">{{schemat.SW}}</div>
+                                    <div class="col-1">{{schemat.Ogd}}</div>
+                                </div>
                             </div>
-                        </div>
-                        <!--3 wiersz nazwy cech-->
-                        <div class="border-bottom border-dark">
-                            <div class="row ">
-                                <div class="col-3 ml-1">Cechy drugorzędne</div>
-                                <div class="col-1 " ngbTooltip="Ataki">A</div>
-                                <div class="col-1 " ngbTooltip="Żywotność">Żyw</div>
-                                <div class="col-1 " ngbTooltip="Siła">S</div>
-                                <div class="col-1 " ngbTooltip="Wytrzymałość">Wt</div>
-                                <div class="col-1 " ngbTooltip="Szybkość">Sz</div>
-                                <div class="col-1 " ngbTooltip="Magia">Mag</div>
-                                <div class="col-1 " ngbTooltip="Punkty Obłędu">PO</div>
-                                <div class="col-1 " ngbTooltip="Punkty Przeznaczenia">PP</div>
+                            <!--3 wiersz nazwy cech-->
+                            <div class="border-bottom border-dark">
+                                <div class="row ">
+                                    <div class="col-3 ml-1">Cechy drugorzędne</div>
+                                    <div class="col-1 " ngbTooltip="Ataki">A</div>
+                                    <div class="col-1 " ngbTooltip="Żywotność">Żyw</div>
+                                    <div class="col-1 " ngbTooltip="Siła">S</div>
+                                    <div class="col-1 " ngbTooltip="Wytrzymałość">Wt</div>
+                                    <div class="col-1 " ngbTooltip="Szybkość">Sz</div>
+                                    <div class="col-1 " ngbTooltip="Magia">Mag</div>
+                                    <div class="col-1 " ngbTooltip="Punkty Obłędu">PO</div>
+                                    <div class="col-1 " ngbTooltip="Punkty Przeznaczenia">PP</div>
+                                </div>
                             </div>
-                        </div>
-                        <!--4 wiersz schemat rozwoju-->
-                        <div class=" border-dark">
-                            <div class="row ">
-                                <div class="col-3 ml-1">Schemat Rozwoju</div>
-                                <div class="col-1 ">{{schemat.A}}</div>
-                                <div class="col-1 ">{{schemat.Zyw}}</div>
-                                <div class="col-1 "></div>
-                                <div class="col-1 "></div>
-                                <div class="col-1 ">{{schemat.Sz}}</div>
-                                <div class="col-1 ">{{schemat.Mag}}</div>
-                                <div class="col-1 "></div>
-                                <div class="col-1"></div>
+                            <!--4 wiersz schemat rozwoju-->
+                            <div class=" border-dark">
+                                <div class="row ">
+                                    <div class="col-3 ml-1">Schemat Rozwoju</div>
+                                    <div class="col-1 ">{{schemat.A}}</div>
+                                    <div class="col-1 ">{{schemat.Zyw}}</div>
+                                    <div class="col-1 "></div>
+                                    <div class="col-1 "></div>
+                                    <div class="col-1 ">{{schemat.Sz}}</div>
+                                    <div class="col-1 ">{{schemat.Mag}}</div>
+                                    <div class="col-1 "></div>
+                                    <div class="col-1"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <!--umiejetnosc-->
-            <div class="border-bottom  border-dark">
-                <div class="row ">
-                    <div class="col-2 col-sm-2 m-1 ">Umiejętności: </div>
-                    <div class="col">
-                        <div *ngFor="let umiejetnosc of schemat.umiejetnosci">
-                            <div class="row">
-
-                                <div class="col-11">{{umiejetnosc}} </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--umiejetnosci do wybory-->
-            <div class="border-bottom  border-dark">
-                <div class="row ">
-                    <div class="col-2 col-sm-2 m-1 ">Umiejętności do wyboru: </div>
-                    <div class="col">
-                        <div class="border-bottom" *ngFor="let wyborUmiejetnosc of schemat.wyborUmiejetnosciProfesji let i=index">
-                            <div *ngFor="let umiejetnosc of schemat.wyborUmiejetnosciProfesji[i]">
+                <!--umiejetnosc-->
+                <div class="border-bottom  border-dark">
+                    <div class="row ">
+                        <div class="col-2 col-sm-2 m-1 ">Umiejętności: </div>
+                        <div class="col">
+                            <div *ngFor="let umiejetnosc of schemat.umiejetnosci">
                                 <div class="row">
+
                                     <div class="col-11">{{umiejetnosc}} </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <!--zdolnosci-->
-            <div class="border-bottom  border-dark">
-                <div class="row ">
-                    <div class="col-2 col-sm-2 m-1 ">Zdolnosci: </div>
-                    <div class="col">
-                        <div *ngFor="let zdolnosc of schemat.zdolnosci">
-                            <div class="row">
-
-                                <div class="col-11">{{zdolnosc}} </div>
+                <!--umiejetnosci do wybory-->
+                <div class="border-bottom  border-dark">
+                    <div class="row ">
+                        <div class="col-2 col-sm-2 m-1 ">Umiejętności do wyboru: </div>
+                        <div class="col">
+                            <div class="border-bottom" *ngFor="let wyborUmiejetnosc of schemat.wyborUmiejetnosciProfesji let i=index">
+                                <div *ngFor="let umiejetnosc of schemat.wyborUmiejetnosciProfesji[i]">
+                                    <div class="row">
+                                        <div class="col-11">{{umiejetnosc}} </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <!--zdolnosci do wyboru-->
-            <div class="border-bottom  border-dark">
-                <div class="row ">
-                    <div class="col-2 col-sm-2 m-1 ">Zdolności do wyboru: </div>
-                    <div class="col">
-                        <div class="border-bottom" *ngFor="let wyborZdolnosci of schemat.wyborZdolnosciProfesji let i=index">
-                            <div *ngFor="let zdolnosc of schemat.wyborZdolnosciProfesji[i]">
+                <!--zdolnosci-->
+                <div class="border-bottom  border-dark">
+                    <div class="row ">
+                        <div class="col-2 col-sm-2 m-1 ">Zdolnosci: </div>
+                        <div class="col">
+                            <div *ngFor="let zdolnosc of schemat.zdolnosci">
                                 <div class="row">
+
                                     <div class="col-11">{{zdolnosc}} </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <!--zdolnosci do wyboru-->
+                <div class="border-bottom  border-dark">
+                    <div class="row ">
+                        <div class="col-2 col-sm-2 m-1 ">Zdolności do wyboru: </div>
+                        <div class="col">
+                            <div class="border-bottom" *ngFor="let wyborZdolnosci of schemat.wyborZdolnosciProfesji let i=index">
+                                <div *ngFor="let zdolnosc of schemat.wyborZdolnosciProfesji[i]">
+                                    <div class="row">
+                                        <div class="col-11">{{zdolnosc}} </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--wypozazenie-->
+                <div class="row ">
+                    <div class="col-2 col-sm-2 m-1 ">Wyposażenie: </div>
+                    <div class="col  m-1">{{schemat.wyposazenie}} </div>
+                </div>
+
             </div>
-            <!--wypozazenie-->
-            <div class="row ">
-                <div class="col-2 col-sm-2 m-1 ">Wyposażenie: </div>
-                <div class="col  m-1">{{schemat.wyposazenie}} </div>
-            </div>
+
 
         </div>
 
-
     </div>
-</div>
+</mat-card>

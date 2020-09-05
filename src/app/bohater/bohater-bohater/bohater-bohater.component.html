@@ -44,7 +44,7 @@
                 </div>
             </div>
             <!--Profesja-->
-            <div>
+            <div *ngIf="aktualne.rasatitle!==''">
                 <div class="border-bottom border-dark"><label class="m-0 p-0" for="inputProfesja"><b>Profesja</b></label></div>
                 <div>
                     <div *ngIf="aktualne.profesjatitle===''">
@@ -55,8 +55,7 @@
                     <div>
                         <h2>{{aktualne.profesjatitle}}</h2>
                         <button *ngIf="aktualne.profesjatitle!=='' && aktualne.importowane!==true" mat-raised-button color="warn" class="mat-button m-1" (click)="innaProfesja()">Zmień profesję</button>
-                        <!--miejsceee-->
-                        <div *ngIf="aktualne.profesjatitle===''"><br><br><br><br><br><br><br><br><br></div>
+
                         <!--Opis-->
                         <div *ngIf="aktualne.profesjatitle!==''" class="m-2 p-2 text-justify profesja-opis text-center">
                             <div class="border-bottom border-dark"><label class="m-0 p-0" for="inputProfesja"><b>Opis postaci</b></label></div>
@@ -71,6 +70,8 @@
                 </div>
 
             </div>
+            <!--miejsceee-->
+            <div *ngIf="aktualne.profesjatitle===''"><br><br><br><br><br><br><br><br><br></div>
         </div>
     </mat-expansion-panel>
 </div>

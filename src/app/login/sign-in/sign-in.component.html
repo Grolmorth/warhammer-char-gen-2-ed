@@ -1,14 +1,20 @@
-<div class="container">
+<mat-card class="container">
     <div class="container text-center">
 
         <div class="">
             <h3>Zaloguj</h3>
             <div class="formGroup">
-                <input type="text" class="formControl" placeholder="Login" #userName required>
+                <mat-form-field>
+                    <mat-label>Login</mat-label>
+                    <input matInput type="text" class="formControl" placeholder="Login" #userName required>
+                </mat-form-field>
             </div>
 
             <div class="formGroup">
-                <input type="password" class="formControl" placeholder="Hasło" #userPassword required>
+                <mat-form-field>
+                    <mat-label>Hasło</mat-label>
+                    <input matInput type="password" class="formControl" placeholder="Hasło" #userPassword required>
+                </mat-form-field>
             </div>
 
             <!-- Calling SignIn Api from AuthService -->
@@ -38,4 +44,4 @@
         </div>
 
     </div>
-</div>
+</mat-card>

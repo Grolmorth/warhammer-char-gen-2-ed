@@ -1,32 +1,34 @@
-<div class="container bohater text-center  p-0 m-0">
-    <div class="p-1 title"><b>Import</b></div>
-    <div class=" row border-bottom cursorDefault">
-        <div class="col-sm ml-1 ">Imię</div>
-        <div class="col-sm ml-1 ">Rasa</div>
-        <div class="col-sm ml-1 ">Profesja</div>
-        <div class="col-sm ml-1 ">e-mail</div>
-        <div class="col-sm ml-1 ">data </div>
-        <div class="col-sm ml-1 "> </div>
+<mat-card>
+    <div class="container bohater text-center  p-0 m-0">
 
-    </div>
-    <div class=" row border-bottom cursorDefault" *ngFor="let postac of postac">
+        <div class=" row border-bottom cursorDefault">
+            <div class="col-sm ml-1 ">Imię</div>
+            <div class="col-sm ml-1 ">Rasa</div>
+            <div class="col-sm ml-1 ">Profesja</div>
+            <div class="col-sm ml-1 ">e-mail</div>
+            <div class="col-sm ml-1 ">data </div>
+            <div class="col-sm ml-1 "> </div>
 
-        <div class="col-sm ml-1 ">{{postac.imie}}</div>
-        <div class="col-sm ml-1 ">{{postac.rasatitle}}</div>
-        <div class="col-sm ml-1 ">{{postac.profesjatitle}}</div>
-        <div class="col-sm ml-1 ">{{postac.kto}}</div>
-        <div class="col-sm ml-1 ">{{postac.data|date:'short'}}</div>
-        <div class="col-sm ml-1 container">
-            <div class="row">
-                <div><button class="btn-sm btn-primary m-1" (click)="importujPostac(postac)" routerLink="/bohater">Importuj</button></div>
-                <div *ngIf="authService.isLoggedIn===true">
-                    <div *ngIf="authService.userData.email===postac.kto"><button class="btn-sm btn-danger m-1" data-toggle="modal" data-target="#usunPostacConfirm" (click)="probaUsun(postac.key, postac.imie)">Usun</button></div>
+        </div>
+        <div class=" row border-bottom cursorDefault" *ngFor="let postac of postac">
+
+            <div class="col-sm ml-1 ">{{postac.imie}}</div>
+            <div class="col-sm ml-1 ">{{postac.rasatitle}}</div>
+            <div class="col-sm ml-1 ">{{postac.profesjatitle}}</div>
+            <div class="col-sm ml-1 ">{{postac.kto}}</div>
+            <div class="col-sm ml-1 ">{{postac.data|date:'short'}}</div>
+            <div class="col-sm ml-1 container">
+                <div class="row">
+                    <div><button class="btn-sm btn-primary m-1" (click)="importujPostac(postac)" routerLink="/bohater">Importuj</button></div>
+                    <div *ngIf="authService.isLoggedIn===true">
+                        <div *ngIf="authService.userData.email===postac.kto"><button class="btn-sm btn-danger m-1" data-toggle="modal" data-target="#usunPostacConfirm" (click)="probaUsun(postac.key, postac.imie)">Usun</button></div>
+                    </div>
                 </div>
             </div>
-        </div>
 
+        </div>
     </div>
-</div>
+</mat-card>
 <div class="modal fade" id="usunPostacConfirm" tabindex="-1" role="dialog" aria-labelledby="usunPostacConfirm" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">

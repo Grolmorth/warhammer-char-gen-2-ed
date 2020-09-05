@@ -1,35 +1,38 @@
-<div class="container bohater text-center  p-0 m-0"></div>
-<div>
-    <div class="p-1 title text-center"><b>Umiejętności</b></div>
-    <div>
+<mat-card>
+    <div class="container bohater text-center  p-0 m-0">
         <div>
-            <ng-select class="custom text-center" [items]="umiejetnosci" bindLabel="umiejetnoscititle" bindValue="umiejetnoscititle" placeholder="Wybierz" [(ngModel)]="selectedUmiejetnosciId" (change)="update(selectedUmiejetnosciId)">
-            </ng-select>
+            <div class="p-1  text-center"><b>Umiejętności</b></div>
+            <div>
+                <div>
+                    <ng-select class="custom text-center" [items]="umiejetnosci" bindLabel="umiejetnoscititle" bindValue="umiejetnoscititle" placeholder="Wybierz" [(ngModel)]="selectedUmiejetnosciId" (change)="update(selectedUmiejetnosciId)">
+                    </ng-select>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="m-1" *ngIf="selectedUmiejetnosciId===''">Wybierz umiejętność, aby wyświetlić opis</div>
+        <div class=" cursorDefault">
+            <div class="container bohater  p-0 m-0" *ngFor="let schemat of umiejetnosc">
+                <div class="row">
+                    <div class="col-2 col-sm-2 m-1 ">Umiejętność: </div>
+                    <div class="col-auto  m-1"><b>{{schemat.umiejetnosc}} </b></div>
+                </div>
+                <div class="row">
+                    <div class="col-2 col-sm-2 m-1 ">Opis: </div>
+                    <div class="col  m-1">{{schemat.opis}} </div>
+                </div>
+                <div class="row">
+                    <div class="col-2 col-sm-2 m-1 ">Cecha: </div>
+                    <div class="col-auto  m-1">{{schemat.cecha}} </div>
+                </div>
+                <div class="row">
+                    <div class="col-2 col-sm-2 m-1 ">Zdolności pokrewne: </div>
+                    <div class="col-auto  m-1">{{schemat.zdolnoscipokrewne}} </div>
+                </div>
+
+            </div>
 
         </div>
     </div>
-</div>
-
-<div class="m-1" *ngIf="selectedUmiejetnosciId===''">Wybierz umiejętność, aby wyświetlić opis</div>
-<div class="border-bottom cursorDefault">
-    <div class="container bohater  p-0 m-0" *ngFor="let schemat of umiejetnosc">
-        <div class="row">
-            <div class="col-2 col-sm-2 m-1 ">Umiejętność: </div>
-            <div class="col-auto  m-1"><b>{{schemat.umiejetnosc}} </b></div>
-        </div>
-        <div class="row">
-            <div class="col-2 col-sm-2 m-1 ">Opis: </div>
-            <div class="col  m-1">{{schemat.opis}} </div>
-        </div>
-        <div class="row">
-            <div class="col-2 col-sm-2 m-1 ">Cecha: </div>
-            <div class="col-auto  m-1">{{schemat.cecha}} </div>
-        </div>
-        <div class="row">
-            <div class="col-2 col-sm-2 m-1 ">Zdolności pokrewne: </div>
-            <div class="col-auto  m-1">{{schemat.zdolnoscipokrewne}} </div>
-        </div>
-
-    </div>
-
-</div>
+</mat-card>
