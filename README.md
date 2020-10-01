@@ -7,3 +7,4 @@ https://mojagraaa.web.app/bohater
 ## Opis
 
 Strona z rozległą biblioteką Warhammer 2ed, generator i rozwój postaci zgodny z podręcznikiem.
+Możliwość zapisania postaci, jak i jej pobrania po zalogowaniu do serwisu.
